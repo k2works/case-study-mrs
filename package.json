@@ -10,6 +10,8 @@
     "start": "nf start -j Procfile",
     "app": "browser-sync start -s ./ --watch --port 8080 --ui-port 8081",
     "test": "jest --coverage",
+    "test:e2e": "cypress run",
+    "test:cypress": "cypress open",
     "watch": "webpack --watch --config webpack.config.js",
     "build": "webpack --config webpack.config.js",
     "deploy:local": "vercel dev",
@@ -44,5 +46,17 @@
   },
   "dependencies": {
     "cypress": "^9.4.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/support/step_definitions/",
+    "nonGlobalStepDefinitions": false
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "testMatch": [
+      "**/**/*.test.js"
+    ]
   }
 }
