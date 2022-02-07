@@ -1,3 +1,5 @@
+import marked from "marked";
+
 const contents = `
 ## 機能名
 
