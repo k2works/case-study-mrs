@@ -8,7 +8,7 @@
 
 | ソフトウェア | バージョン | 備考 |
 | :----------- | :--------- | :--- |
-| nodejs       | 10.16.3    |      |
+| nodejs       | 16.3.0    |      |
 
 ## 構成
 
@@ -31,6 +31,9 @@ npm start
 ```bash
 npm init -y
 npm install --save-dev browser-sync jest @babel/core @babel/cli @babel/preset-env @babel/register
+npm install --save-dev npm-run-all watch foreman cpx rimraf marked
+npm install webpack webpack-cli html-webpack-plugin --save-dev
+touch Procfile
 ```
 
 **[⬆ back to top](#構成)**

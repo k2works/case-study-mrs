@@ -7,8 +7,11 @@
     "doc": "docs"
   },
   "scripts": {
-    "start": "browser-sync start -s ./ --watch --port 8080 --ui-port 8081",
-    "test": "jest --coverage"
+    "start": "nf start -j Procfile",
+    "app": "browser-sync start -s ./ --watch --port 8080 --ui-port 8081",
+    "test": "jest --coverage",
+    "watch": "webpack --watch --config webpack.config.js",
+    "build": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +29,15 @@
     "@babel/preset-env": "^7.12.1",
     "@babel/register": "^7.12.1",
     "browser-sync": "^2.26.13",
-    "jest": "^26.6.1"
+    "cpx": "^1.5.0",
+    "foreman": "^3.0.1",
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^26.6.1",
+    "marked": "^4.0.12",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "watch": "^1.0.2",
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2"
   }
 }
