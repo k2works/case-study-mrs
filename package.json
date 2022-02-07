@@ -11,7 +11,9 @@
     "app": "browser-sync start -s ./ --watch --port 8080 --ui-port 8081",
     "test": "jest --coverage",
     "watch": "webpack --watch --config webpack.config.js",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "deploy:local": "vercel dev",
+    "deploy": "vercel"
   },
   "repository": {
     "type": "git",

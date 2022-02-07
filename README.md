@@ -40,6 +40,11 @@ touch Procfile
 
 ### 配置
 
+```bash
+npm i -g vercel
+npm run deploy
+```
+
 **[⬆ back to top](#構成)**
 
 ### 運用
