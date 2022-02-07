@@ -41,5 +41,8 @@
     "watch": "^1.0.2",
     "webpack": "^5.68.0",
     "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "cypress": "^9.4.1"
   }
 }
