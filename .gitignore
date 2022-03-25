@@ -108,3 +108,7 @@ public
 
 cypress/screenshots
 cypress/videos 
+
+db.*
+.idea
+.vscode

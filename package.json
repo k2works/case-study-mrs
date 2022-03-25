@@ -1,7 +1,7 @@
 {
   "name": "ape_2022",
   "version": "1.0.0",
-  "description": "## 概要",
+  "description": "",
   "main": "index.js",
   "directories": {
     "doc": "docs"
@@ -37,7 +37,7 @@
     "cypress-cucumber-preprocessor": "^4.3.1",
     "foreman": "^3.0.1",
     "html-webpack-plugin": "^5.5.0",
-    "jest": "^26.6.1",
+    "jest": "^27.5.1",
     "marked": "^1.2.2",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
