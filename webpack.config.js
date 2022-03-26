@@ -1,8 +1,13 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+const env = process.env.NODE_ENV || "development";
+const isDevelopment = env === "development";
+
 module.exports = {
-  devtool: "inline-source-map",
+  mode: env,
+  target: ["web", "es5"],
+  devtool: isDevelopment ? "source-map" : false,
   entry: "./index.js",
   output: {
     filename: "main.js",

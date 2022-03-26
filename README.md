@@ -32,10 +32,11 @@ npm start
 
 ```bash
 npm init -y
-npm install --save-dev browser-sync jest @babel/core @babel/cli @babel/preset-env @babel/register
+npm install --save-dev @babel/core @babel/cli @babel/preset-env @babel/register
 npm install --save-dev npm-run-all watch foreman cpx rimraf marked
-npm install webpack webpack-cli html-webpack-plugin --save-dev
+npm install --save-dev webpack webpack-cli html-webpack-plugin webpack-dev-server 
 touch Procfile
+npm install --save-dev jest
 npm install cypress
 npmx cypress open
 npm install --save-dev cypress-cucumber-preprocessor
