@@ -87,7 +87,7 @@ const init = () => {
               <div class="row p-3">
                 <div id="spec"></div>
               </div>
-              <h2>ドメインモデル</h2>
+              <h2>オブジェクトモデル</h2>
               <div class="row p-3">
                 <img id="class-im"
                 src=http://www.plantuml.com/plantuml/img/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000>
