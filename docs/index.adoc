@@ -13,7 +13,7 @@
 * <<anchor-1,サンプル>>
 
 == 詳細
-=== link:./contents/sample.html[サンプル^][[anchor-1]]
+=== link:./sample.html[サンプル^][[anchor-1]]
 
 == 参照
 

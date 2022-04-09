@@ -78,3 +78,5 @@ npm start
 - [GitHub Actions でステータスバッジを表示する](https://qiita.com/SnowCait/items/487d70b342ffbe2f33d8)
 - [cypress](https://www.cypress.io/)
 - [cypress-cucumber-preprocessor](https://www.npmjs.com/package/cypress-cucumber-preprocessor)
+- [Asciidoctor Kroki Extension](https://github.com/Mogztter/asciidoctor-kroki)
+- [Asciidoctor Documentation Site](https://docs.asciidoctor.org/)

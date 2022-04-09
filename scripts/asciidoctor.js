@@ -1,3 +1,4 @@
+const fs = require("fs");
 const asciidoctor = require("@asciidoctor/core")();
 const kroki = require("asciidoctor-kroki");
 
@@ -9,9 +10,10 @@ const krokiRegister = () => {
 
 const inputRootDir = "./docs";
 const outputRootDir = "./public/docs";
+const fileNameList = fs.readdirSync(inputRootDir);
+const docs = fileNameList.filter(RegExp.prototype.test, /.*\.adoc$/);
 
-const dosc = ["index.adoc", "sample.adoc"];
-dosc.map((input) => {
+docs.map((input) => {
   const file = `${inputRootDir}/${input}`;
   asciidoctor.convertFile(file, {
     safe: "safe",

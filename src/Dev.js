@@ -97,6 +97,8 @@ const init = () => {
                 <img id="er-im"
                 src=http://www.plantuml.com/plantuml/img/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000>
               </div>
+
+              <h1 id="docs"><a href="./docs" target="_blank">ドキュメント</a></h2>
             </div> `;
     }
   });
