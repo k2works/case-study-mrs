@@ -3,7 +3,7 @@ import marked from "marked";
 const contents = `
 ## 機能名
 
-## 仕様
+## [仕様](./report)
 
 ## TODOリスト
 `;

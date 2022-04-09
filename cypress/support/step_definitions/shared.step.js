@@ -25,5 +25,5 @@ Given(`{string} ページにアクセスする`, (pageName) => {
 });
 
 Then(`機能名 {string} が表示される`, (funcName) => {
-  cy.get("body > :nth-child(3)").should("contain", funcName);
+  cy.get("body > :nth-child(1)").should("contain", funcName);
 });
