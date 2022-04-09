@@ -40,6 +40,7 @@ npm install --save-dev jest
 npm install cypress
 npmx cypress open
 npm install --save-dev cypress-cucumber-preprocessor
+npm install --save-dev asciidoctor asciidoctor-kroki
 ```
 
 **[⬆ back to top](#構成)**
