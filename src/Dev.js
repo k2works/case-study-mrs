@@ -3,7 +3,7 @@ import marked from "marked";
 const contents = `
 ## 機能名
 
-## [仕様](./report)
+## 仕様
 
 ## TODOリスト
 `;
@@ -79,6 +79,11 @@ const init = () => {
     if (dev !== null) {
       dev.innerHTML = `
             <div class="container">
+              <h1 id="docs">ドキュメント</h1>
+              <ul>
+                <li><a href="./docs/index.html" target="_blank">サンプル</a></li>
+                <li><a href="./report" target="_blank">Cucumberjs Report</a></li>
+              </ul>
               <h1>開発</h1>
               <div class="py-3">
                 <div id="app"></div>
@@ -97,11 +102,6 @@ const init = () => {
                 <img id="er-im"
                 src=http://www.plantuml.com/plantuml/img/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000>
               </div>
-
-              <h1 id="docs">ドキュメント</h1>
-              <ul>
-                <li><a href="./docs/sample.html" target="_blank">サンプル</a></li>
-              </ul>
             </div> `;
     }
   });
