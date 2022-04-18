@@ -16,7 +16,7 @@
     "build": "npm-run-all clean build:*",
     "build:webpack": "webpack --config webpack.config.js",
     "build:report": "npm-run-all report:cucumber:generate report:cucumber:report",
-    "build:docs": "npm-run-all docs:generate",
+    "build:docs": "npm-run-all docs",
     "clean": "rimraf ./public",
     "deploy:local": "vercel dev",
     "deploy": "vercel",
@@ -24,7 +24,8 @@
     "report:cucumber:generate": "node scripts/cucumber_generate.js",
     "report:cucumber:report": "node scripts/cucumber_report.js",
     "report:cucumber:clean": "rimraf public/report && rimraf cypress/cucumber-json",
-    "docs": "npm-run-all docs:clean docs:generate",
+    "docs": "npm-run-all docs:clean docs:copy docs:generate",
+    "docs:copy": "node scripts/copy_assets.js",
     "docs:generate": "node scripts/asciidoctor.js",
     "docs:clean": "rimraf public/docs"
   },

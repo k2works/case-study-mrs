@@ -112,3 +112,5 @@ cypress/videos
 db.*
 .idea
 .vscode
+
+docs/cypress
