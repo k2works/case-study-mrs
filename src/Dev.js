@@ -1,76 +1,123 @@
 import marked from "marked";
 
 const contents = `
-## 機能名
-
+## 会議室予約システム
 ## 仕様
-
+> 利用者がWebサイト上で会議室の予約をして、一覧で確認できるようにする。
+>
+> 登録した利用者だけが利用できるようにする。
+>
+> 管理者は利用者の予約を取り消すことができるようにする。
 ## TODOリスト
+- 利用者を登録する
+- 利用者を登録する
+- 会議室を予約する
+`;
+
+const usecase = `
+@startuml
+left to right direction
+actor "利用者" as user
+actor "管理者" as admin
+rectangle 会議室予約システム {
+  usecase "認証" as UC1
+  usecase "登録" as UC2
+  usecase "会議室の一覧表示" as UC3
+  usecase "会議室の予約" as UC4
+}
+user --> UC1
+user --> UC2
+user --> UC3
+user --> UC4
+UC1 <-- admin
+UC3 <-- admin
+UC4 <-- admin
+@enduml
 `;
 
 const uml = `
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
-
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-  Object[] elementData
-  size()
-}
-
-enum TimeUnit {
-  DAYS
-  HOURS
-  MINUTES
-}
-
-annotation SuppressWarnings
+@startuml
+actor "利用者" as user
+actor "管理者" as admin
+frame "利用者登録をする" as f01
+frame "利用者の認証をする" as f02
+frame "会議室を予約する" as f03
+usecase "登録" as UC1
+usecase "認証" as UC2
+usecase "会議室の一覧表示" as UC3
+usecase "会議室の予約" as UC4
+boundary "利用者登録画面" as b01
+boundary "ログイン画面" as b02
+boundary "会議室一覧画面" as b03
+boundary "会議室予約画面" as b04
+control "予約条件" as c01
+entity "会議室" as e01
+entity "予約" as e02
+entity "利用者" as e03
+user - f01
+f01 - UC1
+b01 -- UC1
+UC1 - e03
+f01 ---> f02
+user - f02
+admin - f02
+f02 - UC2
+b02 -- UC2
+UC2 - e03
+f02 ---> f03
+user - f03
+admin - f03
+f03 - UC3
+f03 - UC4
+b03 -- UC3
+b04 -- UC4
+UC4 -- c01
+UC3 - e01
+UC4 - e02
+@enduml
 `;
 
 const erd = `
 ' hide the spot
 hide circle
-
 ' avoid problems with angled crows feet
 skinparam linetype ortho
-
-entity "Entity01" as e01 {
-  *e1_id : number <<generated>>
+entity "会議室" as e01 {
+  *会議室ID 
   --
-  *name : text
-  description : text
+  会議室名
 }
-
-entity "Entity02" as e02 {
-  *e2_id : number <<generated>>
+entity "予約可能会議室" as e02 {
+  *予約日  
   --
-  *e1_id : number <<FK>>
-  other_details : text
+  *会議室ID 
 }
-
-entity "Entity03" as e03 {
-  *e3_id : number <<generated>>
+entity "予約" as e03 {
+  *予約ID 
   --
-  e1_id : number <<FK>>
-  other_details : text
+  開始時間
+  終了時間
+  予約日 <<FK>>
+  会議室ID <<FK>>
+  ユーザーID <<FK>>
 }
-
+entity "利用者" as e04 {
+  *ユーザーID
+  --
+  苗字
+  名前
+  パスワード
+  ロール名
+}
 e01 ||..o{ e02
-e01 |o..o{ e03
+e02 |o..o{ e03
+e04 |o..o{ e03
 `;
 
 export const setUp = () => {
   init();
   documents(contents);
-  diagrams(uml, erd);
+  diagrams(usecase, uml, erd);
 };
 
 const init = () => {
@@ -81,8 +128,8 @@ const init = () => {
             <div class="container">
               <h1 id="docs">ドキュメント</h1>
               <ul>
-                <li><a href="./docs/index.html" target="_blank">サンプル</a></li>
-                <li><a href="./report" target="_blank">Cucumberjs Report</a></li>
+               <!-- <li><a href="./docs/index.html" target="_blank">サンプル</a></li> -->
+               <!-- <li><a href="./report" target="_blank">Cucumberjs Report</a></li> -->
               </ul>
               <h1>開発</h1>
               <div class="py-3">
@@ -92,7 +139,12 @@ const init = () => {
               <div class="row p-3">
                 <div id="spec"></div>
               </div>
-              <h2>オブジェクトモデル</h2>
+              <h2>ユースケース</h2>
+              <div class="row p-3">
+                <img id="usecase-im"
+                src=http://www.plantuml.com/plantuml/img/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000>
+              </div>              
+              <h2>ユーズケース複合図</h2>
               <div class="row p-3">
                 <img id="class-im"
                 src=http://www.plantuml.com/plantuml/img/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000>
@@ -117,7 +169,14 @@ const documents = (contents) => {
   });
 };
 
-const diagrams = (uml, erd) => {
+const diagrams = (usecase, uml, erd) => {
+  const usecaseDiagram = ((uml) => {
+    const inputId = "usecase-diagram-input";
+    const outputId = "usecase-im";
+    const source = uml;
+    compress(source, outputId);
+  })(usecase);
+
   const classDiagram = ((uml) => {
     const inputId = "class-diagram-input";
     const outputId = "class-im";
@@ -141,9 +200,9 @@ const diagrams = (uml, erd) => {
         r += append3bytes(data.charCodeAt(i), 0, 0);
       } else {
         r += append3bytes(
-          data.charCodeAt(i),
-          data.charCodeAt(i + 1),
-          data.charCodeAt(i + 2)
+            data.charCodeAt(i),
+            data.charCodeAt(i + 1),
+            data.charCodeAt(i + 2)
         );
       }
     }
