@@ -8,9 +8,10 @@
 
 ### 前提
 
-| ソフトウェア | バージョン | 備考 |
-| :----------- | :--------- | :--- |
-| nodejs       | 16.3.0    |      |
+| ソフトウェア | バージョン  | 備考 |
+|:-------|:-------| :--- |
+| nodejs | 16.3.0 |      |
+| java   | 17.0.0 |      |
 
 ## 構成
 
@@ -42,6 +43,11 @@ npx cypress open
 npm install --save-dev cypress-cucumber-preprocessor
 npm install --save-dev cucumber-html-reporter
 npm install --save-dev asciidoctor asciidoctor-kroki
+```
+
+```bash
+gradle init --type java-application
+git update-index --chmod=+x gradlew
 ```
 
 **[⬆ back to top](#構成)**
