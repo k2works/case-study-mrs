@@ -36,7 +36,7 @@ npm init -y
 npm install --save-dev @babel/core @babel/cli @babel/preset-env @babel/register
 npm install --save-dev npm-run-all watch foreman cpx rimraf marked@1.2.2 
 npm install --save-dev webpack webpack-cli html-webpack-plugin webpack-dev-server 
-touch Procfile
+touch Procfile.dev
 npm install --save-dev jest
 npm install cypress
 npx cypress open
@@ -50,13 +50,21 @@ gradle init --type java-application
 git update-index --chmod=+x gradlew
 ```
 
+```bash
+heroku create ape2022-take13
+```
+
 **[⬆ back to top](#構成)**
 
 ### 配置
 
 ```bash
 npm i -g vercel
-npm run deploy
+npm run deploy:vercel
+```
+
+```bash
+npm run deploy:heroku 
 ```
 
 **[⬆ back to top](#構成)**
