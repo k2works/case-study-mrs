@@ -32,14 +32,14 @@ VALUES (CURRENT_DATE - 1, 7);
 
 -- ダミーユーザー(password = demo)
 INSERT INTO usr (user_id, first_name, last_name, password, role_name)
-VALUES ('taro-yamada', '太郎', '山田', '$2a$10$oxSJ1.keBwxmsMLkcT9lPeAIxfNTPNQxpeywMrF7A3kVszwUTqfTK', 'USER');
+VALUES ('taro-yamada', '太郎', '山田', '$2y$10$aYjdzuGAep5SXGVBxxGrMOnh1b1mL62sJLx5Sj.r4dM4BTICiemCG', 'USER');
 -- 認証確認用のテストユーザー(password = demo)
 INSERT INTO usr (user_id, first_name, last_name, password, role_name)
-VALUES ('aaaa', 'Aaa', 'Aaa', '$2a$10$oxSJ1.keBwxmsMLkcT9lPeAIxfNTPNQxpeywMrF7A3kVszwUTqfTK', 'USER');
+VALUES ('aaaa', 'Aaa', 'Aaa', '$2y$10$aYjdzuGAep5SXGVBxxGrMOnh1b1mL62sJLx5Sj.r4dM4BTICiemCG', 'USER');
 INSERT INTO usr (user_id, first_name, last_name, password, role_name)
-VALUES ('bbbb', 'Bbb', 'Bbb', '$2a$10$oxSJ1.keBwxmsMLkcT9lPeAIxfNTPNQxpeywMrF7A3kVszwUTqfTK', 'USER');
+VALUES ('bbbb', 'Bbb', 'Bbb', '$2y$10$aYjdzuGAep5SXGVBxxGrMOnh1b1mL62sJLx5Sj.r4dM4BTICiemCG', 'USER');
 INSERT INTO usr (user_id, first_name, last_name, password, role_name)
-VALUES ('cccc', 'Ccc', 'Ccc', '$2a$10$oxSJ1.keBwxmsMLkcT9lPeAIxfNTPNQxpeywMrF7A3kVszwUTqfTK', 'ADMIN');
+VALUES ('cccc', 'Ccc', 'Ccc', '$2y$10$aYjdzuGAep5SXGVBxxGrMOnh1b1mL62sJLx5Sj.r4dM4BTICiemCG', 'ADMIN');
 
 -- 予約
 INSERT INTO reservation (end_time, start_time, reserved_date, room_id, user_id)
