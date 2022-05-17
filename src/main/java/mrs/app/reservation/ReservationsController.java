@@ -9,7 +9,6 @@ import mrs.domain.service.reservation.ReservationService;
 import mrs.domain.service.reservation.UnavailableReservationException;
 import mrs.domain.service.room.RoomService;
 import mrs.domain.service.user.ReservationUserDetails;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -27,10 +26,13 @@ import java.util.stream.Stream;
 @Controller
 @RequestMapping("reservations/{date}/{roomId}")
 public class ReservationsController {
-    @Autowired
-    RoomService roomService;
-    @Autowired
-    ReservationService reservationService;
+    private final RoomService roomService;
+    private final ReservationService reservationService;
+
+    public ReservationsController(RoomService roomService, ReservationService reservationService) {
+        this.roomService = roomService;
+        this.reservationService = reservationService;
+    }
 
     @ModelAttribute
     ReservationForm setUpForm() {

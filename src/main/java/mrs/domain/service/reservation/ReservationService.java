@@ -5,7 +5,6 @@ import mrs.domain.model.ReservableRoomId;
 import mrs.domain.model.Reservation;
 import mrs.domain.repository.reservation.ReservationRepository;
 import mrs.domain.repository.room.ReservableRoomRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.method.P;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
@@ -17,12 +16,15 @@ import java.util.Optional;
 @Service
 @Transactional
 public class ReservationService {
-    @Autowired
-    ReservationRepository reservationRepository;
-    @Autowired
-    ReservableRoomRepository reservableRoomRepository;
+    private final ReservationRepository reservationRepository;
+    private final ReservableRoomRepository reservableRoomRepository;
 
-    public Reservation reserve(Reservation reservation) {
+    public ReservationService(ReservationRepository reservationRepository, ReservableRoomRepository reservableRoomRepository) {
+        this.reservationRepository = reservationRepository;
+        this.reservableRoomRepository = reservableRoomRepository;
+    }
+
+    public void reserve(Reservation reservation) {
         ReservableRoomId reservableRoomId = reservation.getReservableRoom().getReservableRoomId();
         // 悲観ロック
         Optional<ReservableRoom> reservable = Optional.ofNullable(reservableRoomRepository.findOneForUpdateByReservableRoomId(reservableRoomId));
@@ -36,7 +38,6 @@ public class ReservationService {
         }
         // 予約情報の登録
         reservationRepository.save(reservation);
-        return reservation;
     }
 
     @PreAuthorize("hasRole('ADMIN') or #reservation.user.userId == principal.user.userId")
@@ -45,7 +46,7 @@ public class ReservationService {
     }
 
     public Reservation findOne(Integer reservationId) {
-        return reservationRepository.getOne(reservationId);
+        return reservationRepository.getById(reservationId);
     }
 
     public List<Reservation> findReservations(ReservableRoomId reservableRoomId) {
