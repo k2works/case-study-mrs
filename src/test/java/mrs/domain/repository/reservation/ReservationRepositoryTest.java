@@ -1,5 +1,6 @@
 package mrs.domain.repository.reservation;
 
+import mrs.application.service.reservation.ReservationRepository;
 import mrs.domain.model.ReservableRoomId;
 import mrs.domain.model.Reservation;
 import org.junit.jupiter.api.Assertions;

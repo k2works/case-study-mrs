@@ -1,4 +1,4 @@
-package mrs.domain.repository.room;
+package mrs.application.service.room;
 
 import mrs.domain.model.MeetingRoom;
 import org.springframework.data.jpa.repository.JpaRepository;

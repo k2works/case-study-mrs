@@ -1,11 +1,14 @@
 package mrs.domain.service.reservation;
 
 import mrs.MrsApplication;
+import mrs.application.service.reservation.AlreadyReservedException;
+import mrs.application.service.reservation.ReservationRepository;
+import mrs.application.service.reservation.ReservationService;
+import mrs.application.service.reservation.UnavailableReservationException;
+import mrs.application.service.room.MeetingRoomRepository;
+import mrs.application.service.room.ReservableRoomRepository;
+import mrs.application.service.user.UserRepository;
 import mrs.domain.model.*;
-import mrs.domain.repository.reservation.ReservationRepository;
-import mrs.domain.repository.room.MeetingRoomRepository;
-import mrs.domain.repository.room.ReservableRoomRepository;
-import mrs.domain.repository.user.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

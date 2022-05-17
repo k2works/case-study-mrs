@@ -1,0 +1,4 @@
+/**
+ * ビジネスアクション
+ */
+package mrs.application;

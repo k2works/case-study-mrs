@@ -1,4 +1,4 @@
-package mrs.domain.service.user;
+package mrs.application.service.user;
 
 import mrs.domain.model.User;
 import org.springframework.security.core.GrantedAuthority;

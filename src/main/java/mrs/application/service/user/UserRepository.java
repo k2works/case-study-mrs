@@ -1,4 +1,4 @@
-package mrs.domain.repository.user;
+package mrs.application.service.user;
 
 import mrs.domain.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
