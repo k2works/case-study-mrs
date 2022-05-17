@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.6.7'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'org.dddjava.jig-gradle-plugin' version '2022.4.1'
 }
 
 group = 'com.example'
@@ -29,3 +30,10 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+jig {
+	linkPrefix = "https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java"
+}
+
+[compileJava, processResources]*.shouldRunAfter(clean)
+jigReports.dependsOn(clean, classes)
