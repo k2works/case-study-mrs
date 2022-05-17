@@ -1,6 +1,6 @@
 package mrs.appication.service.room;
 
-import mrs.MrsApplication;
+import mrs.Application;
 import mrs.application.service.room.RoomService;
 import mrs.domain.model.room.ReservableRoom;
 import org.junit.jupiter.api.Test;
@@ -14,7 +14,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-@SpringBootTest(classes = MrsApplication.class)
+@SpringBootTest(classes = Application.class)
 @ActiveProfiles("dev")
 public class RoomServiceTest {
     @Autowired

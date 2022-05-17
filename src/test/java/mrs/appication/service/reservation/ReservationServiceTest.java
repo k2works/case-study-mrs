@@ -1,6 +1,6 @@
 package mrs.appication.service.reservation;
 
-import mrs.MrsApplication;
+import mrs.Application;
 import mrs.application.service.reservation.AlreadyReservedException;
 import mrs.application.service.reservation.ReservationRepository;
 import mrs.application.service.reservation.ReservationService;
@@ -28,7 +28,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-@SpringBootTest(classes = MrsApplication.class)
+@SpringBootTest(classes = Application.class)
 @ActiveProfiles("dev")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class ReservationServiceTest {

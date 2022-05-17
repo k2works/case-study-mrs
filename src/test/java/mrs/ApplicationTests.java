@@ -11,13 +11,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
-class MrsApplicationTests {
+class ApplicationTests {
 
 	MockMvc mockMvc;
 
 	@BeforeEach
 	public void setUpMockMvc() {
-		mockMvc = MockMvcBuilders.standaloneSetup(new MrsApplication()).build();
+		mockMvc = MockMvcBuilders.standaloneSetup(new Application()).build();
 	}
 
 	@Test
