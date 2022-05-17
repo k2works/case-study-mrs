@@ -30,7 +30,7 @@ public class RoomsControllerTest {
     }
 
     @Test
-    void listRooms() throws Exception {
+    void 会議室一覧を表示する() throws Exception {
         mockMvc.perform(get("/rooms"))
                 .andExpect(status().isOk());
     }
