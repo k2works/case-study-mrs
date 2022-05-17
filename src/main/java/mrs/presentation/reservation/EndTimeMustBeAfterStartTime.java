@@ -1,4 +1,4 @@
-package mrs.app.reservation;
+package mrs.presentation.reservation;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

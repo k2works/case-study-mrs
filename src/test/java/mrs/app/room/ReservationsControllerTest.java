@@ -1,8 +1,8 @@
 package mrs.app.room;
 
-import mrs.app.reservation.ReservationsController;
 import mrs.domain.service.reservation.ReservationService;
 import mrs.domain.service.room.RoomService;
+import mrs.presentation.reservation.ReservationsController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
