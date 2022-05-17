@@ -1,4 +1,4 @@
-package mrs.domain.service.reservation;
+package mrs.appication.service.reservation;
 
 import mrs.MrsApplication;
 import mrs.application.service.reservation.AlreadyReservedException;

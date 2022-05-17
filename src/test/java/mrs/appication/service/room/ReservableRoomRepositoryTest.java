@@ -1,4 +1,4 @@
-package mrs.domain.repository.room;
+package mrs.appication.service.room;
 
 import mrs.application.service.room.ReservableRoomRepository;
 import mrs.domain.model.room.ReservableRoom;

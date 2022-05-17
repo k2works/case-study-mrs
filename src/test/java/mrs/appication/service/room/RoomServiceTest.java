@@ -1,4 +1,4 @@
-package mrs.domain.service.room;
+package mrs.appication.service.room;
 
 import mrs.MrsApplication;
 import mrs.application.service.room.RoomService;

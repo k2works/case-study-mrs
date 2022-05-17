@@ -1,4 +1,4 @@
-package mrs.domain.repository.reservation;
+package mrs.appication.service.reservation;
 
 import mrs.application.service.reservation.ReservationRepository;
 import mrs.domain.model.reservation.Reservation;

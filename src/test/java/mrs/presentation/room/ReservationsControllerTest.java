@@ -1,4 +1,4 @@
-package mrs.app.room;
+package mrs.presentation.room;
 
 import mrs.application.service.reservation.ReservationService;
 import mrs.application.service.room.RoomService;

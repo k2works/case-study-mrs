@@ -1,7 +1,6 @@
-package mrs.app.room;
+package mrs.presentation.room;
 
 import mrs.application.service.room.RoomService;
-import mrs.presentation.room.RoomsController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
