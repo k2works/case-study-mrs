@@ -1,6 +1,9 @@
 package mrs.app.reservation;
 
-import mrs.domain.model.*;
+import mrs.domain.model.ReservableRoom;
+import mrs.domain.model.ReservableRoomId;
+import mrs.domain.model.Reservation;
+import mrs.domain.model.User;
 import mrs.domain.service.reservation.AlreadyReservedException;
 import mrs.domain.service.reservation.ReservationService;
 import mrs.domain.service.reservation.UnavailableReservationException;
@@ -51,17 +54,7 @@ public class ReservationsController {
         model.addAttribute("room", roomService.findMeetingRoom(roomId));
         model.addAttribute("reservations", reservations);
         model.addAttribute("timeList", timeList);
-        // model.addAttribute("user", dummyUser());
         return "reservation/reserveForm";
-    }
-
-    private User dummyUser() {
-        User user = new User();
-        user.setUserId("taro-yamada");
-        user.setFirstName("太郎");
-        user.setLastName("山田");
-        user.setRoleName(RoleName.USER);
-        return user;
     }
 
     @RequestMapping(method = RequestMethod.POST)
