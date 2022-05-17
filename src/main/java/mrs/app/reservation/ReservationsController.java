@@ -15,7 +15,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.nio.file.AccessDeniedException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -99,8 +98,9 @@ public class ReservationsController {
                   Model model) {
         User user = userDetails.getUser();
         try {
-            reservationService.cancel(reservationId, user);
-        } catch (AccessDeniedException e) {
+            Reservation reservation = reservationService.findOne(reservationId);
+            reservationService.cancel(reservation);
+        } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
             return reserveForm(date, roomId, model);
         }
