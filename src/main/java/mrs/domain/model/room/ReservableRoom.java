@@ -1,4 +1,4 @@
-package mrs.domain.model;
+package mrs.domain.model.room;
 
 import javax.persistence.*;
 import java.io.Serializable;

@@ -1,7 +1,7 @@
 package mrs.domain.repository.room;
 
 import mrs.application.service.room.ReservableRoomRepository;
-import mrs.domain.model.ReservableRoom;
+import mrs.domain.model.room.ReservableRoom;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;

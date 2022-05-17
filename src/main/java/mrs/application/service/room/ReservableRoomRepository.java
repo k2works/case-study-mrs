@@ -1,7 +1,7 @@
 package mrs.application.service.room;
 
-import mrs.domain.model.ReservableRoom;
-import mrs.domain.model.ReservableRoomId;
+import mrs.domain.model.room.ReservableRoom;
+import mrs.domain.model.room.ReservableRoomId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Lock;
 

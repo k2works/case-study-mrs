@@ -2,7 +2,7 @@ package mrs.domain.service.room;
 
 import mrs.MrsApplication;
 import mrs.application.service.room.RoomService;
-import mrs.domain.model.ReservableRoom;
+import mrs.domain.model.room.ReservableRoom;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
