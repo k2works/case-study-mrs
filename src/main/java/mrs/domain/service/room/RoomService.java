@@ -1,6 +1,8 @@
 package mrs.domain.service.room;
 
+import mrs.domain.model.MeetingRoom;
 import mrs.domain.model.ReservableRoom;
+import mrs.domain.repository.room.MeetingRoomRepository;
 import mrs.domain.repository.room.ReservableRoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,13 @@ import java.util.List;
 @Service
 @Transactional
 public class RoomService {
+    @Autowired
+    MeetingRoomRepository meetingRoomRepository;
+
+    public MeetingRoom findMeetingRoom(Integer roomId) {
+        return meetingRoomRepository.getById(roomId);
+    }
+
     @Autowired
     ReservableRoomRepository reservableRoomRepository;
 
