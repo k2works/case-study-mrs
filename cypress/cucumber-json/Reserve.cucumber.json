@@ -1,0 +1,113 @@
+[
+  {
+    "description": "  利用者として\n  会議室を予約したい\n  なぜなら会議室を利用したいから",
+    "keyword": "Feature",
+    "name": "会議室の予約",
+    "line": 1,
+    "id": "会議室の予約",
+    "tags": [],
+    "uri": "Reserve.feature",
+    "elements": [
+      {
+        "id": "会議室の予約;予約管理:予約可能な会議室を検索する",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "予約管理:予約可能な会議室を検索する",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "\"利用者\" としてログインしている",
+            "result": {
+              "status": "passed",
+              "duration": 4379000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 11,
+            "name": "\"会議室予約一覧画面\" ページにアクセスする",
+            "result": {
+              "status": "passed",
+              "duration": 33000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "会議室予約一覧に \"新木場\" が表示される",
+            "result": {
+              "status": "passed",
+              "duration": 9000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "会議室の予約;予約管理:会議室を予約する",
+        "keyword": "Scenario",
+        "line": 14,
+        "name": "予約管理:会議室を予約する",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "\"利用者\" としてログインしている",
+            "result": {
+              "status": "passed",
+              "duration": 4278000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 15,
+            "name": "\"会議室予約一覧画面\" ページにアクセスする",
+            "result": {
+              "status": "passed",
+              "duration": 32000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 16,
+            "name": "\"新木場\" 会議室を選択する",
+            "result": {
+              "status": "passed",
+              "duration": 87000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 17,
+            "name": "選択した会議室を予約する",
+            "result": {
+              "status": "passed",
+              "duration": 84000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "予約者 \"Aaa\" が表示される",
+            "result": {
+              "status": "passed",
+              "duration": 12000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

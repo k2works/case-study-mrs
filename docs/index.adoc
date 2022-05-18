@@ -493,9 +493,11 @@ repository --> prd
 
 === 仕様
 
+==== 予約管理
+
 [source,yml]
 ----
-include::../cypress/integration/App.feature[]
+include::../cypress/integration/Reservation/Reserve.feature[]
 ----
 
 === 設計
