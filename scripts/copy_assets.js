@@ -23,15 +23,13 @@ Images(inputRootDir, outputRootDir);
 
 // Copy Features
 const Features = (inputRootDir, outputRootDir) => {
-  const inputDir = `${inputRootDir}/cypress/integration`;
-  const fileNameList = fs.readdirSync(inputDir);
-  const docs = fileNameList.filter(RegExp.prototype.test, /.*\.feature$/);
+    const inputDir = `${inputRootDir}/cypress/integration`;
+    const fileNameList = fs.readdirSync(inputDir);
+    const docs = fileNameList.filter(RegExp.prototype.test, /.*\.feature$/);
 
     const docsOutput = `${outputRootDir}/cypress/integration`;
-    docs.map((input) => {
-        const source = `${inputDir}/**/*.feature`;
-        cpx.copy(source, docsOutput);
-    });
+    const source = `${inputDir}/**/*.feature`;
+    cpx.copy(source, docsOutput);
 };
 
 Features(".", "./docs");
