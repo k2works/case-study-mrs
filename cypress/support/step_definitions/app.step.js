@@ -5,13 +5,13 @@ const {
   Then,
 } = require("cypress-cucumber-preprocessor/steps");
 
-import { AppPage } from "../pages/appPage";
+import {AppPage} from "../pages/appPage";
 
 // this will get called before each scenario
 let page;
 Before(() => {
   page = new AppPage();
-  cy.wait(1000);
+  cy.wait(0);
 });
 
 Then(`{string} が表示される`, (value) => {
