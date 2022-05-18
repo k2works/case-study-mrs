@@ -3,6 +3,9 @@ package mrs.domain.model.room;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * 予約可能会議室
+ */
 @Entity
 public class ReservableRoom implements Serializable {
     @EmbeddedId

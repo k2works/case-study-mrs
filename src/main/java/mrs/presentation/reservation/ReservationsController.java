@@ -4,11 +4,11 @@ import mrs.application.service.reservation.AlreadyReservedException;
 import mrs.application.service.reservation.ReservationService;
 import mrs.application.service.reservation.UnavailableReservationException;
 import mrs.application.service.room.RoomService;
-import mrs.application.service.user.ReservationUserDetails;
-import mrs.domain.model.User;
 import mrs.domain.model.reservation.Reservation;
 import mrs.domain.model.room.ReservableRoom;
 import mrs.domain.model.room.ReservableRoomId;
+import mrs.domain.model.user.ReservationUserDetails;
+import mrs.domain.model.user.User;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -23,7 +23,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-@Controller
+/**
+ * 会議室予約画面
+ */
+@Controller("会議室予約")
 @RequestMapping("reservations/{date}/{roomId}")
 public class ReservationsController {
     private final RoomService roomService;

@@ -128,6 +128,7 @@ const init = () => {
             <div class="container">
               <h1 id="docs">ドキュメント</h1>
               <ul>
+               <li><a href="./jig/index.html" target="_blank">JIG</a></li> 
                <!-- <li><a href="./docs/index.html" target="_blank">サンプル</a></li> -->
                <!-- <li><a href="./report" target="_blank">Cucumberjs Report</a></li> -->
               </ul>

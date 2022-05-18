@@ -1,12 +1,14 @@
-package mrs.application.service.user;
+package mrs.domain.model.user;
 
-import mrs.domain.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
+/**
+ * 認証済み利用者
+ */
 public class ReservationUserDetails implements UserDetails {
     private final User user;
 

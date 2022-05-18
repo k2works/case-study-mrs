@@ -1,8 +1,11 @@
-package mrs.domain.model;
+package mrs.domain.model.user;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * 利用者
+ */
 @Entity
 @Table(name = "usr")
 public class User implements Serializable {

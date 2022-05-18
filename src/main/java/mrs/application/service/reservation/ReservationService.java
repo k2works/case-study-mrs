@@ -12,6 +12,9 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * 会議室の予約
+ */
 @Service
 @Transactional
 public class ReservationService {
@@ -23,6 +26,9 @@ public class ReservationService {
         this.reservableRoomRepository = reservableRoomRepository;
     }
 
+    /**
+     * 会議室を予約する
+     */
     public void reserve(Reservation reservation) {
         ReservableRoomId reservableRoomId = reservation.getReservableRoom().getReservableRoomId();
         // 悲観ロック
@@ -39,15 +45,24 @@ public class ReservationService {
         reservationRepository.save(reservation);
     }
 
+    /**
+     * 会議室の予約を取り消す
+     */
     @PreAuthorize("hasRole('ADMIN') or #reservation.user.userId == principal.user.userId")
     public void cancel(@P("reservation") Reservation reservation) {
         reservationRepository.delete(reservation);
     }
 
+    /**
+     * 会議室を検索する
+     */
     public Reservation findOne(Integer reservationId) {
         return reservationRepository.getById(reservationId);
     }
 
+    /**
+     * 会議室の予約一覧を取得する
+     */
     public List<Reservation> findReservations(ReservableRoomId reservableRoomId) {
         return reservationRepository.findByReservableRoom_ReservableRoomIdOrderByStartTimeAsc(reservableRoomId);
     }

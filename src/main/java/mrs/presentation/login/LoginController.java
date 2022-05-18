@@ -3,7 +3,10 @@ package mrs.presentation.login;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@Controller
+/**
+ * 認証画面
+ */
+@Controller("認証")
 public class LoginController {
     @GetMapping("loginForm")
     String loginForm() {

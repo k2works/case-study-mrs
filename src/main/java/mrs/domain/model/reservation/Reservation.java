@@ -1,13 +1,16 @@
 package mrs.domain.model.reservation;
 
-import mrs.domain.model.User;
 import mrs.domain.model.room.ReservableRoom;
+import mrs.domain.model.user.User;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.Objects;
 
+/**
+ * 予約
+ */
 @Entity
 public class Reservation implements Serializable {
     @Id

@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.time.LocalDate;
 import java.util.List;
 
-@Controller
+/**
+ * 会議室一覧画面
+ */
+@Controller("会議室一覧")
 @RequestMapping("rooms")
 public class RoomsController {
     private final RoomService roomService;

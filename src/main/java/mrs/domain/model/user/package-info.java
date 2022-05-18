@@ -1,4 +1,4 @@
 /**
- * 利用者・管理者
+ * 利用者
  */
 package mrs.domain.model.user;
