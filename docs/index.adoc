@@ -509,7 +509,7 @@ left to right direction
 actor "利用者" as user
 actor "管理者" as admin
 rectangle 会議室予約システム {
-  usecase "利用者の登録" as UC1
+  usecase "利用者の認証" as UC1
   usecase "会議室の検索" as UC2
   usecase "会議室の予約" as UC3
 }
