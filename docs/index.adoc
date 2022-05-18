@@ -498,6 +498,8 @@ repository --> prd
 [source,yml]
 ----
 include::../cypress/integration/Reservation/Reserve.feature[]
+
+include::../cypress/integration/Reservation/Cancel.feature[]
 ----
 
 === 設計

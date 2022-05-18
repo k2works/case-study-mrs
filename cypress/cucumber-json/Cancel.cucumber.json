@@ -1,18 +1,18 @@
 [
   {
-    "description": "  利用者として\n  会議室を予約したい\n  なぜなら会議室を利用したいから",
+    "description": "  利用者として\n  会議室予約をキャンセルしたい\n  なぜなら会議室を利用したくないから",
     "keyword": "Feature",
     "name": "会議室の予約",
     "line": 1,
     "id": "会議室の予約",
     "tags": [],
-    "uri": "Reserve.feature",
+    "uri": "Cancel.feature",
     "elements": [
       {
-        "id": "会議室の予約;予約管理:予約可能な会議室を検索する",
+        "id": "会議室の予約;会議室予約管理:会議室の予約を取り消す",
         "keyword": "Scenario",
-        "line": 10,
-        "name": "予約管理:予約可能な会議室を検索する",
+        "line": 13,
+        "name": "会議室予約管理:会議室の予約を取り消す",
         "tags": [],
         "type": "scenario",
         "steps": [
@@ -23,87 +23,77 @@
             "name": "\"利用者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 1309000000
+              "duration": 1476000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "\"会議室予約一覧画面\" ページにアクセスする",
+            "result": {
+              "status": "passed",
+              "duration": 46000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 10,
+            "name": "\"有楽町\" 会議室を選択する",
+            "result": {
+              "status": "passed",
+              "duration": 99000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 11,
-            "name": "\"会議室予約一覧画面\" ページにアクセスする",
+            "name": "選択した会議室を予約する",
             "result": {
               "status": "passed",
-              "duration": 32000000
+              "duration": 103000000
             }
           },
           {
             "arguments": [],
-            "keyword": "Then ",
-            "line": 12,
-            "name": "会議室予約一覧に \"新木場\" が表示される",
-            "result": {
-              "status": "passed",
-              "duration": 8000000
-            }
-          }
-        ]
-      },
-      {
-        "id": "会議室の予約;予約管理:会議室を予約する",
-        "keyword": "Scenario",
-        "line": 14,
-        "name": "予約管理:会議室を予約する",
-        "tags": [],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
             "keyword": "Given ",
-            "line": 8,
-            "name": "\"利用者\" としてログインしている",
+            "line": 14,
+            "name": "\"会議室予約一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 1290000000
+              "duration": 41000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 15,
-            "name": "\"会議室予約一覧画面\" ページにアクセスする",
+            "name": "\"有楽町\" 会議室を選択する",
             "result": {
               "status": "passed",
-              "duration": 35000000
+              "duration": 91000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 16,
-            "name": "\"新木場\" 会議室を選択する",
-            "result": {
-              "status": "passed",
-              "duration": 86000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 17,
             "name": "選択した会議室を予約する",
             "result": {
               "status": "passed",
-              "duration": 84000000
+              "duration": 89000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 18,
-            "name": "予約者 \"Aaa\" が表示される",
+            "line": 17,
+            "name": "会議室予約画面に \"入力の時間帯はすでに予約済です。\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 11000000
+              "duration": 16000000
             }
           }
         ]
