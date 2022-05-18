@@ -13,7 +13,7 @@ const Images = (inputRootDir, outputRootDir) => {
   const docsOutput = `${outputRootDir}/docs/images`;
   const specOutput = `${outputRootDir}/spec/docs/images`;
   docs.map((input) => {
-    const source = `${inputDir}/${input}`;
+    const source = `${inputDir}/**/${input}`;
     cpx.copy(source, docsOutput);
     cpx.copy(source, specOutput);
   });
@@ -27,11 +27,28 @@ const Features = (inputRootDir, outputRootDir) => {
   const fileNameList = fs.readdirSync(inputDir);
   const docs = fileNameList.filter(RegExp.prototype.test, /.*\.feature$/);
 
-  const docsOutput = `${outputRootDir}/cypress/integration`;
-  docs.map((input) => {
-    const source = `${inputDir}/${input}`;
-    cpx.copy(source, docsOutput);
-  });
+    const docsOutput = `${outputRootDir}/cypress/integration`;
+    docs.map((input) => {
+        const source = `${inputDir}/${input}`;
+        cpx.copy(source, docsOutput);
+    });
 };
 
 Features(".", "./docs");
+
+// Copy Jig
+const Jig = (inputRootDir, outputRootDir) => {
+    const inputDir = `${inputRootDir}/jig`;
+    const fileNameList = fs.readdirSync(inputDir);
+    const docs = fileNameList.filter(RegExp.prototype.test, /.*\.*$/);
+
+    const docsOutput = `${outputRootDir}/jig`;
+    docs.map((input) => {
+        const source = `${inputDir}/**/${input}`;
+        cpx.copy(source, docsOutput);
+    });
+};
+
+if (fs.existsSync("./build")) {
+    Jig("./build", outputRootDir);
+}
