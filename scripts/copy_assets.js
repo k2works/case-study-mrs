@@ -29,12 +29,13 @@ const Features = (inputRootDir, outputRootDir) => {
 
     const docsOutput = `${outputRootDir}/cypress/integration`;
     docs.map((input) => {
-        const source = `${inputDir}/${input}`;
+        const source = `${inputDir}/**/*.feature`;
         cpx.copy(source, docsOutput);
     });
 };
 
 Features(".", "./docs");
+Features(".", outputRootDir);
 
 // Copy Jig
 const Jig = (inputRootDir, outputRootDir) => {
