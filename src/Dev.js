@@ -20,9 +20,9 @@ left to right direction
 actor "利用者" as user
 actor "管理者" as admin
 rectangle 会議室予約システム {
-  usecase "認証" as UC1
-  usecase "登録" as UC2
-  usecase "会議室の一覧表示" as UC3
+  usecase "利用者の認証" as UC1
+  usecase "利用者の登録" as UC2
+  usecase "会議室の検索" as UC3
   usecase "会議室の予約" as UC4
 }
 user --> UC1
@@ -39,12 +39,12 @@ const uml = `
 @startuml
 actor "利用者" as user
 actor "管理者" as admin
-frame "利用者登録をする" as f01
-frame "利用者の認証をする" as f02
+frame "利用者を登録をする" as f01
+frame "利用者を認証をする" as f02
 frame "会議室を予約する" as f03
-usecase "登録" as UC1
-usecase "認証" as UC2
-usecase "会議室の一覧表示" as UC3
+usecase "利用者の登録" as UC1
+usecase "利用者の認証" as UC2
+usecase "会議室の検索" as UC3
 usecase "会議室の予約" as UC4
 boundary "利用者登録画面" as b01
 boundary "ログイン画面" as b02
@@ -145,7 +145,7 @@ const init = () => {
                 <img id="usecase-im"
                 src=http://www.plantuml.com/plantuml/img/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000>
               </div>              
-              <h2>ユーズケース複合図</h2>
+              <h2>ユースケース複合図</h2>
               <div class="row p-3">
                 <img id="class-im"
                 src=http://www.plantuml.com/plantuml/img/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000>
