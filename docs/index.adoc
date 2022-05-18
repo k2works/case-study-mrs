@@ -492,6 +492,12 @@ repository --> prd
 == 開発
 
 === 仕様
+==== 利用者管理
+
+[source,yml]
+----
+include::../cypress/integration/Auth/Login.feature[]
+----
 
 ==== 予約管理
 
