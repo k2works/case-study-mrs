@@ -130,7 +130,7 @@ const init = () => {
               <ul>
                <li><a href="./docs/index.html" target="_blank">AsciiDocドキュメント</a></li>
                <li><a href="./jig/index.html" target="_blank">JIGレポート</a></li> 
-               <!-- <li><a href="./report" target="_blank">Cucumberjs Report</a></li> -->
+               <li><a href="./report" target="_blank">Cucumberjs Report</a></li>
               </ul>
               <h1>開発</h1>
               <div class="py-3">
