@@ -1,4 +1,4 @@
 /**
- * ビジネスルール
+ * ドメイン層
  */
 package mrs.domain;

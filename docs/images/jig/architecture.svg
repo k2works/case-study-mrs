@@ -23,47 +23,47 @@
             <polyline fill="none" stroke="black" points="36.5,-199 40.5,-199 40.5,-195 36.5,-195 "/>
             <polyline fill="none" stroke="black" points="36.5,-175 40.5,-175 40.5,-171 36.5,-171 "/>
             <text text-anchor="middle" x="136" y="-180" font-family="Times New Roman,serif" font-size="20.00">
-                ビジネスアクション
+                アプリケーション層
             </text>
         </g>
         <!-- mrs.domain -->
         <g id="node2" class="node">
             <title>mrs.domain</title>
             <polygon fill="#eedd82" stroke="black"
-                     points="174,-131 16,-131 16,-127 12,-127 12,-123 16,-123 16,-103 12,-103 12,-99 16,-99 16,-95 174,-95 174,-131"/>
+                     points="134,-131 16,-131 16,-127 12,-127 12,-123 16,-123 16,-103 12,-103 12,-99 16,-99 16,-95 134,-95 134,-131"/>
             <polyline fill="none" stroke="black" points="16,-127 20,-127 20,-123 16,-123 "/>
             <polyline fill="none" stroke="black" points="16,-103 20,-103 20,-99 16,-99 "/>
-            <text text-anchor="middle" x="95" y="-108" font-family="Times New Roman,serif" font-size="20.00">ビジネスルール
+            <text text-anchor="middle" x="75" y="-108" font-family="Times New Roman,serif" font-size="20.00">ドメイン層
             </text>
         </g>
         <!-- mrs.application&#45;&gt;mrs.domain -->
         <g id="edge5" class="edge">
             <title>mrs.application&#45;&gt;mrs.domain</title>
-            <path fill="none" stroke="black" d="M105.25,-166.83C105.25,-166.83 105.25,-141.41 105.25,-141.41"/>
-            <polygon fill="black" stroke="black" points="108.75,-141.41 105.25,-131.41 101.75,-141.41 108.75,-141.41"/>
+            <path fill="none" stroke="black" d="M85.25,-166.83C85.25,-166.83 85.25,-141.41 85.25,-141.41"/>
+            <polygon fill="black" stroke="black" points="88.75,-141.41 85.25,-131.41 81.75,-141.41 88.75,-141.41"/>
         </g>
         <!-- org.springframework -->
         <g id="node4" class="node">
             <title>org.springframework</title>
             <polygon fill="lightgrey" stroke="black"
-                     points="215,-59 81,-59 81,-55 77,-55 77,-51 81,-51 81,-31 77,-31 77,-27 81,-27 81,-23 215,-23 215,-59"/>
-            <polyline fill="none" stroke="black" points="81,-55 85,-55 85,-51 81,-51 "/>
-            <polyline fill="none" stroke="black" points="81,-31 85,-31 85,-27 81,-27 "/>
-            <text text-anchor="middle" x="148" y="-37.3" font-family="Times New Roman,serif" font-size="14.00">
+                     points="185,-59 51,-59 51,-55 47,-55 47,-51 51,-51 51,-31 47,-31 47,-27 51,-27 51,-23 185,-23 185,-59"/>
+            <polyline fill="none" stroke="black" points="51,-55 55,-55 55,-51 51,-51 "/>
+            <polyline fill="none" stroke="black" points="51,-31 55,-31 55,-27 51,-27 "/>
+            <text text-anchor="middle" x="118" y="-37.3" font-family="Times New Roman,serif" font-size="14.00">
                 org.springframework
             </text>
         </g>
         <!-- mrs.application&#45;&gt;org.springframework -->
         <g id="edge3" class="edge">
             <title>mrs.application&#45;&gt;org.springframework</title>
-            <path fill="none" stroke="black" d="M194.5,-166.76C194.5,-166.76 194.5,-69.09 194.5,-69.09"/>
-            <polygon fill="black" stroke="black" points="198,-69.09 194.5,-59.09 191,-69.09 198,-69.09"/>
+            <path fill="none" stroke="black" d="M159.5,-166.76C159.5,-166.76 159.5,-69.09 159.5,-69.09"/>
+            <polygon fill="black" stroke="black" points="163,-69.09 159.5,-59.09 156,-69.09 163,-69.09"/>
         </g>
         <!-- mrs.domain&#45;&gt;org.springframework -->
         <g id="edge4" class="edge">
             <title>mrs.domain&#45;&gt;org.springframework</title>
-            <path fill="none" stroke="black" d="M127.5,-94.83C127.5,-94.83 127.5,-69.41 127.5,-69.41"/>
-            <polygon fill="black" stroke="black" points="131,-69.41 127.5,-59.41 124,-69.41 131,-69.41"/>
+            <path fill="none" stroke="black" d="M92.5,-94.83C92.5,-94.83 92.5,-69.41 92.5,-69.41"/>
+            <polygon fill="black" stroke="black" points="96,-69.41 92.5,-59.41 89,-69.41 96,-69.41"/>
         </g>
         <!-- mrs.presentation -->
         <g id="node3" class="node">
@@ -92,8 +92,8 @@
         <g id="edge2" class="edge">
             <title>mrs.presentation&#45;&gt;org.springframework</title>
             <path fill="none" stroke="black"
-                  d="M235.82,-257C241.4,-257 244.75,-257 244.75,-257 244.75,-257 244.75,-47 244.75,-47 244.75,-47 225.2,-47 225.2,-47"/>
-            <polygon fill="black" stroke="black" points="225.2,-43.5 215.2,-47 225.2,-50.5 225.2,-43.5"/>
+                  d="M235.82,-257C241.4,-257 244.75,-257 244.75,-257 244.75,-257 244.75,-47 244.75,-47 244.75,-47 195.09,-47 195.09,-47"/>
+            <polygon fill="black" stroke="black" points="195.09,-43.5 185.09,-47 195.09,-50.5 195.09,-43.5"/>
         </g>
         <!-- mrs -->
         <g id="node5" class="node">
@@ -116,8 +116,8 @@
         <g id="edge7" class="edge">
             <title>mrs&#45;&gt;org.springframework</title>
             <path fill="none" stroke="black"
-                  d="M290,-238.83C290,-185.81 290,-35 290,-35 290,-35 225.26,-35 225.26,-35"/>
-            <polygon fill="black" stroke="black" points="225.26,-31.5 215.26,-35 225.26,-38.5 225.26,-31.5"/>
+                  d="M290,-238.83C290,-185.81 290,-35 290,-35 290,-35 195.49,-35 195.49,-35"/>
+            <polygon fill="black" stroke="black" points="195.49,-31.5 185.49,-35 195.49,-38.5 195.49,-31.5"/>
         </g>
     </g>
 </svg>
