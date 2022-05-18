@@ -13,7 +13,7 @@ const Images = (inputRootDir, outputRootDir) => {
   const docsOutput = `${outputRootDir}/docs/images`;
   const specOutput = `${outputRootDir}/spec/docs/images`;
   docs.map((input) => {
-    const source = `${inputDir}/**/${input}`;
+    const source = `${inputDir}/**/*.*`;
     cpx.copy(source, docsOutput);
     cpx.copy(source, specOutput);
   });
