@@ -523,6 +523,8 @@ include::../cypress/integration/Auth/Login.feature[]
 
 [source,yml]
 ----
+include::../cypress/integration/Room/Room.feature[]
+
 include::../cypress/integration/Reservation/Reserve.feature[]
 
 include::../cypress/integration/Reservation/Cancel.feature[]

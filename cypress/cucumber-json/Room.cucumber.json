@@ -1,0 +1,53 @@
+[
+  {
+    "description": "  利用者として\n  会議室を検索したい\n  なぜなら会議室を利用したいから",
+    "keyword": "Feature",
+    "name": "会議室の検索",
+    "line": 1,
+    "id": "会議室の検索",
+    "tags": [],
+    "uri": "Room.feature",
+    "elements": [
+      {
+        "id": "会議室の検索;予約管理:予約可能な会議室を検索する",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "予約管理:予約可能な会議室を検索する",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "\"利用者\" としてログインしている",
+            "result": {
+              "status": "passed",
+              "duration": 1613000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 11,
+            "name": "\"会議室予約一覧画面\" ページにアクセスする",
+            "result": {
+              "status": "passed",
+              "duration": 62000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "会議室予約一覧に \"新木場\" が表示される",
+            "result": {
+              "status": "passed",
+              "duration": 28000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
