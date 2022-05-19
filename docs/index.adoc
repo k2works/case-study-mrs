@@ -331,7 +331,27 @@ UC1 - e01
 @enduml
 ----
 
-==== 予約管理
+===== 予約管理
+
+====== 会議室の検索
+
+[plantuml]
+----
+@startuml
+actor "利用者" as user
+frame "会議室の検索" as f01
+usecase "会議室を検索する" as UC1
+boundary "会議室一覧画面" as b01
+entity "会議室" as e01
+
+user - f01
+
+f01 - UC1
+b01 -- UC1
+UC1 - e01
+
+@enduml
+----
 
 ====== 会議室の予約
 
