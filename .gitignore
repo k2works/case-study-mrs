@@ -151,4 +151,7 @@ out/
 /.nb-gradle/
 
 ### VS Code ###
-.vscode/
+.vscode/
+
+!ops/build
+tmp/
