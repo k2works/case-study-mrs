@@ -3,6 +3,7 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 	id 'org.dddjava.jig-gradle-plugin' version '2022.4.1'
+	id 'de.undercouch.download' version '4.0.1'
 }
 
 group = 'com.example'
@@ -59,3 +60,52 @@ task syncErdImage(type: Sync) {
 
 task syncImage(type: GradleBuild, dependsOn: ['syncJigImage', 'syncErdImage'], group: 'documentation') {}
 task publishDocs(type: GradleBuild, dependsOn: ['clean', 'build', 'cleanImage', 'jigReports', 'syncJigImage', 'syncErdImage'], group: 'documentation') {}
+
+// SchemaSpy Task
+configurations {
+	// JDBC ドライバのためのコンフィギュレーション
+	jdbc
+}
+
+dependencies {
+	// JDBC ドライバのライブラリ
+	jdbc(
+			'org.postgresql:postgresql:42.3.3'
+	)
+}
+
+tasks.register('schemaSpy', JavaExec) {
+	description = 'Generates database documents.'
+
+	group = name
+
+	ext.outputDir = file("${buildDir}/${name}")
+
+	download {
+		ext.schemaSpyFile = file("${downloadTaskDir}/${name}/schemaspy.jar")
+
+		src('https://github.com/schemaspy/schemaspy/releases/download/v6.1.0/schemaspy-6.1.0.jar')
+		dest(schemaSpyFile)
+		overwrite = false
+	}
+
+	File driverFile = configurations.jdbc.files.first()
+
+	main = '-jar'
+	args = [
+			schemaSpyFile,
+			'-t', 'pgsql',
+			'-dp', driverFile,
+			'-host', 'localhost',
+			'-port', '5432',
+			'-u', 'mrs',
+			'-p', 'mrs',
+			'-db', 'mrs',
+			'-s', 'public',
+			'-o', outputDir,
+	]
+
+	doFirst {
+		outputDir.deleteDir()
+	}
+}
