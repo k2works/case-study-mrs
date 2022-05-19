@@ -26,3 +26,21 @@ services:
       PGADMIN_DEFAULT_PASSWORD: password
     hostname: pgadmin4
     restart: always
+
+  schemaspy:
+    image: schemaspy/schemaspy
+    volumes:
+      - ./schemaspy/output:/output
+      - ./schemaspy/config:/config
+    container_name: "schemaspy_local"
+    command: [ "-configFile", "/config/schemaspy.properties" ]
+    links:
+      - db_postgresql
+
+  nginx:
+    image: nginx
+    container_name: "nginx_for_schemaspy"
+    ports:
+      - "20081:80"
+    volumes:
+      - ./schemaspy/output:/usr/share/nginx/html:ro
