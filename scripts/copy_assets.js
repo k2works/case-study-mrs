@@ -48,6 +48,18 @@ const Jig = (inputRootDir, outputRootDir) => {
     });
 };
 
-if (fs.existsSync("./build")) {
+if (fs.existsSync("./build/jig")) {
     Jig("./build", outputRootDir);
+}
+
+// Copy schemaspy
+const schemaspy = (inputRootDir, outputRootDir) => {
+    const inputDir = `${inputRootDir}`;
+    const docsOutput = `${outputRootDir}/images/erd`;
+    const source = `${inputDir}/output/diagrams/**/*.png`;
+    cpx.copy(source, docsOutput);
+};
+
+if (fs.existsSync("./schemaspy/output")) {
+    schemaspy("./schemaspy", "./docs");
 }

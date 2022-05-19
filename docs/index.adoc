@@ -575,6 +575,9 @@ image::images/erd/jig-erd-overview.svg[]
 image::images/erd/jig-erd-summary.svg[]
 image::images/erd/jig-erd-detail.svg[]
 
+image::images/erd/summary/relationships.real.compact.png[]
+image::images/erd/summary/relationships.real.large.png[]
+
 == 運用
 
 === 開発
