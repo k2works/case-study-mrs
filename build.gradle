@@ -20,6 +20,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'
+	runtimeOnly "org.postgresql:postgresql"
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-java8time'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
