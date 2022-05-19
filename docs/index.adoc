@@ -186,9 +186,9 @@ title 業務フロー図 - 会議室の予約:BUC
 
 |利用者|
 partition 会議室の予約 {
-  :会議室を検索する;
-  :会議室を検索する;
+  :予約可能な会議室を検索する;
   :会議室の予約一覧を取得する;
+  :会議室を検索する;
    if (キャンセル) then (必要)
     :会議室の予約を取り消す;
    else (不要)
@@ -197,7 +197,9 @@ partition 会議室の予約 {
 
 |管理者|
 partition 会議室の予約 {
+   :予約可能な会議室を検索する;
    :会議室の予約一覧を取得する;
+   :会議室を検索する;
    if (代理キャンセル) then (必要)
     :会議室の予約を取り消す;
    stop
@@ -340,7 +342,7 @@ UC1 - e01
 @startuml
 actor "利用者" as user
 frame "会議室の検索" as f01
-usecase "会議室を検索する" as UC1
+usecase "予約可能な会議室を検索する" as UC1
 boundary "会議室一覧画面" as b01
 entity "会議室" as e01
 
@@ -361,7 +363,7 @@ UC1 - e01
 actor "利用者" as user
 actor "管理者" as admin
 frame "会議室の予約" as f01
-usecase "会議室を検索する" as UC1
+usecase "予約可能な会議室を検索する" as UC1
 usecase "会議室の予約一覧を取得する" as UC2
 usecase "会議室を予約する" as UC3
 usecase "会議室の予約を取り消す" as UC4
