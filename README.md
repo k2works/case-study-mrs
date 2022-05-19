@@ -94,3 +94,5 @@ npm start
 - [cypress-cucumber-preprocessor](https://www.npmjs.com/package/cypress-cucumber-preprocessor)
 - [Asciidoctor Kroki Extension](https://github.com/Mogztter/asciidoctor-kroki)
 - [Asciidoctor Documentation Site](https://docs.asciidoctor.org/)
+- [docker-composeで「SchemaSpy」でデータベースのドキュメントを自動生成するやり方](https://blogenist.jp/2019/04/20/8075/)
+- [SchemaSpyでER図を自動生成](https://qiita.com/YasuhiroKimesawa/items/407fcf85aa15eae60508)
