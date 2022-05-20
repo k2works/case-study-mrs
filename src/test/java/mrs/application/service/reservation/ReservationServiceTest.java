@@ -1,10 +1,6 @@
-package mrs.appication.service.reservation;
+package mrs.application.service.reservation;
 
 import mrs.Application;
-import mrs.application.service.reservation.AlreadyReservedException;
-import mrs.application.service.reservation.ReservationRepository;
-import mrs.application.service.reservation.ReservationService;
-import mrs.application.service.reservation.UnavailableReservationException;
 import mrs.application.service.room.MeetingRoomRepository;
 import mrs.application.service.room.ReservableRoomRepository;
 import mrs.application.service.user.UserRepository;

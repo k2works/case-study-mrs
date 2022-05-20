@@ -1,6 +1,5 @@
-package mrs.appication.service.room;
+package mrs.application.service.room;
 
-import mrs.application.service.room.ReservableRoomRepository;
 import mrs.domain.model.room.ReservableRoom;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
