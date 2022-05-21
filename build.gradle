@@ -15,20 +15,22 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-validation'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'com.h2database:h2'
-	runtimeOnly "org.postgresql:postgresql"
-	runtimeOnly "org.flywaydb:flyway-core"
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation 'org.thymeleaf.extras:thymeleaf-extras-java8time'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
-	testImplementation 'org.springframework.security:spring-security-test'
-	testImplementation 'com.github.irof:jig-erd:latest.release'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    runtimeOnly 'com.h2database:h2'
+    runtimeOnly "org.postgresql:postgresql"
+    runtimeOnly "org.flywaydb:flyway-core"
+    implementation "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2"
+    testImplementation "org.mybatis.spring.boot:mybatis-spring-boot-starter-test:2.2.2"
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-java8time'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+    testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation 'com.github.irof:jig-erd:latest.release'
 }
 
 tasks.named('test') {
