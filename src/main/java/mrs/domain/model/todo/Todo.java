@@ -9,7 +9,7 @@ public class Todo {
     private String details;
     private boolean finished;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -33,7 +33,7 @@ public class Todo {
         this.details = details;
     }
 
-    public boolean isFinished() {
+    public Boolean getFinished() {
         return finished;
     }
 

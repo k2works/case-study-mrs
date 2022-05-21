@@ -4,7 +4,8 @@ CREATE TABLE public.todo
     id       SERIAL  NOT NULL,
     title    TEXT    NOT NULL,
     details  TEXT,
-    finished BOOLEAN NOT NULL
+    finished BOOLEAN NOT NULL,
+    PRIMARY KEY (id)
 );
 comment on table public.todo is 'やること';
 comment on column public.todo.id is 'ID';
