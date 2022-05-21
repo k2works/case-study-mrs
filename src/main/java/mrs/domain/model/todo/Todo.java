@@ -9,36 +9,40 @@ public class Todo {
     private String details;
     private boolean finished;
 
-    public Integer getId() {
-        return id;
+    @Deprecated
+    public Todo() {
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
+    public Todo(String title, String details, boolean finished) {
         this.title = title;
-    }
-
-    public String getDetails() {
-        return details;
-    }
-
-    public void setDetails(String details) {
         this.details = details;
-    }
-
-    public Boolean getFinished() {
-        return finished;
-    }
-
-    public void setFinished(boolean finished) {
         this.finished = finished;
     }
 
+    public Todo(int id, String title, String details, boolean finished) {
+        this.id = id;
+        this.title = title;
+        this.details = details;
+        this.finished = finished;
+    }
+
+    public int id() {
+        return id;
+    }
+
+    public String title() {
+        return title;
+    }
+
+    public String details() {
+        return details;
+    }
+
+    public boolean finished() {
+        return finished;
+    }
+
+    public Todo finish() {
+        return new Todo(id, title, details, true);
+    }
 }

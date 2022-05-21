@@ -16,4 +16,19 @@
         SELECT id, title, details, finished
         FROM todo
     </select>
+    <update id="update" parameterType="mrs.domain.model.todo.Todo">
+        update todo
+        <set>
+            <if test="title != null">
+                title = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="details != null">
+                details = #{details,jdbcType=VARCHAR},
+            </if>
+            <if test="finished != null">
+                finished = #{finished,jdbcType=BIT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

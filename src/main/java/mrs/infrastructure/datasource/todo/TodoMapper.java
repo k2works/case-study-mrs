@@ -12,4 +12,6 @@ public interface TodoMapper {
     Todo select(int id);
 
     List<Todo> selectAllJoin();
+
+    int update(Todo record);
 }
