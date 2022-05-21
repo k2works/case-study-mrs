@@ -61,4 +61,19 @@ public class TodoMapperTest {
         result = todoMapper.select(2);
         assertEquals("銀座 20:00", result.details());
     }
+
+    @Test
+    void やることを削除できる() throws Exception {
+        Todo firstTodo = new Todo(
+                2,
+                "飲み会",
+                "銀座 19:00",
+                false
+        );
+        todoMapper.insert(firstTodo);
+        Todo result = todoMapper.select(2);
+        todoMapper.delete(result.id());
+        result = todoMapper.select(2);
+        assertNull(result);
+    }
 }
