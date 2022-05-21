@@ -1,6 +1,7 @@
 package mrs.infrastructure.datasource;
 
 import mrs.domain.model.todo.Todo;
+import mrs.infrastructure.datasource.todo.TodoMapper;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
