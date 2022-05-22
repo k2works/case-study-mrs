@@ -63,7 +63,7 @@ task syncErdImage(type: Sync) {
 }
 
 task syncSchemaspyImage(type: Sync) {
-	from "./schemaspy/output/diagrams"
+	from "./ops/build/docker/schemaspy/output/diagrams"
 	into "./docs/images/schemaspy"
 	include "**/*.png"
 }

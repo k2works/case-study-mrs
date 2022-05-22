@@ -61,5 +61,5 @@ const schemaspy = (inputRootDir, outputRootDir) => {
 };
 
 if (fs.existsSync("./schemaspy/output")) {
-    schemaspy("./schemaspy", "./docs");
+    schemaspy("./ops/build/docker/schemaspy", "./docs");
 }
