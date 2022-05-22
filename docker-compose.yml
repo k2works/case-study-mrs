@@ -33,7 +33,7 @@ services:
       - ./ops/build/docker/schemaspy/output:/output
       - ./ops/build/docker/schemaspy/config:/config
     container_name: "schemaspy_local"
-    command: [ "-configFile", "/config/schemaspy.properties" ]
+    command: [ "-all", "-configFile", "/config/schemaspy.properties" ]
     links:
       - db_postgresql
 

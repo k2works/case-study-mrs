@@ -56,7 +56,7 @@ if (fs.existsSync("./build/jig")) {
 const schemaspy = (inputRootDir, outputRootDir) => {
     const inputDir = `${inputRootDir}`;
     const docsOutput = `${outputRootDir}/images/schemaspy`;
-    const source = `${inputDir}/output/diagrams/**/*.png`;
+    const source = `${inputDir}/output/public/diagrams/**/*.png`;
     cpx.copy(source, docsOutput);
 };
 
