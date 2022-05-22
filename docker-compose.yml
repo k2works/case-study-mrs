@@ -20,7 +20,7 @@ services:
     ports:
       - 20082:80
     volumes:
-      - ./tmp/config/pgadmin:/var/lib/pgadmin
+      - ./ops/build/docker/postgres/config/pgadmin:/var/lib/pgadmin
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@email.com
       PGADMIN_DEFAULT_PASSWORD: password
@@ -30,8 +30,8 @@ services:
   schemaspy:
     image: schemaspy/schemaspy
     volumes:
-      - ./schemaspy/output:/output
-      - ./schemaspy/config:/config
+      - ./ops/build/docker/schemaspy/output:/output
+      - ./ops/build/docker/schemaspy/config:/config
     container_name: "schemaspy_local"
     command: [ "-configFile", "/config/schemaspy.properties" ]
     links:
@@ -43,4 +43,4 @@ services:
     ports:
       - "20081:80"
     volumes:
-      - ./schemaspy/output:/usr/share/nginx/html:ro
+      - ./ops/build/docker/schemaspy/output:/usr/share/nginx/html:ro
