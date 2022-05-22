@@ -62,6 +62,12 @@ task syncErdImage(type: Sync) {
 	include "**/*.svg"
 }
 
+task syncSchemaspyImage(type: Sync) {
+	from "./schemaspy/output/diagrams"
+	into "./docs/images/schemaspy"
+	include "**/*.png"
+}
+
 task syncImage(type: GradleBuild, dependsOn: ['syncJigImage', 'syncErdImage'], group: 'documentation') {}
 task publishDocs(type: GradleBuild, dependsOn: ['clean', 'build', 'cleanImage', 'jigReports', 'syncJigImage', 'syncErdImage'], group: 'documentation') {}
 
