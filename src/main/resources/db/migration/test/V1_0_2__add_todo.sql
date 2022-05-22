@@ -1,6 +1,5 @@
-DROP TABLE IF EXISTS todo CASCADE;
-
-CREATE TABLE todo
+CREATE SCHEMA sample;
+CREATE TABLE sample.todo
 (
     id       INT4    NOT NULL AUTO_INCREMENT,
     title    TEXT    NOT NULL,

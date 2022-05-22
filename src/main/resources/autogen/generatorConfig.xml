@@ -28,17 +28,18 @@
                 targetProject="src/main/java" type="MIXEDMAPPER">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
-        <table tableName="todo"
+        <table tableName="%"
                enableInsert="true"
                enableSelectByPrimaryKey="true"
-               enableSelectByExample="false"
+               enableSelectByExample="true"
                enableUpdateByPrimaryKey="true"
-               enableUpdateByExample="false"
+               enableUpdateByExample="true"
                enableDeleteByPrimaryKey="true"
-               enableDeleteByExample="false"
-               enableCountByExample="false"
+               enableDeleteByExample="true"
+               enableCountByExample="true"
                selectByExampleQueryId="true"
-               modelType="flat">
+               modelType="flat"
+               schema="sample">
         </table>
     </context>
 </generatorConfiguration>

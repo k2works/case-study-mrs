@@ -1,6 +1,6 @@
-package mrs.infrastructure.datasource.autogen;
+package mrs.infrastructure.datasource.autogen.sample;
 
-import mrs.domain.model.autogen.Todo;
+import mrs.domain.model.autogen.sample.Todo;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;

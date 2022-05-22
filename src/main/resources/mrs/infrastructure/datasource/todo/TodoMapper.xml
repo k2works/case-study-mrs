@@ -4,20 +4,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mrs.infrastructure.datasource.todo.TodoMapper">
     <insert id="insert" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO todo (title, details, finished)
+        INSERT INTO sample.todo (title, details, finished)
         VALUES (#{title}, #{details}, #{finished})
     </insert>
     <select id="select" resultType="mrs.domain.model.todo.Todo">
         SELECT id, title, details, finished
-        FROM todo
+        FROM sample.todo
         WHERE id = #{id}
     </select>
     <select id="selectAllJoin" resultType="mrs.domain.model.todo.Todo">
         SELECT id, title, details, finished
-        FROM todo
+        FROM sample.todo
     </select>
     <update id="update" parameterType="mrs.domain.model.todo.Todo">
-        update todo
+        update sample.todo
         <set>
             <if test="title != null">
                 title = #{title,jdbcType=VARCHAR},
@@ -33,7 +33,7 @@
     </update>
     <insert id="delete" useGeneratedKeys="true" keyProperty="id">
         DELETE
-        FROM todo
+        FROM sample.todo
         WHERE id = #{id,jdbcType=INTEGER}
     </insert>
 </mapper>
