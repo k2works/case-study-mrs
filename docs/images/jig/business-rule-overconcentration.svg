@@ -70,7 +70,7 @@
             </text>
         </g>
         <!-- mrs.domain.model.reservation.Reservation&#45;&gt;mrs.domain.model.room.ReservableRoomId -->
-        <g id="edge1" class="edge">
+        <g id="edge3" class="edge">
             <title>mrs.domain.model.reservation.Reservation&#45;&gt;mrs.domain.model.room.ReservableRoomId</title>
             <path fill="none" stroke="black" d="M141.72,-243.94C166.91,-249.46 200.91,-256.92 235.3,-264.47"/>
             <polygon fill="black" stroke="black" points="234.97,-267.98 245.49,-266.7 236.47,-261.14 234.97,-267.98"/>
@@ -84,7 +84,7 @@
             </text>
         </g>
         <!-- mrs.domain.model.reservation.Reservation&#45;&gt;mrs.domain.model.user.User -->
-        <g id="edge3" class="edge">
+        <g id="edge1" class="edge">
             <title>mrs.domain.model.reservation.Reservation&#45;&gt;mrs.domain.model.user.User</title>
             <path fill="none" stroke="black" d="M141.72,-230.46C187.06,-225.4 260.96,-217.16 314.25,-211.22"/>
             <polygon fill="black" stroke="black" points="314.73,-214.69 324.28,-210.1 313.96,-207.73 314.73,-214.69"/>
@@ -101,7 +101,7 @@
             </text>
         </g>
         <!-- mrs.domain.model.room.ReservableRoom&#45;&gt;mrs.domain.model.room.ReservableRoomId -->
-        <g id="edge2" class="edge">
+        <g id="edge4" class="edge">
             <title>mrs.domain.model.room.ReservableRoom&#45;&gt;mrs.domain.model.room.ReservableRoomId</title>
             <path fill="none" stroke="black" d="M168.65,-296C188.88,-296 211.88,-296 235.06,-296"/>
             <polygon fill="black" stroke="black" points="235.35,-299.5 245.35,-296 235.35,-292.5 235.35,-299.5"/>
@@ -134,7 +134,7 @@
             <polygon fill="black" stroke="black" points="549.51,-163.28 559.78,-160.66 550.12,-156.3 549.51,-163.28"/>
         </g>
         <!-- mrs.domain.model.user.ReservationUserDetails&#45;&gt;mrs.domain.model.user.User -->
-        <g id="edge4" class="edge">
+        <g id="edge2" class="edge">
             <title>mrs.domain.model.user.ReservationUserDetails&#45;&gt;mrs.domain.model.user.User</title>
             <path fill="none" stroke="black" d="M173.32,-178.1C216.86,-183.59 271.85,-190.51 314.02,-195.82"/>
             <polygon fill="black" stroke="black" points="313.81,-199.32 324.17,-197.1 314.69,-192.38 313.81,-199.32"/>
