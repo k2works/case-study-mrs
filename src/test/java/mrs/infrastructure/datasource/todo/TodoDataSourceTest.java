@@ -1,8 +1,6 @@
-package mrs.infrastructure.datasource;
+package mrs.infrastructure.datasource.todo;
 
 import mrs.domain.model.todo.Todo;
-import mrs.infrastructure.datasource.todo.TodoDataSource;
-import mrs.infrastructure.datasource.todo.TodoMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

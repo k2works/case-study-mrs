@@ -1,6 +1,6 @@
 package mrs;
 
-import mrs.application.service.user.ReservationUserDetailsService;
+import mrs.application.service.service_user.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -15,9 +15,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    private final ReservationUserDetailsService userDetailsService;
+    private final UserService userDetailsService;
 
-    public WebSecurityConfig(ReservationUserDetailsService userDetailsService) {
+    public WebSecurityConfig(UserService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
 

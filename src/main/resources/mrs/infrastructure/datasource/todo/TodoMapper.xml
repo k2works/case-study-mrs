@@ -31,9 +31,9 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <insert id="delete" useGeneratedKeys="true" keyProperty="id">
+    <delete id="delete">
         DELETE
         FROM sample.todo
         WHERE id = #{id,jdbcType=INTEGER}
-    </insert>
+    </delete>
 </mapper>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mrs.infrastructure.datasource.service_user.UserMapper">
+  <resultMap id="BaseResultMap" type="mrs.domain.model.service_user.User">
+    <id column="会員番号" jdbcType="VARCHAR" property="userId"/>
+    <result column="姓" jdbcType="VARCHAR" property="firstName"/>
+    <result column="名" jdbcType="VARCHAR" property="lastName"/>
+    <result column="パスワード" jdbcType="VARCHAR" property="password"/>
+    <result column="役割" jdbcType="VARCHAR" property="roleName"/>
+  </resultMap>
+
+  <insert id="insert" useGeneratedKeys="true">
+    INSERT INTO service_user.会員 (会員番号, 姓, 名, パスワード, 役割)
+    VALUES (#{userId}, #{firstName}, #{lastName}, #{password}, #{roleName})
+  </insert>
+
+  <select id="select" resultMap="BaseResultMap">
+    SELECT 会員番号, 姓, 名, パスワード, 役割, 登録日時
+    FROM service_user.会員
+    WHERE 会員番号 = #{userId}
+  </select>
+
+  <select id="selectAllJoin" resultMap="BaseResultMap">
+    SELECT 会員番号, 姓, 名, パスワード, 役割, 登録日時
+    FROM service_user.会員
+  </select>
+
+  <update id="update" parameterType="mrs.domain.model.service_user.User">
+    UPDATE service_user.会員
+    SET 姓     = #{firstName},
+        名     = #{lastName},
+        パスワード = #{password},
+        役割    = #{roleName}
+    WHERE 会員番号 = #{userId}
+  </update>
+
+  <delete id="delete">
+    DELETE
+    FROM service_user.会員
+    WHERE 会員番号 = #{userId}
+  </delete>
+
+  <delete id="deleteAll">
+    DELETE
+    FROM service_user.会員
+  </delete>
+</mapper>
