@@ -14,9 +14,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class RoomMapperTest {
     @Autowired
     private RoomMapper roomMapper;
+    @Autowired
+    private ReservableRoomMapper reservableRoomMapper;
 
     @BeforeEach
     public void setUp() {
+        reservableRoomMapper.deleteAll();
         roomMapper.deleteAll();
     }
 

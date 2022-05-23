@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mrs.infrastructure.datasource.reserve.room.ReservableRoomMapper">
+    <resultMap id="BaseResultMap" type="mrs.domain.model.reserve.room.ReservableRoom">
+        <id column="予約日" property="reservableRoomId.reservedDate"/>
+        <id column="会議室番号" property="reservableRoomId.roomId"/>
+        <association property="reservableRoomId" javaType="mrs.domain.model.reserve.room.ReservableRoomId">
+            <id property="roomId" column="会議室番号"/>
+            <result property="reservedDate" column="予約日"/>
+        </association>
+        <association property="meetingRoom" javaType="mrs.domain.model.reserve.room.MeetingRoom">
+            <id property="roomId" column="会議室番号"/>
+            <result property="roomName" column="会議室名"/>
+        </association>
+    </resultMap>
+
+    <insert id="insert" parameterType="mrs.domain.model.reserve.room.ReservableRoomId">
+        INSERT INTO reserve.予約可能会議室 (予約日, 会議室番号)
+        VALUES (#{reservedDate}, #{roomId})
+    </insert>
+
+    <select id="select" parameterType="mrs.domain.model.reserve.room.ReservableRoomId" resultMap="BaseResultMap">
+        SELECT rr.会議室番号,
+               rr.予約日,
+               rm.会議室名
+        FROM reserve.予約可能会議室 rr
+                 LEFT OUTER JOIN reserve.会議室 rm ON rr.会議室番号 = rm.会議室番号
+        WHERE rr.会議室番号 = #{roomId}
+          AND 予約日 = #{reservedDate}
+    </select>
+
+    <select id="selectAllJoin" resultMap="BaseResultMap">
+        SELECT rr.会議室番号,
+               rr.予約日,
+               rm.会議室名
+        FROM reserve.予約可能会議室 rr
+                 LEFT OUTER JOIN reserve.会議室 rm ON rr.会議室番号 = rm.会議室番号
+    </select>
+
+    <delete id="delete" parameterType="mrs.domain.model.reserve.room.ReservableRoomId">
+        DELETE
+        FROM reserve.予約可能会議室
+        WHERE 予約日 = #{reservedDate}
+          AND 会議室番号 = #{roomId}
+    </delete>
+
+    <delete id="deleteAll">
+        DELETE
+        FROM reserve.予約可能会議室
+    </delete>
+</mapper>
