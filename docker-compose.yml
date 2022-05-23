@@ -28,7 +28,9 @@ services:
     restart: always
 
   schemaspy:
-    image: schemaspy/schemaspy
+    build:
+      context: ops
+      dockerfile: ./build/docker/schemaspy/Dockerfile
     volumes:
       - ./ops/build/docker/schemaspy/output:/output
       - ./ops/build/docker/schemaspy/config:/config
