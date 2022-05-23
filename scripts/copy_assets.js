@@ -60,6 +60,14 @@ const schemaspy = (inputRootDir, outputRootDir) => {
     cpx.copy(source, docsOutput);
 };
 
-if (fs.existsSync("./schemaspy/output")) {
+const schemaspyHtml = (inputRootDir, outputRootDir) => {
+    const inputDir = `${inputRootDir}`;
+    const docsOutput = `${outputRootDir}/schemaspy`;
+    const source = `${inputDir}/output/**/*.*`;
+    cpx.copy(source, docsOutput);
+};
+
+if (fs.existsSync("./ops/build/docker/schemaspy/output")) {
     schemaspy("./ops/build/docker/schemaspy", "./docs");
+    schemaspyHtml("./ops/build/docker/schemaspy", "./public");
 }

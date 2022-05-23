@@ -43,4 +43,4 @@ services:
     ports:
       - "20081:80"
     volumes:
-      - ./ops/build/docker/schemaspy/output:/usr/share/nginx/html:ro
+      - ./public:/usr/share/nginx/html:ro
