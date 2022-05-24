@@ -1,5 +1,6 @@
 package mrs.infrastructure.datasource.reserve.reservation;
 
+import mrs.IntegrationTest;
 import mrs.domain.model.reserve.reservation.Reservation;
 import mrs.domain.model.reserve.room.MeetingRoom;
 import mrs.domain.model.reserve.room.ReservableRoomId;
@@ -11,7 +12,6 @@ import mrs.infrastructure.datasource.service_user.UserMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -19,7 +19,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
+@IntegrationTest
 public class ReservationDataSourceTest {
     @Autowired
     UserMapper userMapper;

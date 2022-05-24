@@ -1,6 +1,6 @@
 package mrs.application.service.reservation;
 
-import mrs.Application;
+import mrs.IntegrationTest;
 import mrs.application.service.room.MeetingRoomRepository;
 import mrs.application.service.room.ReservableRoomRepository;
 import mrs.application.service.user.UserRepository;
@@ -12,7 +12,6 @@ import mrs.domain.model.service_user.RoleName;
 import mrs.domain.model.service_user.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.annotation.DirtiesContext;
 
@@ -23,7 +22,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-@SpringBootTest(classes = Application.class)
+@IntegrationTest
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class ReservationServiceTest {
     @Autowired

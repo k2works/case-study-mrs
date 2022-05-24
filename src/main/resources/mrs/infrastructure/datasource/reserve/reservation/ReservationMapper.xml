@@ -26,9 +26,47 @@
     </resultMap>
 
     <insert id="insert" parameterType="mrs.domain.model.reserve.reservation.Reservation" useGeneratedKeys="true">
-        INSERT INTO reserve.予約 (予約終了時間, 予約開始時間, 予約日, 会議室番号, 会員番号)
-        VALUES (#{endTime}, #{startTime}, #{reservableRoom.reservableRoomId.reservedDate},
-                #{reservableRoom.reservableRoomId.roomId}, #{user.userId})
+        INSERT INTO reserve.予約
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="reservationId != null">
+                予約番号,
+            </if>
+            <if test="endTime != null">
+                予約終了時間,
+            </if>
+            <if test="startTime != null">
+                予約開始時間,
+            </if>
+            <if test="reservableRoom.reservableRoomId.reservedDate != null">
+                予約日,
+            </if>
+            <if test="reservableRoom.reservableRoomId.roomId != null">
+                会議室番号,
+            </if>
+            <if test="user.userId != null">
+                会員番号,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="reservationId != null">
+                #{reservationId},
+            </if>
+            <if test="endTime != null">
+                #{endTime},
+            </if>
+            <if test="startTime != null">
+                #{startTime},
+            </if>
+            <if test="reservableRoom.reservableRoomId.reservedDate != null">
+                #{reservableRoom.reservableRoomId.reservedDate},
+            </if>
+            <if test="reservableRoom.reservableRoomId.roomId != null">
+                #{reservableRoom.reservableRoomId.roomId},
+            </if>
+            <if test="user.userId != null">
+                #{user.userId},
+            </if>
+        </trim>
     </insert>
 
     <select id="select" resultMap="BaseResultMap">

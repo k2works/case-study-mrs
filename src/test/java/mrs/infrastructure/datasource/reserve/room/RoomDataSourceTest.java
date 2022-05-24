@@ -1,10 +1,10 @@
 package mrs.infrastructure.datasource.reserve.room;
 
+import mrs.IntegrationTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+@IntegrationTest
 public class RoomDataSourceTest {
     @Autowired
     private RoomMapper roomMapper;

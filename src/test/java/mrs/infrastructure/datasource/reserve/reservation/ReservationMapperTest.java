@@ -33,10 +33,10 @@ public class ReservationMapperTest {
 
     @BeforeEach
     public void setUp() {
-        userMapper.deleteAll();
-        roomMapper.deleteAll();
-        reservableRoomMapper.deleteAll();
         reservationMapper.deleteAll();
+        reservableRoomMapper.deleteAll();
+        roomMapper.deleteAll();
+        userMapper.deleteAll();
     }
 
     @Test
