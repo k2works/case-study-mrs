@@ -1,7 +1,7 @@
 package mrs.application.service.room;
 
-import mrs.domain.model.room.MeetingRoom;
-import org.springframework.data.jpa.repository.JpaRepository;
+import mrs.domain.model.reserve.room.MeetingRoom;
 
-public interface MeetingRoomRepository extends JpaRepository<MeetingRoom, Integer> {
+public interface MeetingRoomRepository {
+    MeetingRoom getById(Integer roomId);
 }

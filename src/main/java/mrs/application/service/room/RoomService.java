@@ -1,6 +1,6 @@
 package mrs.application.service.room;
 
-import mrs.domain.model.room.MeetingRoom;
+import mrs.domain.model.reserve.room.MeetingRoom;
 import mrs.domain.model.room.ReservableRoom;
 import org.springframework.stereotype.Service;
 
