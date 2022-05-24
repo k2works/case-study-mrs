@@ -8,10 +8,17 @@
             <id property="roomId" column="会議室番号"/>
             <result property="reservedDate" column="予約日"/>
         </association>
-        <association property="meetingRoom" javaType="mrs.domain.model.reserve.room.MeetingRoom">
-            <id property="roomId" column="会議室番号"/>
-            <result property="roomName" column="会議室名"/>
-        </association>
+        <association property="meetingRoom"
+                     javaType="mrs.domain.model.reserve.room.MeetingRoom"
+                     column="会議室番号"
+                     select="mrs.infrastructure.datasource.reserve.room.RoomMapper.select"
+        />
+        <collection property="reservations"
+                    javaType="ArrayList"
+                    column="{reservedDate=予約日, roomId=会議室番号}"
+                    select="mrs.infrastructure.datasource.reserve.reservation.ReservationMapper.selectByKey"
+                    fetchType="lazy"
+        />
     </resultMap>
 
     <insert id="insert" parameterType="mrs.domain.model.reserve.room.ReservableRoomId">

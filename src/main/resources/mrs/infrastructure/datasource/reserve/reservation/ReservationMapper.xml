@@ -8,25 +8,21 @@
         <result column="予約日" property="reservableRoom.reservableRoomId.reservedDate"/>
         <result column="会議室番号" property="reservableRoom.reservableRoomId.roomId"/>
         <result column="会員番号" property="user.userId"/>
-        <association property="reservableRoom" javaType="mrs.domain.model.reserve.room.ReservableRoom">
-            <id property="reservableRoomId.roomId" column="会議室番号"/>
-            <result property="reservableRoomId.reservedDate" column="予約日"/>
-        </association>
         <association property="reservableRoom.reservableRoomId"
                      javaType="mrs.domain.model.reserve.room.ReservableRoomId">
             <id property="roomId" column="会議室番号"/>
             <result property="reservedDate" column="予約日"/>
         </association>
-        <association property="reservableRoom.meetingRoom" javaType="mrs.domain.model.reserve.room.MeetingRoom">
-            <id property="roomId" column="会議室番号"/>
-            <result property="roomName" column="会議室名"/>
-        </association>
-        <association property="user" javaType="mrs.domain.model.service_user.User">
-            <id property="userId" column="会員番号"/>
-            <result property="firstName" column="姓"/>
-            <result property="lastName" column="名"/>
-            <result property="roleName" column="役割"/>
-        </association>
+        <association property="reservableRoom.meetingRoom"
+                     javaType="mrs.domain.model.reserve.room.MeetingRoom"
+                     column="会議室番号"
+                     select="mrs.infrastructure.datasource.reserve.room.RoomMapper.select"
+        />
+        <association property="user"
+                     javaType="mrs.domain.model.service_user.User"
+                     column="会員番号"
+                     select="mrs.infrastructure.datasource.service_user.UserMapper.select"
+        />
     </resultMap>
 
     <insert id="insert" parameterType="mrs.domain.model.reserve.reservation.Reservation">
@@ -50,8 +46,7 @@
                r.会員番号,
                u.姓,
                u.名,
-               u.役割,
-            　　　　
+               u.役割, 　
                rm.会議室名
         FROM reserve.予約 r
                  LEFT OUTER JOIN reserve.予約可能会議室 rr
@@ -60,6 +55,19 @@
                                  ON r.会員番号 = u.会員番号
                  LEFT OUTER JOIN reserve.会議室 rm
                                  ON r.会議室番号 = rm.会議室番号
+    </select>
+
+    <select id="selectByKey" resultMap="BaseResultMap">
+        SELECT 予約番号, 予約終了時間, 予約開始時間, 予約日, 会議室番号, 会員番号
+        FROM reserve.予約
+        WHERE 予約日 = #{reservedDate}
+          AND 会議室番号 = #{roomId}
+    </select>
+
+    <select id="selectByUserId" resultMap="BaseResultMap">
+        SELECT 予約番号, 予約終了時間, 予約開始時間, 予約日, 会議室番号, 会員番号
+        FROM reserve.予約
+        WHERE 会員番号 = #{userId}
     </select>
 
     <update id="update" parameterType="mrs.domain.model.reserve.reservation.Reservation">

@@ -1,11 +1,13 @@
 package mrs.infrastructure.datasource.reserve.room;
 
 import mrs.domain.model.reserve.room.MeetingRoom;
+import mrs.domain.model.reserve.room.ReservableRoomId;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -31,6 +33,20 @@ public class RoomMapperTest {
         MeetingRoom actual = roomMapper.select(1);
         assertEquals(1, actual.getRoomId());
         assertEquals("会議室A", actual.getRoomName());
+    }
+
+    @Test
+    public void 予約可能会議室を保持している() {
+        MeetingRoom meetingRoom = new MeetingRoom(1, "会議室A");
+        roomMapper.insert(meetingRoom);
+
+        ReservableRoomId reservableRoomId = new ReservableRoomId(1, LocalDate.of(2020, 1, 1));
+        reservableRoomMapper.insert(reservableRoomId);
+        reservableRoomId = new ReservableRoomId(1, LocalDate.of(2020, 1, 2));
+        reservableRoomMapper.insert(reservableRoomId);
+
+        MeetingRoom result = roomMapper.select(meetingRoom.getRoomId());
+        assertEquals(2, result.getReservableRooms().size());
     }
 
     @Test

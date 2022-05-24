@@ -1,5 +1,9 @@
 package mrs.domain.model.service_user;
 
+import mrs.domain.model.reserve.reservation.Reservation;
+
+import java.util.List;
+
 /**
  * 会員
  */
@@ -14,6 +18,7 @@ public class User {
 
     private RoleName roleName;
 
+    private List<Reservation> reservations;
 
     public User(String userId, String firstName, String lastName, String password, RoleName roleName) {
         this.userId = userId;
@@ -65,6 +70,10 @@ public class User {
 
     public void setRoleName(RoleName roleName) {
         this.roleName = roleName;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
     }
 }
 

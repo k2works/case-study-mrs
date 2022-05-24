@@ -4,6 +4,12 @@
   <resultMap id="BaseResultMap" type="mrs.domain.model.reserve.room.MeetingRoom">
     <id column="会議室番号" jdbcType="INTEGER" property="roomId"/>
     <result column="会議室名" jdbcType="VARCHAR" property="roomName"/>
+    <collection property="reservableRooms"
+                javaType="ArrayList"
+                column="会議室番号"
+                select="mrs.infrastructure.datasource.reserve.room.ReservableRoomMapper.selectAllJoin"
+                fetchType="lazy"
+    />
   </resultMap>
 
   <insert id="insert" useGeneratedKeys="true">

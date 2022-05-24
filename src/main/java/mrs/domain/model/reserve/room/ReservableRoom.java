@@ -1,6 +1,9 @@
 package mrs.domain.model.reserve.room;
 
+import mrs.domain.model.reserve.reservation.Reservation;
+
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 予約可能会議室
@@ -8,6 +11,7 @@ import java.io.Serializable;
 public class ReservableRoom implements Serializable {
     private ReservableRoomId reservableRoomId;
     private MeetingRoom meetingRoom;
+    private List<Reservation> reservations;
 
     @Deprecated
     public ReservableRoom() {
@@ -31,5 +35,9 @@ public class ReservableRoom implements Serializable {
 
     public void setMeetingRoom(MeetingRoom meetingRoom) {
         this.meetingRoom = meetingRoom;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
     }
 }

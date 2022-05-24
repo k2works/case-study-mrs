@@ -1,21 +1,40 @@
 package mrs.infrastructure.datasource.service_user;
 
+import mrs.domain.model.reserve.reservation.Reservation;
+import mrs.domain.model.reserve.room.MeetingRoom;
+import mrs.domain.model.reserve.room.ReservableRoomId;
 import mrs.domain.model.service_user.RoleName;
 import mrs.domain.model.service_user.User;
+import mrs.infrastructure.datasource.reserve.reservation.ReservationMapper;
+import mrs.infrastructure.datasource.reserve.room.ReservableRoomMapper;
+import mrs.infrastructure.datasource.reserve.room.RoomMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @MybatisTest
 public class UserMapperTest {
+    @Autowired
+    private RoomMapper roomMapper;
+    @Autowired
+    private ReservableRoomMapper reservableRoomMapper;
+    @Autowired
+    private ReservationMapper reservationMapper;
     @Autowired
     UserMapper userMapper;
 
     @BeforeEach
     public void setUp() {
+        reservableRoomMapper.deleteAll();
+        roomMapper.deleteAll();
+        reservableRoomMapper.deleteAll();
         userMapper.deleteAll();
     }
 
@@ -32,12 +51,36 @@ public class UserMapperTest {
     }
 
     @Test
-    public void 複数のユーザーを登録できる() {
+    public void ユーザーを検索できる() {
         userMapper.insert(new User("1", "テスト", "太郎", "password", RoleName.USER));
         userMapper.insert(new User("2", "テスト", "太郎", "password", RoleName.USER));
 
         List<User> users = userMapper.selectAllJoin();
         assert (users.size() == 2);
+    }
+
+    @Test
+    public void 複数の予約を保持している() {
+        User user = new User("1", "テスト", "太郎", "password", RoleName.USER);
+        userMapper.insert(user);
+        MeetingRoom meetingRoom = new MeetingRoom(1, "会議室A");
+        roomMapper.insert(meetingRoom);
+        ReservableRoomId reservableRoomId = new ReservableRoomId(1, LocalDate.of(2020, 1, 1));
+        reservableRoomMapper.insert(reservableRoomId);
+
+        Reservation reservation = new Reservation();
+        reservation.setReservationId(1);
+        reservation.setEndTime(LocalTime.of(10, 0));
+        reservation.setStartTime(LocalTime.of(9, 0));
+        reservation.setReservableRoom(reservableRoomMapper.select(reservableRoomId));
+        reservation.setUser(userMapper.select(user.getUserId()));
+        reservationMapper.insert(reservation);
+        reservation.setReservationId(2);
+        reservationMapper.insert(reservation);
+
+        List<Reservation> reservations = reservationMapper.selectByKey(reservableRoomId.getReservedDate(), reservableRoomId.getRoomId());
+        User result = userMapper.select(user.getUserId());
+        assertEquals(reservations.size(), result.getReservations().size());
     }
 
     @Test

@@ -7,6 +7,12 @@
     <result column="名" jdbcType="VARCHAR" property="lastName"/>
     <result column="パスワード" jdbcType="VARCHAR" property="password"/>
     <result column="役割" jdbcType="VARCHAR" property="roleName"/>
+    <collection property="reservations"
+                javaType="ArrayList"
+                column="会員番号"
+                select="mrs.infrastructure.datasource.reserve.reservation.ReservationMapper.selectByUserId"
+                fetchType="lazy"
+    />
   </resultMap>
 
   <insert id="insert" useGeneratedKeys="true">
