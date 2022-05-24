@@ -25,9 +25,9 @@
         />
     </resultMap>
 
-    <insert id="insert" parameterType="mrs.domain.model.reserve.reservation.Reservation">
-        INSERT INTO reserve.予約 (予約番号, 予約終了時間, 予約開始時間, 予約日, 会議室番号, 会員番号)
-        VALUES (#{reservationId}, #{endTime}, #{startTime}, #{reservableRoom.reservableRoomId.reservedDate},
+    <insert id="insert" parameterType="mrs.domain.model.reserve.reservation.Reservation" useGeneratedKeys="true">
+        INSERT INTO reserve.予約 (予約終了時間, 予約開始時間, 予約日, 会議室番号, 会員番号)
+        VALUES (#{endTime}, #{startTime}, #{reservableRoom.reservableRoomId.reservedDate},
                 #{reservableRoom.reservableRoomId.roomId}, #{user.userId})
     </insert>
 
@@ -46,7 +46,7 @@
                r.会員番号,
                u.姓,
                u.名,
-               u.役割, 　
+               u.役割,
                rm.会議室名
         FROM reserve.予約 r
                  LEFT OUTER JOIN reserve.予約可能会議室 rr
@@ -102,7 +102,7 @@
                r.会員番号,
                u.姓,
                u.名,
-               u.役割, 　
+               u.役割,
                rm.会議室名
         FROM reserve.予約 r
                  LEFT OUTER JOIN reserve.予約可能会議室 rr
