@@ -5,15 +5,15 @@ import mrs.domain.model.reserve.room.ReservableRoom;
 import mrs.domain.model.reserve.room.ReservableRoomId;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
+@MybatisTest
 public class ReservableRoomMapperTest {
     @Autowired
     private RoomMapper roomMapper;

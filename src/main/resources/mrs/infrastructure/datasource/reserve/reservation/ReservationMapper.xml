@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mrs.infrastructure.datasource.reserve.reservation.ReservationMapper">
+    <resultMap id="BaseResultMap" type="mrs.domain.model.reserve.reservation.Reservation">
+        <id column="予約番号" property="reservationId"/>
+        <result column="予約終了時間" property="endTime"/>
+        <result column="予約開始時間" property="startTime"/>
+        <result column="予約日" property="reservableRoom.reservableRoomId.reservedDate"/>
+        <result column="会議室番号" property="reservableRoom.reservableRoomId.roomId"/>
+        <result column="会員番号" property="user.userId"/>
+        <association property="reservableRoom" javaType="mrs.domain.model.reserve.room.ReservableRoom">
+            <id property="reservableRoomId.roomId" column="会議室番号"/>
+            <result property="reservableRoomId.reservedDate" column="予約日"/>
+        </association>
+        <association property="reservableRoom.reservableRoomId"
+                     javaType="mrs.domain.model.reserve.room.ReservableRoomId">
+            <id property="roomId" column="会議室番号"/>
+            <result property="reservedDate" column="予約日"/>
+        </association>
+        <association property="reservableRoom.meetingRoom" javaType="mrs.domain.model.reserve.room.MeetingRoom">
+            <id property="roomId" column="会議室番号"/>
+            <result property="roomName" column="会議室名"/>
+        </association>
+        <association property="user" javaType="mrs.domain.model.service_user.User">
+            <id property="userId" column="会員番号"/>
+            <result property="firstName" column="姓"/>
+            <result property="lastName" column="名"/>
+            <result property="roleName" column="役割"/>
+        </association>
+    </resultMap>
+
+    <insert id="insert" parameterType="mrs.domain.model.reserve.reservation.Reservation">
+        INSERT INTO reserve.予約 (予約番号, 予約終了時間, 予約開始時間, 予約日, 会議室番号, 会員番号)
+        VALUES (#{reservationId}, #{endTime}, #{startTime}, #{reservableRoom.reservableRoomId.reservedDate},
+                #{reservableRoom.reservableRoomId.roomId}, #{user.userId})
+    </insert>
+
+    <select id="select" resultMap="BaseResultMap">
+        SELECT 予約番号, 予約終了時間, 予約開始時間, 予約日, 会議室番号, 会員番号
+        FROM reserve.予約
+        WHERE 予約番号 = #{reservationId}
+    </select>
+
+    <select id="selectAllJoin" resultMap="BaseResultMap">
+        SELECT r.予約番号,
+               r.予約終了時間,
+               r.予約開始時間,
+               r.予約日,
+               r.会議室番号,
+               r.会員番号,
+               u.姓,
+               u.名,
+               u.役割,
+            　　　　
+               rm.会議室名
+        FROM reserve.予約 r
+                 LEFT OUTER JOIN reserve.予約可能会議室 rr
+                                 ON r.予約日 = rr.予約日 AND r.会議室番号 = rr.会議室番号
+                 LEFT OUTER JOIN service_user.会員 u
+                                 ON r.会員番号 = u.会員番号
+                 LEFT OUTER JOIN reserve.会議室 rm
+                                 ON r.会議室番号 = rm.会議室番号
+    </select>
+
+    <update id="update" parameterType="mrs.domain.model.reserve.reservation.Reservation">
+        UPDATE reserve.予約
+        SET 予約終了時間 = #{endTime},
+            予約開始時間 = #{startTime},
+            予約日    = #{reservableRoom.reservableRoomId.reservedDate},
+            会議室番号  = #{reservableRoom.reservableRoomId.roomId},
+            会員番号   = #{user.userId}
+        WHERE 予約番号 = #{reservationId}
+    </update>
+
+    <delete id="delete">
+        DELETE
+        FROM reserve.予約
+        WHERE 予約番号 = #{reservationId}
+    </delete>
+
+    <delete id="deleteAll">
+        DELETE
+        FROM reserve.予約
+    </delete>
+
+</mapper>

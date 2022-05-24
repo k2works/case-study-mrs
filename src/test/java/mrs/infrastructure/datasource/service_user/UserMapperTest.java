@@ -4,12 +4,12 @@ import mrs.domain.model.service_user.RoleName;
 import mrs.domain.model.service_user.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-@SpringBootTest
+@MybatisTest
 public class UserMapperTest {
     @Autowired
     UserMapper userMapper;

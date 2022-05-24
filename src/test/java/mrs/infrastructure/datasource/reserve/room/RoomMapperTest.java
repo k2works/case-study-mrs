@@ -3,14 +3,14 @@ package mrs.infrastructure.datasource.reserve.room;
 import mrs.domain.model.reserve.room.MeetingRoom;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
+@MybatisTest
 public class RoomMapperTest {
     @Autowired
     private RoomMapper roomMapper;
