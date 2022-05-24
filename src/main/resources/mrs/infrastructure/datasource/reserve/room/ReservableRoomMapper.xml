@@ -55,4 +55,14 @@
         DELETE
         FROM reserve.予約可能会議室
     </delete>
+
+    <select id="findByReservableRoomId_ReservedDateOrderByReservableRoomId_RoomIdAsc" resultMap="BaseResultMap">
+        SELECT rr.会議室番号,
+               rr.予約日,
+               rm.会議室名
+        FROM reserve.予約可能会議室 rr
+                 LEFT OUTER JOIN reserve.会議室 rm ON rr.会議室番号 = rm.会議室番号
+        WHERE 予約日 = #{reservedDate}
+        ORDER BY rr.会議室番号 ASC
+    </select>
 </mapper>

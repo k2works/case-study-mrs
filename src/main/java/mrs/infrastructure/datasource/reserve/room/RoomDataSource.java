@@ -16,4 +16,9 @@ public class RoomDataSource implements MeetingRoomRepository {
     public MeetingRoom getById(Integer roomId) {
         return roomMapper.select(roomId);
     }
+
+    @Override
+    public void save(MeetingRoom room) {
+
+    }
 }

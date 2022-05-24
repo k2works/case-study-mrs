@@ -1,6 +1,7 @@
 package mrs.infrastructure.datasource.reserve.reservation;
 
 import mrs.domain.model.reserve.reservation.Reservation;
+import mrs.domain.model.reserve.room.ReservableRoomId;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -24,4 +25,6 @@ public interface ReservationMapper {
     void delete(Integer reservationId);
 
     void deleteAll();
+
+    List<Reservation> findByReservableRoom_ReservableRoomIdOrderByStartTimeAsc(ReservableRoomId reservableRoomId);
 }

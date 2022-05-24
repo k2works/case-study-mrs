@@ -4,12 +4,12 @@ import mrs.Application;
 import mrs.application.service.room.MeetingRoomRepository;
 import mrs.application.service.room.ReservableRoomRepository;
 import mrs.application.service.user.UserRepository;
-import mrs.domain.model.reservation.Reservation;
-import mrs.domain.model.room.MeetingRoom;
-import mrs.domain.model.room.ReservableRoom;
-import mrs.domain.model.room.ReservableRoomId;
-import mrs.domain.model.user.RoleName;
-import mrs.domain.model.user.User;
+import mrs.domain.model.reserve.reservation.Reservation;
+import mrs.domain.model.reserve.room.MeetingRoom;
+import mrs.domain.model.reserve.room.ReservableRoom;
+import mrs.domain.model.reserve.room.ReservableRoomId;
+import mrs.domain.model.service_user.RoleName;
+import mrs.domain.model.service_user.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -128,8 +128,7 @@ public class ReservationServiceTest {
     }
 
     private MeetingRoom 会議室を作る() {
-        MeetingRoom room = new MeetingRoom();
-        room.setRoomName("会議室A");
+        MeetingRoom room = new MeetingRoom(1, "会議室A");
         meetingRoomRepository.save(room);
         return room;
     }
@@ -142,7 +141,7 @@ public class ReservationServiceTest {
 
     private User ユーザーを作る() {
         User user = new User();
-        user.setUserId("taro-yamada");
+        user.setUserId("U000001");
         user.setFirstName("太郎");
         user.setLastName("山田");
         user.setRoleName(RoleName.USER);
@@ -175,7 +174,8 @@ public class ReservationServiceTest {
 
     private void 予約会議室を登録する(MeetingRoom room, ReservableRoom reservableRoom) {
         reservableRoom.setMeetingRoom(room);
-        reservableRoomRepository.save(reservableRoom);
+        ReservableRoomId id = new ReservableRoomId(room.getRoomId(), LocalDate.now());
+        //reservableRoomRepository.save(id);
     }
 
     private Reservation 予約を検索する(Integer id) {

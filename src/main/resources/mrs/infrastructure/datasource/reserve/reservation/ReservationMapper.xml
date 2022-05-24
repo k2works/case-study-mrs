@@ -91,4 +91,28 @@
         FROM reserve.予約
     </delete>
 
+    <select id="findByReservableRoom_ReservableRoomIdOrderByStartTimeAsc"
+            parameterType="mrs.domain.model.reserve.room.ReservableRoomId"
+            resultMap="BaseResultMap">
+        SELECT r.予約番号,
+               r.予約終了時間,
+               r.予約開始時間,
+               r.予約日,
+               r.会議室番号,
+               r.会員番号,
+               u.姓,
+               u.名,
+               u.役割, 　
+               rm.会議室名
+        FROM reserve.予約 r
+                 LEFT OUTER JOIN reserve.予約可能会議室 rr
+                                 ON r.予約日 = rr.予約日 AND r.会議室番号 = rr.会議室番号
+                 LEFT OUTER JOIN service_user.会員 u
+                                 ON r.会員番号 = u.会員番号
+                 LEFT OUTER JOIN reserve.会議室 rm
+                                 ON r.会議室番号 = rm.会議室番号
+        WHERE rr.予約日 = #{reservedDate}
+          AND rr.会議室番号 = #{roomId}
+        ORDER BY r.予約開始時間 ASC
+    </select>
 </mapper>

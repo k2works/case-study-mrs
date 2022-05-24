@@ -1,9 +1,9 @@
 package mrs.application.service.reservation;
 
 import mrs.application.service.room.ReservableRoomRepository;
-import mrs.domain.model.reservation.Reservation;
-import mrs.domain.model.room.ReservableRoom;
-import mrs.domain.model.room.ReservableRoomId;
+import mrs.domain.model.reserve.reservation.Reservation;
+import mrs.domain.model.reserve.room.ReservableRoom;
+import mrs.domain.model.reserve.room.ReservableRoomId;
 import org.springframework.security.access.method.P;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
