@@ -1,6 +1,7 @@
 package mrs.infrastructure.datasource.reservation.reservation;
 
 import mrs.domain.model.reservation.reservation.Reservation;
+import mrs.domain.model.reservation.reservation.ReservationId;
 import mrs.domain.model.reservation.room.MeetingRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
 import mrs.domain.model.user.RoleName;
@@ -79,10 +80,11 @@ public class ReservationMapperTest {
         reservableRoomMapper.insert(reservableRoomId);
 
         insertOne(reservableRoomId, user);
-        Reservation reservation = reservationMapper.select(1);
+        ReservationId reservationId = new ReservationId(1);
+        Reservation reservation = reservationMapper.select(reservationId);
 
         Reservation result = reservationMapper.select(reservation.ReservationId());
-        assertEquals(1, result.ReservationId());
+        assertEquals(reservationId, result.ReservationId());
         assertEquals(LocalTime.of(10, 0), result.EndTime());
         assertEquals(LocalTime.of(9, 0), result.StartTime());
         assertEquals(reservableRoomId.ReservedDate(), result.ReservableRoom().ReservableRoomId().ReservedDate());
@@ -107,7 +109,7 @@ public class ReservationMapperTest {
 
         List<Reservation> result = reservationMapper.selectAllJoin();
         assertEquals(2, result.size());
-        assertEquals(1, result.get(0).ReservationId());
+        assertEquals(1, result.get(0).ReservationId().Value());
     }
 
     @Test
@@ -123,7 +125,7 @@ public class ReservationMapperTest {
 
         List<Reservation> result = reservationMapper.selectByKey(reservableRoomId.ReservedDate(), reservableRoomId.RoomId());
         assertEquals(2, result.size());
-        assertEquals(1, result.get(0).ReservationId());
+        assertEquals(1, result.get(0).ReservationId().Value());
     }
 
     @Test
@@ -136,10 +138,11 @@ public class ReservationMapperTest {
         reservableRoomMapper.insert(reservableRoomId);
 
         insertOne(reservableRoomId, user);
-        Reservation reservation = reservationMapper.select(1);
+        ReservationId reservationId = new ReservationId(1);
+        Reservation reservation = reservationMapper.select(reservationId);
         reservationMapper.update(reservation);
         Reservation updateReservation = new Reservation(
-                reservation.ReservationId(),
+                reservation.ReservationId().Value(),
                 LocalTime.of(10, 0),
                 LocalTime.of(11, 0),
                 reservableRoomId,
@@ -148,7 +151,7 @@ public class ReservationMapperTest {
         reservationMapper.update(updateReservation);
 
         Reservation result = reservationMapper.select(reservation.ReservationId());
-        assertEquals(1, result.ReservationId());
+        assertEquals(1, result.ReservationId().Value());
         assertEquals(LocalTime.of(11, 0), result.EndTime());
         assertEquals(LocalTime.of(10, 0), result.StartTime());
     }
@@ -163,7 +166,8 @@ public class ReservationMapperTest {
         reservableRoomMapper.insert(reservableRoomId);
 
         insertOne(reservableRoomId, user);
-        Reservation reservation = reservationMapper.select(1);
+        ReservationId reservationId = new ReservationId(1);
+        Reservation reservation = reservationMapper.select(reservationId);
 
         reservationMapper.delete(reservation.ReservationId());
 

@@ -4,6 +4,7 @@ import mrs.application.scenario.MeetingRoomReservationScenario;
 import mrs.application.service.reservation.AlreadyReservedException;
 import mrs.application.service.reservation.UnavailableReservationException;
 import mrs.domain.model.reservation.reservation.Reservation;
+import mrs.domain.model.reservation.reservation.ReservationId;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
 import mrs.domain.model.user.User;
@@ -90,7 +91,7 @@ public class ReservationsController {
                   Model model) {
         User user = userDetails.getUser();
         try {
-            Reservation reservation = scenario.findOne(reservationId);
+            Reservation reservation = scenario.findOne(new ReservationId(reservationId));
             scenario.cancel(reservation);
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());

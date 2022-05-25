@@ -54,7 +54,7 @@
         <td>
             <form method="post" th:action="@{'/reservations/' + ${date} + '/' + ${roomId}}"
                   sec:authorize="${hasRole('ADMIN') or #vars.user.UserId == #vars.reservation.User.UserId}">
-                <input name="reservationId" th:value="${reservation.ReservationId}" type="hidden">
+                <input name="reservationId" th:value="${reservation.ReservationId.Value}" type="hidden">
                 <input name="cancel" type="submit" value="取消">
             </form>
         </td>

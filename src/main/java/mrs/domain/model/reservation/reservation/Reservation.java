@@ -11,7 +11,7 @@ import java.util.Objects;
  * 予約
  */
 public class Reservation {
-    private Integer reservationId;
+    private ReservationId reservationId;
 
     private LocalTime startTime;
 
@@ -28,7 +28,7 @@ public class Reservation {
     ;
 
     public Reservation(Integer reservationId, LocalTime startTime, LocalTime endTime, ReservableRoomId reservableRoomId, User user) {
-        this.reservationId = reservationId;
+        this.reservationId = new ReservationId(reservationId);
         this.startTime = startTime;
         this.endTime = endTime;
         this.reservableRoom = new ReservableRoom(reservableRoomId);
@@ -45,7 +45,7 @@ public class Reservation {
         return target.endTime.isAfter(startTime) && endTime.isAfter(target.startTime);
     }
 
-    public Integer ReservationId() {
+    public ReservationId ReservationId() {
         return reservationId;
     }
 

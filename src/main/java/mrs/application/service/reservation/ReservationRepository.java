@@ -1,6 +1,7 @@
 package mrs.application.service.reservation;
 
 import mrs.domain.model.reservation.reservation.Reservation;
+import mrs.domain.model.reservation.reservation.ReservationId;
 import mrs.domain.model.reservation.room.ReservableRoomId;
 
 import java.util.List;
@@ -16,9 +17,9 @@ public interface ReservationRepository {
 
     void delete(Reservation reservation);
 
-    Reservation getById(Integer reservationId);
+    Reservation getById(ReservationId reservationId);
 
     List<Reservation> findAll();
 
-    Optional<Reservation> findById(int i);
+    Optional<Reservation> findById(ReservationId reservationId);
 }

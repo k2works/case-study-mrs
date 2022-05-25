@@ -3,6 +3,7 @@ package mrs.application.scenario;
 import mrs.application.service.reservation.ReservationService;
 import mrs.application.service.room.RoomService;
 import mrs.domain.model.reservation.reservation.Reservation;
+import mrs.domain.model.reservation.reservation.ReservationId;
 import mrs.domain.model.reservation.room.MeetingRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
 import org.springframework.stereotype.Service;
@@ -47,7 +48,7 @@ public class MeetingRoomReservationScenario {
     /**
      * 取り消したい会議室の予約を選択する
      */
-    public Reservation findOne(Integer reservationId) {
+    public Reservation findOne(ReservationId reservationId) {
         return reservationService.findOne(reservationId);
     }
 

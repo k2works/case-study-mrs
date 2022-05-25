@@ -2,6 +2,7 @@ package mrs.infrastructure.datasource.reservation.reservation;
 
 import mrs.application.service.reservation.ReservationRepository;
 import mrs.domain.model.reservation.reservation.Reservation;
+import mrs.domain.model.reservation.reservation.ReservationId;
 import mrs.domain.model.reservation.room.ReservableRoomId;
 import org.springframework.stereotype.Repository;
 
@@ -33,7 +34,7 @@ public class ReservationDataSource implements ReservationRepository {
     }
 
     @Override
-    public Reservation getById(Integer reservationId) {
+    public Reservation getById(ReservationId reservationId) {
         return reservationMapper.select(reservationId);
     }
 
@@ -43,7 +44,7 @@ public class ReservationDataSource implements ReservationRepository {
     }
 
     @Override
-    public Optional<Reservation> findById(int i) {
-        return Optional.ofNullable(reservationMapper.select(i));
+    public Optional<Reservation> findById(ReservationId reservationId) {
+        return Optional.ofNullable(reservationMapper.select(reservationId));
     }
 }

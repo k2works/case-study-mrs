@@ -3,6 +3,7 @@ package mrs.application.service.reservation;
 import mrs.IntegrationTest;
 import mrs.TestDataFactory;
 import mrs.domain.model.reservation.reservation.Reservation;
+import mrs.domain.model.reservation.reservation.ReservationId;
 import mrs.domain.model.reservation.room.ReservableRoomId;
 import mrs.domain.model.user.User;
 import org.junit.jupiter.api.BeforeEach;
@@ -35,9 +36,10 @@ public class ReservationServiceTest {
         @Test
         @WithMockUser
         void 会議室の予約を検索する() {
-            Reservation result = reservationService.findOne(1);
+            ReservationId reservationId = new ReservationId(1);
+            Reservation result = reservationService.findOne(reservationId);
 
-            assertEquals(1, result.ReservationId());
+            assertEquals(reservationId, result.ReservationId());
             assertEquals(LocalTime.of(10, 0), result.EndTime());
             assertEquals(LocalTime.of(9, 0), result.StartTime());
             assertEquals(LocalDate.of(2020, 1, 1), result.ReservableRoom().ReservableRoomId().ReservedDate());
@@ -58,10 +60,11 @@ public class ReservationServiceTest {
         @Test
         @WithMockUser(username = "cccc", roles = "ADMIN")
         void 会議室の予約を取り消す() {
-            Reservation reservation = reservationService.findOne(1);
+            ReservationId reservationId = new ReservationId(1);
+            Reservation reservation = reservationService.findOne(reservationId);
             reservationService.cancel(reservation);
 
-            Reservation result = reservationService.findOne(1);
+            Reservation result = reservationService.findOne(reservationId);
             assertNull(result);
         }
 

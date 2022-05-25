@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mrs.infrastructure.datasource.reservation.reservation.ReservationMapper">
     <resultMap id="BaseResultMap" type="mrs.domain.model.reservation.reservation.Reservation">
-        <id column="予約番号" property="reservationId"/>
+        <id column="予約番号" property="reservationId.value"/>
         <result column="予約終了時間" property="endTime"/>
         <result column="予約開始時間" property="startTime"/>
         <result column="予約日" property="reservableRoom.reservableRoomId.reservedDate"/>
@@ -28,7 +28,7 @@
     <insert id="insert" parameterType="mrs.domain.model.reservation.reservation.Reservation" useGeneratedKeys="true">
         INSERT INTO reservation.予約
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="reservationId != null">
+            <if test="reservationId.value != null">
                 予約番号,
             </if>
             <if test="endTime != null">
@@ -48,8 +48,8 @@
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="reservationId != null">
-                #{reservationId},
+            <if test="reservationId.value != null">
+                #{reservationId.value},
             </if>
             <if test="endTime != null">
                 #{endTime},
@@ -72,7 +72,7 @@
     <select id="select" resultMap="BaseResultMap">
         SELECT 予約番号, 予約終了時間, 予約開始時間, 予約日, 会議室番号, 会員番号
         FROM reservation.予約
-        WHERE 予約番号 = #{reservationId}
+        WHERE 予約番号 = #{value}
     </select>
 
     <select id="selectAllJoin" resultMap="BaseResultMap">
@@ -115,13 +115,13 @@
             予約日    = #{reservableRoom.reservableRoomId.reservedDate},
             会議室番号  = #{reservableRoom.reservableRoomId.roomId},
             会員番号   = #{user.userId}
-        WHERE 予約番号 = #{reservationId}
+        WHERE 予約番号 = #{reservationId.value}
     </update>
 
     <delete id="delete">
         DELETE
         FROM reservation.予約
-        WHERE 予約番号 = #{reservationId}
+        WHERE 予約番号 = #{value}
     </delete>
 
     <delete id="deleteAll">

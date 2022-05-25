@@ -1,6 +1,7 @@
 package mrs.infrastructure.datasource.reservation.reservation;
 
 import mrs.domain.model.reservation.reservation.Reservation;
+import mrs.domain.model.reservation.reservation.ReservationId;
 import mrs.domain.model.reservation.room.ReservableRoomId;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -12,7 +13,7 @@ import java.util.List;
 public interface ReservationMapper {
     void insert(Reservation reservation);
 
-    Reservation select(Integer reservationId);
+    Reservation select(ReservationId reservationId);
 
     List<Reservation> selectAllJoin();
 
@@ -22,7 +23,7 @@ public interface ReservationMapper {
 
     void update(Reservation reservation);
 
-    void delete(Integer reservationId);
+    void delete(ReservationId reservationId);
 
     void deleteAll();
 
