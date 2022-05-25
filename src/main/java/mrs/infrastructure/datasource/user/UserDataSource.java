@@ -2,6 +2,7 @@ package mrs.infrastructure.datasource.user;
 
 import mrs.application.service.user.UserRepository;
 import mrs.domain.model.user.User;
+import mrs.domain.model.user.UserId;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
@@ -15,7 +16,7 @@ public class UserDataSource implements UserRepository {
     }
 
     @Override
-    public Optional<User> findByUserId(String userId) {
+    public Optional<User> findByUserId(UserId userId) {
         return Optional.ofNullable(userMapper.select(userId));
     }
 }

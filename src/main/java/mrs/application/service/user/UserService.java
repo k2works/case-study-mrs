@@ -2,6 +2,7 @@ package mrs.application.service.user;
 
 import mrs.domain.model.user.User;
 import mrs.domain.model.user.UserDetailsImpl;
+import mrs.domain.model.user.UserId;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -25,7 +26,7 @@ public class UserService implements UserDetailsService {
      */
     @Override
     public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
-        Optional<User> user = userRepository.findByUserId(userId);
+        Optional<User> user = userRepository.findByUserId(new UserId(userId));
         if (user.isEmpty()) {
             throw new UsernameNotFoundException(userId + " is not found.");
         }

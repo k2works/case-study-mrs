@@ -3,6 +3,7 @@ package mrs.infrastructure.datasource.reservation.reservation;
 import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.reservation.ReservationId;
 import mrs.domain.model.reservation.room.ReservableRoomId;
+import mrs.domain.model.user.UserId;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -19,7 +20,7 @@ public interface ReservationMapper {
 
     List<Reservation> selectByKey(@Param("reservedDate") LocalDate reservedDate, @Param("roomId") Integer roomId);
 
-    List<Reservation> selectByUserId(String userId);
+    List<Reservation> selectByUserId(UserId userId);
 
     void update(Reservation reservation);
 

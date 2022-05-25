@@ -1,6 +1,7 @@
 package mrs.infrastructure.datasource.user;
 
 import mrs.domain.model.user.User;
+import mrs.domain.model.user.UserId;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -9,13 +10,13 @@ import java.util.List;
 public interface UserMapper {
     void insert(User todo);
 
-    User select(String userId);
+    User select(UserId userId);
 
     List<User> selectAllJoin();
 
     void update(User record);
 
-    void delete(String id);
+    void delete(UserId id);
 
     void deleteAll();
 }

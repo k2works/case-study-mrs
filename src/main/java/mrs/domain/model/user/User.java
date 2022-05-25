@@ -8,7 +8,7 @@ import java.util.List;
  * 会員
  */
 public class User {
-    private String userId;
+    private UserId userId;
 
     private String password;
 
@@ -21,7 +21,7 @@ public class User {
     private List<Reservation> reservations;
 
     public User(String userId, String firstName, String lastName, String password, RoleName roleName) {
-        this.userId = userId;
+        this.userId = new UserId(userId);
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
@@ -32,7 +32,7 @@ public class User {
     public User() {
     }
 
-    public String UserId() {
+    public UserId UserId() {
         return userId;
     }
 

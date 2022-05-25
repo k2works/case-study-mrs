@@ -6,6 +6,7 @@ import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.reservation.ReservationId;
 import mrs.domain.model.reservation.room.ReservableRoomId;
 import mrs.domain.model.user.User;
+import mrs.domain.model.user.UserId;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -44,7 +45,7 @@ public class ReservationServiceTest {
             assertEquals(LocalTime.of(9, 0), result.StartTime());
             assertEquals(LocalDate.of(2020, 1, 1), result.ReservableRoom().ReservableRoomId().ReservedDate());
             assertEquals("会議室A", result.ReservableRoom().MeetingRoom().RoomName());
-            assertEquals("1", result.User().UserId());
+            assertEquals("1", result.User().UserId().Value());
         }
 
         @Test
@@ -73,7 +74,8 @@ public class ReservationServiceTest {
             @Test
             @WithMockUser
             public void 予約時刻が重複しなければ登録できる() {
-                User user = testDataFactory.getUserMapper().select("1");
+                UserId userId = new UserId("1");
+                User user = testDataFactory.getUserMapper().select(userId);
                 ReservableRoomId reservableRoomId = testDataFactory.getReservableRoomId();
                 Reservation reservation = new Reservation(2, LocalTime.of(10, 0), LocalTime.of(11, 0), reservableRoomId, user);
                 reservationService.reserve(reservation);
@@ -85,7 +87,8 @@ public class ReservationServiceTest {
 
             @Test
             public void 該当する予約された会議室が存在しなければ例外メッセージを表示する() {
-                User user = testDataFactory.getUserMapper().select("1");
+                UserId userId = new UserId("1");
+                User user = testDataFactory.getUserMapper().select(userId);
                 ReservableRoomId reservableRoomId = new ReservableRoomId(9, LocalDate.of(2020, 1, 1));
                 Reservation reservation = new Reservation(2, LocalTime.of(10, 0), LocalTime.of(11, 0), reservableRoomId, user);
 
@@ -98,7 +101,8 @@ public class ReservationServiceTest {
             @Test
             @WithMockUser
             public void 予約時刻が重複すれば登録できない_パターン1() {
-                User user = testDataFactory.getUserMapper().select("1");
+                UserId userId = new UserId("1");
+                User user = testDataFactory.getUserMapper().select(userId);
                 ReservableRoomId reservableRoomId = testDataFactory.getReservableRoomId();
                 Reservation reservation = new Reservation(2, LocalTime.of(10, 0), LocalTime.of(11, 0), reservableRoomId, user);
                 reservationService.reserve(reservation);
@@ -112,7 +116,8 @@ public class ReservationServiceTest {
             @Test
             @WithMockUser
             public void 予約時刻が重複すれば登録できない_パターン2() {
-                User user = testDataFactory.getUserMapper().select("1");
+                UserId userId = new UserId("1");
+                User user = testDataFactory.getUserMapper().select(userId);
                 ReservableRoomId reservableRoomId = testDataFactory.getReservableRoomId();
                 Reservation reservation = new Reservation(2, LocalTime.of(10, 0), LocalTime.of(13, 0), reservableRoomId, user);
                 reservationService.reserve(reservation);

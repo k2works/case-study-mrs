@@ -5,6 +5,7 @@ import mrs.domain.model.reservation.room.MeetingRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
 import mrs.domain.model.user.RoleName;
 import mrs.domain.model.user.User;
+import mrs.domain.model.user.UserId;
 import mrs.infrastructure.datasource.reservation.reservation.ReservationMapper;
 import mrs.infrastructure.datasource.reservation.room.ReservableRoomMapper;
 import mrs.infrastructure.datasource.reservation.room.RoomMapper;
@@ -42,8 +43,9 @@ public class UserMapperTest {
     public void ユーザーが登録できる() {
         userMapper.insert(new User("1", "テスト", "太郎", "password", RoleName.USER));
 
-        User user = userMapper.select("1");
-        assert (user.UserId().equals("1"));
+        UserId userId = new UserId("1");
+        User user = userMapper.select(userId);
+        assert (user.UserId().equals(userId));
         assert (user.FirstName().equals("テスト"));
         assert (user.LastName().equals("太郎"));
         assert (user.Password().equals("password"));
@@ -93,11 +95,12 @@ public class UserMapperTest {
     @Test
     public void ユーザーを更新できる() {
         userMapper.insert(new User("3", "テスト", "太郎", "password", RoleName.USER));
-        User user = userMapper.select("3");
-        User updateUser = new User(user.UserId(), "更新1", "更新2", "updated", RoleName.ADMIN);
+        UserId userId = new UserId("3");
+        User user = userMapper.select(userId);
+        User updateUser = new User(user.UserId().Value(), "更新1", "更新2", "updated", RoleName.ADMIN);
         userMapper.update(updateUser);
 
-        User updatedUser = userMapper.select("3");
+        User updatedUser = userMapper.select(userId);
         assert (updatedUser.FirstName().equals("更新1"));
         assert (updatedUser.LastName().equals("更新2"));
         assert (updatedUser.Password().equals("updated"));
@@ -108,8 +111,9 @@ public class UserMapperTest {
     public void ユーザーを削除できる() {
         userMapper.insert(new User("4", "テスト", "太郎", "password", RoleName.USER));
 
-        userMapper.delete("4");
-        User user = userMapper.select("4");
+        UserId userId = new UserId("4");
+        userMapper.delete(userId);
+        User user = userMapper.select(userId);
         assert (user == null);
     }
 }
