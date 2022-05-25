@@ -7,6 +7,7 @@ import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.reservation.ReservationId;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
+import mrs.domain.model.reservation.room.RoomId;
 import mrs.domain.model.user.User;
 import mrs.domain.model.user.UserDetailsImpl;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -55,7 +56,7 @@ public class ReservationsController {
                 .limit(24 * 2)
                 .collect(Collectors.toList());
 
-        model.addAttribute("room", scenario.findMeetingRoom(roomId));
+        model.addAttribute("room", scenario.findMeetingRoom(new RoomId(roomId)));
         model.addAttribute("reservations", reservations);
         model.addAttribute("timeList", timeList);
         return "reservation/reserveForm";

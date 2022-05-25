@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mrs.infrastructure.datasource.reservation.room.RoomMapper">
   <resultMap id="BaseResultMap" type="mrs.domain.model.reservation.room.MeetingRoom">
-    <id column="会議室番号" jdbcType="INTEGER" property="roomId"/>
+    <id column="会議室番号" jdbcType="INTEGER" property="roomId.value"/>
     <result column="会議室名" jdbcType="VARCHAR" property="roomName"/>
     <collection property="reservableRooms"
                 javaType="ArrayList"
@@ -14,13 +14,13 @@
 
   <insert id="insert" useGeneratedKeys="true">
     INSERT INTO reservation.会議室 (会議室番号, 会議室名)
-    VALUES (#{roomId}, #{roomName})
+    VALUES (#{roomId.value}, #{roomName})
   </insert>
 
   <select id="select" resultMap="BaseResultMap">
     SELECT 会議室番号, 会議室名, 登録日時
     FROM reservation.会議室
-    WHERE 会議室番号 = #{roomId}
+    WHERE 会議室番号 = #{value}
   </select>
 
   <select id="selectAllJoin" resultMap="BaseResultMap">
@@ -31,13 +31,13 @@
   <update id="update" parameterType="mrs.domain.model.reservation.room.MeetingRoom">
     UPDATE reservation.会議室
     SET 会議室名 = #{roomName}
-    WHERE 会議室番号 = #{roomId}
+    WHERE 会議室番号 = #{roomId.value}
   </update>
 
   <delete id="delete">
     DELETE
     FROM reservation.会議室
-    WHERE 会議室番号 = #{roomId}
+    WHERE 会議室番号 = #{value}
   </delete>
 
   <delete id="deleteAll">

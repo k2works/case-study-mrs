@@ -6,7 +6,7 @@ import java.util.List;
  * 会議室
  */
 public class MeetingRoom {
-    private Integer roomId;
+    private RoomId roomId;
 
     private String roomName;
 
@@ -17,11 +17,11 @@ public class MeetingRoom {
     }
 
     public MeetingRoom(Integer roomId, String roomName) {
-        this.roomId = roomId;
+        this.roomId = new RoomId(roomId);
         this.roomName = roomName;
     }
 
-    public Integer RoomId() {
+    public RoomId RoomId() {
         return roomId;
     }
 

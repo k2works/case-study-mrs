@@ -6,6 +6,7 @@ import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.reservation.ReservationId;
 import mrs.domain.model.reservation.room.MeetingRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
+import mrs.domain.model.reservation.room.RoomId;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,7 +35,7 @@ public class MeetingRoomReservationScenario {
     /**
      * 選択した会議室情報を取得する
      */
-    public MeetingRoom findMeetingRoom(Integer roomId) {
+    public MeetingRoom findMeetingRoom(RoomId roomId) {
         return roomService.findMeetingRoom(roomId);
     }
 

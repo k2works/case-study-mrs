@@ -4,6 +4,7 @@ import mrs.IntegrationTest;
 import mrs.TestDataFactory;
 import mrs.domain.model.reservation.room.MeetingRoom;
 import mrs.domain.model.reservation.room.ReservableRoom;
+import mrs.domain.model.reservation.room.RoomId;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -31,9 +32,10 @@ public class RoomServiceTest {
 
         @Test
         void 会議室を検索する() {
-            MeetingRoom room = roomService.findMeetingRoom(1);
+            RoomId roomId = new RoomId(1);
+            MeetingRoom room = roomService.findMeetingRoom(roomId);
 
-            assertEquals(1, room.RoomId());
+            assertEquals(1, room.RoomId().Value());
             assertEquals("会議室A", room.RoomName());
         }
 

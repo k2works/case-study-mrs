@@ -2,6 +2,7 @@ package mrs.infrastructure.datasource.reservation.room;
 
 import mrs.domain.model.reservation.room.MeetingRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
+import mrs.domain.model.reservation.room.RoomId;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
@@ -30,8 +31,9 @@ public class RoomMapperTest {
         MeetingRoom meetingRoom = new MeetingRoom(1, "会議室A");
         roomMapper.insert(meetingRoom);
 
-        MeetingRoom actual = roomMapper.select(1);
-        assertEquals(1, actual.RoomId());
+        RoomId roomId = new RoomId(1);
+        MeetingRoom actual = roomMapper.select(roomId);
+        assertEquals(1, actual.RoomId().Value());
         assertEquals("会議室A", actual.RoomName());
     }
 
@@ -62,11 +64,12 @@ public class RoomMapperTest {
     public void 会議室を更新できる() {
         MeetingRoom meetingRoom = new MeetingRoom(1, "会議室A");
         roomMapper.insert(meetingRoom);
-        MeetingRoom updateMeetingRoom = new MeetingRoom(meetingRoom.RoomId(), "会議室B");
+        MeetingRoom updateMeetingRoom = new MeetingRoom(meetingRoom.RoomId().Value(), "会議室B");
         roomMapper.update(updateMeetingRoom);
 
-        MeetingRoom actual = roomMapper.select(1);
-        assertEquals(1, actual.RoomId());
+        RoomId roomId = new RoomId(1);
+        MeetingRoom actual = roomMapper.select(roomId);
+        assertEquals(1, actual.RoomId().Value());
         assertEquals("会議室B", actual.RoomName());
     }
 
@@ -75,9 +78,10 @@ public class RoomMapperTest {
         MeetingRoom meetingRoom = new MeetingRoom(1, "会議室A");
         roomMapper.insert(meetingRoom);
 
-        roomMapper.delete(1);
+        RoomId roomId = new RoomId(1);
+        roomMapper.delete(roomId);
 
-        MeetingRoom actual = roomMapper.select(1);
+        MeetingRoom actual = roomMapper.select(roomId);
         assertEquals(null, actual);
     }
 }

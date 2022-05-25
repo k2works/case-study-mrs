@@ -1,6 +1,7 @@
 package mrs.infrastructure.datasource.reservation.room;
 
 import mrs.domain.model.reservation.room.MeetingRoom;
+import mrs.domain.model.reservation.room.RoomId;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -9,13 +10,13 @@ import java.util.List;
 public interface RoomMapper {
     void insert(MeetingRoom meetingRoom);
 
-    MeetingRoom select(Integer roomId);
+    MeetingRoom select(RoomId roomId);
 
     List<MeetingRoom> selectAllJoin();
 
     void update(MeetingRoom meetingRoom);
 
-    void delete(Integer roomId);
+    void delete(RoomId roomId);
 
     void deleteAll();
 }

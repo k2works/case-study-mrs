@@ -2,6 +2,7 @@ package mrs.application.service.room;
 
 import mrs.domain.model.reservation.room.MeetingRoom;
 import mrs.domain.model.reservation.room.ReservableRoom;
+import mrs.domain.model.reservation.room.RoomId;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -25,7 +26,7 @@ public class RoomService {
     /**
      * 会議室を検索する
      */
-    public MeetingRoom findMeetingRoom(Integer roomId) {
+    public MeetingRoom findMeetingRoom(RoomId roomId) {
         return meetingRoomRepository.getById(roomId);
     }
 
