@@ -1,9 +1,11 @@
+DROP TABLE IF EXISTS sample.todo;
 DROP TABLE IF EXISTS reserve.予約;
 DROP TABLE IF EXISTS reserve.予約可能会議室;
 DROP TABLE IF EXISTS reserve.会議室;
 DROP TABLE IF EXISTS service_user.会員;
 DROP SCHEMA IF EXISTS reserve;
 DROP SCHEMA IF EXISTS service_user;
+DROP SCHEMA IF EXISTS sample;
 CREATE SCHEMA usr;
 CREATE SCHEMA reservation;
 

@@ -575,8 +575,8 @@ image::images/erd/jig-erd-overview.svg[]
 image::images/erd/jig-erd-summary.svg[]
 image::images/erd/jig-erd-detail.svg[]
 
-image::images/schemaspy/summary/relationships.real.compact.png[]
-image::images/schemaspy/summary/relationships.real.large.png[]
+image::images/schemaspy/reservation/diagrams/summary/relationships.real.large.png[]
+image::images/schemaspy/usr/diagrams/summary/relationships.real.large.png[]
 
 == 運用
 

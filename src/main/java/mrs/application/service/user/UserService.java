@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ * 利用者の認証
+ */
 @Service
 public class UserService implements UserDetailsService {
     private final ServiceUserRepository userRepository;
@@ -17,6 +20,9 @@ public class UserService implements UserDetailsService {
         this.userRepository = userRepository;
     }
 
+    /**
+     * 利用者を認証する
+     */
     @Override
     public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
         Optional<User> user = userRepository.findByUserId(userId);
