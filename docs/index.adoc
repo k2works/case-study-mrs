@@ -157,17 +157,20 @@ agent 窓口 as ag_01
 
 usecase 会議室の検索 as uc_01
 usecase 会議室の予約 as uc_02
+usecase 会議室の登録 as uc_03
 
 artifact 会議室 as af_01
 
 ac_01 -- (uc_01)
 ac_01 -- (uc_02)
 ac_02 -- (uc_02)
+ac_02 -- (uc_03)
 
 (uc_01) -- af_01
 (uc_01) -- ag_01
 (uc_02) -- af_01
 (uc_02) -- ag_01
+(uc_03) -- ag_01
 
 @enduml
 ----
@@ -300,6 +303,33 @@ usecase 予約可能な会議室を検索する
 @enduml
 ----
 
+====== 会議室の登録
+
+[plantuml]
+----
+@startuml
+
+title 利用シーン図 - 会議室の登録:BUC
+
+left to right direction
+
+actor 管理者
+
+frame 会議室の登録
+note right of 会議室の登録
+   予約可能な会議室を登録する。
+   利用者は予約可能な会議室に対して予約をすることができる。
+   システムに手動で登録する。
+end note
+
+usecase 会議室を登録する
+
+:管理者: -- 会議室の登録
+会議室の登録 -- (会議室を登録する)
+
+
+@enduml
+----
 ==== バリエーション・条件
 
 |===
