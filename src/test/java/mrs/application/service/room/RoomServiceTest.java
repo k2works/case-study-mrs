@@ -1,7 +1,11 @@
 package mrs.application.service.room;
 
 import mrs.IntegrationTest;
+import mrs.TestDataFactory;
+import mrs.domain.model.reserve.room.MeetingRoom;
 import mrs.domain.model.reserve.room.ReservableRoom;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -15,12 +19,30 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class RoomServiceTest {
     @Autowired
     RoomService roomService;
+    @Autowired
+    TestDataFactory testDataFactory;
 
-    @Test
-    public void 会議室一覧を取得する() {
-        LocalDate date = LocalDate.now();
-        List<ReservableRoom> rooms = roomService.findReservableRooms(date);
+    @Nested
+    class 会議室の検索 {
+        @BeforeEach
+        void setUp() {
+            testDataFactory.setUp();
+        }
 
-        assertEquals(2, rooms.size());
+        @Test
+        void 会議室を検索する() {
+            MeetingRoom room = roomService.findMeetingRoom(1);
+
+            assertEquals(1, room.getRoomId());
+            assertEquals("会議室A", room.getRoomName());
+        }
+
+        @Test
+        void 予約可能な会議室を検索する() {
+            LocalDate date = LocalDate.of(2020, 1, 1);
+            List<ReservableRoom> rooms = roomService.findReservableRooms(date);
+
+            assertEquals(3, rooms.size());
+        }
     }
 }

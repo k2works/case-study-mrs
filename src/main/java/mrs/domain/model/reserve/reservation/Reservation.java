@@ -1,6 +1,7 @@
 package mrs.domain.model.reserve.reservation;
 
 import mrs.domain.model.reserve.room.ReservableRoom;
+import mrs.domain.model.reserve.room.ReservableRoomId;
 import mrs.domain.model.service_user.User;
 
 import java.time.LocalTime;
@@ -19,6 +20,20 @@ public class Reservation {
     private ReservableRoom reservableRoom;
 
     private User user;
+
+    @Deprecated
+    public Reservation() {
+    }
+
+    ;
+
+    public Reservation(Integer reservationId, LocalTime startTime, LocalTime endTime, ReservableRoomId reservableRoomId, User user) {
+        this.reservationId = reservationId;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.reservableRoom = new ReservableRoom(reservableRoomId);
+        this.user = user;
+    }
 
     public boolean overlap(Reservation target) {
         if (!Objects.equals(reservableRoom.getReservableRoomId(), target.reservableRoom.getReservableRoomId())) {

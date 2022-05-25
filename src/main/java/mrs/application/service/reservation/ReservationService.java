@@ -54,7 +54,7 @@ public class ReservationService {
     }
 
     /**
-     * 会議室を検索する
+     * 会議室の予約を検索する
      */
     public Reservation findOne(Integer reservationId) {
         return reservationRepository.getById(reservationId);

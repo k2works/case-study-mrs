@@ -1,19 +1,15 @@
 package mrs.application.service.reservation;
 
 import mrs.IntegrationTest;
-import mrs.application.service.room.MeetingRoomRepository;
-import mrs.application.service.room.ReservableRoomRepository;
-import mrs.application.service.user.UserRepository;
+import mrs.TestDataFactory;
 import mrs.domain.model.reserve.reservation.Reservation;
-import mrs.domain.model.reserve.room.MeetingRoom;
-import mrs.domain.model.reserve.room.ReservableRoom;
 import mrs.domain.model.reserve.room.ReservableRoomId;
-import mrs.domain.model.service_user.RoleName;
 import mrs.domain.model.service_user.User;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.test.context.support.WithMockUser;
-import org.springframework.test.annotation.DirtiesContext;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -23,165 +19,106 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 @IntegrationTest
-@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class ReservationServiceTest {
     @Autowired
     ReservationService reservationService;
     @Autowired
-    ReservationRepository reservationRepository;
-    @Autowired
-    MeetingRoomRepository meetingRoomRepository;
-    @Autowired
-    ReservableRoomRepository reservableRoomRepository;
-    @Autowired
-    UserRepository userRepository;
+    TestDataFactory testDataFactory;
 
-    @Test
-    public void 会議室を予約する() {
-        ReservableRoom reservableRoom = 予約が可能な会議室を作る();
-        Reservation reservation = 予約を作る(reservableRoom, LocalTime.of(9, 0), LocalTime.of(10, 0));
-        予約する(reservation);
+    @Nested
+    class 会議室の予約 {
+        @BeforeEach
+        void setUp() {
+            testDataFactory.setUp();
+        }
 
-        Reservation result = 予約を検索する(1);
-        assertNotNull(result);
-    }
+        @Test
+        @WithMockUser
+        void 会議室の予約を検索する() {
+            Reservation result = reservationService.findOne(1);
 
-    @Test
-    public void 該当する予約された会議室が存在しなければ例外メッセージを表示する() {
-        ReservableRoom reservableRoom = 予約が不可能な会議室を作る();
-        Reservation reservation = 予約を作る(reservableRoom);
+            assertEquals(1, result.getReservationId());
+            assertEquals(LocalTime.of(10, 0), result.getEndTime());
+            assertEquals(LocalTime.of(9, 0), result.getStartTime());
+            assertEquals(LocalDate.of(2020, 1, 1), result.getReservableRoom().getReservableRoomId().getReservedDate());
+            assertEquals("会議室A", result.getReservableRoom().getMeetingRoom().getRoomName());
+            assertEquals("1", result.getUser().getUserId());
+        }
 
-        Throwable result = assertThrows(UnavailableReservationException.class, () -> {
-            予約する(reservation);
-        });
-        assertEquals("入力の日付・部屋の組み合わせは予約できません。", result.getMessage());
-    }
+        @Test
+        @WithMockUser
+        void 会議室の予約一覧を取得する() {
+            ReservableRoomId reservableRoomId = testDataFactory.getReservableRoomId();
 
-    @Test
-    @WithMockUser
-    public void 予約時刻が重複しなければ登録できる() {
-        MeetingRoom room = 会議室を作る();
-        ReservableRoom reservableRoom = 予約が可能な会議室を作る();
-        予約会議室を登録する(room, reservableRoom);
-        Reservation reservation = 予約を作る(reservableRoom, LocalTime.of(9, 0), LocalTime.of(10, 0));
-        予約する(reservation);
-        Reservation reservation2 = 予約を作る(reservableRoom, LocalTime.of(11, 0), LocalTime.of(12, 0));
-        予約する(reservation2);
+            List<Reservation> result = reservationService.findReservations(reservableRoomId);
 
-        List<Reservation> result = 予約を全件検索する();
-        assertEquals(3, result.size());
-    }
+            assertEquals(1, result.size());
+        }
 
-    @Test
-    @WithMockUser
-    public void 予約時刻が重複すれば登録できない_パターン1() {
-        MeetingRoom room = 会議室を作る();
-        ReservableRoom reservableRoom = 予約が可能な会議室を作る();
-        予約会議室を登録する(room, reservableRoom);
-        Reservation reservation = 予約を作る(reservableRoom, LocalTime.of(9, 0), LocalTime.of(10, 0));
-        予約する(reservation);
-        Reservation reservation2 = 予約を作る(reservableRoom, LocalTime.of(9, 30), LocalTime.of(10, 30));
+        @Test
+        @WithMockUser(username = "cccc", roles = "ADMIN")
+        void 会議室の予約を取り消す() {
+            Reservation reservation = reservationService.findOne(1);
+            reservationService.cancel(reservation);
 
-        Throwable result = assertThrows(AlreadyReservedException.class, () -> {
-            予約する(reservation2);
-        });
-        assertEquals("入力の時間帯はすでに予約済です。", result.getMessage());
-    }
+            Reservation result = reservationService.findOne(1);
+            assertNull(result);
+        }
 
-    @Test
-    @WithMockUser
-    public void 予約時刻が重複すれば登録できない_パターン2() {
-        MeetingRoom room = 会議室を作る();
-        ReservableRoom reservableRoom = 予約が可能な会議室を作る();
-        予約会議室を登録する(room, reservableRoom);
-        Reservation reservation = 予約を作る(reservableRoom, LocalTime.of(9, 0), LocalTime.of(12, 0));
-        予約する(reservation);
-        Reservation reservation2 = 予約を作る(reservableRoom, LocalTime.of(10, 0), LocalTime.of(11, 0));
+        @Nested
+        class 会議室を予約する {
+            @Test
+            @WithMockUser
+            public void 予約時刻が重複しなければ登録できる() {
+                User user = testDataFactory.getUserMapper().select("1");
+                ReservableRoomId reservableRoomId = testDataFactory.getReservableRoomId();
+                Reservation reservation = new Reservation(2, LocalTime.of(10, 0), LocalTime.of(11, 0), reservableRoomId, user);
+                reservationService.reserve(reservation);
 
-        Throwable result = assertThrows(AlreadyReservedException.class, () -> {
-            予約する(reservation2);
-        });
-        assertEquals("入力の時間帯はすでに予約済です。", result.getMessage());
-    }
+                List<Reservation> result = reservationService.findReservations(reservableRoomId);
 
-    @Test
-    @WithMockUser(username = "cccc", roles = "ADMIN")
-    public void 予約を取り消す() {
-        MeetingRoom room = 会議室を作る();
-        ReservableRoom reservableRoom = 予約が可能な会議室を作る();
-        予約会議室を登録する(room, reservableRoom);
-        Reservation reservation = 予約を作る(reservableRoom, LocalTime.of(9, 0), LocalTime.of(10, 0));
-        予約する(reservation);
-        キャンセルする(reservation);
+                assertEquals(2, result.size());
+            }
 
-        List<Reservation> result = 予約を全件検索する();
-        assertEquals(1, result.size());
-    }
+            @Test
+            public void 該当する予約された会議室が存在しなければ例外メッセージを表示する() {
+                User user = testDataFactory.getUserMapper().select("1");
+                ReservableRoomId reservableRoomId = new ReservableRoomId(9, LocalDate.of(2020, 1, 1));
+                Reservation reservation = new Reservation(2, LocalTime.of(10, 0), LocalTime.of(11, 0), reservableRoomId, user);
 
-    private void 予約する(Reservation reservation) {
-        reservationService.reserve(reservation);
-    }
+                Throwable result = assertThrows(UnavailableReservationException.class, () -> {
+                    reservationService.reserve(reservation);
+                });
+                assertEquals("入力の日付・部屋の組み合わせは予約できません。", result.getMessage());
+            }
 
-    private void キャンセルする(Reservation reservation) {
-        reservationService.cancel(reservation);
-    }
+            @Test
+            @WithMockUser
+            public void 予約時刻が重複すれば登録できない_パターン1() {
+                User user = testDataFactory.getUserMapper().select("1");
+                ReservableRoomId reservableRoomId = testDataFactory.getReservableRoomId();
+                Reservation reservation = new Reservation(2, LocalTime.of(10, 0), LocalTime.of(11, 0), reservableRoomId, user);
+                reservationService.reserve(reservation);
 
-    private MeetingRoom 会議室を作る() {
-        MeetingRoom room = new MeetingRoom(1, "会議室A");
-        meetingRoomRepository.save(room);
-        return room;
-    }
+                Throwable result = assertThrows(AlreadyReservedException.class, () -> {
+                    reservationService.reserve(new Reservation(3, LocalTime.of(10, 30), LocalTime.of(11, 30), reservableRoomId, user));
+                });
+                assertEquals("入力の時間帯はすでに予約済です。", result.getMessage());
+            }
 
-    private Reservation 予約を作る(ReservableRoom reservableRoom) {
-        Reservation reservation = new Reservation();
-        reservation.setReservableRoom(reservableRoom);
-        return reservation;
-    }
+            @Test
+            @WithMockUser
+            public void 予約時刻が重複すれば登録できない_パターン2() {
+                User user = testDataFactory.getUserMapper().select("1");
+                ReservableRoomId reservableRoomId = testDataFactory.getReservableRoomId();
+                Reservation reservation = new Reservation(2, LocalTime.of(10, 0), LocalTime.of(13, 0), reservableRoomId, user);
+                reservationService.reserve(reservation);
 
-    private User ユーザーを作る() {
-        User user = new User();
-        user.setUserId("U000001");
-        user.setFirstName("太郎");
-        user.setLastName("山田");
-        user.setRoleName(RoleName.USER);
-        user.setPassword("$2a$10$oxSJ1.keBwxmsMLkcT9lPeAIxfNTPNQxpeywMrF7A3kVszwUTqfTK");
-        return user;
-    }
-
-    private Reservation 予約を作る(ReservableRoom reservableRoom, LocalTime start, LocalTime end) {
-        Reservation reservation = new Reservation();
-        reservation.setStartTime(start);
-        reservation.setEndTime(end);
-        reservation.setReservableRoom(reservableRoom);
-        reservation.setUser(ユーザーを作る());
-        return reservation;
-    }
-
-    private ReservableRoom 予約が不可能な会議室を作る() {
-        Integer roomId = 99;
-        LocalDate date = LocalDate.now();
-        return new ReservableRoom(
-                new ReservableRoomId(roomId, date));
-    }
-
-    private ReservableRoom 予約が可能な会議室を作る() {
-        Integer roomId = 1;
-        LocalDate date = LocalDate.now();
-        return new ReservableRoom(
-                new ReservableRoomId(roomId, date));
-    }
-
-    private void 予約会議室を登録する(MeetingRoom room, ReservableRoom reservableRoom) {
-        reservableRoom.setMeetingRoom(room);
-        ReservableRoomId id = new ReservableRoomId(room.getRoomId(), LocalDate.now());
-        //reservableRoomRepository.save(id);
-    }
-
-    private Reservation 予約を検索する(Integer id) {
-        return reservationRepository.getById(id);
-    }
-
-    private List<Reservation> 予約を全件検索する() {
-        return reservationRepository.findAll();
+                Throwable result = assertThrows(AlreadyReservedException.class, () -> {
+                    reservationService.reserve(new Reservation(3, LocalTime.of(11, 0), LocalTime.of(12, 0), reservableRoomId, user));
+                });
+                assertEquals("入力の時間帯はすでに予約済です。", result.getMessage());
+            }
+        }
     }
 }
