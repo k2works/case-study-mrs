@@ -123,7 +123,7 @@ public class ReservationMapperTest {
 
         insertTwo(reservableRoomId, user);
 
-        List<Reservation> result = reservationMapper.selectByKey(reservableRoomId.ReservedDate(), reservableRoomId.RoomId());
+        List<Reservation> result = reservationMapper.selectByKey(reservableRoomId.ReservedDate().Value(), reservableRoomId.RoomId().Value());
         assertEquals(2, result.size());
         assertEquals(1, result.get(0).ReservationId().Value());
     }

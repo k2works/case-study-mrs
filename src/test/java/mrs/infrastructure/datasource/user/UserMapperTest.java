@@ -87,7 +87,7 @@ public class UserMapperTest {
         );
         reservationMapper.insert(addReservation);
 
-        List<Reservation> reservations = reservationMapper.selectByKey(reservableRoomId.ReservedDate(), reservableRoomId.RoomId());
+        List<Reservation> reservations = reservationMapper.selectByKey(reservableRoomId.ReservedDate().Value(), reservableRoomId.RoomId().Value());
         User result = userMapper.select(user.UserId());
         assertEquals(reservations.size(), result.getReservations().size());
     }

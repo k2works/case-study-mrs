@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mrs.infrastructure.datasource.reservation.room.ReservableRoomMapper">
     <resultMap id="BaseResultMap" type="mrs.domain.model.reservation.room.ReservableRoom">
-        <id column="予約日" property="reservableRoomId.reservedDate"/>
-        <id column="会議室番号" property="reservableRoomId.roomId"/>
+        <id column="予約日" property="reservableRoomId.reservedDate.value"/>
+        <id column="会議室番号" property="reservableRoomId.roomId.value"/>
         <association property="reservableRoomId" javaType="mrs.domain.model.reservation.room.ReservableRoomId">
-            <id property="roomId" column="会議室番号"/>
-            <result property="reservedDate" column="予約日"/>
+            <id property="roomId.value" column="会議室番号"/>
+            <result property="reservedDate.value" column="予約日"/>
         </association>
         <association property="meetingRoom"
                      javaType="mrs.domain.model.reservation.room.MeetingRoom"
@@ -23,7 +23,7 @@
 
     <insert id="insert" parameterType="mrs.domain.model.reservation.room.ReservableRoomId">
         INSERT INTO reservation.予約可能会議室 (予約日, 会議室番号)
-        VALUES (#{reservedDate}, #{roomId})
+        VALUES (#{reservedDate.value}, #{roomId.value})
     </insert>
 
     <select id="select" parameterType="mrs.domain.model.reservation.room.ReservableRoomId" resultMap="BaseResultMap">
@@ -32,8 +32,8 @@
                rm.会議室名
         FROM reservation.予約可能会議室 rr
                  LEFT OUTER JOIN reservation.会議室 rm ON rr.会議室番号 = rm.会議室番号
-        WHERE rr.会議室番号 = #{roomId}
-          AND 予約日 = #{reservedDate}
+        WHERE rr.会議室番号 = #{roomId.value}
+          AND 予約日 = #{reservedDate.value}
     </select>
 
     <select id="selectAllJoin" resultMap="BaseResultMap">
@@ -47,8 +47,8 @@
     <delete id="delete" parameterType="mrs.domain.model.reservation.room.ReservableRoomId">
         DELETE
         FROM reservation.予約可能会議室
-        WHERE 予約日 = #{reservedDate}
-          AND 会議室番号 = #{roomId}
+        WHERE 予約日 = #{reservedDate.value}
+          AND 会議室番号 = #{roomId.value}
     </delete>
 
     <delete id="deleteAll">

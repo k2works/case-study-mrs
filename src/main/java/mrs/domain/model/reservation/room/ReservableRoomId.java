@@ -7,13 +7,13 @@ import java.time.LocalDate;
  */
 public class ReservableRoomId {
 
-    private Integer roomId;
+    private RoomId roomId;
 
-    private LocalDate reservedDate;
+    private ReservedDate reservedDate;
 
     public ReservableRoomId(Integer roomId, LocalDate reservedDate) {
-        this.roomId = roomId;
-        this.reservedDate = reservedDate;
+        this.roomId = new RoomId(roomId);
+        this.reservedDate = new ReservedDate(reservedDate);
     }
 
     public ReservableRoomId() {
@@ -51,11 +51,11 @@ public class ReservableRoomId {
         return true;
     }
 
-    public Integer RoomId() {
+    public RoomId RoomId() {
         return roomId;
     }
 
-    public LocalDate ReservedDate() {
+    public ReservedDate ReservedDate() {
         return reservedDate;
     }
 }
