@@ -39,6 +39,36 @@ public class ReservationMapperTest {
         userMapper.deleteAll();
     }
 
+    private void insertOne(ReservableRoomId reservableRoomId, User user) {
+        Reservation reservation = new Reservation(
+                1,
+                LocalTime.of(9, 0),
+                LocalTime.of(10, 0),
+                reservableRoomId,
+                userMapper.select(user.getUserId())
+        );
+        reservationMapper.insert(reservation);
+    }
+
+    private void insertTwo(ReservableRoomId reservableRoomId, User user) {
+        Reservation reservation = new Reservation(
+                1,
+                LocalTime.of(9, 0),
+                LocalTime.of(10, 0),
+                reservableRoomId,
+                userMapper.select(user.getUserId())
+        );
+        reservationMapper.insert(reservation);
+        Reservation addReservation = new Reservation(
+                2,
+                reservation.getStartTime(),
+                reservation.getEndTime(),
+                reservableRoomId,
+                userMapper.select(user.getUserId())
+        );
+        reservationMapper.insert(addReservation);
+    }
+
     @Test
     public void 予約を登録できる() {
         User user = new User("1", "テスト", "太郎", "password", RoleName.USER);
@@ -48,14 +78,8 @@ public class ReservationMapperTest {
         ReservableRoomId reservableRoomId = new ReservableRoomId(1, LocalDate.of(2020, 1, 1));
         reservableRoomMapper.insert(reservableRoomId);
 
-        Reservation reservation = new Reservation(
-                1,
-                LocalTime.of(9, 0),
-                LocalTime.of(10, 0),
-                reservableRoomId,
-                userMapper.select(user.getUserId())
-        );
-        reservationMapper.insert(reservation);
+        insertOne(reservableRoomId, user);
+        Reservation reservation = reservationMapper.select(1);
 
         Reservation result = reservationMapper.select(reservation.getReservationId());
         assertEquals(1, result.getReservationId());
@@ -79,22 +103,7 @@ public class ReservationMapperTest {
         ReservableRoomId reservableRoomId = new ReservableRoomId(1, LocalDate.of(2020, 1, 1));
         reservableRoomMapper.insert(reservableRoomId);
 
-        Reservation reservation = new Reservation(
-                1,
-                LocalTime.of(9, 0),
-                LocalTime.of(10, 0),
-                reservableRoomId,
-                userMapper.select(user.getUserId())
-        );
-        reservationMapper.insert(reservation);
-        Reservation addReservation = new Reservation(
-                2,
-                reservation.getStartTime(),
-                reservation.getEndTime(),
-                reservableRoomId,
-                userMapper.select(user.getUserId())
-        );
-        reservationMapper.insert(addReservation);
+        insertTwo(reservableRoomId, user);
 
         List<Reservation> result = reservationMapper.selectAllJoin();
         assertEquals(2, result.size());
@@ -110,22 +119,7 @@ public class ReservationMapperTest {
         ReservableRoomId reservableRoomId = new ReservableRoomId(1, LocalDate.of(2020, 1, 1));
         reservableRoomMapper.insert(reservableRoomId);
 
-        Reservation reservation = new Reservation(
-                1,
-                LocalTime.of(9, 0),
-                LocalTime.of(10, 0),
-                reservableRoomId,
-                userMapper.select(user.getUserId())
-        );
-        reservationMapper.insert(reservation);
-        Reservation addReservation = new Reservation(
-                2,
-                reservation.getStartTime(),
-                reservation.getEndTime(),
-                reservableRoomId,
-                userMapper.select(user.getUserId())
-        );
-        reservationMapper.insert(addReservation);
+        insertTwo(reservableRoomId, user);
 
         List<Reservation> result = reservationMapper.selectByKey(reservableRoomId.getReservedDate(), reservableRoomId.getRoomId());
         assertEquals(2, result.size());
@@ -141,14 +135,9 @@ public class ReservationMapperTest {
         ReservableRoomId reservableRoomId = new ReservableRoomId(1, LocalDate.of(2020, 1, 1));
         reservableRoomMapper.insert(reservableRoomId);
 
-        Reservation reservation = new Reservation(
-                1,
-                LocalTime.of(9, 0),
-                LocalTime.of(10, 0),
-                reservableRoomId,
-                userMapper.select(user.getUserId())
-        );
-        reservationMapper.insert(reservation);
+        insertOne(reservableRoomId, user);
+        Reservation reservation = reservationMapper.select(1);
+        reservationMapper.update(reservation);
         Reservation updateReservation = new Reservation(
                 reservation.getReservationId(),
                 LocalTime.of(10, 0),
@@ -173,14 +162,8 @@ public class ReservationMapperTest {
         ReservableRoomId reservableRoomId = new ReservableRoomId(1, LocalDate.of(2020, 1, 1));
         reservableRoomMapper.insert(reservableRoomId);
 
-        Reservation reservation = new Reservation(
-                1,
-                LocalTime.of(9, 0),
-                LocalTime.of(10, 0),
-                reservableRoomId,
-                userMapper.select(user.getUserId())
-        );
-        reservationMapper.insert(reservation);
+        insertOne(reservableRoomId, user);
+        Reservation reservation = reservationMapper.select(1);
 
         reservationMapper.delete(reservation.getReservationId());
 
