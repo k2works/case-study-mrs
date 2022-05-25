@@ -5,6 +5,7 @@ import mrs.application.service.reservation.AlreadyReservedException;
 import mrs.application.service.reservation.UnavailableReservationException;
 import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.reservation.ReservationId;
+import mrs.domain.model.reservation.reservation.ReservationList;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
 import mrs.domain.model.reservation.room.RoomId;
@@ -50,14 +51,14 @@ public class ReservationsController {
     String reserveForm(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable("date") LocalDate date,
                        @PathVariable("roomId") Integer roomId, Model model) {
         ReservableRoomId reservableRoomId = new ReservableRoomId(roomId, date);
-        List<Reservation> reservations = scenario.findReservations(reservableRoomId);
+        ReservationList reservations = scenario.findReservations(reservableRoomId).orElse(new ReservationList());
 
         List<LocalTime> timeList = Stream.iterate(LocalTime.of(0, 0), t -> t.plusMinutes(30))
                 .limit(24 * 2)
                 .collect(Collectors.toList());
 
         model.addAttribute("room", scenario.findMeetingRoom(new RoomId(roomId)));
-        model.addAttribute("reservations", reservations);
+        model.addAttribute("reservations", reservations.asList());
         model.addAttribute("timeList", timeList);
         return "reservation/reserveForm";
     }

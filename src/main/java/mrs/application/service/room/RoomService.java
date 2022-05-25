@@ -1,13 +1,11 @@
 package mrs.application.service.room;
 
-import mrs.domain.model.reservation.room.MeetingRoom;
-import mrs.domain.model.reservation.room.ReservableRoom;
-import mrs.domain.model.reservation.room.ReservedDate;
-import mrs.domain.model.reservation.room.RoomId;
+import mrs.domain.model.reservation.room.*;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * 会議室の検索
@@ -33,7 +31,8 @@ public class RoomService {
     /**
      * 予約可能な会議室を検索する
      */
-    public List<ReservableRoom> findReservableRooms(ReservedDate date) {
-        return reservableRoomRepository.findByReservableRoomId_reservedDateOrderByReservableRoomId_roomIdAsc(date);
+    public Optional<ReservableRoomList> findReservableRooms(ReservedDate date) {
+        List<ReservableRoom> result = reservableRoomRepository.findByReservableRoomId_reservedDateOrderByReservableRoomId_roomIdAsc(date);
+        return Optional.of(new ReservableRoomList(result));
     }
 }

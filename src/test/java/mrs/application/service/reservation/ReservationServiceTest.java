@@ -4,6 +4,7 @@ import mrs.IntegrationTest;
 import mrs.TestDataFactory;
 import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.reservation.ReservationId;
+import mrs.domain.model.reservation.reservation.ReservationList;
 import mrs.domain.model.reservation.room.ReservableRoomId;
 import mrs.domain.model.user.User;
 import mrs.domain.model.user.UserId;
@@ -15,7 +16,6 @@ import org.springframework.security.test.context.support.WithMockUser;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -53,7 +53,7 @@ public class ReservationServiceTest {
         void 会議室の予約一覧を取得する() {
             ReservableRoomId reservableRoomId = testDataFactory.getReservableRoomId();
 
-            List<Reservation> result = reservationService.findReservations(reservableRoomId);
+            ReservationList result = reservationService.findReservations(reservableRoomId);
 
             assertEquals(1, result.size());
         }
@@ -80,7 +80,7 @@ public class ReservationServiceTest {
                 Reservation reservation = new Reservation(2, LocalTime.of(10, 0), LocalTime.of(11, 0), reservableRoomId, user);
                 reservationService.reserve(reservation);
 
-                List<Reservation> result = reservationService.findReservations(reservableRoomId);
+                ReservationList result = reservationService.findReservations(reservableRoomId);
 
                 assertEquals(2, result.size());
             }

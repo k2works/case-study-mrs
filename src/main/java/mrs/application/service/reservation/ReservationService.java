@@ -3,6 +3,7 @@ package mrs.application.service.reservation;
 import mrs.application.service.room.ReservableRoomRepository;
 import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.reservation.ReservationId;
+import mrs.domain.model.reservation.reservation.ReservationList;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
 import org.springframework.security.access.method.P;
@@ -64,7 +65,8 @@ public class ReservationService {
     /**
      * 会議室の予約一覧を取得する
      */
-    public List<Reservation> findReservations(ReservableRoomId reservableRoomId) {
-        return reservationRepository.findByReservableRoom_ReservableRoomIdOrderByStartTimeAsc(reservableRoomId);
+    public ReservationList findReservations(ReservableRoomId reservableRoomId) {
+        List<Reservation> result = reservationRepository.findByReservableRoom_ReservableRoomIdOrderByStartTimeAsc(reservableRoomId);
+        return new ReservationList(result);
     }
 }

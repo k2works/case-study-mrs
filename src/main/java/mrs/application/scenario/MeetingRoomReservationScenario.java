@@ -4,12 +4,13 @@ import mrs.application.service.reservation.ReservationService;
 import mrs.application.service.room.RoomService;
 import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.reservation.ReservationId;
+import mrs.domain.model.reservation.reservation.ReservationList;
 import mrs.domain.model.reservation.room.MeetingRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
 import mrs.domain.model.reservation.room.RoomId;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Optional;
 
 /**
  * 会議室の予約シナリオ
@@ -28,8 +29,8 @@ public class MeetingRoomReservationScenario {
     /**
      * 予約可能な会議室を選択する
      */
-    public List<Reservation> findReservations(ReservableRoomId reservableRoomId) {
-        return reservationService.findReservations(reservableRoomId);
+    public Optional<ReservationList> findReservations(ReservableRoomId reservableRoomId) {
+        return Optional.of(reservationService.findReservations(reservableRoomId));
     }
 
     /**
