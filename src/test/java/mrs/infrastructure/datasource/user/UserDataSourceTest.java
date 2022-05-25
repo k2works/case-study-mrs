@@ -1,8 +1,8 @@
-package mrs.infrastructure.datasource.service_user;
+package mrs.infrastructure.datasource.user;
 
 import mrs.IntegrationTest;
-import mrs.domain.model.service_user.RoleName;
-import mrs.domain.model.service_user.User;
+import mrs.domain.model.user.RoleName;
+import mrs.domain.model.user.User;
 import mrs.infrastructure.datasource.reserve.reservation.ReservationMapper;
 import mrs.infrastructure.datasource.reserve.room.ReservableRoomMapper;
 import mrs.infrastructure.datasource.reserve.room.RoomMapper;

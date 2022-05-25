@@ -4,7 +4,7 @@ import mrs.IntegrationTest;
 import mrs.TestDataFactory;
 import mrs.domain.model.reserve.reservation.Reservation;
 import mrs.domain.model.reserve.room.ReservableRoomId;
-import mrs.domain.model.service_user.User;
+import mrs.domain.model.user.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;

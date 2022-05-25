@@ -13,35 +13,35 @@
   </resultMap>
 
   <insert id="insert" useGeneratedKeys="true">
-    INSERT INTO reserve.会議室 (会議室番号, 会議室名)
+    INSERT INTO reservation.会議室 (会議室番号, 会議室名)
     VALUES (#{roomId}, #{roomName})
   </insert>
 
   <select id="select" resultMap="BaseResultMap">
     SELECT 会議室番号, 会議室名, 登録日時
-    FROM reserve.会議室
+    FROM reservation.会議室
     WHERE 会議室番号 = #{roomId}
   </select>
 
   <select id="selectAllJoin" resultMap="BaseResultMap">
     SELECT 会議室番号, 会議室名, 登録日時
-    FROM reserve.会議室
+    FROM reservation.会議室
   </select>
 
   <update id="update" parameterType="mrs.domain.model.reserve.room.MeetingRoom">
-    UPDATE reserve.会議室
+    UPDATE reservation.会議室
     SET 会議室名 = #{roomName}
     WHERE 会議室番号 = #{roomId}
   </update>
 
   <delete id="delete">
     DELETE
-    FROM Reserve.会議室
+    FROM reservation.会議室
     WHERE 会議室番号 = #{roomId}
   </delete>
 
   <delete id="deleteAll">
     DELETE
-    FROM Reserve.会議室
+    FROM reservation.会議室
   </delete>
 </mapper>

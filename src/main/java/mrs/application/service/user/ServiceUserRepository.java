@@ -1,6 +1,6 @@
-package mrs.application.service.service_user;
+package mrs.application.service.user;
 
-import mrs.domain.model.service_user.User;
+import mrs.domain.model.user.User;
 
 import java.util.Optional;
 

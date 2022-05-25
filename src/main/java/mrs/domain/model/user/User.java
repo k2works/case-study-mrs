@@ -1,4 +1,4 @@
-package mrs.domain.model.service_user;
+package mrs.domain.model.user;
 
 import mrs.domain.model.reserve.reservation.Reservation;
 

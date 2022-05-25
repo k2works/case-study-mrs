@@ -1,7 +1,7 @@
-package mrs.application.service.service_user;
+package mrs.application.service.user;
 
-import mrs.domain.model.service_user.ReservationUserDetails;
-import mrs.domain.model.service_user.User;
+import mrs.domain.model.user.ReservationUserDetails;
+import mrs.domain.model.user.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

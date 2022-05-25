@@ -1,7 +1,7 @@
-package mrs.infrastructure.datasource.service_user;
+package mrs.infrastructure.datasource.user;
 
-import mrs.application.service.service_user.ServiceUserRepository;
-import mrs.domain.model.service_user.User;
+import mrs.application.service.user.ServiceUserRepository;
+import mrs.domain.model.user.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;

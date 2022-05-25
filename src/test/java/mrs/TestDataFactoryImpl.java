@@ -3,12 +3,12 @@ package mrs;
 import mrs.domain.model.reserve.reservation.Reservation;
 import mrs.domain.model.reserve.room.MeetingRoom;
 import mrs.domain.model.reserve.room.ReservableRoomId;
-import mrs.domain.model.service_user.RoleName;
-import mrs.domain.model.service_user.User;
+import mrs.domain.model.user.RoleName;
+import mrs.domain.model.user.User;
 import mrs.infrastructure.datasource.reserve.reservation.ReservationMapper;
 import mrs.infrastructure.datasource.reserve.room.ReservableRoomMapper;
 import mrs.infrastructure.datasource.reserve.room.RoomMapper;
-import mrs.infrastructure.datasource.service_user.UserMapper;
+import mrs.infrastructure.datasource.user.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

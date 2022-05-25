@@ -1,6 +1,6 @@
-package mrs.infrastructure.datasource.service_user;
+package mrs.infrastructure.datasource.user;
 
-import mrs.domain.model.service_user.User;
+import mrs.domain.model.user.User;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

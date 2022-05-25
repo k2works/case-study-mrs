@@ -2,7 +2,7 @@ package mrs.domain.model.reserve.reservation;
 
 import mrs.domain.model.reserve.room.ReservableRoom;
 import mrs.domain.model.reserve.room.ReservableRoomId;
-import mrs.domain.model.service_user.User;
+import mrs.domain.model.user.User;
 
 import java.time.LocalTime;
 import java.util.Objects;
