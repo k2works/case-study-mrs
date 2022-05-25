@@ -33,7 +33,7 @@
             </text>
         </g>
         <!-- mrs.domain.model.reservation.reservation.Reservation&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom -->
-        <g id="edge8" class="edge">
+        <g id="edge9" class="edge">
             <title>mrs.domain.model.reservation.reservation.Reservation&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom</title>
             <path fill="none" stroke="black" d="M158.05,-186.49C169.55,-189.51 181.6,-192.79 193.69,-196.17"/>
             <polygon fill="black" stroke="black" points="192.8,-199.56 203.37,-198.9 194.7,-192.82 192.8,-199.56"/>
@@ -50,13 +50,13 @@
             </text>
         </g>
         <!-- mrs.domain.model.reservation.reservation.Reservation&#45;&gt;mrs.domain.model.reservation.room.ReservableRoomId -->
-        <g id="edge2" class="edge">
+        <g id="edge7" class="edge">
             <title>mrs.domain.model.reservation.reservation.Reservation&#45;&gt;mrs.domain.model.reservation.room.ReservableRoomId</title>
             <path fill="none" stroke="black" d="M158.21,-168.9C236.94,-166.78 360.21,-163.46 456.64,-160.87"/>
             <polygon fill="black" stroke="black" points="456.87,-164.36 466.77,-160.6 456.68,-157.37 456.87,-164.36"/>
         </g>
         <!-- mrs.domain.model.user.User -->
-        <g id="node7" class="node">
+        <g id="node6" class="node">
             <title>mrs.domain.model.user.User</title>
             <polygon fill="#eedd82" stroke="black" points="352.5,-143 272.5,-143 272.5,-69 352.5,-69 352.5,-143"/>
             <text text-anchor="middle" x="312.5" y="-115" font-family="Times New Roman,serif" font-size="30.00">会員
@@ -65,7 +65,7 @@
             </text>
         </g>
         <!-- mrs.domain.model.reservation.reservation.Reservation&#45;&gt;mrs.domain.model.user.User -->
-        <g id="edge10" class="edge">
+        <g id="edge3" class="edge">
             <title>mrs.domain.model.reservation.reservation.Reservation&#45;&gt;mrs.domain.model.user.User</title>
             <path fill="none" stroke="black" d="M158.05,-142.66C192.61,-132.34 232.19,-121.49 262.5,-114.13"/>
             <polygon fill="black" stroke="black" points="263.49,-117.49 272.4,-111.77 261.86,-110.68 263.49,-117.49"/>
@@ -81,41 +81,31 @@
             </text>
         </g>
         <!-- mrs.domain.model.reservation.room.MeetingRoom&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom -->
-        <g id="edge9" class="edge">
+        <g id="edge10" class="edge">
             <title>mrs.domain.model.reservation.room.MeetingRoom&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom</title>
             <path fill="none" stroke="black" d="M507.26,-251.14C486.19,-250.52 463.45,-249.61 441.23,-248.5"/>
             <polygon fill="black" stroke="black" points="441.23,-244.99 431.06,-247.98 440.87,-251.99 441.23,-244.99"/>
         </g>
         <!-- mrs.domain.model.reservation.room.ReservableRoom&#45;&gt;mrs.domain.model.reservation.reservation.Reservation -->
-        <g id="edge4" class="edge">
+        <g id="edge5" class="edge">
             <title>mrs.domain.model.reservation.room.ReservableRoom&#45;&gt;mrs.domain.model.reservation.reservation.Reservation</title>
             <path fill="none" stroke="black" d="M193.86,-209.72C185.04,-207.23 176.23,-204.7 167.64,-202.18"/>
             <polygon fill="black" stroke="black" points="168.63,-198.82 158.05,-199.34 166.65,-205.53 168.63,-198.82"/>
         </g>
         <!-- mrs.domain.model.reservation.room.ReservableRoom&#45;&gt;mrs.domain.model.reservation.room.MeetingRoom -->
-        <g id="edge1" class="edge">
+        <g id="edge11" class="edge">
             <title>mrs.domain.model.reservation.room.ReservableRoom&#45;&gt;mrs.domain.model.reservation.room.MeetingRoom</title>
             <path fill="none" stroke="black" d="M431.06,-234.67C452.98,-235.5 475.73,-236.58 497.18,-237.81"/>
             <polygon fill="black" stroke="black" points="497.07,-241.31 507.26,-238.41 497.49,-234.32 497.07,-241.31"/>
         </g>
         <!-- mrs.domain.model.reservation.room.ReservableRoom&#45;&gt;mrs.domain.model.reservation.room.ReservableRoomId -->
-        <g id="edge3" class="edge">
+        <g id="edge8" class="edge">
             <title>mrs.domain.model.reservation.room.ReservableRoom&#45;&gt;mrs.domain.model.reservation.room.ReservableRoomId</title>
             <path fill="none" stroke="black" d="M431.06,-203.64C439.61,-201.29 448.29,-198.9 456.96,-196.51"/>
             <polygon fill="black" stroke="black" points="458.04,-199.85 466.75,-193.82 456.18,-193.1 458.04,-199.85"/>
         </g>
-        <!-- mrs.domain.model.user.ReservationUserDetails -->
-        <g id="node5" class="node">
-            <title>mrs.domain.model.user.ReservationUserDetails</title>
-            <polygon fill="lemonchiffon" stroke="black" points="152,-88 6,-88 6,-50 152,-50 152,-88"/>
-            <text text-anchor="middle" x="79" y="-72.8" font-family="Times New Roman,serif" font-size="14.00">認証済み利用者
-            </text>
-            <text text-anchor="middle" x="79" y="-57.8" font-family="Times New Roman,serif" font-size="14.00">
-                ReservationUserDetails
-            </text>
-        </g>
         <!-- mrs.domain.model.user.RoleName -->
-        <g id="node6" class="node">
+        <g id="node5" class="node">
             <title>mrs.domain.model.user.RoleName</title>
             <polygon fill="#eedd82" stroke="black" points="688.5,-97 514.5,-97 514.5,-23 688.5,-23 688.5,-97"/>
             <text text-anchor="middle" x="601.5" y="-69" font-family="Times New Roman,serif" font-size="30.00">利用者区分
@@ -124,30 +114,40 @@
                 RoleName
             </text>
         </g>
-        <!-- mrs.domain.model.user.ReservationUserDetails&#45;&gt;mrs.domain.model.user.RoleName -->
-        <g id="edge6" class="edge">
-            <title>mrs.domain.model.user.ReservationUserDetails&#45;&gt;mrs.domain.model.user.RoleName</title>
-            <path fill="none" stroke="black"
-                  d="M152.01,-62.45C165.93,-61.43 180.41,-60.54 194,-60 300.11,-55.82 421.92,-56.55 504.32,-57.87"/>
-            <polygon fill="black" stroke="black" points="504.36,-61.37 514.42,-58.04 504.48,-54.37 504.36,-61.37"/>
-        </g>
-        <!-- mrs.domain.model.user.ReservationUserDetails&#45;&gt;mrs.domain.model.user.User -->
-        <g id="edge11" class="edge">
-            <title>mrs.domain.model.user.ReservationUserDetails&#45;&gt;mrs.domain.model.user.User</title>
-            <path fill="none" stroke="black" d="M152.3,-80.55C188.09,-86.28 230.37,-93.03 262.36,-98.15"/>
-            <polygon fill="black" stroke="black" points="261.93,-101.62 272.36,-99.74 263.04,-94.71 261.93,-101.62"/>
-        </g>
         <!-- mrs.domain.model.user.User&#45;&gt;mrs.domain.model.reservation.reservation.Reservation -->
-        <g id="edge5" class="edge">
+        <g id="edge6" class="edge">
             <title>mrs.domain.model.user.User&#45;&gt;mrs.domain.model.reservation.reservation.Reservation</title>
             <path fill="none" stroke="black" d="M272.4,-122.19C243.89,-131.57 204.09,-143.19 168.09,-152.84"/>
             <polygon fill="black" stroke="black" points="166.82,-149.56 158.05,-155.51 168.62,-156.32 166.82,-149.56"/>
         </g>
         <!-- mrs.domain.model.user.User&#45;&gt;mrs.domain.model.user.RoleName -->
-        <g id="edge7" class="edge">
+        <g id="edge1" class="edge">
             <title>mrs.domain.model.user.User&#45;&gt;mrs.domain.model.user.RoleName</title>
             <path fill="none" stroke="black" d="M352.5,-99.75C391.38,-93.52 452.6,-83.7 504.49,-75.39"/>
             <polygon fill="black" stroke="black" points="505.08,-78.84 514.4,-73.8 503.97,-71.93 505.08,-78.84"/>
+        </g>
+        <!-- mrs.domain.model.user.UserDetailsImpl -->
+        <g id="node7" class="node">
+            <title>mrs.domain.model.user.UserDetailsImpl</title>
+            <polygon fill="lemonchiffon" stroke="black" points="147.5,-88 10.5,-88 10.5,-50 147.5,-50 147.5,-88"/>
+            <text text-anchor="middle" x="79" y="-72.8" font-family="Times New Roman,serif" font-size="14.00">認証済み利用者
+            </text>
+            <text text-anchor="middle" x="79" y="-57.8" font-family="Times New Roman,serif" font-size="14.00">
+                UserDetailsImpl
+            </text>
+        </g>
+        <!-- mrs.domain.model.user.UserDetailsImpl&#45;&gt;mrs.domain.model.user.RoleName -->
+        <g id="edge2" class="edge">
+            <title>mrs.domain.model.user.UserDetailsImpl&#45;&gt;mrs.domain.model.user.RoleName</title>
+            <path fill="none" stroke="black"
+                  d="M147.76,-62.77C162.96,-61.62 179.02,-60.59 194,-60 300.11,-55.82 421.92,-56.55 504.32,-57.87"/>
+            <polygon fill="black" stroke="black" points="504.36,-61.37 514.42,-58.04 504.48,-54.37 504.36,-61.37"/>
+        </g>
+        <!-- mrs.domain.model.user.UserDetailsImpl&#45;&gt;mrs.domain.model.user.User -->
+        <g id="edge4" class="edge">
+            <title>mrs.domain.model.user.UserDetailsImpl&#45;&gt;mrs.domain.model.user.User</title>
+            <path fill="none" stroke="black" d="M147.58,-79.8C184.35,-85.68 229.01,-92.82 262.42,-98.16"/>
+            <polygon fill="black" stroke="black" points="261.98,-101.63 272.41,-99.75 263.09,-94.72 261.98,-101.63"/>
         </g>
     </g>
 </svg>
