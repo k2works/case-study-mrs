@@ -42,7 +42,7 @@ public class ReservationServiceTest {
             assertEquals(LocalTime.of(9, 0), result.getStartTime());
             assertEquals(LocalDate.of(2020, 1, 1), result.getReservableRoom().getReservableRoomId().getReservedDate());
             assertEquals("会議室A", result.getReservableRoom().getMeetingRoom().getRoomName());
-            assertEquals("1", result.getUser().getUserId());
+            assertEquals("1", result.getUser().UserId());
         }
 
         @Test

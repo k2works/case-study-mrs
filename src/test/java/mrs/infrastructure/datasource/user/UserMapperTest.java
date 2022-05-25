@@ -43,11 +43,11 @@ public class UserMapperTest {
         userMapper.insert(new User("1", "テスト", "太郎", "password", RoleName.USER));
 
         User user = userMapper.select("1");
-        assert (user.getUserId().equals("1"));
-        assert (user.getFirstName().equals("テスト"));
-        assert (user.getLastName().equals("太郎"));
-        assert (user.getPassword().equals("password"));
-        assert (user.getRoleName().equals(RoleName.USER));
+        assert (user.UserId().equals("1"));
+        assert (user.FirstName().equals("テスト"));
+        assert (user.LastName().equals("太郎"));
+        assert (user.Password().equals("password"));
+        assert (user.RoleName().equals(RoleName.USER));
     }
 
     @Test
@@ -73,7 +73,7 @@ public class UserMapperTest {
                 LocalTime.of(9, 0),
                 LocalTime.of(10, 0),
                 reservableRoomId,
-                userMapper.select(user.getUserId())
+                userMapper.select(user.UserId())
         );
         reservationMapper.insert(reservation);
         Reservation addReservation = new Reservation(
@@ -81,12 +81,12 @@ public class UserMapperTest {
                 reservation.getStartTime(),
                 reservation.getEndTime(),
                 reservableRoomId,
-                userMapper.select(user.getUserId())
+                userMapper.select(user.UserId())
         );
         reservationMapper.insert(addReservation);
 
         List<Reservation> reservations = reservationMapper.selectByKey(reservableRoomId.getReservedDate(), reservableRoomId.getRoomId());
-        User result = userMapper.select(user.getUserId());
+        User result = userMapper.select(user.UserId());
         assertEquals(reservations.size(), result.getReservations().size());
     }
 
@@ -94,14 +94,14 @@ public class UserMapperTest {
     public void ユーザーを更新できる() {
         userMapper.insert(new User("3", "テスト", "太郎", "password", RoleName.USER));
         User user = userMapper.select("3");
-        User updateUser = new User(user.getUserId(), "更新1", "更新2", "updated", RoleName.ADMIN);
+        User updateUser = new User(user.UserId(), "更新1", "更新2", "updated", RoleName.ADMIN);
         userMapper.update(updateUser);
 
         User updatedUser = userMapper.select("3");
-        assert (updatedUser.getFirstName().equals("更新1"));
-        assert (updatedUser.getLastName().equals("更新2"));
-        assert (updatedUser.getPassword().equals("updated"));
-        assert (updatedUser.getRoleName().equals(RoleName.ADMIN));
+        assert (updatedUser.FirstName().equals("更新1"));
+        assert (updatedUser.LastName().equals("更新2"));
+        assert (updatedUser.Password().equals("updated"));
+        assert (updatedUser.RoleName().equals(RoleName.ADMIN));
     }
 
     @Test

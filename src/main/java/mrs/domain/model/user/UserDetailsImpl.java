@@ -22,17 +22,17 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return AuthorityUtils.createAuthorityList("ROLE_" + this.user.getRoleName().name());
+        return AuthorityUtils.createAuthorityList("ROLE_" + this.user.RoleName().name());
     }
 
     @Override
     public String getPassword() {
-        return this.user.getPassword();
+        return this.user.Password();
     }
 
     @Override
     public String getUsername() {
-        return this.user.getUserId();
+        return this.user.UserId();
     }
 
     @Override

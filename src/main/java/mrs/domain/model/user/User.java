@@ -32,23 +32,23 @@ public class User {
     public User() {
     }
 
-    public String getUserId() {
+    public String UserId() {
         return userId;
     }
 
-    public String getPassword() {
+    public String Password() {
         return password;
     }
 
-    public String getFirstName() {
+    public String FirstName() {
         return firstName;
     }
 
-    public String getLastName() {
+    public String LastName() {
         return lastName;
     }
 
-    public RoleName getRoleName() {
+    public RoleName RoleName() {
         return roleName;
     }
 

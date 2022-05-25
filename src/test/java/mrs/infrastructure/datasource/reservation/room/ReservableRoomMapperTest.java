@@ -66,7 +66,7 @@ public class ReservableRoomMapperTest {
                 LocalTime.of(9, 0),
                 LocalTime.of(10, 0),
                 reservableRoomId,
-                userMapper.select(user.getUserId())
+                userMapper.select(user.UserId())
         );
         reservationMapper.insert(reservation);
         Reservation addReservation = new Reservation(
@@ -74,7 +74,7 @@ public class ReservableRoomMapperTest {
                 reservation.getStartTime(),
                 reservation.getEndTime(),
                 reservableRoomId,
-                userMapper.select(user.getUserId())
+                userMapper.select(user.UserId())
         );
         reservationMapper.insert(addReservation);
 
