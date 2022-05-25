@@ -45,7 +45,7 @@ public class MeetingRoomReservationScenario {
     }
 
     /**
-     * 取り消したい会議室の予約を検索する
+     * 取り消したい会議室の予約を選択する
      */
     public Reservation findOne(Integer reservationId) {
         return reservationService.findOne(reservationId);
