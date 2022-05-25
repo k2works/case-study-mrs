@@ -20,11 +20,11 @@ public class ReservableRoom {
         this.reservableRoomId = reservableRoomId;
     }
 
-    public ReservableRoomId getReservableRoomId() {
+    public ReservableRoomId ReservableRoomId() {
         return reservableRoomId;
     }
 
-    public MeetingRoom getMeetingRoom() {
+    public MeetingRoom MeetingRoom() {
         return meetingRoom;
     }
 

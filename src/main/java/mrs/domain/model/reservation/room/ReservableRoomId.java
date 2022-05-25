@@ -51,11 +51,11 @@ public class ReservableRoomId {
         return true;
     }
 
-    public Integer getRoomId() {
+    public Integer RoomId() {
         return roomId;
     }
 
-    public LocalDate getReservedDate() {
+    public LocalDate ReservedDate() {
         return reservedDate;
     }
 }

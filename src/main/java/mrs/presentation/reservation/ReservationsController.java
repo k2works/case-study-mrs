@@ -71,7 +71,7 @@ public class ReservationsController {
 
         ReservableRoom reservableRoom = new ReservableRoom(
                 new ReservableRoomId(roomId, date));
-        Reservation reservation = new Reservation(null, form.getStartTime(), form.getEndTime(), reservableRoom.getReservableRoomId(), userDetails.getUser());
+        Reservation reservation = new Reservation(null, form.getStartTime(), form.getEndTime(), reservableRoom.ReservableRoomId(), userDetails.getUser());
 
         try {
             scenario.reserve(reservation);

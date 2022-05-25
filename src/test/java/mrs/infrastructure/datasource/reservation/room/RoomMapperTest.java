@@ -31,8 +31,8 @@ public class RoomMapperTest {
         roomMapper.insert(meetingRoom);
 
         MeetingRoom actual = roomMapper.select(1);
-        assertEquals(1, actual.getRoomId());
-        assertEquals("会議室A", actual.getRoomName());
+        assertEquals(1, actual.RoomId());
+        assertEquals("会議室A", actual.RoomName());
     }
 
     @Test
@@ -45,7 +45,7 @@ public class RoomMapperTest {
         reservableRoomId = new ReservableRoomId(1, LocalDate.of(2020, 1, 2));
         reservableRoomMapper.insert(reservableRoomId);
 
-        MeetingRoom result = roomMapper.select(meetingRoom.getRoomId());
+        MeetingRoom result = roomMapper.select(meetingRoom.RoomId());
         assertEquals(2, result.getReservableRooms().size());
     }
 
@@ -62,12 +62,12 @@ public class RoomMapperTest {
     public void 会議室を更新できる() {
         MeetingRoom meetingRoom = new MeetingRoom(1, "会議室A");
         roomMapper.insert(meetingRoom);
-        MeetingRoom updateMeetingRoom = new MeetingRoom(meetingRoom.getRoomId(), "会議室B");
+        MeetingRoom updateMeetingRoom = new MeetingRoom(meetingRoom.RoomId(), "会議室B");
         roomMapper.update(updateMeetingRoom);
 
         MeetingRoom actual = roomMapper.select(1);
-        assertEquals(1, actual.getRoomId());
-        assertEquals("会議室B", actual.getRoomName());
+        assertEquals(1, actual.RoomId());
+        assertEquals("会議室B", actual.RoomName());
     }
 
     @Test

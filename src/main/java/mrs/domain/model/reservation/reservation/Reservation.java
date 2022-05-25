@@ -36,7 +36,7 @@ public class Reservation {
     }
 
     public boolean overlap(Reservation target) {
-        if (!Objects.equals(reservableRoom.getReservableRoomId(), target.reservableRoom.getReservableRoomId())) {
+        if (!Objects.equals(reservableRoom.ReservableRoomId(), target.reservableRoom.ReservableRoomId())) {
             return false;
         }
         if (startTime.equals(target.startTime) && endTime.equals(target.endTime)) {

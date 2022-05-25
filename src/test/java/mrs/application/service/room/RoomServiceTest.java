@@ -33,8 +33,8 @@ public class RoomServiceTest {
         void 会議室を検索する() {
             MeetingRoom room = roomService.findMeetingRoom(1);
 
-            assertEquals(1, room.getRoomId());
-            assertEquals("会議室A", room.getRoomName());
+            assertEquals(1, room.RoomId());
+            assertEquals("会議室A", room.RoomName());
         }
 
         @Test

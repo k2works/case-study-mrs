@@ -21,11 +21,11 @@ public class MeetingRoom {
         this.roomName = roomName;
     }
 
-    public Integer getRoomId() {
+    public Integer RoomId() {
         return roomId;
     }
 
-    public String getRoomName() {
+    public String RoomName() {
         return roomName;
     }
 

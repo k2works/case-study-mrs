@@ -47,9 +47,9 @@ public class ReservableRoomMapperTest {
         reservableRoomMapper.insert(reservableRoomId);
 
         ReservableRoom reservableRoom = reservableRoomMapper.select(reservableRoomId);
-        assertEquals(reservableRoomId, reservableRoom.getReservableRoomId());
-        assertEquals(meetingRoom.getRoomId(), reservableRoom.getMeetingRoom().getRoomId());
-        assertEquals(meetingRoom.getRoomName(), reservableRoom.getMeetingRoom().getRoomName());
+        assertEquals(reservableRoomId, reservableRoom.ReservableRoomId());
+        assertEquals(meetingRoom.RoomId(), reservableRoom.MeetingRoom().RoomId());
+        assertEquals(meetingRoom.RoomName(), reservableRoom.MeetingRoom().RoomName());
     }
 
     @Test
@@ -78,7 +78,7 @@ public class ReservableRoomMapperTest {
         );
         reservationMapper.insert(addReservation);
 
-        List<Reservation> reservations = reservationMapper.selectByKey(reservableRoomId.getReservedDate(), reservableRoomId.getRoomId());
+        List<Reservation> reservations = reservationMapper.selectByKey(reservableRoomId.ReservedDate(), reservableRoomId.RoomId());
         ReservableRoom result = reservableRoomMapper.select(reservableRoomId);
         assertEquals(reservations.size(), result.getReservations().size());
     }

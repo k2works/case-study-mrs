@@ -85,9 +85,9 @@ public class ReservationMapperTest {
         assertEquals(1, result.getReservationId());
         assertEquals(LocalTime.of(10, 0), result.getEndTime());
         assertEquals(LocalTime.of(9, 0), result.getStartTime());
-        assertEquals(reservableRoomId.getReservedDate(), result.getReservableRoom().getReservableRoomId().getReservedDate());
-        assertEquals(reservableRoomId, result.getReservableRoom().getReservableRoomId());
-        assertEquals(meetingRoom.getRoomName(), result.getReservableRoom().getMeetingRoom().getRoomName());
+        assertEquals(reservableRoomId.ReservedDate(), result.getReservableRoom().ReservableRoomId().ReservedDate());
+        assertEquals(reservableRoomId, result.getReservableRoom().ReservableRoomId());
+        assertEquals(meetingRoom.RoomName(), result.getReservableRoom().MeetingRoom().RoomName());
         assertEquals(user.UserId(), result.getUser().UserId());
         assertEquals(user.LastName(), result.getUser().LastName());
         assertEquals(user.FirstName(), result.getUser().FirstName());
@@ -121,7 +121,7 @@ public class ReservationMapperTest {
 
         insertTwo(reservableRoomId, user);
 
-        List<Reservation> result = reservationMapper.selectByKey(reservableRoomId.getReservedDate(), reservableRoomId.getRoomId());
+        List<Reservation> result = reservationMapper.selectByKey(reservableRoomId.ReservedDate(), reservableRoomId.RoomId());
         assertEquals(2, result.size());
         assertEquals(1, result.get(0).getReservationId());
     }
