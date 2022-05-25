@@ -7,6 +7,6 @@ import java.util.Optional;
 /**
  * 会員レポジトリ
  */
-public interface ServiceUserRepository {
+public interface UserRepository {
     Optional<User> findByUserId(String userId);
 }
