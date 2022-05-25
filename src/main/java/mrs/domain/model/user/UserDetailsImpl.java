@@ -9,10 +9,10 @@ import java.util.Collection;
 /**
  * 認証済み利用者
  */
-public class ReservationUserDetails implements UserDetails {
+public class UserDetailsImpl implements UserDetails {
     private final mrs.domain.model.user.User user;
 
-    public ReservationUserDetails(mrs.domain.model.user.User user) {
+    public UserDetailsImpl(mrs.domain.model.user.User user) {
         this.user = user;
     }
 

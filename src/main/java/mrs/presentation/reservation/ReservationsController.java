@@ -6,8 +6,8 @@ import mrs.application.service.reservation.UnavailableReservationException;
 import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
-import mrs.domain.model.user.ReservationUserDetails;
 import mrs.domain.model.user.User;
+import mrs.domain.model.user.UserDetailsImpl;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -62,7 +62,7 @@ public class ReservationsController {
 
     @PostMapping
     String reserve(@Validated ReservationForm form, BindingResult bindingResult,
-                   @AuthenticationPrincipal ReservationUserDetails userDetails,
+                   @AuthenticationPrincipal UserDetailsImpl userDetails,
                    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable("date") LocalDate date,
                    @PathVariable("roomId") Integer roomId, Model model) {
         if (bindingResult.hasErrors()) {
@@ -87,7 +87,7 @@ public class ReservationsController {
     }
 
     @PostMapping(params = "cancel")
-    String cancel(@AuthenticationPrincipal ReservationUserDetails userDetails,
+    String cancel(@AuthenticationPrincipal UserDetailsImpl userDetails,
                   @RequestParam("reservationId") Integer reservationId,
                   @PathVariable("roomId") Integer roomId,
                   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable("date") LocalDate date,

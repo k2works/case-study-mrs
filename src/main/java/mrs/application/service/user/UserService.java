@@ -1,7 +1,7 @@
 package mrs.application.service.user;
 
-import mrs.domain.model.user.ReservationUserDetails;
 import mrs.domain.model.user.User;
+import mrs.domain.model.user.UserDetailsImpl;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -29,6 +29,6 @@ public class UserService implements UserDetailsService {
         if (user.isEmpty()) {
             throw new UsernameNotFoundException(userId + " is not found.");
         }
-        return new ReservationUserDetails(user.get());
+        return new UserDetailsImpl(user.get());
     }
 }
