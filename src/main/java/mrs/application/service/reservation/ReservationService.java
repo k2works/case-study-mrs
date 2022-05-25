@@ -30,7 +30,7 @@ public class ReservationService {
      * 会議室を予約する
      */
     public void reserve(Reservation reservation) {
-        ReservableRoomId reservableRoomId = reservation.getReservableRoom().ReservableRoomId();
+        ReservableRoomId reservableRoomId = reservation.ReservableRoom().ReservableRoomId();
         // 悲観ロック
         Optional<ReservableRoom> reservable = Optional.ofNullable(reservableRoomRepository.findOneForUpdateByReservableRoomId(reservableRoomId));
         if (reservable.isEmpty()) {
@@ -48,7 +48,7 @@ public class ReservationService {
     /**
      * 会議室の予約を取り消す
      */
-    @PreAuthorize("hasRole('ADMIN') or #reservation.user.UserId == principal.user.UserId")
+    @PreAuthorize("hasRole('ADMIN') or #reservation.User.UserId == principal.user.UserId")
     public void cancel(@P("reservation") Reservation reservation) {
         reservationRepository.delete(reservation);
     }

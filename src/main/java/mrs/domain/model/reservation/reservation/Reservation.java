@@ -45,23 +45,23 @@ public class Reservation {
         return target.endTime.isAfter(startTime) && endTime.isAfter(target.startTime);
     }
 
-    public Integer getReservationId() {
+    public Integer ReservationId() {
         return reservationId;
     }
 
-    public LocalTime getStartTime() {
+    public LocalTime StartTime() {
         return startTime;
     }
 
-    public LocalTime getEndTime() {
+    public LocalTime EndTime() {
         return endTime;
     }
 
-    public ReservableRoom getReservableRoom() {
+    public ReservableRoom ReservableRoom() {
         return reservableRoom;
     }
 
-    public User getUser() {
+    public User User() {
         return user;
     }
 }

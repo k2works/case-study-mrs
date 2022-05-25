@@ -29,7 +29,7 @@ public class ReservationDataSource implements ReservationRepository {
 
     @Override
     public void delete(Reservation reservation) {
-        reservationMapper.delete(reservation.getReservationId());
+        reservationMapper.delete(reservation.ReservationId());
     }
 
     @Override

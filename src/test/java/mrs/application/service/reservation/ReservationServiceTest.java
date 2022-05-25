@@ -37,12 +37,12 @@ public class ReservationServiceTest {
         void 会議室の予約を検索する() {
             Reservation result = reservationService.findOne(1);
 
-            assertEquals(1, result.getReservationId());
-            assertEquals(LocalTime.of(10, 0), result.getEndTime());
-            assertEquals(LocalTime.of(9, 0), result.getStartTime());
-            assertEquals(LocalDate.of(2020, 1, 1), result.getReservableRoom().ReservableRoomId().ReservedDate());
-            assertEquals("会議室A", result.getReservableRoom().MeetingRoom().RoomName());
-            assertEquals("1", result.getUser().UserId());
+            assertEquals(1, result.ReservationId());
+            assertEquals(LocalTime.of(10, 0), result.EndTime());
+            assertEquals(LocalTime.of(9, 0), result.StartTime());
+            assertEquals(LocalDate.of(2020, 1, 1), result.ReservableRoom().ReservableRoomId().ReservedDate());
+            assertEquals("会議室A", result.ReservableRoom().MeetingRoom().RoomName());
+            assertEquals("1", result.User().UserId());
         }
 
         @Test

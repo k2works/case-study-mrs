@@ -71,8 +71,8 @@ public class ReservableRoomMapperTest {
         reservationMapper.insert(reservation);
         Reservation addReservation = new Reservation(
                 2,
-                reservation.getStartTime(),
-                reservation.getEndTime(),
+                reservation.StartTime(),
+                reservation.EndTime(),
                 reservableRoomId,
                 userMapper.select(user.UserId())
         );
