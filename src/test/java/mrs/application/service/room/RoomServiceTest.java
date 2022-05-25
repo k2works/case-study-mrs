@@ -4,6 +4,7 @@ import mrs.IntegrationTest;
 import mrs.TestDataFactory;
 import mrs.domain.model.reservation.room.MeetingRoom;
 import mrs.domain.model.reservation.room.ReservableRoom;
+import mrs.domain.model.reservation.room.ReservedDate;
 import mrs.domain.model.reservation.room.RoomId;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
@@ -42,7 +43,7 @@ public class RoomServiceTest {
         @Test
         void 予約可能な会議室を検索する() {
             LocalDate date = LocalDate.of(2020, 1, 1);
-            List<ReservableRoom> rooms = roomService.findReservableRooms(date);
+            List<ReservableRoom> rooms = roomService.findReservableRooms(new ReservedDate(date));
 
             assertEquals(3, rooms.size());
         }

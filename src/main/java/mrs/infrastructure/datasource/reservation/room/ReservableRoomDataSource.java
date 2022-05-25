@@ -3,9 +3,9 @@ package mrs.infrastructure.datasource.reservation.room;
 import mrs.application.service.room.ReservableRoomRepository;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
+import mrs.domain.model.reservation.room.ReservedDate;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Repository
@@ -17,7 +17,7 @@ public class ReservableRoomDataSource implements ReservableRoomRepository {
     }
 
     @Override
-    public List<ReservableRoom> findByReservableRoomId_reservedDateOrderByReservableRoomId_roomIdAsc(LocalDate reservedDate) {
+    public List<ReservableRoom> findByReservableRoomId_reservedDateOrderByReservableRoomId_roomIdAsc(ReservedDate reservedDate) {
         return reservableRoomMapper.findByReservableRoomId_ReservedDateOrderByReservableRoomId_RoomIdAsc(reservedDate);
     }
 

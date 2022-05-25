@@ -2,9 +2,9 @@ package mrs.infrastructure.datasource.reservation.room;
 
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
+import mrs.domain.model.reservation.room.ReservedDate;
 import org.apache.ibatis.annotations.Mapper;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Mapper
@@ -21,5 +21,5 @@ public interface ReservableRoomMapper {
 
     void deleteAll();
 
-    List<ReservableRoom> findByReservableRoomId_ReservedDateOrderByReservableRoomId_RoomIdAsc(LocalDate reservedDate);
+    List<ReservableRoom> findByReservableRoomId_ReservedDateOrderByReservableRoomId_RoomIdAsc(ReservedDate reservedDate);
 }

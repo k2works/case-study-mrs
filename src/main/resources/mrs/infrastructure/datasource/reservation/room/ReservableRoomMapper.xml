@@ -62,7 +62,7 @@
                rm.会議室名
         FROM reservation.予約可能会議室 rr
                  LEFT OUTER JOIN reservation.会議室 rm ON rr.会議室番号 = rm.会議室番号
-        WHERE 予約日 = #{reservedDate}
+        WHERE 予約日 = #{value}
         ORDER BY rr.会議室番号 ASC
     </select>
 </mapper>
