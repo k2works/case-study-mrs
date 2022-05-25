@@ -68,15 +68,22 @@ public class UserMapperTest {
         ReservableRoomId reservableRoomId = new ReservableRoomId(1, LocalDate.of(2020, 1, 1));
         reservableRoomMapper.insert(reservableRoomId);
 
-        Reservation reservation = new Reservation();
-        reservation.setReservationId(1);
-        reservation.setEndTime(LocalTime.of(10, 0));
-        reservation.setStartTime(LocalTime.of(9, 0));
-        reservation.setReservableRoom(reservableRoomMapper.select(reservableRoomId));
-        reservation.setUser(userMapper.select(user.getUserId()));
+        Reservation reservation = new Reservation(
+                1,
+                LocalTime.of(9, 0),
+                LocalTime.of(10, 0),
+                reservableRoomId,
+                userMapper.select(user.getUserId())
+        );
         reservationMapper.insert(reservation);
-        reservation.setReservationId(2);
-        reservationMapper.insert(reservation);
+        Reservation addReservation = new Reservation(
+                2,
+                reservation.getStartTime(),
+                reservation.getEndTime(),
+                reservableRoomId,
+                userMapper.select(user.getUserId())
+        );
+        reservationMapper.insert(addReservation);
 
         List<Reservation> reservations = reservationMapper.selectByKey(reservableRoomId.getReservedDate(), reservableRoomId.getRoomId());
         User result = userMapper.select(user.getUserId());
@@ -86,13 +93,9 @@ public class UserMapperTest {
     @Test
     public void ユーザーを更新できる() {
         userMapper.insert(new User("3", "テスト", "太郎", "password", RoleName.USER));
-
         User user = userMapper.select("3");
-        user.setFirstName("更新1");
-        user.setLastName("更新2");
-        user.setPassword("updated");
-        user.setRoleName(RoleName.ADMIN);
-        userMapper.update(user);
+        User updateUser = new User(user.getUserId(), "更新1", "更新2", "updated", RoleName.ADMIN);
+        userMapper.update(updateUser);
 
         User updatedUser = userMapper.select("3");
         assert (updatedUser.getFirstName().equals("更新1"));

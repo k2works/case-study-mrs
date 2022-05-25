@@ -61,15 +61,22 @@ public class ReservableRoomMapperTest {
         ReservableRoomId reservableRoomId = new ReservableRoomId(1, LocalDate.of(2020, 1, 1));
         reservableRoomMapper.insert(reservableRoomId);
 
-        Reservation reservation = new Reservation();
-        reservation.setReservationId(1);
-        reservation.setEndTime(LocalTime.of(10, 0));
-        reservation.setStartTime(LocalTime.of(9, 0));
-        reservation.setReservableRoom(reservableRoomMapper.select(reservableRoomId));
-        reservation.setUser(userMapper.select(user.getUserId()));
+        Reservation reservation = new Reservation(
+                1,
+                LocalTime.of(9, 0),
+                LocalTime.of(10, 0),
+                reservableRoomId,
+                userMapper.select(user.getUserId())
+        );
         reservationMapper.insert(reservation);
-        reservation.setReservationId(2);
-        reservationMapper.insert(reservation);
+        Reservation addReservation = new Reservation(
+                2,
+                reservation.getStartTime(),
+                reservation.getEndTime(),
+                reservableRoomId,
+                userMapper.select(user.getUserId())
+        );
+        reservationMapper.insert(addReservation);
 
         List<Reservation> reservations = reservationMapper.selectByKey(reservableRoomId.getReservedDate(), reservableRoomId.getRoomId());
         ReservableRoom result = reservableRoomMapper.select(reservableRoomId);

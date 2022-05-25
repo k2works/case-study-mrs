@@ -62,9 +62,8 @@ public class RoomMapperTest {
     public void 会議室を更新できる() {
         MeetingRoom meetingRoom = new MeetingRoom(1, "会議室A");
         roomMapper.insert(meetingRoom);
-
-        meetingRoom.setRoomName("会議室B");
-        roomMapper.update(meetingRoom);
+        MeetingRoom updateMeetingRoom = new MeetingRoom(meetingRoom.getRoomId(), "会議室B");
+        roomMapper.update(updateMeetingRoom);
 
         MeetingRoom actual = roomMapper.select(1);
         assertEquals(1, actual.getRoomId());

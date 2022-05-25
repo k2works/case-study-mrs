@@ -49,39 +49,19 @@ public class Reservation {
         return reservationId;
     }
 
-    public void setReservationId(Integer reservationId) {
-        this.reservationId = reservationId;
-    }
-
     public LocalTime getStartTime() {
         return startTime;
-    }
-
-    public void setStartTime(LocalTime startTime) {
-        this.startTime = startTime;
     }
 
     public LocalTime getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(LocalTime endTime) {
-        this.endTime = endTime;
-    }
-
     public ReservableRoom getReservableRoom() {
         return reservableRoom;
     }
 
-    public void setReservableRoom(ReservableRoom reservableRoom) {
-        this.reservableRoom = reservableRoom;
-    }
-
     public User getUser() {
         return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }

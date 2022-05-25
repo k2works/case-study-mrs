@@ -1,12 +1,11 @@
 package mrs.domain.model.reservation.room;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
  * 予約可能会議室ID
  */
-public class ReservableRoomId implements Serializable {
+public class ReservableRoomId {
 
     private Integer roomId;
 
@@ -56,15 +55,7 @@ public class ReservableRoomId implements Serializable {
         return roomId;
     }
 
-    public void setRoomId(Integer roomId) {
-        this.roomId = roomId;
-    }
-
     public LocalDate getReservedDate() {
         return reservedDate;
-    }
-
-    public void setReservedDate(LocalDate reservedDate) {
-        this.reservedDate = reservedDate;
     }
 }
