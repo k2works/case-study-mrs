@@ -10,7 +10,7 @@
     <collection property="reservations"
                 javaType="ArrayList"
                 column="会員番号"
-                select="mrs.infrastructure.datasource.reserve.reservation.ReservationMapper.selectByUserId"
+                select="mrs.infrastructure.datasource.reservation.reservation.ReservationMapper.selectByUserId"
                 fetchType="lazy"
     />
   </resultMap>

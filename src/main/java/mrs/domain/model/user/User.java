@@ -1,6 +1,6 @@
 package mrs.domain.model.user;
 
-import mrs.domain.model.reserve.reservation.Reservation;
+import mrs.domain.model.reservation.reservation.Reservation;
 
 import java.util.List;
 

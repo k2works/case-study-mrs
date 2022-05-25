@@ -1,7 +1,7 @@
 package mrs.application.service.reservation;
 
-import mrs.domain.model.reserve.reservation.Reservation;
-import mrs.domain.model.reserve.room.ReservableRoomId;
+import mrs.domain.model.reservation.reservation.Reservation;
+import mrs.domain.model.reservation.room.ReservableRoomId;
 
 import java.util.List;
 import java.util.Optional;

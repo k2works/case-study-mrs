@@ -1,6 +1,6 @@
 package mrs.application.service.room;
 
-import mrs.domain.model.reserve.room.MeetingRoom;
+import mrs.domain.model.reservation.room.MeetingRoom;
 
 public interface MeetingRoomRepository {
     MeetingRoom getById(Integer roomId);
