@@ -1,9 +1,8 @@
 package mrs.presentation.reservation;
 
+import mrs.application.scenario.MeetingRoomReservationScenario;
 import mrs.application.service.reservation.AlreadyReservedException;
-import mrs.application.service.reservation.ReservationService;
 import mrs.application.service.reservation.UnavailableReservationException;
-import mrs.application.service.room.RoomService;
 import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
@@ -29,12 +28,11 @@ import java.util.stream.Stream;
 @Controller("会議室予約")
 @RequestMapping("reservations/{date}/{roomId}")
 public class ReservationsController {
-    private final RoomService roomService;
-    private final ReservationService reservationService;
 
-    public ReservationsController(RoomService roomService, ReservationService reservationService) {
-        this.roomService = roomService;
-        this.reservationService = reservationService;
+    private final MeetingRoomReservationScenario scenario;
+
+    public ReservationsController(MeetingRoomReservationScenario scenario) {
+        this.scenario = scenario;
     }
 
     @ModelAttribute
@@ -50,13 +48,13 @@ public class ReservationsController {
     String reserveForm(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable("date") LocalDate date,
                        @PathVariable("roomId") Integer roomId, Model model) {
         ReservableRoomId reservableRoomId = new ReservableRoomId(roomId, date);
-        List<Reservation> reservations = reservationService.findReservations(reservableRoomId);
+        List<Reservation> reservations = scenario.findReservations(reservableRoomId);
 
         List<LocalTime> timeList = Stream.iterate(LocalTime.of(0, 0), t -> t.plusMinutes(30))
                 .limit(24 * 2)
                 .collect(Collectors.toList());
 
-        model.addAttribute("room", roomService.findMeetingRoom(roomId));
+        model.addAttribute("room", scenario.findMeetingRoom(roomId));
         model.addAttribute("reservations", reservations);
         model.addAttribute("timeList", timeList);
         return "reservation/reserveForm";
@@ -80,7 +78,7 @@ public class ReservationsController {
         reservation.setUser(userDetails.getUser());
 
         try {
-            reservationService.reserve(reservation);
+            scenario.reserve(reservation);
         } catch (UnavailableReservationException | AlreadyReservedException e) {
             model.addAttribute("error", e.getMessage());
             return reserveForm(date, roomId, model);
@@ -96,8 +94,8 @@ public class ReservationsController {
                   Model model) {
         User user = userDetails.getUser();
         try {
-            Reservation reservation = reservationService.findOne(reservationId);
-            reservationService.cancel(reservation);
+            Reservation reservation = scenario.findOne(reservationId);
+            scenario.cancel(reservation);
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
             return reserveForm(date, roomId, model);
