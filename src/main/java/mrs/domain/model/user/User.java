@@ -12,9 +12,7 @@ public class User {
 
     private String password;
 
-    private String firstName;
-
-    private String lastName;
+    private UserName name;
 
     private RoleName roleName;
 
@@ -22,8 +20,7 @@ public class User {
 
     public User(String userId, String firstName, String lastName, String password, RoleName roleName) {
         this.userId = new UserId(userId);
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.name = new UserName(firstName, lastName);
         this.password = password;
         this.roleName = roleName;
     }
@@ -40,12 +37,8 @@ public class User {
         return password;
     }
 
-    public String FirstName() {
-        return firstName;
-    }
-
-    public String LastName() {
-        return lastName;
+    public UserName Name() {
+        return name;
     }
 
     public RoleName RoleName() {

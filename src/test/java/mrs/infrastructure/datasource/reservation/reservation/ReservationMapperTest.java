@@ -91,8 +91,8 @@ public class ReservationMapperTest {
         assertEquals(reservableRoomId, result.ReservableRoom().ReservableRoomId());
         assertEquals(meetingRoom.RoomName(), result.ReservableRoom().MeetingRoom().RoomName());
         assertEquals(user.UserId(), result.User().UserId());
-        assertEquals(user.LastName(), result.User().LastName());
-        assertEquals(user.FirstName(), result.User().FirstName());
+        assertEquals(user.Name().LastName(), result.User().Name().LastName());
+        assertEquals(user.Name().FirstName(), result.User().Name().FirstName());
         assertEquals(user.RoleName(), result.User().RoleName());
     }
 

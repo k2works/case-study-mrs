@@ -17,7 +17,7 @@
       th:action="@{'/reservations/' + ${date} + '/' + ${roomId}}" th:object="${reservationForm}">
     会議室: <span th:text="${room.RoomName}">豊洲</span>
     <br/>
-    予約者名: <span th:text="${user.LastName + ' ' + user.FirstName}">山田 太郎</span>
+    予約者名: <span th:text="${user.Name.FullName}">山田 太郎</span>
     <br/>
     日付: <span th:text="${#temporals.format(date, 'yyyy/M/d')}">2016/5/20</span>
     <br/>
@@ -48,8 +48,8 @@
             <span th:text="${reservation.EndTime}">
         </td>
         <td>
-            <span th:text="${reservation.User.LastName}">
-            <span th:text="${reservation.User.FirstName}">
+            <span th:text="${reservation.User.Name.LastName}">
+            <span th:text="${reservation.User.Name.FirstName}">
         </td>
         <td>
             <form method="post" th:action="@{'/reservations/' + ${date} + '/' + ${roomId}}"

@@ -46,8 +46,8 @@ public class UserMapperTest {
         UserId userId = new UserId("1");
         User user = userMapper.select(userId);
         assert (user.UserId().equals(userId));
-        assert (user.FirstName().equals("テスト"));
-        assert (user.LastName().equals("太郎"));
+        assert (user.Name().FirstName().equals("テスト"));
+        assert (user.Name().LastName().equals("太郎"));
         assert (user.Password().equals("password"));
         assert (user.RoleName().equals(RoleName.USER));
     }
@@ -101,8 +101,8 @@ public class UserMapperTest {
         userMapper.update(updateUser);
 
         User updatedUser = userMapper.select(userId);
-        assert (updatedUser.FirstName().equals("更新1"));
-        assert (updatedUser.LastName().equals("更新2"));
+        assert (updatedUser.Name().FirstName().equals("更新1"));
+        assert (updatedUser.Name().LastName().equals("更新2"));
         assert (updatedUser.Password().equals("updated"));
         assert (updatedUser.RoleName().equals(RoleName.ADMIN));
     }

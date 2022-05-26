@@ -8,13 +8,13 @@ import java.util.List;
 
 @Mapper
 public interface UserMapper {
-    void insert(User todo);
+    void insert(User user);
 
     User select(UserId userId);
 
     List<User> selectAllJoin();
 
-    void update(User record);
+    void update(User user);
 
     void delete(UserId id);
 

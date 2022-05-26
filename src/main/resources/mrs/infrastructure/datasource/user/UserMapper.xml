@@ -3,8 +3,8 @@
 <mapper namespace="mrs.infrastructure.datasource.user.UserMapper">
   <resultMap id="BaseResultMap" type="mrs.domain.model.user.User">
     <id column="会員番号" jdbcType="VARCHAR" property="userId.value"/>
-    <result column="姓" jdbcType="VARCHAR" property="firstName"/>
-    <result column="名" jdbcType="VARCHAR" property="lastName"/>
+    <result column="姓" jdbcType="VARCHAR" property="name.firstName"/>
+    <result column="名" jdbcType="VARCHAR" property="name.lastName"/>
     <result column="パスワード" jdbcType="VARCHAR" property="password"/>
     <result column="役割" jdbcType="VARCHAR" property="roleName"/>
     <collection property="reservations"
@@ -17,7 +17,7 @@
 
   <insert id="insert" useGeneratedKeys="true">
     INSERT INTO usr.会員 (会員番号, 姓, 名, パスワード, 役割)
-    VALUES (#{userId.value}, #{firstName}, #{lastName}, #{password}, #{roleName})
+    VALUES (#{userId.value}, #{name.firstName}, #{name.lastName}, #{password}, #{roleName})
   </insert>
 
   <select id="select" resultMap="BaseResultMap">
@@ -33,8 +33,8 @@
 
   <update id="update" parameterType="mrs.domain.model.user.User">
     UPDATE usr.会員
-    SET 姓     = #{firstName},
-        名     = #{lastName},
+    SET 姓     = #{name.firstName},
+        名     = #{name.lastName},
         パスワード = #{password},
         役割    = #{roleName}
     WHERE 会員番号 = #{userId.value}
