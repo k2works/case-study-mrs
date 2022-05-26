@@ -145,16 +145,23 @@ const init = () => {
               <div class="row p-3">
                 <img id="usecase-im"
                 src=http://www.plantuml.com/plantuml/img/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000>
+                <img src=./docs/images/jig/service-method-call-hierarchy.svg>
               </div>              
+              <!--
               <h2>ユースケース複合図</h2>
               <div class="row p-3">
                 <img id="class-im"
                 src=http://www.plantuml.com/plantuml/img/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000>
               </div>
+              -->
+              <h2>ドメインモデル</h2>
+              <div class="row p-3">
+                <img src=./docs/images/jig/business-rule-relation.svg>
+              </div>
               <h2>データモデル</h2>
               <div class="row p-3">
-                <img id="er-im"
-                src=http://www.plantuml.com/plantuml/img/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000>
+                <!-- <img id="er-im" src=http://www.plantuml.com/plantuml/img/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000> -->
+                <img src=./docs/images/erd/jig-erd-detail.svg>
               </div>
             </div> `;
     }
