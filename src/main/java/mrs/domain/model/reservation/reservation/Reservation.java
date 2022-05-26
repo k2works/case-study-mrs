@@ -13,9 +13,7 @@ import java.util.Objects;
 public class Reservation {
     private ReservationId reservationId;
 
-    private LocalTime startTime;
-
-    private LocalTime endTime;
+    private ReservedTime reservedTime;
 
     private ReservableRoom reservableRoom;
 
@@ -29,8 +27,7 @@ public class Reservation {
 
     public Reservation(Integer reservationId, LocalTime startTime, LocalTime endTime, ReservableRoomId reservableRoomId, User user) {
         this.reservationId = new ReservationId(reservationId);
-        this.startTime = startTime;
-        this.endTime = endTime;
+        this.reservedTime = new ReservedTime(startTime, endTime);
         this.reservableRoom = new ReservableRoom(reservableRoomId);
         this.user = user;
     }
@@ -39,22 +36,18 @@ public class Reservation {
         if (!Objects.equals(reservableRoom.ReservableRoomId(), target.reservableRoom.ReservableRoomId())) {
             return false;
         }
-        if (startTime.equals(target.startTime) && endTime.equals(target.endTime)) {
+        if (reservedTime.startTime.equals(target.reservedTime.startTime) && reservedTime.endTime.equals(target.reservedTime.endTime)) {
             return true;
         }
-        return target.endTime.isAfter(startTime) && endTime.isAfter(target.startTime);
+        return target.reservedTime.endTime.isAfter(reservedTime.startTime) && reservedTime.endTime.isAfter(target.reservedTime.startTime);
     }
 
     public ReservationId ReservationId() {
         return reservationId;
     }
 
-    public LocalTime StartTime() {
-        return startTime;
-    }
-
-    public LocalTime EndTime() {
-        return endTime;
+    public ReservedTime ReservedTime() {
+        return reservedTime;
     }
 
     public ReservableRoom ReservableRoom() {

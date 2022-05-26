@@ -62,8 +62,8 @@ public class ReservationMapperTest {
         reservationMapper.insert(reservation);
         Reservation addReservation = new Reservation(
                 2,
-                reservation.StartTime(),
-                reservation.EndTime(),
+                reservation.ReservedTime().StartTime(),
+                reservation.ReservedTime().EndTime(),
                 reservableRoomId,
                 userMapper.select(user.UserId())
         );
@@ -85,8 +85,8 @@ public class ReservationMapperTest {
 
         Reservation result = reservationMapper.select(reservation.ReservationId());
         assertEquals(reservationId, result.ReservationId());
-        assertEquals(LocalTime.of(10, 0), result.EndTime());
-        assertEquals(LocalTime.of(9, 0), result.StartTime());
+        assertEquals(LocalTime.of(10, 0), result.ReservedTime().EndTime());
+        assertEquals(LocalTime.of(9, 0), result.ReservedTime().StartTime());
         assertEquals(reservableRoomId.ReservedDate(), result.ReservableRoom().ReservableRoomId().ReservedDate());
         assertEquals(reservableRoomId, result.ReservableRoom().ReservableRoomId());
         assertEquals(meetingRoom.RoomName(), result.ReservableRoom().MeetingRoom().RoomName());
@@ -152,8 +152,8 @@ public class ReservationMapperTest {
 
         Reservation result = reservationMapper.select(reservation.ReservationId());
         assertEquals(1, result.ReservationId().Value());
-        assertEquals(LocalTime.of(11, 0), result.EndTime());
-        assertEquals(LocalTime.of(10, 0), result.StartTime());
+        assertEquals(LocalTime.of(11, 0), result.ReservedTime().EndTime());
+        assertEquals(LocalTime.of(10, 0), result.ReservedTime().StartTime());
     }
 
     @Test

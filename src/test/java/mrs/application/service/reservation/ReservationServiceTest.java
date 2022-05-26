@@ -41,8 +41,8 @@ public class ReservationServiceTest {
             Reservation result = reservationService.findOne(reservationId);
 
             assertEquals(reservationId, result.ReservationId());
-            assertEquals(LocalTime.of(10, 0), result.EndTime());
-            assertEquals(LocalTime.of(9, 0), result.StartTime());
+            assertEquals(LocalTime.of(10, 0), result.ReservedTime().EndTime());
+            assertEquals(LocalTime.of(9, 0), result.ReservedTime().StartTime());
             assertEquals(LocalDate.of(2020, 1, 1), result.ReservableRoom().ReservableRoomId().ReservedDate().Value());
             assertEquals("会議室A", result.ReservableRoom().MeetingRoom().RoomName());
             assertEquals("1", result.User().UserId().Value());

@@ -43,9 +43,9 @@
     </tr>
     <tr th:each="reservation : ${reservations}">
         <td>
-            <span th:text="${reservation.StartTime}">
+            <span th:text="${reservation.ReservedTime.StartTime}">
             -
-            <span th:text="${reservation.EndTime}">
+            <span th:text="${reservation.ReservedTime.EndTime}">
         </td>
         <td>
             <span th:text="${reservation.User.Name.LastName}">
