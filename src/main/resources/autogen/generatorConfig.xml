@@ -20,7 +20,7 @@
         </javaModelGenerator>
         <sqlMapGenerator
                 targetPackage="mrs.infrastructure.datasource.autogen"
-                targetProject="src/main/resources">
+                targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
         <javaClientGenerator
@@ -39,7 +39,7 @@
                enableCountByExample="false"
                selectByExampleQueryId="true"
                modelType="flat"
-               schema="service_user">
+               schema="usr">
         </table>
         <table tableName="%"
                enableInsert="true"
@@ -52,20 +52,7 @@
                enableCountByExample="false"
                selectByExampleQueryId="true"
                modelType="flat"
-               schema="reserve">
-        </table>
-        <table tableName="%"
-               enableInsert="true"
-               enableSelectByPrimaryKey="true"
-               enableSelectByExample="true"
-               enableUpdateByPrimaryKey="true"
-               enableUpdateByExample="true"
-               enableDeleteByPrimaryKey="true"
-               enableDeleteByExample="true"
-               enableCountByExample="true"
-               selectByExampleQueryId="true"
-               modelType="flat"
-               schema="sample">
+               schema="reservation">
         </table>
     </context>
 </generatorConfiguration>
