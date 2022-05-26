@@ -74,8 +74,10 @@ k_r2 -- k_dr1
 actor 管理者 as ac_02
 note "利用者の予約を代理でキャンセルしたい" as k_r3
 note "利用者を管理したい" as k_r4
+note "会議室を管理したい" as k_r5
 ac_02 -- k_r3
 ac_02 -- k_r4
+ac_02 -- k_r5
 
 @enduml
 
@@ -463,6 +465,8 @@ entity 会議室
 
 === アプリケーションコンポーネント
 
+==== プロダクション・開発環境
+
 [plantuml]
 ----
 package "APP" {
@@ -471,11 +475,16 @@ package "APP" {
 
 database "DB" {
   frame "H2" {
-    [mrs]
+    [mrs_test]
+  }
+
+  frame "PostgreSQL" {
+    [mrs_development]
   }
 }
 
-[SpringBoot] - [mrs]
+[SpringBoot] -- [mrs_test]
+[SpringBoot] -- [mrs_development]
 ----
 
 === コンポーネントセットアップ
@@ -525,6 +534,7 @@ actor 利用者
 cloud "Heroku" as Heroku {
     package "Production Environment" as prd {
       [APP] as app_prd
+      [DB] as db_prd
     }
 }
 
@@ -536,12 +546,14 @@ cloud "GitHub" as github {
 開発者 --> repository
 app_prd <-- 利用者
 repository --> prd
+app_prd -> db_prd
 @enduml
 ----
 
 == 開発
 
 === 仕様
+
 ==== 利用者管理
 
 [source,yml]
@@ -585,17 +597,15 @@ UC3 <-- admin
 
 image:images/jig/service-method-call-hierarchy.svg[]
 
-==== ドメインモデル
-
-image::images/jig/package-relation-depth4.svg[]
-
-image::images/jig/business-rule-relation.svg[]
-
 ==== アプリケーションアーキテクチャ
 
 image::images/jig/architecture.svg[]
 
-==== オブジェクトモデル
+==== ドメインモデル
+
+image::images/jig/package-relation-depth5.svg[]
+
+image::images/jig/business-rule-relation.svg[]
 
 ==== データモデル
 
@@ -603,7 +613,12 @@ image::images/erd/jig-erd-overview.svg[]
 image::images/erd/jig-erd-summary.svg[]
 image::images/erd/jig-erd-detail.svg[]
 
+===== 予約
+
 image::images/schemaspy/reservation/diagrams/summary/relationships.real.large.png[]
+
+===== 利用者
+
 image::images/schemaspy/usr/diagrams/summary/relationships.real.large.png[]
 
 == 運用
