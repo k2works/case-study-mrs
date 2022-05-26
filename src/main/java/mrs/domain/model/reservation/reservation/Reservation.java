@@ -36,10 +36,7 @@ public class Reservation {
         if (!Objects.equals(reservableRoom.ReservableRoomId(), target.reservableRoom.ReservableRoomId())) {
             return false;
         }
-        if (reservedTime.startTime.equals(target.reservedTime.startTime) && reservedTime.endTime.equals(target.reservedTime.endTime)) {
-            return true;
-        }
-        return target.reservedTime.endTime.isAfter(reservedTime.startTime) && reservedTime.endTime.isAfter(target.reservedTime.startTime);
+        return reservedTime.overlap(target.reservedTime);
     }
 
     public ReservationId ReservationId() {

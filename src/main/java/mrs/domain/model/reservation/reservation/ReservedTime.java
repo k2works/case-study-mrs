@@ -50,4 +50,11 @@ public class ReservedTime {
                 ", endTime=" + endTime +
                 '}';
     }
+
+    public boolean overlap(ReservedTime target) {
+        if (startTime.equals(target.startTime) && endTime.equals(target.endTime)) {
+            return true;
+        }
+        return target.endTime.isAfter(startTime) && endTime.isAfter(target.startTime);
+    }
 }
