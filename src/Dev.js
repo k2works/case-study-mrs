@@ -37,43 +37,41 @@ UC4 <-- admin
 
 const uml = `
 @startuml
-actor "利用者" as user
-actor "管理者" as admin
-frame "利用者を登録をする" as f01
-frame "利用者を認証をする" as f02
-frame "会議室を予約する" as f03
-usecase "利用者の登録" as UC1
-usecase "利用者の認証" as UC2
-usecase "会議室の検索" as UC3
-usecase "会議室の予約" as UC4
-boundary "利用者登録画面" as b01
-boundary "ログイン画面" as b02
-boundary "会議室一覧画面" as b03
-boundary "会議室予約画面" as b04
-control "予約条件" as c01
-entity "会議室" as e01
-entity "予約" as e02
-entity "利用者" as e03
-user - f01
-f01 - UC1
-b01 -- UC1
-UC1 - e03
-f01 ---> f02
-user - f02
-admin - f02
-f02 - UC2
-b02 -- UC2
-UC2 - e03
-f02 ---> f03
-user - f03
-admin - f03
-f03 - UC3
-f03 - UC4
-b03 -- UC3
-b04 -- UC4
-UC4 -- c01
-UC3 - e01
-UC4 - e02
+class 利用者 {
+}
+enum 利用者区分 {
+ USER
+ ADMIN
+}
+class 会員 {
+ パスワード
+}
+class 氏名 {
+ 姓
+ 名
+}
+class 予約時間 {
+  開始時間
+  終了時間
+}
+class 会議室 {
+  会議室名
+}
+利用者 *- 利用者区分
+利用者 *-- 会員
+会員 *- 氏名
+会員番号 -* 会員
+会員 --* 予約
+予約一覧 -> 予約
+予約 *-- 予約番号
+予約 *-- 予約時間
+予約 <- 予約可能会議室
+
+予約可能会議室 *- 予約可能会議室ID
+予約可能会議室ID *- 会議室番号
+予約可能会議室ID *-- 予約日
+
+会議室番号 -* 会議室
 @enduml
 `;
 
@@ -147,20 +145,14 @@ const init = () => {
                 src=http://www.plantuml.com/plantuml/img/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000>
                 <img src=./docs/images/jig/service-method-call-hierarchy.svg>
               </div>              
-              <!--
-              <h2>ユースケース複合図</h2>
-              <div class="row p-3">
-                <img id="class-im"
-                src=http://www.plantuml.com/plantuml/img/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000>
-              </div>
-              -->
               <h2>ドメインモデル</h2>
               <div class="row p-3">
+                <img id="class-im" src=http://www.plantuml.com/plantuml/img/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000>
                 <img src=./docs/images/jig/business-rule-relation.svg>
               </div>
               <h2>データモデル</h2>
               <div class="row p-3">
-                <!-- <img id="er-im" src=http://www.plantuml.com/plantuml/img/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000> -->
+                <img id="er-im" src=http://www.plantuml.com/plantuml/img/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000>
                 <img src=./docs/images/erd/jig-erd-detail.svg>
               </div>
             </div> `;
