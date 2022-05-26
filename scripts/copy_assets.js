@@ -39,13 +39,9 @@ Features(".", outputRootDir);
 const Jig = (inputRootDir, outputRootDir) => {
     const inputDir = `${inputRootDir}/jig`;
     const fileNameList = fs.readdirSync(inputDir);
-    const docs = fileNameList.filter(RegExp.prototype.test, /.*\.*$/);
-
     const docsOutput = `${outputRootDir}/jig`;
-    docs.map((input) => {
-        const source = `${inputDir}/**/${input}`;
-        cpx.copy(source, docsOutput);
-    });
+    const source = `${inputDir}/**/*.*`;
+    cpx.copy(source, docsOutput);
 };
 
 if (fs.existsSync("./build/jig")) {
