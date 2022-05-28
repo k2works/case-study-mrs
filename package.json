@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "nf start -j Procfile.dev",
-    "app": "webpack server --config ./webpack.config.js --open",
+    "app": "webpack server --port 8081 --config ./webpack.config.js --open",
     "test": "jest --coverage",
     "test:e2e": "cypress run",
     "test:cypress": "cypress open",
