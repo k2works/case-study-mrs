@@ -12,9 +12,24 @@
     <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
           integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" rel="stylesheet">
 
-    <link rel="stylesheet" th:href="@{/style.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+
+<header class="header">
+    <div class="header-container">
+        <div class="site">
+            <a href="index.html">
+                <img alt="Boards" height="26" th:src="@{/img/logo.svg}" width="135">
+            </a>
+        </div>
+
+        <button class="navbtn">
+            <i class="fas fa-bars"></i>
+            <span class="sr-only">MENU</span>
+        </button>
+    </div>
+</header>
 
 </body>
 </html>
