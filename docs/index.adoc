@@ -8,7 +8,7 @@
 
 image::images/life_cycle.drawio.svg[]
 
-== 要求
+== 要件
 
 === 概要
 

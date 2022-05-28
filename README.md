@@ -24,7 +24,7 @@ npm start
 
 ![](./docs/images/life_cycle.drawio.svg)
 
-### [要求](./docs/index.adoc)
+### [要件](./docs/index.adoc)
 
 ### [開発](./docs/index.adoc)
 
