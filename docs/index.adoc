@@ -6,6 +6,8 @@
 
 = MeetingRoomReservationSystem
 
+image::images/life_cycle.drawio.svg[]
+
 == 要求
 
 === 概要
@@ -656,3 +658,12 @@ npm run deploy
 - https://qiita.com/ogomr/items/97058a87337eaa2ba21a[PlantUML Example for RDRA 2.0 ハンドブック]
 - https://qiita.com/nkenbou/items/86d5718b63f610dfd67f#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB[PlantUML で始めるリレーションシップ駆動要件分析 (RDRA)]
 - https://qiita.com/_shimada/items/c9775f203ae91e32aacb[RDRA2.0の業務フロー図をPlantUMLで描く]
+- https://vercel.com/[Vercel]
+- https://webpack.js.org/[webpack]
+- https://qiita.com/SnowCait/items/487d70b342ffbe2f33d8[GitHub Actions でステータスバッジを表示する]
+- https://www.cypress.io/[cypress]
+- https://www.npmjs.com/package/cypress-cucumber-preprocessor[Asciidoctor Kroki Extension]
+- https://github.com/Mogztter/asciidoctor-kroki[cypress-cucumber-preprocessor]
+- https://docs.asciidoctor.org/[Asciidoctor Documentation Site]
+- https://blogenist.jp/2019/04/20/8075/[docker-composeで「SchemaSpy」でデータベースのドキュメントを自動生成するやり方]
+- https://qiita.com/YasuhiroKimesawa/items/407fcf85aa15eae60508[SchemaSpyでER図を自動生成]

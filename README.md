@@ -13,86 +13,19 @@
 | nodejs | 16.3.0 |      |
 | java   | 17.0.0 |      |
 
-## 構成
-
-- [構築](#構築)
-- [配置](#配置)
-- [運用](#運用)
-- [開発](#開発)
-
-## 詳細
-
-### Quick Start
+#### Quick Start
 
 ```bash
 npm install
 npm start
 ```
 
-### 構築
+## 構成
 
-```bash
-npm init -y
-npm install --save-dev @babel/core @babel/cli @babel/preset-env @babel/register
-npm install --save-dev npm-run-all watch foreman cpx rimraf marked@1.2.2 
-npm install --save-dev webpack webpack-cli html-webpack-plugin webpack-dev-server 
-touch Procfile.dev
-npm install --save-dev jest
-npm install cypress
-npx cypress open
-npm install --save-dev cypress-cucumber-preprocessor
-npm install --save-dev cucumber-html-reporter
-npm install --save-dev asciidoctor asciidoctor-kroki
-```
+![](./docs/images/life_cycle.drawio.svg)
 
-```bash
-gradle init --type java-application
-git update-index --chmod=+x gradlew
-```
+### [要求](./docs/index.adoc)
 
-```bash
-heroku create ape2022-take13
-```
+### [開発](./docs/index.adoc)
 
-**[⬆ back to top](#構成)**
-
-### 配置
-
-```bash
-npm i -g vercel
-npm run deploy:vercel
-```
-
-```bash
-npm run deploy:heroku 
-```
-
-**[⬆ back to top](#構成)**
-
-### 運用
-
-```bash
-npm run deploy
-```
-
-**[⬆ back to top](#構成)**
-
-### 開発
-
-```bash
-npm start
-```
-
-**[⬆ back to top](#構成)**
-
-## 参照
-
-- [Vercel](https://vercel.com/)
-- [webpack](https://webpack.js.org/)
-- [GitHub Actions でステータスバッジを表示する](https://qiita.com/SnowCait/items/487d70b342ffbe2f33d8)
-- [cypress](https://www.cypress.io/)
-- [cypress-cucumber-preprocessor](https://www.npmjs.com/package/cypress-cucumber-preprocessor)
-- [Asciidoctor Kroki Extension](https://github.com/Mogztter/asciidoctor-kroki)
-- [Asciidoctor Documentation Site](https://docs.asciidoctor.org/)
-- [docker-composeで「SchemaSpy」でデータベースのドキュメントを自動生成するやり方](https://blogenist.jp/2019/04/20/8075/)
-- [SchemaSpyでER図を自動生成](https://qiita.com/YasuhiroKimesawa/items/407fcf85aa15eae60508)
+### [運用](./docs/index.adoc)
