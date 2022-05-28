@@ -129,7 +129,7 @@
         FROM reservation.予約
     </delete>
 
-    <select id="findByReservableRoom_ReservableRoomIdOrderByStartTimeAsc"
+    <select id="selectByReservedDateAndRoomIdOrderByStartTimeAsc"
             parameterType="mrs.domain.model.reservation.room.ReservableRoomId"
             resultMap="BaseResultMap">
         SELECT r.予約番号,

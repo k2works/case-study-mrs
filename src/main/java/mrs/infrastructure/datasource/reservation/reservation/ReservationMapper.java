@@ -28,5 +28,5 @@ public interface ReservationMapper {
 
     void deleteAll();
 
-    List<Reservation> findByReservableRoom_ReservableRoomIdOrderByStartTimeAsc(ReservableRoomId reservableRoomId);
+    List<Reservation> selectByReservedDateAndRoomIdOrderByStartTimeAsc(ReservableRoomId reservableRoomId);
 }

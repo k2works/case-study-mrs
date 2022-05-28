@@ -11,7 +11,7 @@ import java.util.Optional;
  * 予約リポジトリ
  */
 public interface ReservationRepository {
-    List<Reservation> findByReservableRoom_ReservableRoomIdOrderByStartTimeAsc(ReservableRoomId reservableRoomId);
+    List<Reservation> findByReservedDateAndRoomIdOrderByStartTimeAsc(ReservableRoomId reservableRoomId);
 
     void save(Reservation reservation);
 

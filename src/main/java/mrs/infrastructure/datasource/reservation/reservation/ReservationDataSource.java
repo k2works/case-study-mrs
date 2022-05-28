@@ -19,8 +19,8 @@ public class ReservationDataSource implements ReservationRepository {
     }
 
     @Override
-    public List<Reservation> findByReservableRoom_ReservableRoomIdOrderByStartTimeAsc(ReservableRoomId reservableRoomId) {
-        return reservationMapper.findByReservableRoom_ReservableRoomIdOrderByStartTimeAsc(reservableRoomId);
+    public List<Reservation> findByReservedDateAndRoomIdOrderByStartTimeAsc(ReservableRoomId reservableRoomId) {
+        return reservationMapper.selectByReservedDateAndRoomIdOrderByStartTimeAsc(reservableRoomId);
     }
 
     @Override
