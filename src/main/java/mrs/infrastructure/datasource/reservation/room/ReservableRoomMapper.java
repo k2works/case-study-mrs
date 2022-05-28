@@ -21,5 +21,5 @@ public interface ReservableRoomMapper {
 
     void deleteAll();
 
-    List<ReservableRoom> findByReservableRoomId_ReservedDateOrderByReservableRoomId_RoomIdAsc(ReservedDate reservedDate);
+    List<ReservableRoom> selectByReservedDateOrderByRoomIdAsc(ReservedDate reservedDate);
 }

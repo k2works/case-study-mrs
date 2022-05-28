@@ -32,7 +32,7 @@ public class RoomService {
      * 予約可能な会議室を検索する
      */
     public Optional<ReservableRoomList> findReservableRooms(ReservedDate date) {
-        List<ReservableRoom> result = reservableRoomRepository.findByReservableRoomId_reservedDateOrderByReservableRoomId_roomIdAsc(date);
+        List<ReservableRoom> result = reservableRoomRepository.findByReservedDateOrderByRoomIdAsc(date);
         return Optional.of(new ReservableRoomList(result));
     }
 }

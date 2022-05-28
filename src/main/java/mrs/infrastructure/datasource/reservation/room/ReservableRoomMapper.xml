@@ -56,7 +56,7 @@
         FROM reservation.予約可能会議室
     </delete>
 
-    <select id="findByReservableRoomId_ReservedDateOrderByReservableRoomId_RoomIdAsc" resultMap="BaseResultMap">
+    <select id="selectByReservedDateOrderByRoomIdAsc" resultMap="BaseResultMap">
         SELECT rr.会議室番号,
                rr.予約日,
                rm.会議室名

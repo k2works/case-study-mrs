@@ -12,7 +12,7 @@ import java.util.List;
  * 会議室レポジトリ
  */
 public interface ReservableRoomRepository {
-    List<ReservableRoom> findByReservableRoomId_reservedDateOrderByReservableRoomId_roomIdAsc(ReservedDate reservedDate);
+    List<ReservableRoom> findByReservedDateOrderByRoomIdAsc(ReservedDate reservedDate);
 
     @Lock(LockModeType.PESSIMISTIC_WRITE)
     ReservableRoom findOneForUpdateByReservableRoomId(ReservableRoomId reservableRoomId);

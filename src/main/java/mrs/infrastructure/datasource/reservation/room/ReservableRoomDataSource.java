@@ -17,8 +17,8 @@ public class ReservableRoomDataSource implements ReservableRoomRepository {
     }
 
     @Override
-    public List<ReservableRoom> findByReservableRoomId_reservedDateOrderByReservableRoomId_roomIdAsc(ReservedDate reservedDate) {
-        return reservableRoomMapper.findByReservableRoomId_ReservedDateOrderByReservableRoomId_RoomIdAsc(reservedDate);
+    public List<ReservableRoom> findByReservedDateOrderByRoomIdAsc(ReservedDate reservedDate) {
+        return reservableRoomMapper.selectByReservedDateOrderByRoomIdAsc(reservedDate);
     }
 
     @Override
