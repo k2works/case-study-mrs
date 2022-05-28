@@ -13,7 +13,7 @@ public interface ReservableRoomMapper {
 
     ReservableRoom select(ReservableRoomId reservableRoomId);
 
-    List<ReservableRoom> selectAllJoin();
+    List<ReservableRoom> selectAll();
 
     void update(ReservableRoomId reservableRoomId);
 

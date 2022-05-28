@@ -56,7 +56,7 @@ public class RoomMapperTest {
         roomMapper.insert(new MeetingRoom(1, "会議室A"));
         roomMapper.insert(new MeetingRoom(2, "会議室B"));
 
-        List<MeetingRoom> result = roomMapper.selectAllJoin();
+        List<MeetingRoom> result = roomMapper.selectAll();
         assertEquals(2, result.size());
     }
 

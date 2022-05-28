@@ -94,7 +94,7 @@ public class ReservableRoomMapperTest {
         reservableRoomMapper.insert(reservableRoomId2);
         reservableRoomMapper.insert(reservableRoomId3);
 
-        List<ReservableRoom> reservableRoom = reservableRoomMapper.selectAllJoin();
+        List<ReservableRoom> reservableRoom = reservableRoomMapper.selectAll();
         assertEquals(3, reservableRoom.size());
     }
 
@@ -105,7 +105,7 @@ public class ReservableRoomMapperTest {
         reservableRoomMapper.insert(reservableRoomId);
         reservableRoomMapper.delete(reservableRoomId);
 
-        List<ReservableRoom> reservableRoom = reservableRoomMapper.selectAllJoin();
+        List<ReservableRoom> reservableRoom = reservableRoomMapper.selectAll();
         assertEquals(0, reservableRoom.size());
     }
 }

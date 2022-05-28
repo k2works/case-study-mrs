@@ -7,7 +7,7 @@
     <collection property="reservableRooms"
                 javaType="ArrayList"
                 column="会議室番号"
-                select="mrs.infrastructure.datasource.reservation.room.ReservableRoomMapper.selectAllJoin"
+                select="mrs.infrastructure.datasource.reservation.room.ReservableRoomMapper.selectAll"
                 fetchType="lazy"
     />
   </resultMap>
@@ -23,7 +23,7 @@
     WHERE 会議室番号 = #{value}
   </select>
 
-  <select id="selectAllJoin" resultMap="BaseResultMap">
+  <select id="selectAll" resultMap="BaseResultMap">
     SELECT 会議室番号, 会議室名, 登録日時
     FROM reservation.会議室
   </select>

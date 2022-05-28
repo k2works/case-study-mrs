@@ -12,7 +12,7 @@ public interface UserMapper {
 
     User select(UserId userId);
 
-    List<User> selectAllJoin();
+    List<User> selectAll();
 
     void update(User user);
 

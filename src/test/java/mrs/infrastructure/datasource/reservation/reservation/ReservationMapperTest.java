@@ -107,7 +107,7 @@ public class ReservationMapperTest {
 
         insertTwo(reservableRoomId, user);
 
-        List<Reservation> result = reservationMapper.selectAllJoin();
+        List<Reservation> result = reservationMapper.selectAll();
         assertEquals(2, result.size());
         assertEquals(1, result.get(0).ReservationId().Value());
     }

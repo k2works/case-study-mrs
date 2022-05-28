@@ -12,7 +12,7 @@ public interface RoomMapper {
 
     MeetingRoom select(RoomId roomId);
 
-    List<MeetingRoom> selectAllJoin();
+    List<MeetingRoom> selectAll();
 
     void update(MeetingRoom meetingRoom);
 

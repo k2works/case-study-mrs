@@ -36,7 +36,7 @@
           AND 予約日 = #{reservedDate.value}
     </select>
 
-    <select id="selectAllJoin" resultMap="BaseResultMap">
+    <select id="selectAll" resultMap="BaseResultMap">
         SELECT rr.会議室番号,
                rr.予約日,
                rm.会議室名

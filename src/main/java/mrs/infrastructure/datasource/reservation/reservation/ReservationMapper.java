@@ -16,7 +16,7 @@ public interface ReservationMapper {
 
     Reservation select(ReservationId reservationId);
 
-    List<Reservation> selectAllJoin();
+    List<Reservation> selectAll();
 
     List<Reservation> selectByKey(@Param("reservedDate") LocalDate reservedDate, @Param("roomId") Integer roomId);
 

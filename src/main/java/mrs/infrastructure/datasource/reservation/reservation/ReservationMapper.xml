@@ -75,7 +75,7 @@
         WHERE 予約番号 = #{value}
     </select>
 
-    <select id="selectAllJoin" resultMap="BaseResultMap">
+    <select id="selectAll" resultMap="BaseResultMap">
         SELECT r.予約番号,
                r.予約終了時間,
                r.予約開始時間,

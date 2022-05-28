@@ -57,7 +57,7 @@ public class UserMapperTest {
         userMapper.insert(new User("1", "テスト", "太郎", "password", RoleName.USER));
         userMapper.insert(new User("2", "テスト", "太郎", "password", RoleName.USER));
 
-        List<User> users = userMapper.selectAllJoin();
+        List<User> users = userMapper.selectAll();
         assert (users.size() == 2);
     }
 
