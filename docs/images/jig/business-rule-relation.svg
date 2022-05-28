@@ -11,14 +11,6 @@
         <polygon fill="white" stroke="transparent" points="-4,4 -4,-426 983,-426 983,4 -4,4"/>
         <text text-anchor="middle" x="489.5" y="-7.8" font-family="Times New Roman,serif" font-size="14.00">ビジネスルール関連図
         </text>
-        <g id="clust2" class="cluster">
-            <title>cluster_mrs.domain.model.autogen.usr</title>
-            <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
-                     points="328,-338 328,-413 409,-413 409,-338 328,-338"/>
-            <text text-anchor="middle" x="368.5" y="-397.8" font-family="Times New Roman,serif" font-size="14.00">
-                autogen.usr
-            </text>
-        </g>
         <g id="clust4" class="cluster">
             <title>cluster_mrs.domain.model.reservation.room</title>
             <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
@@ -33,6 +25,14 @@
                      points="417,-179 417,-414 645,-414 645,-179 417,-179"/>
             <text text-anchor="middle" x="531" y="-398.8" font-family="Times New Roman,serif" font-size="14.00">
                 reservation.reservation
+            </text>
+        </g>
+        <g id="clust2" class="cluster">
+            <title>cluster_mrs.domain.model.autogen.usr</title>
+            <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
+                     points="328,-338 328,-413 409,-413 409,-338 328,-338"/>
+            <text text-anchor="middle" x="368.5" y="-397.8" font-family="Times New Roman,serif" font-size="14.00">
+                autogen.usr
             </text>
         </g>
         <g id="clust1" class="cluster">

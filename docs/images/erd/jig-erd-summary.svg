@@ -9,13 +9,6 @@
     <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 261)">
         <title>ERD</title>
         <polygon fill="white" stroke="transparent" points="-4,4 -4,-261 462,-261 462,4 -4,4"/>
-        <g id="clust1" class="cluster">
-            <title>cluster_RESERVATION</title>
-            <polygon fill="lightyellow" stroke="black" points="8,-91 8,-166 402.5,-166 402.5,-91 8,-91"/>
-            <text text-anchor="middle" x="205.25" y="-150.8" font-family="Times New Roman,serif" font-size="14.00">
-                RESERVATION
-            </text>
-        </g>
         <g id="clust2" class="cluster">
             <title>cluster_USR</title>
             <polygon fill="lightyellow" stroke="black" points="153.5,-8 153.5,-83 223.5,-83 223.5,-8 153.5,-8"/>
@@ -27,6 +20,13 @@
             <polygon fill="lightyellow" stroke="black" points="285,-174 285,-249 450,-249 450,-174 285,-174"/>
             <text text-anchor="middle" x="367.5" y="-233.8" font-family="Times New Roman,serif" font-size="14.00">
                 PUBLIC
+            </text>
+        </g>
+        <g id="clust1" class="cluster">
+            <title>cluster_RESERVATION</title>
+            <polygon fill="lightyellow" stroke="black" points="8,-91 8,-166 402.5,-166 402.5,-91 8,-91"/>
+            <text text-anchor="middle" x="205.25" y="-150.8" font-family="Times New Roman,serif" font-size="14.00">
+                RESERVATION
             </text>
         </g>
         <!-- RESERVATION.会議室 -->
