@@ -4,7 +4,14 @@
 
 ## 概要
 
+Spring 徹底入門 Spring Framework による Java アプリケーション開発 チュートリアルの実装例
+
 ### 目的
+
+- SpringBootの学習
+- CCSR手法の実践
+- テスト駆動開発とリファクタリングの実践
+- 継続的インテグレーションの実践
 
 ### 前提
 
@@ -24,6 +31,8 @@ npm start
 ```
 
 ## 構成
+
+要件・開発は [CCSR手法](https://masuda220.hatenablog.com/entry/2020/05/27/103750) を参考にしている
 
 ![](./docs/images/life_cycle.drawio.svg)
 
