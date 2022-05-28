@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 
 /**
- * 認証済み利用者
+ * 利用者
  */
 public class UserDetailsImpl implements UserDetails {
     private final mrs.domain.model.user.User user;
