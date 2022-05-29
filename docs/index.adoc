@@ -556,14 +556,46 @@ app_prd -> db_prd
 
 === 仕様
 
-==== 利用者管理
+==== ユースケース
+
+image:images/jig/service-method-call-hierarchy.svg[]
+
+===== 利用者管理
+[plantuml]
+----
+@startuml
+left to right direction
+actor "利用者" as user
+rectangle 会議室予約システム {
+  usecase "利用者の認証" as UC1
+}
+user --> UC1
+@enduml
+----
 
 [source,yml]
 ----
 include::../cypress/integration/Auth/Login.feature[]
 ----
 
-==== 予約管理
+===== 予約管理
+
+[plantuml]
+----
+@startuml
+left to right direction
+actor "利用者" as user
+actor "管理者" as admin
+rectangle 会議室予約システム {
+  usecase "会議室の検索" as UC2
+  usecase "会議室の予約" as UC3
+}
+user --> UC2
+user --> UC3
+UC2 <-- admin
+UC3 <-- admin
+@enduml
+----
 
 [source,yml]
 ----
@@ -576,28 +608,6 @@ include::../cypress/integration/Reservation/Cancel.feature[]
 
 === 設計
 
-==== ユースケース
-
-[plantuml]
-----
-@startuml
-left to right direction
-actor "利用者" as user
-actor "管理者" as admin
-rectangle 会議室予約システム {
-  usecase "利用者の認証" as UC1
-  usecase "会議室の検索" as UC2
-  usecase "会議室の予約" as UC3
-}
-user --> UC1
-user --> UC2
-user --> UC3
-UC2 <-- admin
-UC3 <-- admin
-@enduml
-----
-
-image:images/jig/service-method-call-hierarchy.svg[]
 
 ==== アプリケーションアーキテクチャ
 
