@@ -8,7 +8,7 @@ body {
     font-family: sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3, h4, h5, h6, p, figure {
     margin: 0;
 }
 
@@ -27,6 +27,8 @@ a:hover {
 
 img {
     display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 /* 横幅と左右の余白 */
