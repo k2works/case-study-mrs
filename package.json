@@ -9,6 +9,7 @@
   "scripts": {
     "start": "nf start -j Procfile.dev",
     "app": "webpack server --port 8081 --config ./webpack.config.js --open",
+    "api": "gradlew bootRun  --args='--spring.profiles.active=dev'",
     "test": "jest --coverage",
     "test:e2e": "cypress run",
     "test:cypress": "cypress open",
