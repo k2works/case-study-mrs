@@ -124,6 +124,7 @@ img {
 
     .imgtext-container > .text {
         flex: 1;
+        min-width: 17em;
     }
 
     .imgtext-container > .img {
