@@ -110,6 +110,10 @@ img {
     background-color: #ffffff;
 }
 
+.imgtext + .imgtext {
+    padding-top: 0;
+}
+
 .imgtext-container {
     display: flex;
     flex-direction: column;
@@ -120,6 +124,10 @@ img {
     .imgtext-container {
         flex-direction: row;
         align-items: center;
+    }
+
+    .imgtext-container.reverse {
+        flex-direction: row-reverse;
     }
 
     .imgtext-container > .text {
