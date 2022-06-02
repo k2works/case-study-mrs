@@ -39,6 +39,7 @@ img {
 .w-container {
     width: min(92%, 1166px);
     margin: auto;
+    position: relative;
 }
 
 /* ヘッダー */
@@ -97,7 +98,7 @@ img {
 /* ボタン */
 .btn {
     display: block;
-    width: 268px;
+    width: 260px;
     padding: 10px;
     box-sizing: border-box;
     border-radius: 4px;
@@ -151,7 +152,7 @@ img {
     font-weight: 400;
 }
 
-.heading-decoration:after {
+.heading-decoration::after {
     display: block;
     content: '';
     width: 160px;
@@ -176,6 +177,8 @@ img {
 
 /* パーツの見出し */
 .heading {
+    position: absolute;
+    top: calc((var(--v-space) + 0.6em) * -1);
     font-family: "Montserrat", sans-serif;
     font-size: clamp(40px, 5.2vw, 70px);
     min-height: 0vw;
