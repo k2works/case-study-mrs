@@ -1,6 +1,10 @@
 @charset "UTF-8";
 
 /* 基本 */
+:root {
+    --v-space: clamp(90px, 9vw, 120px);
+}
+
 body {
     margin: 0;
     background-color: #eeeeee;
@@ -162,4 +166,10 @@ img {
     color: #707070;
     font-family: "Montserrat", sans-serif;
     font-size: 18px;
+}
+
+/* 記事一覧 */
+.posts {
+    padding: var(--v-space) 0;
+    background-color: #f3f1ed;
 }
