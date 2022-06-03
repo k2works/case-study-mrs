@@ -311,6 +311,7 @@ img {
     gap: 20px;
 }
 
+
 /* 記事 */
 .entry {
     padding-bottom: var(--v-space);
@@ -336,8 +337,7 @@ img {
     font-size: clamp(16px, 2.4vw, 18px);
 }
 
-.entry-container
-:where(h1, h2, h3, h4, h5, h6, p, figure, ul) {
+.entry-container :where(h1, h2, h3, h4, h5, h6, p, figure, ul) {
     margin-top: revert;
     margin-bottom: revert;
     padding: revert;
@@ -356,8 +356,9 @@ img {
     margin-bottom: 0;
 }
 
+
 /* プラン */
-.plan {
+.plans {
     padding: var(--v-space) 0;
     background-color: #e9e5e9;
 }
@@ -383,7 +384,7 @@ img {
 }
 
 .plan h3 {
-    margin-bottom: 30px;
+    margin-bottom: 38px;
     font-family: "Montserrat", sans-serif;
     font-size: 38px;
     font-weight: 400;
