@@ -254,3 +254,20 @@ img {
     gap: 24px;
     font-size: 24px;
 }
+
+.footer-sns a {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    aspect-ratio: 1 / 1;
+    background-color: #cccccc;
+    color: #ffffff;
+    clip-path: circle(50%);
+}
+
+@supports not (aspect-ratio: 1 / 1) {
+    .footer-sns a {
+        height: 36px;
+    }
+}
+
