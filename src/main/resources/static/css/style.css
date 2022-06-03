@@ -482,10 +482,7 @@ img {
     justify-items: center;
     align-content: center;
     height: 100%;
-}
-
-.login p {
-    margin-bottom: 72px;
+    font-size: clamp(16px, 2.4vw, 18px);
 }
 
 /* 会議室一覧 */
@@ -504,6 +501,12 @@ img {
     display: block;
 }
 
+.room-decoration {
+    font-size: clamp(30px, 3vw, 40px);
+    min-height: 0vw;
+    font-weight: 400;
+}
+
 /* 会議室予約 */
 .reserve-form {
     padding: var(--v-space) 0;
@@ -516,3 +519,8 @@ img {
     justify-items: center;
 }
 
+.reserve-form-decoration {
+    font-size: clamp(30px, 3vw, 40px);
+    min-height: 0vw;
+    font-weight: 400;
+}
