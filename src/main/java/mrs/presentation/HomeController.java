@@ -11,4 +11,9 @@ public class HomeController {
     public String index() {
         return "index";
     }
+
+    @RequestMapping("/content")
+    public String contents() {
+        return "content";
+    }
 }
