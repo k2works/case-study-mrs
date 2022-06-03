@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       xmlns:th="http://www.thymelef.org">
-<link rel="stylesheet" th:href="@{/css/style.css}">
+
+<div th:include="fragment/app-header"></div>
+
 <head>
     <meta charset="UTF-8">
     <title th:text="|${#temporals.format(date, 'yyyy/M/d')}の会議室|">2016/5/20の会議室</title>
@@ -11,7 +13,7 @@
 <section class="reserve-form">
     <div class="reserve-form-container">
         <div>
-            <a th:href="@{'/rooms/' + ${date}}">会議室一覧へ</a>
+            <a class="btn" th:href="@{'/rooms/' + ${date}}">戻る</a>
         </div>
 
         <p style="color: red" th:if="${error != null}" th:text="${error}"></p>

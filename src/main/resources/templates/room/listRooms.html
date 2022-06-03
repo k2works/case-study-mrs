@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymelef.org">
+
+<div th:include="fragment/app-header"></div>
+
 <head>
     <meta charset="UTF-8">
     <title th:text="|${#temporals.format(date, 'yyyy/M/d')}の会議室|">2016/5/20の会議室</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 
+
 <section class="room">
     <dvi class="room-container w-container">
-        <h3>会議室</h3>
-
         <div class="room-reservable">
             <a th:href="@{'/rooms/' + ${date.minusDays(1)}}">&lt; 前日</a>
             <span th:text="|${#temporals.format(date, 'yyyy/M/d')}の会議室|">2016/5/20の会議室</span>
@@ -24,9 +25,6 @@
                    th:text="${room.MeetingRoom.RoomName}"></a>
             </li>
         </ul>
-        <form method="post" th:action="@{/logout}">
-            <button class="btn btn-accent">ログアウト</button>
-        </form>
     </dvi>
 </section>
 
