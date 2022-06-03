@@ -3,22 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="|${#temporals.format(date, 'yyyy/M/d')}の会議室|">2016/5/20の会議室</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<h3>会議室</h3>
-<a th:href="@{'/rooms/' + ${date.minusDays(1)}}">&lt; 前日</a>
-<span th:text="|${#temporals.format(date, 'yyyy/M/d')}の会議室|">2016/5/20の会議室</span>
-<a th:href="@{'/rooms/' + ${date.plusDays(1)}}">翌日 &gt;</a>
 
-<ul>
-    <li th:each="room: ${rooms}">
-        <a ${room.MeetingRoom.RoomName}
-           th:href="@{'/reservations/' + ${date} + '/' + ${room.MeetingRoom.RoomId.Value}}"
-           th:text="${room.MeetingRoom.RoomName}"></a>
-    </li>
-</ul>
-<form method="post" th:action="@{/logout}">
-    <button>ログアウト</button>
-</form>
+<section class="room">
+    <dvi class="room-container w-container">
+        <h3>会議室</h3>
+
+        <div class="room-reservable">
+            <a th:href="@{'/rooms/' + ${date.minusDays(1)}}">&lt; 前日</a>
+            <span th:text="|${#temporals.format(date, 'yyyy/M/d')}の会議室|">2016/5/20の会議室</span>
+            <a th:href="@{'/rooms/' + ${date.plusDays(1)}}">翌日 &gt;</a>
+        </div>
+
+        <ul>
+            <li th:each="room: ${rooms}">
+                <a ${room.MeetingRoom.RoomName}
+                   th:href="@{'/reservations/' + ${date} + '/' + ${room.MeetingRoom.RoomId.Value}}"
+                   th:text="${room.MeetingRoom.RoomName}"></a>
+            </li>
+        </ul>
+        <form method="post" th:action="@{/logout}">
+            <button class="btn btn-accent">ログアウト</button>
+        </form>
+    </dvi>
+</section>
+
 </body>
 </html>
