@@ -357,3 +357,21 @@ img {
     padding: var(--v-space) 0;
     background-color: #e9e5e9;
 }
+
+.plans-container {
+    display: grid;
+    gap: 27px;
+}
+
+@media (min-width: 768px) {
+    .plans-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* プラン：カード */
+.plan {
+    padding: 60px 27px;
+    border-radius: 20px;
+    background-color: #ffffff;
+}
