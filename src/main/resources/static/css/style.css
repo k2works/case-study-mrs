@@ -248,6 +248,14 @@ img {
     justify-items: center;
 }
 
+@media (min-width: 768px) {
+    .footer-container {
+        grid-template-columns: auto auto;
+        grid-template-columns: auto auto auto;
+        gap: 20px;
+    }
+}
+
 /* フッター：SNSメニュー */
 .footer-sns {
     display: flex;
