@@ -112,6 +112,10 @@ img {
     text-shadow: 0 0 6px #00000052;
 }
 
+.btn-accent {
+    background-color: #b72661;
+}
+
 /* 画像とテキスト */
 .imgtext {
     padding: clamp(90px, 9vw, 120px) 0;
@@ -391,4 +395,8 @@ img {
     margin-bottom: 22px;
     font-size: 26px;
     font-weight: bold;
+}
+
+.plan .btn {
+    width: auto;
 }
