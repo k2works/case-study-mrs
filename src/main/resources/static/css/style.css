@@ -77,7 +77,6 @@ img {
 .navbtn .fa-bars {
     display: revert;
 }
-
 .open .navbtn .fa-bars {
     display: none;
 }
@@ -85,7 +84,6 @@ img {
 .navbtn .fa-times {
     display: none;
 }
-
 .open .navbtn .fa-times {
     display: revert;
 }
@@ -126,7 +124,7 @@ img {
     }
 }
 
-/* ナビゲーションメニュー: PC */
+/* ナビゲーションメニュー：PC */
 @media (min-width: 768px) {
     .nav ul {
         display: flex;
@@ -184,7 +182,7 @@ img {
 
 /* 画像とテキスト */
 .imgtext {
-    padding: clamp(90px, 9vw, 120px) 0;
+    padding: var(--v-space) 0;
     background-color: #ffffff;
 }
 
