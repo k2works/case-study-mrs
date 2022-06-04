@@ -33,10 +33,10 @@
 
     <nav class="nav">
       <ul>
-        <li><a class="btn" href="/rooms">会議室一覧</a></li>
+        <li><a href="/rooms">会議室一覧</a></li>
         <li>
-          <form method="post" th:action="@{/logout}">
-            <button class="btn btn-accent">ログアウト</button>
+          <form method="post" name="logout_form" th:action="@{/logout}">
+            <a href="#" onclick="document.logout_form.submit();">ログアウト</a>
           </form>
         </li>
       </ul>

@@ -40,7 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordParameter("password")
                 .defaultSuccessUrl("/rooms", true)
                 .failureUrl("/loginForm?error=true").permitAll();
-        http.logout().logoutUrl("/logout").logoutSuccessUrl("/");
+        http.logout().logoutUrl("/logout").logoutSuccessUrl("/loginForm");
     }
 
     @Override

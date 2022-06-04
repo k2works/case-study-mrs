@@ -37,6 +37,9 @@ img {
     height: auto;
 }
 
+button:hover {
+    filter: brightness(90%) contrast(120%);
+}
 
 /* 横幅と左右の余白 */
 .w-container {
@@ -56,6 +59,10 @@ img {
     justify-content: space-between;
     align-items: center;
     height: 100%;
+}
+
+.header-button {
+    border: none;
 }
 
 /* ナビゲーションボタン */

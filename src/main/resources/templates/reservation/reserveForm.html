@@ -62,8 +62,9 @@
                               sec:authorize="${hasRole('ADMIN') or #vars.user.UserId == #vars.reservation.User.UserId}"
                               th:action="@{'/reservations/' + ${date} + '/' + ${roomId}}">
                             <input name="reservationId" th:value="${reservation.ReservationId.Value}" type="hidden">
-                            <input class="btn btn-accent reserve-form-table-button" name="cancel" type="submit"
-                                   value="取消">
+                            <button class="btn btn-accent reserve-form-table-button" name="cancel" type="submit">
+                                取消
+                            </button>
                         </form>
                     </td>
                 </tr>
