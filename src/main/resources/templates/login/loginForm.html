@@ -2,35 +2,33 @@
 <html xmlns:th="http://www.thymelef.org">
 <head>
     <meta charset="UTF-8">
+    <meta content="width=device-width" name="viewport">
     <title></title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
+<header class="header">
+    <div class="header-container w-container">
+        <div class="site">
+            <a href="/">
+                <img alt="Boards" height="26" th:src="@{/img/logo.svg}" width="135">
+            </a>
+        </div>
+    </div>
+</header>
 <body>
 
 <section class="login">
     <div class="login-container w-container">
-        <p th:if="${param.error}">
-            Error!
-        </p>
-        <form method="POST" th:action="@{/login}">
-            <table>
-                <tr>
-                    <td><label for="username">User:</label></td>
-                    <td><input id="username" name="username" type="text" value="aaaa"></td>
-                </tr>
-                <tr>
-                    <td><label for="password">Password:</label></td>
-                    <td><input id="password" name="password" type="password" value="demo"></td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>
-                        <button class="btn" type="submit">ログイン</button>
-                    </td>
-                </tr>
-            </table>
-        </form>
-
+        <div class="login-form">
+            <form class="login-form" method="POST" th:action="@{/login}">
+                <p class="error" th:if="${param.error}">Error!</p>
+                <label for="username">会員番号:</label>
+                <input id="username" name="username" type="text" value="aaaa">
+                <label for="password">パスワード:</label>
+                <input id="password" name="password" type="password" value="demo">
+                <button class="btn" type="submit">ログイン</button>
+            </form>
+        </div>
     </div>
 </section>
 </body>
