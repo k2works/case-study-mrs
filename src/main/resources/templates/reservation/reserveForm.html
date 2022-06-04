@@ -13,35 +13,35 @@
 <section class="reserve-form">
     <div class="reserve-form-container">
         <div class="reserve-form-decoration">
-            <div>
+            <p class="error" th:if="${error != null}" th:text="${error}"></p>
+
+            <form class="reserve-form-form" method="post" th:action="@{'/reservations/' + ${date} + '/' + ${roomId}}"
+                  th:object="${reservationForm}">
                 <a class="btn" th:href="@{'/rooms/' + ${date}}">戻る</a>
-            </div>
 
-            <p style="color: red" th:if="${error != null}" th:text="${error}"></p>
-
-            <form method="post"
-                  th:action="@{'/reservations/' + ${date} + '/' + ${roomId}}" th:object="${reservationForm}">
-                会議室: <span th:text="${room.RoomName}">豊洲</span>
-                <br/>
-                予約者名: <span th:text="${user.Name.FullName}">山田 太郎</span>
-                <br/>
-                日付: <span th:text="${#temporals.format(date, 'yyyy/M/d')}">2016/5/20</span>
-                <br/>
-                時間帯:
+                <label>会議室:</label>
+                <span th:text="${room.RoomName}">豊洲</span>
+                <label> 予約者名:</label>
+                <span th:text="${user.Name.FullName}">山田 太郎</span>
+                <label>日付:</label>
+                <span th:text="${#temporals.format(date, 'yyyy/M/d')}">2016/5/20</span>
+                <label>開始時間:</label>
                 <select th:field="*{startTime}">
                     <option th:each="time : ${timeList}" th:text="${time}" th:value="${time}">09:00</option>
                 </select>
                 <span style="color:red" th:error="*{startTime}" th:if="${#fields.hasErrors('startTime')}">error</span>
-                -
+                <label>終了時間:</label>
                 <select th:field="*{endTime}">
                     <option th:each="time : ${timeList}" th:text="${time}" th:value="${time}">10:00</option>
                 </select>
                 <span style="color:red" th:error="*{endTime}" th:if="${#fields.hasErrors('endTime')}">error</span>
-                <br/>
+
                 <button class="btn">予約</button>
             </form>
+        </div>
 
-            <table>
+        <div class="reserve-form-decoration">
+            <table class="reserve-form-table">
                 <tr>
                     <th>時間帯</th>
                     <th>予約者</th>
@@ -62,7 +62,8 @@
                               sec:authorize="${hasRole('ADMIN') or #vars.user.UserId == #vars.reservation.User.UserId}"
                               th:action="@{'/reservations/' + ${date} + '/' + ${roomId}}">
                             <input name="reservationId" th:value="${reservation.ReservationId.Value}" type="hidden">
-                            <input class="btn btn-accent" name="cancel" type="submit" value="取消">
+                            <input class="btn btn-accent reserve-form-table-button" name="cancel" type="submit"
+                                   value="取消">
                         </form>
                     </td>
                 </tr>
