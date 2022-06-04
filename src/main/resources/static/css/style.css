@@ -143,7 +143,7 @@ button:hover {
 /* ヒーロー */
 .hero {
     height: 650px;
-    background-image: url(/img/hero.jpg);
+    background-image: url(/img/hero2.jpg);
     background-position: center;
     background-size: cover;
 }
@@ -479,7 +479,7 @@ button:hover {
 /* ログイン */
 .login {
     height: 650px;
-    background-image: url(/img/hero.jpg);
+    background-image: url(/img/hero2.jpg);
     background-position: center;
     background-size: cover;
 }
