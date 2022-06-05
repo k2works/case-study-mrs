@@ -558,6 +558,28 @@ app_prd -> db_prd
 
 ==== ユースケース
 
+[plantuml]
+----
+@startuml
+left to right direction
+actor "利用者" as user
+actor "管理者" as admin
+
+rectangle 利用者 {
+  usecase "利用者の認証" as UC1
+}
+
+rectangle 予約 {
+  usecase "会議室の検索" as UC2
+  usecase "会議室の予約" as UC3
+}
+利用者 <--> 予約
+user --> 利用者
+user --> 予約
+予約 <-- admin
+@enduml
+----
+
 image:images/jig/service-method-call-hierarchy.svg[]
 
 ===== 利用者管理
@@ -566,7 +588,7 @@ image:images/jig/service-method-call-hierarchy.svg[]
 @startuml
 left to right direction
 actor "利用者" as user
-rectangle 会議室予約システム {
+rectangle 利用者 {
   usecase "利用者の認証" as UC1
 }
 user --> UC1
@@ -586,7 +608,7 @@ include::../cypress/integration/Auth/Login.feature[]
 left to right direction
 actor "利用者" as user
 actor "管理者" as admin
-rectangle 会議室予約システム {
+rectangle 予約 {
   usecase "会議室の検索" as UC2
   usecase "会議室の予約" as UC3
 }
