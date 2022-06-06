@@ -2,52 +2,52 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mrs.infrastructure.datasource.auth.UserMapper">
   <resultMap id="BaseResultMap" type="mrs.domain.model.auth.User">
-    <id column="会員番号" jdbcType="VARCHAR" property="userId.value"/>
+    <id column="利用者番号" jdbcType="VARCHAR" property="userId.value"/>
     <result column="姓" jdbcType="VARCHAR" property="name.firstName"/>
     <result column="名" jdbcType="VARCHAR" property="name.lastName"/>
     <result column="パスワード" jdbcType="VARCHAR" property="password"/>
     <result column="役割" jdbcType="VARCHAR" property="roleName"/>
     <collection property="reservations"
                 javaType="ArrayList"
-                column="会員番号"
+                column="利用者番号"
                 select="mrs.infrastructure.datasource.reservation.reservation.ReservationMapper.selectByUserId"
                 fetchType="lazy"
     />
   </resultMap>
 
   <insert id="insert" useGeneratedKeys="true">
-    INSERT INTO auth.会員 (会員番号, 姓, 名, パスワード, 役割)
+    INSERT INTO auth.利用者 (利用者番号, 姓, 名, パスワード, 役割)
     VALUES (#{userId.value}, #{name.firstName}, #{name.lastName}, #{password}, #{roleName})
   </insert>
 
   <select id="select" resultMap="BaseResultMap">
-    SELECT 会員番号, 姓, 名, パスワード, 役割, 登録日時
-    FROM auth.会員
-    WHERE 会員番号 = #{value}
+    SELECT 利用者番号, 姓, 名, パスワード, 役割, 登録日時
+    FROM auth.利用者
+    WHERE 利用者番号 = #{value}
   </select>
 
   <select id="selectAll" resultMap="BaseResultMap">
-    SELECT 会員番号, 姓, 名, パスワード, 役割, 登録日時
-    FROM auth.会員
+    SELECT 利用者番号, 姓, 名, パスワード, 役割, 登録日時
+    FROM auth.利用者
   </select>
 
   <update id="update" parameterType="mrs.domain.model.auth.User">
-    UPDATE auth.会員
+    UPDATE auth.利用者
     SET 姓     = #{name.firstName},
         名     = #{name.lastName},
         パスワード = #{password},
         役割    = #{roleName}
-    WHERE 会員番号 = #{userId.value}
+    WHERE 利用者番号 = #{userId.value}
   </update>
 
   <delete id="delete">
     DELETE
-    FROM auth.会員
-    WHERE 会員番号 = #{value}
+    FROM auth.利用者
+    WHERE 利用者番号 = #{value}
   </delete>
 
   <delete id="deleteAll">
     DELETE
-    FROM auth.会員
+    FROM auth.利用者
   </delete>
 </mapper>

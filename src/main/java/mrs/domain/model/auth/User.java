@@ -5,7 +5,7 @@ import mrs.domain.model.reservation.reservation.Reservation;
 import java.util.List;
 
 /**
- * 会員
+ * 利用者
  */
 public class User {
     private UserId userId;

@@ -7,7 +7,7 @@
         <result column="予約開始時間" property="reservedTime.startTime"/>
         <result column="予約日" property="reservableRoom.reservableRoomId.reservedDate.value"/>
         <result column="会議室番号" property="reservableRoom.reservableRoomId.roomId.value"/>
-        <result column="会員番号" property="user.userId.value"/>
+        <result column="利用者番号" property="user.userId.value"/>
         <association property="reservableRoom.reservableRoomId"
                      javaType="mrs.domain.model.reservation.room.ReservableRoomId">
             <id property="roomId.value" column="会議室番号"/>
@@ -20,7 +20,7 @@
         />
         <association property="user"
                      javaType="mrs.domain.model.auth.User"
-                     column="会員番号"
+                     column="利用者番号"
                      select="mrs.infrastructure.datasource.auth.UserMapper.select"
         />
     </resultMap>
@@ -44,7 +44,7 @@
                 会議室番号,
             </if>
             <if test="user.userId.value != null">
-                会員番号,
+                利用者番号,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -70,7 +70,7 @@
     </insert>
 
     <select id="select" resultMap="BaseResultMap">
-        SELECT 予約番号, 予約終了時間, 予約開始時間, 予約日, 会議室番号, 会員番号
+        SELECT 予約番号, 予約終了時間, 予約開始時間, 予約日, 会議室番号, 利用者番号
         FROM reservation.予約
         WHERE 予約番号 = #{value}
     </select>
@@ -81,7 +81,7 @@
                r.予約開始時間,
                r.予約日,
                r.会議室番号,
-               r.会員番号,
+               r.利用者番号,
                u.姓,
                u.名,
                u.役割,
@@ -89,23 +89,23 @@
         FROM reservation.予約 r
                  LEFT OUTER JOIN reservation.予約可能会議室 rr
                                  ON r.予約日 = rr.予約日 AND r.会議室番号 = rr.会議室番号
-                 LEFT OUTER JOIN auth.会員 u
-                                 ON r.会員番号 = u.会員番号
+                 LEFT OUTER JOIN auth.利用者 u
+                                 ON r.利用者番号 = u.利用者番号
                  LEFT OUTER JOIN reservation.会議室 rm
                                  ON r.会議室番号 = rm.会議室番号
     </select>
 
     <select id="selectByKey" resultMap="BaseResultMap">
-        SELECT 予約番号, 予約終了時間, 予約開始時間, 予約日, 会議室番号, 会員番号
+        SELECT 予約番号, 予約終了時間, 予約開始時間, 予約日, 会議室番号, 利用者番号
         FROM reservation.予約
         WHERE 予約日 = #{reservedDate}
           AND 会議室番号 = #{roomId}
     </select>
 
     <select id="selectByUserId" resultMap="BaseResultMap">
-        SELECT 予約番号, 予約終了時間, 予約開始時間, 予約日, 会議室番号, 会員番号
+        SELECT 予約番号, 予約終了時間, 予約開始時間, 予約日, 会議室番号, 利用者番号
         FROM reservation.予約
-        WHERE 会員番号 = #{value}
+        WHERE 利用者番号 = #{value}
     </select>
 
     <update id="update" parameterType="mrs.domain.model.reservation.reservation.Reservation">
@@ -114,7 +114,7 @@
             予約開始時間 = #{reservedTime.startTime},
             予約日    = #{reservableRoom.reservableRoomId.reservedDate.value},
             会議室番号  = #{reservableRoom.reservableRoomId.roomId.value},
-            会員番号   = #{user.userId.value}
+            利用者番号  = #{user.userId.value}
         WHERE 予約番号 = #{reservationId.value}
     </update>
 
@@ -137,7 +137,7 @@
                r.予約開始時間,
                r.予約日,
                r.会議室番号,
-               r.会員番号,
+               r.利用者番号,
                u.姓,
                u.名,
                u.役割,
@@ -145,8 +145,8 @@
         FROM reservation.予約 r
                  LEFT OUTER JOIN reservation.予約可能会議室 rr
                                  ON r.予約日 = rr.予約日 AND r.会議室番号 = rr.会議室番号
-                 LEFT OUTER JOIN auth.会員 u
-                                 ON r.会員番号 = u.会員番号
+                 LEFT OUTER JOIN auth.利用者 u
+                                 ON r.利用者番号 = u.利用者番号
                  LEFT OUTER JOIN reservation.会議室 rm
                                  ON r.会議室番号 = rm.会議室番号
         WHERE rr.予約日 = #{reservedDate.value}
