@@ -565,7 +565,7 @@ left to right direction
 actor "利用者" as user
 actor "管理者" as admin
 
-rectangle 利用者 {
+rectangle 認証 {
   usecase "利用者の認証" as UC1
 }
 
@@ -573,8 +573,7 @@ rectangle 予約 {
   usecase "会議室の検索" as UC2
   usecase "会議室の予約" as UC3
 }
-利用者 <--> 予約
-user --> 利用者
+user --> 認証
 user --> 予約
 予約 <-- admin
 @enduml
@@ -588,7 +587,7 @@ image:images/jig/service-method-call-hierarchy.svg[]
 @startuml
 left to right direction
 actor "利用者" as user
-rectangle 利用者 {
+rectangle 認証 {
   usecase "利用者の認証" as UC1
 }
 user --> UC1
@@ -651,9 +650,9 @@ image::images/erd/jig-erd-detail.svg[]
 
 image::images/schemaspy/reservation/diagrams/summary/relationships.real.large.png[]
 
-===== 利用者
+===== 認証
 
-image::images/schemaspy/usr/diagrams/summary/relationships.real.large.png[]
+image::images/schemaspy/auth/diagrams/summary/relationships.real.large.png[]
 
 == 運用
 
