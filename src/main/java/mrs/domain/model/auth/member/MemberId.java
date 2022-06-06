@@ -1,18 +1,18 @@
-package mrs.domain.model.auth;
+package mrs.domain.model.auth.member;
 
 import java.util.Objects;
 
 /**
- * 利用者番号
+ * 会員番号
  */
-public class UserId {
+public class MemberId {
     private String value;
 
     @Deprecated
-    public UserId() {
+    public MemberId() {
     }
 
-    public UserId(String value) {
+    public MemberId(String value) {
         this.value = value;
     }
 
@@ -23,9 +23,9 @@ public class UserId {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof UserId userId)) return false;
+        if (!(o instanceof MemberId memberId)) return false;
 
-        return Objects.equals(value, userId.value);
+        return Objects.equals(value, memberId.value);
     }
 
     @Override
@@ -35,7 +35,7 @@ public class UserId {
 
     @Override
     public String toString() {
-        return "UserId{" +
+        return "MemberId{" +
                 "value='" + value + '\'' +
                 '}';
     }

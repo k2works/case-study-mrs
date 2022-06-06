@@ -1,4 +1,4 @@
-package mrs.domain.model.auth;
+package mrs.domain.model.auth.user;
 
 /**
  * 利用者区分

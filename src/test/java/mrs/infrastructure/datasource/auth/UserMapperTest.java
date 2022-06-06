@@ -1,8 +1,8 @@
 package mrs.infrastructure.datasource.auth;
 
-import mrs.domain.model.auth.RoleName;
-import mrs.domain.model.auth.User;
-import mrs.domain.model.auth.UserId;
+import mrs.domain.model.auth.user.RoleName;
+import mrs.domain.model.auth.user.User;
+import mrs.domain.model.auth.user.UserId;
 import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.room.MeetingRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;

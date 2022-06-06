@@ -19,7 +19,7 @@
                      select="mrs.infrastructure.datasource.reservation.room.RoomMapper.select"
         />
         <association property="user"
-                     javaType="mrs.domain.model.auth.User"
+                     javaType="mrs.domain.model.auth.user.User"
                      column="利用者番号"
                      select="mrs.infrastructure.datasource.auth.UserMapper.select"
         />

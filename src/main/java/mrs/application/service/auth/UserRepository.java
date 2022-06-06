@@ -1,7 +1,7 @@
 package mrs.application.service.auth;
 
-import mrs.domain.model.auth.User;
-import mrs.domain.model.auth.UserId;
+import mrs.domain.model.auth.user.User;
+import mrs.domain.model.auth.user.UserId;
 
 import java.util.Optional;
 

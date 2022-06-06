@@ -2,8 +2,8 @@ package mrs.application.service.reservation;
 
 import mrs.IntegrationTest;
 import mrs.TestDataFactory;
-import mrs.domain.model.auth.User;
-import mrs.domain.model.auth.UserId;
+import mrs.domain.model.auth.user.User;
+import mrs.domain.model.auth.user.UserId;
 import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.reservation.ReservationId;
 import mrs.domain.model.reservation.reservation.ReservationList;

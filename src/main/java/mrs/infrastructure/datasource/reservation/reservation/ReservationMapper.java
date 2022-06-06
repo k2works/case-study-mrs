@@ -1,6 +1,6 @@
 package mrs.infrastructure.datasource.reservation.reservation;
 
-import mrs.domain.model.auth.UserId;
+import mrs.domain.model.auth.user.UserId;
 import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.reservation.ReservationId;
 import mrs.domain.model.reservation.room.ReservableRoomId;
