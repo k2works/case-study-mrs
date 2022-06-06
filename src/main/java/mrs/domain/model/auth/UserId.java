@@ -3,7 +3,7 @@ package mrs.domain.model.auth;
 import java.util.Objects;
 
 /**
- * 会員番号
+ * 利用者番号
  */
 public class UserId {
     private String value;

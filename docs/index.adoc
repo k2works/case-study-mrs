@@ -37,6 +37,15 @@ left to right direction
 
 actor 利用者 as ac_01
 actor 管理者 as ac_02
+actor 会員 as ac_03
+ac_01 <|- ac_02
+ac_01 <|-- ac_03
+
+note top of ac_01
+  利用者とはシステムを利用するアクター全般を指す。
+  お金を払って会議室を利用する会員。
+  窓口を担当する管理者。
+end note
 
 usecase 会議室予約システム as uc_01
 note top of uc_01
@@ -45,8 +54,8 @@ note top of uc_01
   管理者は利用者の予約を取り消すことができるようにする。
 end note
 
-ac_01 -- (uc_01)
 ac_02 -- (uc_01)
+ac_03 -- (uc_01)
 
 @enduml
 ----
@@ -61,21 +70,24 @@ title 要求モデル図
 
 left to right direction
 
-actor 利用者 as ac_01
+actor 会員 as ac_01
 note "利用可能な会議室があるかを Web で検索したい" as k_r1
 note "利用可能な会議室を Web で予約したい" as k_r2
+note "予約を Web でキャンセルしたい" as k_r6
 note as k_dr1 #Turquoise
   Web で会議室を検索でき、
   そのまま予約できること
 end note
 ac_01 -- k_r1
 ac_01 -- k_r2
+ac_01 -- k_r6
 k_r1 -- k_dr1
 k_r2 -- k_dr1
+k_r6 -- k_dr1
 
 actor 管理者 as ac_02
-note "利用者の予約を代理でキャンセルしたい" as k_r3
-note "利用者を管理したい" as k_r4
+note "会員の予約を管理したい" as k_r3
+note "会員を管理したい" as k_r4
 note "会議室を管理したい" as k_r5
 ac_02 -- k_r3
 ac_02 -- k_r4
@@ -97,7 +109,7 @@ title ビジネスコンテキスト図
 
 left to right direction
 
-actor 利用者 as ac_01
+actor 会員 as ac_01
 
 node 設備 {
   rectangle 窓口 {
@@ -112,6 +124,7 @@ ac_01 -- (uc_01)
 ac_01 -- (uc_02)
 (uc_01) -- (ar_01)
 (uc_01) - ac_02
+(uc_02) - ac_02
 
 @enduml
 ----
@@ -128,15 +141,17 @@ title ビジネスユースケース図 - 利用者管理
 
 left to right direction
 
-actor 利用者 as ac_01
+actor 会員 as ac_01
+actor 管理者 as ac_02
 
 agent 窓口 as ag_01
 
 usecase 利用者の登録 as uc_01
 usecase 利用者の認証 as uc_02
 
-ac_01 -- (uc_01)
+ac_02 -- (uc_01)
 ac_01 -- (uc_02)
+ac_02 -- (uc_02)
 
 (uc_01) -- ag_01
 (uc_02) -- ag_01
@@ -154,7 +169,7 @@ title ビジネスユースケース図 - 予約管理
 
 left to right direction
 
-actor 利用者 as ac_01
+actor 会員 as ac_01
 actor 管理者 as ac_02
 
 agent 窓口 as ag_01
@@ -232,8 +247,8 @@ title 利用シーン図 - 利用者の登録:BUC
 
 left to right direction
 
-actor 利用者
-actor 窓口
+actor 会員 as ac_01
+actor 管理者 as ac_02
 
 frame 利用者の登録
 note right of 利用者の登録
@@ -243,8 +258,8 @@ end note
 usecase 利用申込みをする
 usecase 利用者登録をする
 
-:利用者: -- 利用者の登録
-:窓口: -- 利用者の登録
+:ac_01: -- 利用者の登録
+:ac_02: -- 利用者の登録
 利用者の登録 -- (利用申込みをする)
 利用者の登録 -- (利用者登録をする)
 
@@ -261,7 +276,8 @@ title 利用シーン図 - 利用者の認証:BUC
 
 left to right direction
 
-actor 利用者
+actor 会員 as ac_01
+actor 管理者 as ac_02
 
 frame 利用者の認証
 note right of 利用者の認証
@@ -270,7 +286,8 @@ end note
 
 usecase 利用者を認証する
 
-:利用者: -- 利用者の認証
+:ac_01: -- 利用者の認証
+:ac_02: -- 利用者の認証
 利用者の認証 -- (利用者を認証する)
 
 @enduml
@@ -288,7 +305,8 @@ title 利用シーン図 - 会議室の検索:BUC
 
 left to right direction
 
-actor 利用者
+actor 会員 as ac_01
+actor 管理者 as ac_02
 
 frame 会議室の検索
 note right of 会議室の検索
@@ -298,7 +316,8 @@ end note
 
 usecase 予約可能な会議室を検索する
 
-:利用者: -- 会議室の検索
+:ac_01: -- 会議室の検索
+:ac_02: -- 会議室の検索
 会議室の検索 -- (予約可能な会議室を検索する)
 
 
@@ -315,7 +334,7 @@ title 利用シーン図 - 会議室の登録:BUC
 
 left to right direction
 
-actor 管理者
+actor 管理者 as ac_01
 
 frame 会議室の登録
 note right of 会議室の登録
@@ -324,9 +343,9 @@ note right of 会議室の登録
    システムに手動で登録する。
 end note
 
-usecase 会議室を登録する
+usecase 予約可能な会議室を登録する
 
-:管理者: -- 会議室の登録
+:ac_01: -- 会議室の登録
 会議室の登録 -- (予約可能な会議室を登録する)
 
 
@@ -353,12 +372,14 @@ usecase 会議室を登録する
 [plantuml]
 ----
 @startuml
-actor "利用者" as user
+actor "会員" as user
+actor "管理者" as admin
 frame "利用者の認証" as f01
 usecase "利用者を認証する" as UC1
 boundary "ログイン画面" as b01
 entity "利用者" as e01
 user - f01
+admin - f01
 f01 - UC1
 b01 -- UC1
 UC1 - e01
@@ -372,13 +393,15 @@ UC1 - e01
 [plantuml]
 ----
 @startuml
-actor "利用者" as user
+actor "会員" as user
+actor "管理者" as admin
 frame "会議室の検索" as f01
 usecase "予約可能な会議室を検索する" as UC1
 boundary "会議室一覧画面" as b01
 entity "会議室" as e01
 
 user - f01
+admin - f01
 
 f01 - UC1
 b01 -- UC1
@@ -392,7 +415,7 @@ UC1 - e01
 [plantuml]
 ----
 @startuml
-actor "利用者" as user
+actor "会員" as user
 actor "管理者" as admin
 frame "会議室の予約" as f01
 usecase "予約可能な会議室を検索する" as UC1
@@ -563,7 +586,10 @@ app_prd -> db_prd
 @startuml
 left to right direction
 actor "利用者" as user
+actor "会員" as member
 actor "管理者" as admin
+user <|- member
+user <|- admin
 
 rectangle 認証 {
   usecase "利用者の認証" as UC1
@@ -575,22 +601,24 @@ rectangle 予約 {
 }
 user --> 認証
 user --> 予約
-予約 <-- admin
 @enduml
 ----
 
 image:images/jig/service-method-call-hierarchy.svg[]
 
 ===== 利用者管理
+
 [plantuml]
 ----
 @startuml
 left to right direction
-actor "利用者" as user
+actor "会員" as member
+actor "管理者" as admin
 rectangle 認証 {
   usecase "利用者の認証" as UC1
 }
-user --> UC1
+member --> UC1
+admin --> UC1
 @enduml
 ----
 
@@ -605,14 +633,14 @@ include::../cypress/integration/Auth/Login.feature[]
 ----
 @startuml
 left to right direction
-actor "利用者" as user
+actor "会員" as member
 actor "管理者" as admin
 rectangle 予約 {
   usecase "会議室の検索" as UC2
   usecase "会議室の予約" as UC3
 }
-user --> UC2
-user --> UC3
+member --> UC2
+member --> UC3
 UC2 <-- admin
 UC3 <-- admin
 @enduml
