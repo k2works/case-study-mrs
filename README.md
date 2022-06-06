@@ -64,6 +64,22 @@ Since WolfDesk provides its service with no minimal fee, it has to optimize its 
 the costs of onboarding a new tenant. To do that, WolfDesk leverages serverless computing, which allows it to
 elastically scale its compute resources based on the operations on active tickets.
 
+### 事例 ドメイン: S社
+
+S社は、地方都市に本社を置くビル管理サービス事業会社である。市内に複数のビルを所有しており、主な事業は不動産賃貸業務及び設備総合管理業務である。
+
+近年、所有物件の稼働率を向上するべく貸会議室運営業務に新たに取り組んでいるが状況は芳しくない。
+
+現在、貸会議室運営業の大半は手作業で行われている。最近、サービスを紹介するWebページと会議室予約システムの初回リリースが行われたが担当者の急な退職により十分な引継ぎが行われなかったため仕様を把握する人間が不在の状況となっている。
+
+利用可能な会議室の登録は手作業でシステムに登録しているため、登録漏れや登録間違いにより予約した会議室が使えない、利用したい会議室がいつも使えないなど利用者からのクレームが発生しておりサービス品質向上が求めらている。
+また、プロジェクタやホワイトボードなど付随する設備の要望が上がっているが十分に対応できていない状況である。
+
+S社としては、効率化によるサービス品質向上と会員管理の強化によるサブスクリプションサービスで収益を多様化することで貸会議室運営業務を新たな収益の柱に成長させたいと考えている。
+
+- [参照1](https://www.saycogroup.co.jp/company/about/)
+- [参照2](https://www.ekimaekaigi.com/)
+
 ## 実践
 
 要件・開発に [CCSR手法](https://masuda220.hatenablog.com/entry/2020/05/27/103750) を適用
