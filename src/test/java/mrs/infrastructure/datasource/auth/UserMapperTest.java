@@ -1,11 +1,11 @@
-package mrs.infrastructure.datasource.user;
+package mrs.infrastructure.datasource.auth;
 
+import mrs.domain.model.auth.RoleName;
+import mrs.domain.model.auth.User;
+import mrs.domain.model.auth.UserId;
 import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.room.MeetingRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
-import mrs.domain.model.user.RoleName;
-import mrs.domain.model.user.User;
-import mrs.domain.model.user.UserId;
 import mrs.infrastructure.datasource.reservation.reservation.ReservationMapper;
 import mrs.infrastructure.datasource.reservation.room.ReservableRoomMapper;
 import mrs.infrastructure.datasource.reservation.room.RoomMapper;

@@ -2,12 +2,12 @@ package mrs.application.service.reservation;
 
 import mrs.IntegrationTest;
 import mrs.TestDataFactory;
+import mrs.domain.model.auth.User;
+import mrs.domain.model.auth.UserId;
 import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.reservation.ReservationId;
 import mrs.domain.model.reservation.reservation.ReservationList;
 import mrs.domain.model.reservation.room.ReservableRoomId;
-import mrs.domain.model.user.User;
-import mrs.domain.model.user.UserId;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;

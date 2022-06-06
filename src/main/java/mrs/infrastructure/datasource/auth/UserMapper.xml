@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mrs.infrastructure.datasource.user.UserMapper">
-  <resultMap id="BaseResultMap" type="mrs.domain.model.user.User">
+<mapper namespace="mrs.infrastructure.datasource.auth.UserMapper">
+  <resultMap id="BaseResultMap" type="mrs.domain.model.auth.User">
     <id column="会員番号" jdbcType="VARCHAR" property="userId.value"/>
     <result column="姓" jdbcType="VARCHAR" property="name.firstName"/>
     <result column="名" jdbcType="VARCHAR" property="name.lastName"/>
@@ -31,7 +31,7 @@
     FROM auth.会員
   </select>
 
-  <update id="update" parameterType="mrs.domain.model.user.User">
+  <update id="update" parameterType="mrs.domain.model.auth.User">
     UPDATE auth.会員
     SET 姓     = #{name.firstName},
         名     = #{name.lastName},

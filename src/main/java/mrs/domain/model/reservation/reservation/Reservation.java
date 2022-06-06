@@ -1,8 +1,8 @@
 package mrs.domain.model.reservation.reservation;
 
+import mrs.domain.model.auth.User;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
-import mrs.domain.model.user.User;
 
 import java.time.LocalTime;
 import java.util.Objects;

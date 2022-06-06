@@ -1,6 +1,6 @@
 package mrs;
 
-import mrs.application.service.user.UserService;
+import mrs.application.service.auth.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

@@ -1,7 +1,7 @@
-package mrs.infrastructure.datasource.user;
+package mrs.infrastructure.datasource.auth;
 
-import mrs.domain.model.user.User;
-import mrs.domain.model.user.UserId;
+import mrs.domain.model.auth.User;
+import mrs.domain.model.auth.UserId;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

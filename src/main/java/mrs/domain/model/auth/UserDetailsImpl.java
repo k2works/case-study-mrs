@@ -1,4 +1,4 @@
-package mrs.domain.model.user;
+package mrs.domain.model.auth;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -10,9 +10,9 @@ import java.util.Collection;
  * 利用者
  */
 public class UserDetailsImpl implements UserDetails {
-    private final mrs.domain.model.user.User user;
+    private final mrs.domain.model.auth.User user;
 
-    public UserDetailsImpl(mrs.domain.model.user.User user) {
+    public UserDetailsImpl(mrs.domain.model.auth.User user) {
         this.user = user;
     }
 

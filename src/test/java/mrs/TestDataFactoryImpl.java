@@ -1,14 +1,14 @@
 package mrs;
 
+import mrs.domain.model.auth.RoleName;
+import mrs.domain.model.auth.User;
 import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.room.MeetingRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
-import mrs.domain.model.user.RoleName;
-import mrs.domain.model.user.User;
+import mrs.infrastructure.datasource.auth.UserMapper;
 import mrs.infrastructure.datasource.reservation.reservation.ReservationMapper;
 import mrs.infrastructure.datasource.reservation.room.ReservableRoomMapper;
 import mrs.infrastructure.datasource.reservation.room.RoomMapper;
-import mrs.infrastructure.datasource.user.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

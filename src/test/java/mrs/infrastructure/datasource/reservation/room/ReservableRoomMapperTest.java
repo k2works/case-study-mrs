@@ -1,13 +1,13 @@
 package mrs.infrastructure.datasource.reservation.room;
 
+import mrs.domain.model.auth.RoleName;
+import mrs.domain.model.auth.User;
 import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.room.MeetingRoom;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
-import mrs.domain.model.user.RoleName;
-import mrs.domain.model.user.User;
+import mrs.infrastructure.datasource.auth.UserMapper;
 import mrs.infrastructure.datasource.reservation.reservation.ReservationMapper;
-import mrs.infrastructure.datasource.user.UserMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
