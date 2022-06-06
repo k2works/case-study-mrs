@@ -17,7 +17,7 @@ const contents = `
 const usecase = `
 @startuml
 left to right direction
-actor "利用者" as user
+actor "会員" as user
 actor "管理者" as admin
 rectangle 会議室予約システム {
   usecase "利用者の認証" as UC1
@@ -38,13 +38,13 @@ UC4 <-- admin
 const uml = `
 @startuml
 class 利用者 {
+ パスワード
 }
 enum 利用者区分 {
  USER
  ADMIN
 }
 class 会員 {
- パスワード
 }
 class 氏名 {
  姓
@@ -57,10 +57,13 @@ class 予約時間 {
 class 会議室 {
   会議室名
 }
+利用者番号 --* 利用者
 利用者 *- 利用者区分
-利用者 *-- 会員
-会員 *- 氏名
-会員番号 -* 会員
+利用者 <|-- 会員
+利用者 <|-- 管理者
+氏名 -* 利用者
+会員番号 --* 会員
+管理者 --* 予約
 会員 --* 予約
 予約一覧 -> 予約
 予約 *-- 予約番号
@@ -81,26 +84,26 @@ hide circle
 ' avoid problems with angled crows feet
 skinparam linetype ortho
 entity "会議室" as e01 {
-  *会議室ID 
+  *会議室番号
   --
   会議室名
 }
 entity "予約可能会議室" as e02 {
   *予約日  
   --
-  *会議室ID 
+  *会議室番号 
 }
 entity "予約" as e03 {
-  *予約ID 
+  *予約番号 
   --
   開始時間
   終了時間
   予約日 <<FK>>
-  会議室ID <<FK>>
-  ユーザーID <<FK>>
+  会議室番号 <<FK>>
+  利用者番号 <<FK>>
 }
 entity "利用者" as e04 {
-  *利用者ID
+  *利用者番号
   --
   姓
   名

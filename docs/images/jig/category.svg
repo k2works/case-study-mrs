@@ -10,9 +10,9 @@
         <title>区分図</title>
         <polygon fill="white" stroke="transparent" points="-4,27 -4,-88 111,-88 111,27 -4,27"/>
         <text text-anchor="middle" x="53.5" y="15.2" font-family="Times New Roman,serif" font-size="14.00">区分図</text>
-        <!-- mrs.domain.model.auth.RoleName -->
+        <!-- mrs.domain.model.auth.user.RoleName -->
         <g id="node1" class="node">
-            <title>mrs.domain.model.auth.RoleName</title>
+            <title>mrs.domain.model.auth.user.RoleName</title>
             <polygon fill="lemonchiffon" stroke="black"
                      points="106.64,-84.3 -0.36,-84.3 -0.36,-0.3 106.64,-0.3 106.64,-84.3"/>
             <text text-anchor="start" x="10.14" y="-67.1" font-family="Times New Roman,serif" font-size="14.00">利用者区分
