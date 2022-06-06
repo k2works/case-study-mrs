@@ -1,6 +1,6 @@
 [
   {
-    "description": "  窓口として\n  アプリケーション利用者の認証をしたい\n  なぜなら認証された利用者むけのサービスだから",
+    "description": "  システムとして\n  アプリケーション利用者の認証をしたい\n  なぜなら認証された利用者むけのサービスだから",
     "keyword": "Feature",
     "name": "利用者の認証",
     "line": 1,
@@ -23,17 +23,17 @@
             "name": "\"ログイン\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 1279000000
+              "duration": 1502000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
             "line": 9,
-            "name": "\"ログインフォーム\" が表示される",
+            "name": "\"ログイン\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 35000000
+              "duration": 13000000
             }
           }
         ]
