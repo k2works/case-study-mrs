@@ -5,13 +5,78 @@
 <div th:include="fragment/app-header"></div>
 
 <body>
-
 <section class="user">
-    <dvi class="user-container w-container">
+    <div class="user-container w-container">
+        <button class="btn" id="update_button" onclick="
+              var dialog = getElementById('registDialog');
+              dialog.style.left = ((window.innerWidth - 500) / 2) + 'px';
+              dialog.style.display = 'block';
+              " type="submit">新規
+        </button>
+
         <div class="user-decoration">
-            <li th:each="user: ${users}" th:text="${user.Name}" th:value="${user.UserId.Value}"/>
+            <table class="user-table">
+                <tr>
+                    <th>利用者番号</th>
+                    <th>姓</th>
+                    <th>名</th>
+                    <th>役割</th>
+                    <th>操作</th>
+                </tr>
+                <tr th:each="user : ${users}">
+                    <td>
+                        <span th:text="${user.UserId.Value}">
+                    </td>
+                    <td>
+                        <span th:text="${user.Name.FirstName}">
+                    </td>
+                    <td>
+                        <span th:text="${user.Name.LastName}">
+                    </td>
+                    <td>
+                        <span th:text="${user.RoleName}">
+                    </td>
+                    <td>
+                        <button class="btn" onclick="
+                          let row = this.parentElement.parentElement;
+                          getElementById('regist_id').value = row.cells[0].innerText;
+                          getElementById('regist_firstName').value = row.cells[1].innerText;
+                          getElementById('regist_lastName').value = row.cells[2].innerText;
+                          getElementById('regist_role').value = row.cells[3].outerText;
+                          var dialog = getElementById('registDialog');
+                          dialog.style.left = ((window.innerWidth - 500) / 2) + 'px';
+                          dialog.style.display = 'block';
+                        " type="submit">編集
+                        </button>
+                        <button class="btn btn-accent">削除</button>
+                    </td>
+                </tr>
+            </table>
+
+            <div id="registDialog">
+                <div>
+                    <form action="/regist" class="user-form">
+                        <input id="regist_id" name="id" type="hidden"/>
+                        <label>姓</label>
+                        <input id="regist_firstName" name="firstName" type="text"/>
+                        <label>名</label>
+                        <input id="regist_lastName" name="lastName" type="text"/>
+                        <label>パスワード</label>
+                        <input id="regist_password" name="password" type="password"/>
+                        <label>役割</label>
+                        <select id="regist_role" name="done">
+                            <option value="false">会員</option>
+                            <option value="true">管理者</option>
+                        </select>
+                        <button class="btn" type="submit">登録</button>
+                        <button class="btn btn-accent" onclick="getElementById('registDialog').style.display='none';"
+                                type="reset">キャンセル
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </dvi>
+    </div>
 </section>
 
 </body>
