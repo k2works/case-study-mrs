@@ -9,17 +9,17 @@
     <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 343)">
         <title>ERD</title>
         <polygon fill="white" stroke="transparent" points="-4,4 -4,-343 548,-343 548,4 -4,4"/>
+        <g id="clust2" class="cluster">
+            <title>cluster_AUTH</title>
+            <polygon fill="lightyellow" stroke="black" points="178.5,-8 178.5,-103 303.5,-103 303.5,-8 178.5,-8"/>
+            <text text-anchor="middle" x="241" y="-87.8" font-family="Times New Roman,serif" font-size="14.00">AUTH
+            </text>
+        </g>
         <g id="clust3" class="cluster">
             <title>cluster_PUBLIC</title>
             <polygon fill="lightyellow" stroke="black" points="349,-256 349,-331 536,-331 536,-256 349,-256"/>
             <text text-anchor="middle" x="442.5" y="-315.8" font-family="Times New Roman,serif" font-size="14.00">
                 PUBLIC
-            </text>
-        </g>
-        <g id="clust2" class="cluster">
-            <title>cluster_AUTH</title>
-            <polygon fill="lightyellow" stroke="black" points="178.5,-8 178.5,-103 303.5,-103 303.5,-8 178.5,-8"/>
-            <text text-anchor="middle" x="241" y="-87.8" font-family="Times New Roman,serif" font-size="14.00">AUTH
             </text>
         </g>
         <g id="clust1" class="cluster">
