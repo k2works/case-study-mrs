@@ -87,7 +87,7 @@ k_r6 -- k_dr1
 
 actor 管理者 as ac_02
 note "会員の予約を管理したい" as k_r3
-note "会員を管理したい" as k_r4
+note "利用者を管理したい" as k_r4
 note "会議室を管理したい" as k_r5
 ac_02 -- k_r3
 ac_02 -- k_r4
@@ -116,7 +116,7 @@ node 設備 {
     actor 管理者 as ac_02
   }
   usecase 予約管理 as uc_01
-  usecase 利用者管理 as uc_02
+  usecase 認証 as uc_02
   artifact 会議室 as ar_01
 }
 
@@ -131,13 +131,13 @@ ac_01 -- (uc_02)
 
 ==== ビジネスユースケース
 
-===== 利用者管理
+===== 認証
 
 [plantuml]
 ----
 @startuml
 
-title ビジネスユースケース図 - 利用者管理
+title ビジネスユースケース図 - 認証
 
 left to right direction
 
@@ -146,7 +146,7 @@ actor 管理者 as ac_02
 
 agent 窓口 as ag_01
 
-usecase 利用者の登録 as uc_01
+usecase 利用者の管理 as uc_01
 usecase 利用者の認証 as uc_02
 
 ac_02 -- (uc_01)
@@ -235,36 +235,7 @@ stop
 
 ==== 利用シーン
 
-===== 利用者管理
-
-====== 利用者の登録
-
-[plantuml]
-----
-@startuml
-
-title 利用シーン図 - 利用者の登録:BUC
-
-left to right direction
-
-actor 会員 as ac_01
-actor 管理者 as ac_02
-
-frame 利用者の登録
-note right of 利用者の登録
- 申し込みのあった利用者を窓口が手動でシステムに登録する
-end note
-
-usecase 利用申込みをする
-usecase 利用者登録をする
-
-:ac_01: -- 利用者の登録
-:ac_02: -- 利用者の登録
-利用者の登録 -- (利用申込みをする)
-利用者の登録 -- (利用者登録をする)
-
-@enduml
-----
+===== 認証
 
 ====== 利用者の認証
 
@@ -289,6 +260,39 @@ usecase 利用者を認証する
 :ac_01: -- 利用者の認証
 :ac_02: -- 利用者の認証
 利用者の認証 -- (利用者を認証する)
+
+@enduml
+----
+
+====== 利用者の管理
+
+[plantuml]
+----
+@startuml
+
+title 利用シーン図 - 利用者の管理:BUC
+
+left to right direction
+
+actor 管理者 as ac_02
+
+frame 利用者の管理 as f_01
+note right of f_01
+ 申し込みのあった利用者を窓口が手動でシステムに登録する
+end note
+
+usecase 利用申込みをする
+usecase 利用者を確認をする
+usecase 利用者を登録をする
+usecase 利用者情報の更新をする
+usecase 利用者登録を抹消する
+
+:ac_02: -- f_01
+f_01 -- (利用申込みをする)
+f_01 -- (利用を確認する)
+f_01 -- (利用者を登録をする)
+f_01 -- (利用者情報の更新をする)
+f_01 -- (利用者登録を抹消する)
 
 @enduml
 ----
@@ -365,7 +369,7 @@ usecase 予約可能な会議室を登録する
 
 ==== ユースケース複合図
 
-===== 利用者管理
+===== 認証
 
 ====== 利用者の認証
 
@@ -383,6 +387,41 @@ admin - f01
 f01 - UC1
 b01 -- UC1
 UC1 - e01
+@enduml
+----
+
+====== 利用者の管理
+
+[plantuml]
+----
+@startuml
+actor "管理者" as admin
+frame "利用者の管理" as f01
+usecase "利用者を確認する" as UC1
+usecase "利用者を登録する" as UC2
+usecase "利用者情報を更新する" as UC3
+usecase "利用者登録を抹消する" as UC4
+boundary "利用者一覧画面" as b01
+boundary "利用者画面" as b02
+entity "利用者" as e01
+control "利用者バリエーション" as c01
+
+admin - f01
+f01 - UC1
+f01 - UC2
+f01 - UC3
+f01 - UC4
+b01 -- UC1
+b02 -- UC2
+b02 -- UC3
+b02 -- UC4
+UC2 -- c01
+UC3 -- c01
+UC4 -- c01
+UC1 - e01
+UC2 - e01
+UC3 - e01
+UC4 - e01
 @enduml
 ----
 
@@ -593,6 +632,7 @@ user <|- admin
 
 rectangle 認証 {
   usecase "利用者の認証" as UC1
+  usecase "利用者の管理" as UC4
 }
 
 rectangle 予約 {
@@ -606,7 +646,7 @@ user --> 予約
 
 image:images/jig/service-method-call-hierarchy.svg[]
 
-===== 利用者管理
+===== 認証
 
 [plantuml]
 ----
@@ -616,15 +656,19 @@ actor "会員" as member
 actor "管理者" as admin
 rectangle 認証 {
   usecase "利用者の認証" as UC1
+  usecase "利用者の管理" as UC2
 }
 member --> UC1
 admin --> UC1
+admin --> UC2
 @enduml
 ----
 
 [source,yml]
 ----
 include::../cypress/integration/Auth/Login.feature[]
+
+include::../cypress/integration/Auth/User.feature[]
 ----
 
 ===== 予約管理
