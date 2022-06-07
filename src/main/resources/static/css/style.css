@@ -620,3 +620,22 @@ button:hover {
 .news-list-body {
     display: table-cell;
 }
+
+/* 利用者一覧 */
+.user {
+    padding: var(--v-space) 0;
+    background-color: #f3f1ed;
+}
+
+.user-container {
+    display: grid;
+    gap: 27px;
+    justify-items: center;
+}
+
+.user-decoration {
+    font-size: clamp(30px, 3vw, 40px);
+    min-height: 0vw;
+    font-weight: 400;
+}
+

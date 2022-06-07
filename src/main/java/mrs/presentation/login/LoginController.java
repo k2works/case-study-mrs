@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 /**
  * 認証画面
  */
-@Controller("認証")
+@Controller("利用者の認証")
 public class LoginController {
     @GetMapping("loginForm")
     String loginForm() {

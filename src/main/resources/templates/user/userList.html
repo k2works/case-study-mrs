@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymelef.org">
+<html lang="ja">
+
+<div th:include="fragment/app-header"></div>
+
+<body>
+
+<section class="user">
+    <dvi class="user-container w-container">
+        <div class="user-decoration">
+            <li th:each="user: ${users}" th:text="${user.Name}" th:value="${user.UserId.Value}"/>
+        </div>
+    </dvi>
+</section>
+
+</body>
+</html>
