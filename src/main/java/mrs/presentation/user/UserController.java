@@ -27,7 +27,7 @@ public class UserController {
     String userList(Model model) {
         List<User> users = userManagementService.findAll();
         model.addAttribute("users", users);
-        return "/user/userList";
+        return "user/userList";
     }
 
     @PostMapping
