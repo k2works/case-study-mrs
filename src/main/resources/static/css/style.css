@@ -639,6 +639,11 @@ button:hover {
     font-weight: 400;
 }
 
+.user-decoration .error {
+    font-weight: bold;
+    color: #ff0000;
+}
+
 #registDialog {
     display: none;
     background-color: #FFFFFF;
@@ -648,6 +653,17 @@ button:hover {
     top: 120px;
     z-index: 9999;
 }
+
+#updateDialog {
+    display: none;
+    background-color: #FFFFFF;
+    border: 2px double;
+    width: 500px;
+    position: fixed;
+    top: 120px;
+    z-index: 9999;
+}
+
 
 .user-form {
     display: grid;
@@ -682,4 +698,11 @@ button:hover {
 
 .user-form > a {
     grid-column: 2 / 2;
+}
+
+.user-form > ul {
+    grid-column: items;
+    grid-row: auto;
+    font-size: 16px;
+    color: #ff0000;
 }

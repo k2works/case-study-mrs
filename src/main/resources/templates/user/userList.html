@@ -8,6 +8,11 @@
 <section class="user">
     <div class="user-container w-container">
         <button class="btn" id="update_button" onclick="
+              let row = this.parentElement.parentElement;
+              getElementById('regist_id').value = '';
+              getElementById('regist_firstName').value = '';
+              getElementById('regist_lastName').value = '';
+              getElementById('regist_role').value = '';
               var dialog = getElementById('registDialog');
               dialog.style.left = ((window.innerWidth - 500) / 2) + 'px';
               dialog.style.display = 'block';
@@ -15,6 +20,9 @@
         </button>
 
         <div class="user-decoration">
+            <p class="error" th:if="${error != null}" th:text="${error}"></p>
+            <p class="error" th:if="${errors != null}" th:text="入力内容にエラーがあります"></p>
+
             <table class="user-table">
                 <tr>
                     <th>利用者番号</th>
@@ -39,44 +47,92 @@
                     <td>
                         <button class="btn" onclick="
                           let row = this.parentElement.parentElement;
-                          getElementById('regist_id').value = row.cells[0].innerText;
-                          getElementById('regist_firstName').value = row.cells[1].innerText;
-                          getElementById('regist_lastName').value = row.cells[2].innerText;
-                          getElementById('regist_role').value = row.cells[3].outerText;
-                          var dialog = getElementById('registDialog');
+                          getElementById('update_id').value = row.cells[0].innerText;
+                          getElementById('update_firstName').value = row.cells[1].innerText;
+                          getElementById('update_lastName').value = row.cells[2].innerText;
+                          getElementById('update_role').value = row.cells[3].outerText;
+                          var dialog = getElementById('updateDialog');
                           dialog.style.left = ((window.innerWidth - 500) / 2) + 'px';
                           dialog.style.display = 'block';
                         " type="submit">編集
                         </button>
-                        <button class="btn btn-accent">削除</button>
+                        <a class="btn btn-accent" th:href="@{'/users/delete/' + ${user.UserId.Value}}">削除</a>
                     </td>
                 </tr>
             </table>
 
             <div id="registDialog">
                 <div>
-                    <form action="/regist" class="user-form">
-                        <input id="regist_id" name="id" type="hidden"/>
+                    <form class="user-form" method="post" th:action="@{/users}" th:object="${userForm}">
+                        <label>利用者番号</label>
+                        <input id="regist_id" name="id" th:field="*{userId}" type="text"/>
+                        <ul>
+                            <li class="error" th:each="err : ${#fields.errors('userId')}" th:text="${err}"/>
+                        </ul>
                         <label>姓</label>
-                        <input id="regist_firstName" name="firstName" type="text"/>
+                        <input id="regist_firstName" name="firstName" th:field="*{firstName}" type="text"/>
+                        <ul>
+                            <li class="error" th:each="err : ${#fields.errors('firstName')}" th:text="${err}"/>
+                        </ul>
                         <label>名</label>
-                        <input id="regist_lastName" name="lastName" type="text"/>
+                        <input id="regist_lastName" name="lastName" th:field="*{lastName}" type="text"/>
+                        <ul>
+                            <li class="error" th:each="err : ${#fields.errors('lastName')}" th:text="${err}"/>
+                        </ul>
                         <label>パスワード</label>
-                        <input id="regist_password" name="password" type="password"/>
+                        <input id="regist_password" name="password" th:field="*{password}" type="password"/>
                         <label>役割</label>
-                        <select id="regist_role" name="done">
-                            <option value="false">会員</option>
-                            <option value="true">管理者</option>
+                        <select id="regist_role" name="done" th:field="*{roleName}">
+                            <option selected value="USER">会員</option>
+                            <option value="ADMIN">管理者</option>
                         </select>
-                        <button class="btn" type="submit">登録</button>
+                        <ul>
+                            <li class="error" th:each="err : ${#fields.errors('roleName')}" th:text="${err}"/>
+                        </ul>
+                        <button class="btn" name="regist" type="submit">登録</button>
                         <button class="btn btn-accent" onclick="getElementById('registDialog').style.display='none';"
                                 type="reset">キャンセル
                         </button>
                     </form>
                 </div>
             </div>
+
+            <div id="updateDialog">
+                <div>
+                    <form class="user-form" method="post" th:action="@{/users}" th:object="${userForm}">
+                        <label>利用者番号</label>
+                        <input id="update_id" name="id" readonly th:field="*{userId}" type="text"/>
+                        <label>姓</label>
+                        <input id="update_firstName" name="firstName" th:field="*{firstName}" type="text"/>
+                        <ul>
+                            <li class="error" th:each="err : ${#fields.errors('firstName')}" th:text="${err}"/>
+                        </ul>
+                        <label>名</label>
+                        <input id="update_lastName" name="lastName" th:field="*{lastName}" type="text"/>
+                        <ul>
+                            <li class="error" th:each="err : ${#fields.errors('lastName')}" th:text="${err}"/>
+                        </ul>
+                        <label>パスワード</label>
+                        <input id="update_password" name="password" th:field="*{password}" type="password"/>
+                        <ul>
+                            <li>未入力の場合はパスワード未更新</li>
+                        </ul>
+                        <label>役割</label>
+                        <select id="update_role" name="done" th:field="*{roleName}">
+                            <option value="USER">会員</option>
+                            <option value="ADMIN">管理者</option>
+                        </select>
+                        <ul>
+                            <li class="error" th:each="err : ${#fields.errors('roleName')}" th:text="${err}"/>
+                        </ul>
+                        <button class="btn" name="update" type="submit">登録</button>
+                        <button class="btn btn-accent" onclick="getElementById('updateDialog').style.display='none';"
+                                type="reset">キャンセル
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
 </section>
 
 </body>

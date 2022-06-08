@@ -61,7 +61,7 @@ public class UserManagementServiceTest {
             User user = getUser("2");
             userManagementService.regist(user);
             User registUser = userManagementService.findOne(user.UserId());
-            userManagementService.delete(registUser);
+            userManagementService.delete(registUser.UserId());
             User result = userManagementService.findOne(user.UserId());
 
             assertNull(result);

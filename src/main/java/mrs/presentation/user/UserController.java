@@ -2,12 +2,14 @@ package mrs.presentation.user;
 
 import mrs.application.service.auth.UserManagementService;
 import mrs.domain.model.auth.user.User;
+import mrs.domain.model.auth.user.UserId;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,6 +25,16 @@ public class UserController {
         this.userManagementService = userManagementService;
     }
 
+    @ModelAttribute
+    public UserForm setUpForm() {
+        return new UserForm();
+    }
+
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));
+    }
+
     @GetMapping
     String userList(Model model) {
         List<User> users = userManagementService.findAll();
@@ -30,19 +42,47 @@ public class UserController {
         return "user/userList";
     }
 
-    @PostMapping
-    void userCreateUpdate() {
-        User user = new User();
-        if (user.UserId() == null) {
-            this.userManagementService.regist(user);
-        } else {
-            this.userManagementService.update(user);
+    @PostMapping(params = "regist")
+    String userCreate(Model model, @Validated UserForm form, BindingResult result) {
+        if (result.hasErrors()) {
+            model.addAttribute("errors", result.getAllErrors());
+            return userList(model);
         }
+        User user = new User(form.getUserId(), form.getFirstName(), form.getLastName(), form.getPassword(), form.getRoleName());
+        try {
+            this.userManagementService.regist(user);
+        } catch (Exception e) {
+            model.addAttribute("error", e.getMessage());
+            return userList(model);
+        }
+        return userList(model);
     }
 
-    @DeleteMapping
-    void userDelete() {
-        User user = new User();
-        this.userManagementService.delete(user);
+    @PostMapping(params = "update")
+    String userUpdate(Model model, @Validated UserForm form, BindingResult result) {
+        if (result.hasErrors()) {
+            model.addAttribute("errors", result.getAllErrors());
+            return userList(model);
+        }
+        User user = new User(form.getUserId(), form.getFirstName(), form.getLastName(), form.getPassword(), form.getRoleName());
+        try {
+            this.userManagementService.update(user);
+        } catch (Exception e) {
+            model.addAttribute("error", e.getMessage());
+            return userList(model);
+        }
+        return userList(model);
+    }
+
+    @GetMapping("delete/{id}")
+    String userDelete(Model model, @PathVariable String id) {
+        try {
+            UserId userId = new UserId(id);
+            this.userManagementService.delete(userId);
+        } catch (Exception e) {
+            model.addAttribute("error", e.getMessage());
+            return userList(model);
+        }
+        return userList(model);
     }
 }

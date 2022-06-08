@@ -30,24 +30,32 @@ public class UserManagementService {
      */
     public void regist(User user) {
         Optional<User> result = userRepository.findByUserId(user.UserId());
-        if (result.isPresent()) {
+        if (result.isPresent())
             throw new IllegalArgumentException("すでに存在する利用者番号です");
-        } else {
-            userRepository.save(user);
-        }
+        if (user.Password() == null || user.Password().isEmpty())
+            throw new IllegalArgumentException("パスワードを入力してください");
+
+        userRepository.save(user);
     }
 
     /**
      * 利用者を更新する
      */
     public void update(User user) {
-        userRepository.save(user);
+        User existUser = userRepository.findByUserId(user.UserId()).orElseThrow(() -> new IllegalArgumentException("存在しない利用者番号です"));
+        if (user.Password() != null && !user.Password().isEmpty()) {
+            userRepository.save(user);
+        } else {
+            User updateUser = new User(user.UserId().Value(), user.Name().FirstName(), user.Name().LastName(), existUser.Password(), user.RoleName());
+            userRepository.save(updateUser);
+        }
     }
 
     /**
      * 利用者を削除する
      */
-    public void delete(User user) {
+    public void delete(UserId userId) {
+        User user = userRepository.findByUserId(userId).orElseThrow(() -> new IllegalArgumentException("存在しない利用者番号です"));
         userRepository.delete(user);
     }
 
