@@ -28,11 +28,16 @@ public class UserDataSource implements UserRepository {
 
     @Override
     public void save(User user) {
-
+        User result = this.userMapper.select(user.UserId());
+        if (result == null) {
+            this.userMapper.insert(user);
+        } else {
+            this.userMapper.update(user);
+        }
     }
 
     @Override
     public void delete(User user) {
-
+        this.userMapper.delete(user.UserId());
     }
 }
