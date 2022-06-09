@@ -36,7 +36,7 @@ public class UserManagementService {
     public void regist(User user) {
         Optional<User> result = userRepository.findByUserId(user.UserId());
         if (result.isPresent())
-            throw new IllegalArgumentException("すでに存在する利用者番号です");
+            throw new IllegalArgumentException("利用者はすでに登録されています");
         if (user.Password() == null || user.Password().isEmpty())
             throw new IllegalArgumentException("パスワードを入力してください");
 

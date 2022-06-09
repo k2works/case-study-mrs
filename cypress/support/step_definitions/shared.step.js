@@ -7,6 +7,7 @@ const {
 
 import {LoginPage} from "../pages/loginPage";
 import {RoomsPage} from "../pages/roomsPage";
+import {UsersPage} from "../pages/usersPage";
 
 // this will get called before each scenario
 let page;
@@ -21,6 +22,9 @@ Given(`{string} ページにアクセスする`, (pageName) => {
             break;
         case "会議室予約一覧画面":
             page = new RoomsPage();
+            break;
+        case "利用者一覧画面":
+            page = new UsersPage();
             break;
         default:
             console.log("該当するページが存在しません");
@@ -38,6 +42,11 @@ Given(`{string} としてログインしている`, (user) => {
             page = new LoginPage()
             page.visit()
             page.login()
+            break
+        case ("管理者"):
+            page = new LoginPage()
+            page.visit()
+            page.loginAdmin()
             break
         default:
             throw new Error('該当するページが存在しません')

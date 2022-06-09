@@ -9,10 +9,10 @@
     "uri": "Login.feature",
     "elements": [
       {
-        "id": "利用者の認証;利用者管理:利用者を認証する",
+        "id": "利用者の認証;認証:利用者を認証する",
         "keyword": "Scenario",
         "line": 7,
-        "name": "利用者管理:利用者を認証する",
+        "name": "認証:利用者を認証する",
         "tags": [],
         "type": "scenario",
         "steps": [
@@ -23,7 +23,7 @@
             "name": "\"ログイン\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 1502000000
+              "duration": 1463000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "\"ログイン\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 13000000
+              "duration": 31000000
             }
           }
         ]
