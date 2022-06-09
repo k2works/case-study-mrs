@@ -2,6 +2,7 @@ package mrs.application.service.auth;
 
 import mrs.domain.model.auth.user.User;
 import mrs.domain.model.auth.user.UserId;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,8 +15,11 @@ import java.util.Optional;
 public class UserManagementService {
     private final UserRepository userRepository;
 
-    public UserManagementService(UserRepository userRepository) {
+    private final PasswordEncoder encoder;
+
+    public UserManagementService(UserRepository userRepository, PasswordEncoder encoder) {
         this.userRepository = userRepository;
+        this.encoder = encoder;
     }
 
     /**
@@ -35,7 +39,8 @@ public class UserManagementService {
         if (user.Password() == null || user.Password().isEmpty())
             throw new IllegalArgumentException("パスワードを入力してください");
 
-        userRepository.save(user);
+        User registUser = new User(user.UserId().Value(), user.Name().FirstName(), user.Name().LastName(), encoder.encode(user.Password()), user.RoleName());
+        userRepository.save(registUser);
     }
 
     /**
@@ -44,7 +49,8 @@ public class UserManagementService {
     public void update(User user) {
         User existUser = userRepository.findByUserId(user.UserId()).orElseThrow(() -> new IllegalArgumentException("存在しない利用者番号です"));
         if (user.Password() != null && !user.Password().isEmpty()) {
-            userRepository.save(user);
+            User updateUser = new User(user.UserId().Value(), user.Name().FirstName(), user.Name().LastName(), encoder.encode(existUser.Password()), user.RoleName());
+            userRepository.save(updateUser);
         } else {
             User updateUser = new User(user.UserId().Value(), user.Name().FirstName(), user.Name().LastName(), existUser.Password(), user.RoleName());
             userRepository.save(updateUser);

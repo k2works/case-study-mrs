@@ -140,6 +140,22 @@ button:hover {
     }
 }
 
+/* メッセージ */
+
+.message {
+    font-size: clamp(30px, 3vw, 40px);
+}
+
+.message .error {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.message .success {
+    font-weight: bold;
+    color: #008000;
+}
+
 /* ヒーロー */
 .hero {
     height: 650px;
@@ -633,15 +649,14 @@ button:hover {
     justify-items: center;
 }
 
+.user-container button {
+    border: none;
+}
+
 .user-decoration {
     font-size: clamp(30px, 3vw, 40px);
     min-height: 0vw;
     font-weight: 400;
-}
-
-.user-decoration .error {
-    font-weight: bold;
-    color: #ff0000;
 }
 
 #registDialog {

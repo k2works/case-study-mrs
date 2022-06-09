@@ -12,9 +12,11 @@
 
 <section class="reserve-form">
     <div class="reserve-form-container">
-        <div class="reserve-form-decoration">
+        <div class="message">
             <p class="error" th:if="${error != null}" th:text="${error}"></p>
+        </div>
 
+        <div class="reserve-form-decoration">
             <form class="reserve-form-form" method="post" th:action="@{'/reservations/' + ${date} + '/' + ${roomId}}"
                   th:object="${reservationForm}">
                 <a class="btn" th:href="@{'/rooms/' + ${date}}">戻る</a>

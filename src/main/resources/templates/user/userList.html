@@ -7,6 +7,12 @@
 <body>
 <section class="user">
     <div class="user-container w-container">
+        <div class="message">
+            <p class="error" th:if="${error != null}" th:text="${error}"></p>
+            <p class="error" th:if="${errors != null}" th:text="入力内容にエラーがあります"></p>
+            <p class="success" th:if="${success != null}" th:text="${success}"></p>
+        </div>
+
         <button class="btn" id="update_button" onclick="
               let row = this.parentElement.parentElement;
               getElementById('regist_id').value = '';
@@ -20,9 +26,6 @@
         </button>
 
         <div class="user-decoration">
-            <p class="error" th:if="${error != null}" th:text="${error}"></p>
-            <p class="error" th:if="${errors != null}" th:text="入力内容にエラーがあります"></p>
-
             <table class="user-table">
                 <tr>
                     <th>利用者番号</th>

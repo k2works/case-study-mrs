@@ -51,6 +51,7 @@ public class UserController {
         User user = new User(form.getUserId(), form.getFirstName(), form.getLastName(), form.getPassword(), form.getRoleName());
         try {
             this.userManagementService.regist(user);
+            model.addAttribute("success", "利用者を登録しました");
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
             return userList(model);
@@ -67,6 +68,7 @@ public class UserController {
         User user = new User(form.getUserId(), form.getFirstName(), form.getLastName(), form.getPassword(), form.getRoleName());
         try {
             this.userManagementService.update(user);
+            model.addAttribute("success", "利用者を更新しました");
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
             return userList(model);
@@ -79,6 +81,7 @@ public class UserController {
         try {
             UserId userId = new UserId(id);
             this.userManagementService.delete(userId);
+            model.addAttribute("success", "利用者を削除しました");
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
             return userList(model);
