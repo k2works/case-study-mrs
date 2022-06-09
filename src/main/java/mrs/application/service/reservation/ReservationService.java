@@ -39,12 +39,12 @@ public class ReservationService {
         // 悲観ロック
         Optional<ReservableRoom> reservable = Optional.ofNullable(reservableRoomRepository.findOneForUpdateByReservableRoomId(reservableRoomId));
         if (reservable.isEmpty()) {
-            throw new UnavailableReservationException(message.getMessageSourceMessage("reservation_unable_reservation"));
+            throw new UnavailableReservationException(message.getMessageByKey("reservation_unable_reservation"));
         }
         // 重複チェック
         boolean overlap = reservationRepository.findByReservedDateAndRoomIdOrderByStartTimeAsc(reservableRoomId).stream().anyMatch(x -> x.overlap(reservation));
         if (overlap) {
-            throw new AlreadyReservedException(message.getMessageSourceMessage("reservation_already_reserved"));
+            throw new AlreadyReservedException(message.getMessageByKey("reservation_already_reserved"));
         }
         // 予約情報の登録
         reservationRepository.save(reservation);

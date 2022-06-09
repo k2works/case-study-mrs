@@ -58,7 +58,7 @@ public class UserController {
         User user = new User(form.getUserId(), form.getFirstName(), form.getLastName(), form.getPassword(), form.getRoleName());
         try {
             this.userManagementService.regist(user);
-            model.addAttribute("success", message.getMessageSourceMessage("user_regist"));
+            model.addAttribute("success", message.getMessageByKey("user_regist"));
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
             return userList(model);
@@ -75,7 +75,7 @@ public class UserController {
         User user = new User(form.getUserId(), form.getFirstName(), form.getLastName(), form.getPassword(), form.getRoleName());
         try {
             this.userManagementService.update(user);
-            model.addAttribute("success", message.getMessageSourceMessage("user_update"));
+            model.addAttribute("success", message.getMessageByKey("user_update"));
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
             return userList(model);
@@ -87,10 +87,10 @@ public class UserController {
     String userDelete(Model model, @PathVariable String id, Principal principal) {
         try {
             if (id.equals(principal.getName()))
-                throw new AccessDeniedException(message.getMessageSourceMessage("user_delete_exception"));
+                throw new AccessDeniedException(message.getMessageByKey("user_delete_exception"));
             UserId userId = new UserId(id);
             this.userManagementService.delete(userId);
-            model.addAttribute("success", message.getMessageSourceMessage("user_delete"));
+            model.addAttribute("success", message.getMessageByKey("user_delete"));
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
             return userList(model);

@@ -39,9 +39,9 @@ public class UserManagementService {
     public void regist(User user) {
         Optional<User> result = userRepository.findByUserId(user.UserId());
         if (result.isPresent())
-            throw new IllegalArgumentException(message.getMessageSourceMessage("user_already_regist"));
+            throw new IllegalArgumentException(message.getMessageByKey("user_already_regist"));
         if (user.Password() == null || user.Password().isEmpty())
-            throw new IllegalArgumentException(message.getMessageSourceMessage("user_no_password"));
+            throw new IllegalArgumentException(message.getMessageByKey("user_no_password"));
 
         User registUser = new User(user.UserId().Value(), user.Name().FirstName(), user.Name().LastName(), encoder.encode(user.Password()), user.RoleName());
         userRepository.save(registUser);
@@ -51,7 +51,7 @@ public class UserManagementService {
      * 利用者を更新する
      */
     public void update(User user) {
-        User existUser = userRepository.findByUserId(user.UserId()).orElseThrow(() -> new IllegalArgumentException(message.getMessageSourceMessage("user_not_exist_id")));
+        User existUser = userRepository.findByUserId(user.UserId()).orElseThrow(() -> new IllegalArgumentException(message.getMessageByKey("user_not_exist_id")));
         if (user.Password() != null && !user.Password().isEmpty()) {
             User updateUser = new User(user.UserId().Value(), user.Name().FirstName(), user.Name().LastName(), encoder.encode(user.Password()), user.RoleName());
             userRepository.save(updateUser);
@@ -65,7 +65,7 @@ public class UserManagementService {
      * 利用者を削除する
      */
     public void delete(UserId userId) {
-        User user = userRepository.findByUserId(userId).orElseThrow(() -> new IllegalArgumentException(message.getMessageSourceMessage("user_not_exist_id")));
+        User user = userRepository.findByUserId(userId).orElseThrow(() -> new IllegalArgumentException(message.getMessageByKey("user_not_exist_id")));
         userRepository.delete(user);
     }
 

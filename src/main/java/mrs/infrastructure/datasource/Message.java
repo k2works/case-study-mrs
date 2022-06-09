@@ -13,7 +13,7 @@ public class Message {
         this.messagesource = messagesource;
     }
 
-    public String getMessageSourceMessage(String messageKey) {
+    public String getMessageByKey(String messageKey) {
         return messagesource.getMessage(messageKey, new String[]{}, Locale.JAPAN);
     }
 }
