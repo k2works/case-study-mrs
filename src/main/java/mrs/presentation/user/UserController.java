@@ -4,6 +4,7 @@ import mrs.application.service.auth.UserManagementService;
 import mrs.domain.model.auth.user.User;
 import mrs.domain.model.auth.user.UserId;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,12 +12,15 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.file.AccessDeniedException;
+import java.security.Principal;
 import java.util.List;
 
 /**
  * 利用者一覧画面
  */
 @Controller("利用者の管理")
+@PreAuthorize("hasRole('ADMIN')")
 @RequestMapping("/users")
 public class UserController {
     private final UserManagementService userManagementService;
@@ -77,8 +81,9 @@ public class UserController {
     }
 
     @GetMapping("delete/{id}")
-    String userDelete(Model model, @PathVariable String id) {
+    String userDelete(Model model, @PathVariable String id, Principal principal) {
         try {
+            if (id.equals(principal.getName())) throw new AccessDeniedException("利用中の利用者は削除できません");
             UserId userId = new UserId(id);
             this.userManagementService.delete(userId);
             model.addAttribute("success", "利用者を削除しました");

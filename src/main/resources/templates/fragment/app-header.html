@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymelef.org">
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymelef.org">
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -14,7 +15,8 @@
 
   <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body>
+
+<body th:with="user=${#authentication.principal.user}">
 
 <header class="header">
   <div class="header-container w-container">
@@ -34,7 +36,7 @@
     <nav class="nav">
       <ul>
         <li><a href="/rooms">会議室一覧</a></li>
-        <li><a href="/users">利用者一覧</a></li>
+        <li sec:authorize="${hasRole('ADMIN')}"><a href="/users">利用者一覧</a></li>
         <li>
           <form method="post" name="logout_form" th:action="@{/logout}">
             <a href="#" onclick="document.logout_form.submit();">ログアウト</a>
