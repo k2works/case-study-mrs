@@ -2,7 +2,6 @@ package mrs.application.service.auth;
 
 import mrs.domain.model.auth.user.User;
 import mrs.domain.model.auth.user.UserId;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -61,7 +60,6 @@ public class UserManagementService {
     /**
      * 利用者を削除する
      */
-    @PreAuthorize("#userId != principal.user.UserId")
     public void delete(UserId userId) {
         User user = userRepository.findByUserId(userId).orElseThrow(() -> new IllegalArgumentException("存在しない利用者番号です"));
         userRepository.delete(user);
