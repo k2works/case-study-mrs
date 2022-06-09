@@ -19,22 +19,6 @@
                 auth.user
             </text>
         </g>
-        <g id="clust5" class="cluster">
-            <title>cluster_mrs.domain.model.reservation.room</title>
-            <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
-                     points="954,-31 954,-330 1256,-330 1256,-31 954,-31"/>
-            <text text-anchor="middle" x="1105" y="-314.8" font-family="Times New Roman,serif" font-size="14.00">
-                reservation.room
-            </text>
-        </g>
-        <g id="clust4" class="cluster">
-            <title>cluster_mrs.domain.model.reservation.reservation</title>
-            <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
-                     points="718,-179 718,-415 946,-415 946,-179 718,-179"/>
-            <text text-anchor="middle" x="832" y="-399.8" font-family="Times New Roman,serif" font-size="14.00">
-                reservation.reservation
-            </text>
-        </g>
         <g id="clust1" class="cluster">
             <title>cluster_mrs.domain.model.auth.administrator</title>
             <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
@@ -49,6 +33,22 @@
                      points="350,-338 350,-500 452,-500 452,-338 350,-338"/>
             <text text-anchor="middle" x="401" y="-484.8" font-family="Times New Roman,serif" font-size="14.00">
                 auth.member
+            </text>
+        </g>
+        <g id="clust5" class="cluster">
+            <title>cluster_mrs.domain.model.reservation.room</title>
+            <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
+                     points="954,-31 954,-330 1256,-330 1256,-31 954,-31"/>
+            <text text-anchor="middle" x="1105" y="-314.8" font-family="Times New Roman,serif" font-size="14.00">
+                reservation.room
+            </text>
+        </g>
+        <g id="clust4" class="cluster">
+            <title>cluster_mrs.domain.model.reservation.reservation</title>
+            <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
+                     points="718,-179 718,-415 946,-415 946,-179 718,-179"/>
+            <text text-anchor="middle" x="832" y="-399.8" font-family="Times New Roman,serif" font-size="14.00">
+                reservation.reservation
             </text>
         </g>
         <!-- mrs.domain.model.auth.administrator.Administrator -->
