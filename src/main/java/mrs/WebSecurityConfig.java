@@ -1,6 +1,6 @@
 package mrs;
 
-import mrs.application.service.auth.UserService;
+import mrs.application.service.auth.UserAuthService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -15,9 +15,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    private final UserService userDetailsService;
+    private final UserAuthService userDetailsService;
 
-    public WebSecurityConfig(UserService userDetailsService) {
+    public WebSecurityConfig(UserAuthService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
 

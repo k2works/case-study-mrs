@@ -17,10 +17,10 @@ import java.util.Optional;
  * 利用者の認証
  */
 @Service
-public class UserService implements UserDetailsService {
+public class UserAuthService implements UserDetailsService {
     private final UserRepository userRepository;
 
-    public UserService(UserRepository userRepository) {
+    public UserAuthService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
