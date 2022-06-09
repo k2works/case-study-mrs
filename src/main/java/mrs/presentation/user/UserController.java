@@ -99,7 +99,7 @@ public class UserController {
         return userList(model);
     }
 
-    private String getMessageSourceMessage(String user_regist) {
-        return messagesource.getMessage(user_regist, new String[]{}, Locale.JAPAN);
+    private String getMessageSourceMessage(String messageKey) {
+        return messagesource.getMessage(messageKey, new String[]{}, Locale.JAPAN);
     }
 }

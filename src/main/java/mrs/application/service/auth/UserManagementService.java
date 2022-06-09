@@ -77,7 +77,7 @@ public class UserManagementService {
         return userRepository.findByUserId(userId).orElse(null);
     }
 
-    private String getMessageSourceMessage(String user_already_regist) {
-        return messagesource.getMessage(user_already_regist, new String[]{}, Locale.JAPAN);
+    private String getMessageSourceMessage(String messageKey) {
+        return messagesource.getMessage(messageKey, new String[]{}, Locale.JAPAN);
     }
 }
