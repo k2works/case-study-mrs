@@ -59,8 +59,7 @@ public class UserController {
         User user = new User(form.getUserId(), form.getFirstName(), form.getLastName(), form.getPassword(), form.getRoleName());
         try {
             this.userManagementService.regist(user);
-            String message = messagesource.getMessage("user_regist", new String[]{}, Locale.JAPAN);
-            model.addAttribute("success", message);
+            model.addAttribute("success", getMessageSourceMessage("user_regist"));
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
             return userList(model);
@@ -77,8 +76,7 @@ public class UserController {
         User user = new User(form.getUserId(), form.getFirstName(), form.getLastName(), form.getPassword(), form.getRoleName());
         try {
             this.userManagementService.update(user);
-            String message = messagesource.getMessage("user_update", new String[]{}, Locale.JAPAN);
-            model.addAttribute("success", message);
+            model.addAttribute("success", getMessageSourceMessage("user_update"));
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
             return userList(model);
@@ -90,15 +88,18 @@ public class UserController {
     String userDelete(Model model, @PathVariable String id, Principal principal) {
         try {
             if (id.equals(principal.getName()))
-                throw new AccessDeniedException(messagesource.getMessage("user_delete_exception", new String[]{}, Locale.JAPAN));
+                throw new AccessDeniedException(getMessageSourceMessage("user_delete_exception"));
             UserId userId = new UserId(id);
             this.userManagementService.delete(userId);
-            String message = messagesource.getMessage("user_delete", new String[]{}, Locale.JAPAN);
-            model.addAttribute("success", message);
+            model.addAttribute("success", getMessageSourceMessage("user_delete"));
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
             return userList(model);
         }
         return userList(model);
+    }
+
+    private String getMessageSourceMessage(String user_regist) {
+        return messagesource.getMessage(user_regist, new String[]{}, Locale.JAPAN);
     }
 }
