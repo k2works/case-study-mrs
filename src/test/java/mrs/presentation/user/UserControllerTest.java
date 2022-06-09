@@ -11,7 +11,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
 public class UserControllerTest {
@@ -31,12 +31,29 @@ public class UserControllerTest {
     @Test
     void 利用者一覧を表示する() throws Exception {
         mockMvc.perform(get("/users"))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andExpect(content().string(""))
+                .andExpect(forwardedUrl("user/userList"));
     }
 
     @Test
     void 利用者を登録する() throws Exception {
-        mockMvc.perform(post("/users").param("name", "regist"))
-                .andExpect(status().isOk());
+        mockMvc.perform(post("/users").param("regist", ""))
+                .andExpect(status().isOk())
+                .andExpect(forwardedUrl("user/userList"));
+    }
+
+    @Test
+    void 利用者を更新する() throws Exception {
+        mockMvc.perform(post("/users").param("update", ""))
+                .andExpect(status().isOk())
+                .andExpect(forwardedUrl("user/userList"));
+    }
+
+    @Test
+    void 利用者を削除する() throws Exception {
+        mockMvc.perform(get("/users/delete/1"))
+                .andExpect(status().isOk())
+                .andExpect(forwardedUrl("user/userList"));
     }
 }
