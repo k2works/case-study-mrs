@@ -6,6 +6,7 @@ import mrs.domain.model.reservation.reservation.ReservationId;
 import mrs.domain.model.reservation.reservation.ReservationList;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
+import mrs.infrastructure.datasource.Message;
 import org.springframework.security.access.method.P;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
@@ -22,10 +23,12 @@ import java.util.Optional;
 public class ReservationService {
     private final ReservationRepository reservationRepository;
     private final ReservableRoomRepository reservableRoomRepository;
+    private final Message message;
 
-    public ReservationService(ReservationRepository reservationRepository, ReservableRoomRepository reservableRoomRepository) {
+    public ReservationService(ReservationRepository reservationRepository, ReservableRoomRepository reservableRoomRepository, Message message) {
         this.reservationRepository = reservationRepository;
         this.reservableRoomRepository = reservableRoomRepository;
+        this.message = message;
     }
 
     /**
@@ -36,12 +39,12 @@ public class ReservationService {
         // 悲観ロック
         Optional<ReservableRoom> reservable = Optional.ofNullable(reservableRoomRepository.findOneForUpdateByReservableRoomId(reservableRoomId));
         if (reservable.isEmpty()) {
-            throw new UnavailableReservationException("入力の日付・部屋の組み合わせは予約できません。");
+            throw new UnavailableReservationException(message.getMessageSourceMessage("reservation_unable_reservation"));
         }
         // 重複チェック
         boolean overlap = reservationRepository.findByReservedDateAndRoomIdOrderByStartTimeAsc(reservableRoomId).stream().anyMatch(x -> x.overlap(reservation));
         if (overlap) {
-            throw new AlreadyReservedException("入力の時間帯はすでに予約済です。");
+            throw new AlreadyReservedException(message.getMessageSourceMessage("reservation_already_reserved"));
         }
         // 予約情報の登録
         reservationRepository.save(reservation);
