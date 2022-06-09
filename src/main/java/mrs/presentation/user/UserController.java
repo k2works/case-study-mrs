@@ -4,6 +4,7 @@ import mrs.application.service.auth.UserManagementService;
 import mrs.domain.model.auth.user.User;
 import mrs.domain.model.auth.user.UserId;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.context.MessageSource;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.nio.file.AccessDeniedException;
 import java.security.Principal;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * 利用者一覧画面
@@ -24,9 +26,11 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
     private final UserManagementService userManagementService;
+    private final MessageSource messagesource;
 
-    public UserController(UserManagementService userManagementService) {
+    public UserController(UserManagementService userManagementService, MessageSource messageSource) {
         this.userManagementService = userManagementService;
+        this.messagesource = messageSource;
     }
 
     @ModelAttribute
@@ -55,7 +59,8 @@ public class UserController {
         User user = new User(form.getUserId(), form.getFirstName(), form.getLastName(), form.getPassword(), form.getRoleName());
         try {
             this.userManagementService.regist(user);
-            model.addAttribute("success", "利用者を登録しました");
+            String message = messagesource.getMessage("user_regist", new String[]{}, Locale.JAPAN);
+            model.addAttribute("success", message);
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
             return userList(model);
@@ -72,7 +77,8 @@ public class UserController {
         User user = new User(form.getUserId(), form.getFirstName(), form.getLastName(), form.getPassword(), form.getRoleName());
         try {
             this.userManagementService.update(user);
-            model.addAttribute("success", "利用者を更新しました");
+            String message = messagesource.getMessage("user_update", new String[]{}, Locale.JAPAN);
+            model.addAttribute("success", message);
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
             return userList(model);
@@ -83,10 +89,12 @@ public class UserController {
     @GetMapping("delete/{id}")
     String userDelete(Model model, @PathVariable String id, Principal principal) {
         try {
-            if (id.equals(principal.getName())) throw new AccessDeniedException("利用中の利用者は削除できません");
+            if (id.equals(principal.getName()))
+                throw new AccessDeniedException(messagesource.getMessage("user_delete_exception", new String[]{}, Locale.JAPAN));
             UserId userId = new UserId(id);
             this.userManagementService.delete(userId);
-            model.addAttribute("success", "利用者を削除しました");
+            String message = messagesource.getMessage("user_delete", new String[]{}, Locale.JAPAN);
+            model.addAttribute("success", message);
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
             return userList(model);
