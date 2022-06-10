@@ -1,6 +1,10 @@
 package mrs.application.service.room;
 
-import mrs.domain.model.reservation.room.*;
+import mrs.domain.model.reservation.reservation.ReservableRoom;
+import mrs.domain.model.reservation.reservation.ReservableRoomList;
+import mrs.domain.model.reservation.reservation.ReservedDate;
+import mrs.domain.model.reservation.room.MeetingRoom;
+import mrs.domain.model.reservation.room.RoomId;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

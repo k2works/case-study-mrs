@@ -1,6 +1,6 @@
 package mrs;
 
-import mrs.domain.model.reservation.room.ReservableRoomId;
+import mrs.domain.model.reservation.reservation.ReservableRoomId;
 import mrs.infrastructure.datasource.auth.UserMapper;
 import mrs.infrastructure.datasource.reservation.reservation.ReservationMapper;
 import mrs.infrastructure.datasource.reservation.room.ReservableRoomMapper;

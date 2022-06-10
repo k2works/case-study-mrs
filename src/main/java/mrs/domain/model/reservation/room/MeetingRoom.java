@@ -1,5 +1,7 @@
 package mrs.domain.model.reservation.room;
 
+import mrs.domain.model.reservation.reservation.ReservableRoom;
+
 import java.util.List;
 
 /**

@@ -2,10 +2,10 @@ package mrs.infrastructure.datasource.reservation.reservation;
 
 import mrs.domain.model.auth.user.RoleName;
 import mrs.domain.model.auth.user.User;
+import mrs.domain.model.reservation.reservation.ReservableRoomId;
 import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.reservation.ReservationId;
 import mrs.domain.model.reservation.room.MeetingRoom;
-import mrs.domain.model.reservation.room.ReservableRoomId;
 import mrs.infrastructure.datasource.auth.UserMapper;
 import mrs.infrastructure.datasource.reservation.room.ReservableRoomMapper;
 import mrs.infrastructure.datasource.reservation.room.RoomMapper;

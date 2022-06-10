@@ -1,4 +1,4 @@
-package mrs.domain.model.reservation.room;
+package mrs.domain.model.reservation.reservation;
 
 import java.time.LocalDate;
 import java.util.Objects;

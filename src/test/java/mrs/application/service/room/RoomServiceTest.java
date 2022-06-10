@@ -2,9 +2,9 @@ package mrs.application.service.room;
 
 import mrs.IntegrationTest;
 import mrs.TestDataFactory;
+import mrs.domain.model.reservation.reservation.ReservableRoomList;
+import mrs.domain.model.reservation.reservation.ReservedDate;
 import mrs.domain.model.reservation.room.MeetingRoom;
-import mrs.domain.model.reservation.room.ReservableRoomList;
-import mrs.domain.model.reservation.room.ReservedDate;
 import mrs.domain.model.reservation.room.RoomId;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;

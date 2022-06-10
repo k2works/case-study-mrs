@@ -1,9 +1,9 @@
 package mrs.infrastructure.datasource.reservation.room;
 
 import mrs.application.service.room.ReservableRoomRepository;
-import mrs.domain.model.reservation.room.ReservableRoom;
-import mrs.domain.model.reservation.room.ReservableRoomId;
-import mrs.domain.model.reservation.room.ReservedDate;
+import mrs.domain.model.reservation.reservation.ReservableRoom;
+import mrs.domain.model.reservation.reservation.ReservableRoomId;
+import mrs.domain.model.reservation.reservation.ReservedDate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

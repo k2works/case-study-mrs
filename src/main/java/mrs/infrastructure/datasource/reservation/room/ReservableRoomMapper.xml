@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mrs.infrastructure.datasource.reservation.room.ReservableRoomMapper">
-    <resultMap id="BaseResultMap" type="mrs.domain.model.reservation.room.ReservableRoom">
+    <resultMap id="BaseResultMap" type="mrs.domain.model.reservation.reservation.ReservableRoom">
         <id column="予約日" property="reservableRoomId.reservedDate.value"/>
         <id column="会議室番号" property="reservableRoomId.roomId.value"/>
-        <association property="reservableRoomId" javaType="mrs.domain.model.reservation.room.ReservableRoomId">
+        <association property="reservableRoomId" javaType="mrs.domain.model.reservation.reservation.ReservableRoomId">
             <id property="roomId.value" column="会議室番号"/>
             <result property="reservedDate.value" column="予約日"/>
         </association>
@@ -21,12 +21,13 @@
         />
     </resultMap>
 
-    <insert id="insert" parameterType="mrs.domain.model.reservation.room.ReservableRoomId">
+    <insert id="insert" parameterType="mrs.domain.model.reservation.reservation.ReservableRoomId">
         INSERT INTO reservation.予約可能会議室 (予約日, 会議室番号)
         VALUES (#{reservedDate.value}, #{roomId.value})
     </insert>
 
-    <select id="select" parameterType="mrs.domain.model.reservation.room.ReservableRoomId" resultMap="BaseResultMap">
+    <select id="select" parameterType="mrs.domain.model.reservation.reservation.ReservableRoomId"
+            resultMap="BaseResultMap">
         SELECT rr.会議室番号,
                rr.予約日,
                rm.会議室名
@@ -44,7 +45,7 @@
                  LEFT OUTER JOIN reservation.会議室 rm ON rr.会議室番号 = rm.会議室番号
     </select>
 
-    <delete id="delete" parameterType="mrs.domain.model.reservation.room.ReservableRoomId">
+    <delete id="delete" parameterType="mrs.domain.model.reservation.reservation.ReservableRoomId">
         DELETE
         FROM reservation.予約可能会議室
         WHERE 予約日 = #{reservedDate.value}
