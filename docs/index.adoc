@@ -116,7 +116,7 @@ node 設備 {
     actor 管理者 as ac_02
   }
   usecase 予約管理 as uc_01
-  usecase 認証 as uc_02
+  usecase 会員管理 as uc_02
   artifact 会議室 as ar_01
 }
 
@@ -131,27 +131,24 @@ ac_01 -- (uc_02)
 
 ==== ビジネスユースケース
 
-===== 認証
+===== 会員管理
 
 [plantuml]
 ----
 @startuml
 
-title ビジネスユースケース図 - 認証
+title ビジネスユースケース図 - 会員管理
 
 left to right direction
 
 actor 会員 as ac_01
-actor 管理者 as ac_02
 
 agent 窓口 as ag_01
 
 usecase 利用者の管理 as uc_01
 usecase 利用者の認証 as uc_02
 
-ac_02 -- (uc_01)
 ac_01 -- (uc_02)
-ac_02 -- (uc_02)
 
 (uc_01) -- ag_01
 (uc_02) -- ag_01
@@ -170,7 +167,6 @@ title ビジネスユースケース図 - 予約管理
 left to right direction
 
 actor 会員 as ac_01
-actor 管理者 as ac_02
 
 agent 窓口 as ag_01
 
@@ -182,10 +178,8 @@ artifact 会議室 as af_01
 
 ac_01 -- (uc_01)
 ac_01 -- (uc_02)
-ac_02 -- (uc_02)
-ac_02 -- (uc_03)
 
-(uc_01) -- af_01
+(uc_01) --- af_01
 (uc_01) -- ag_01
 (uc_02) -- af_01
 (uc_02) -- ag_01
@@ -235,7 +229,7 @@ stop
 
 ==== 利用シーン
 
-===== 認証
+===== 会員管理
 
 ====== 利用者の認証
 
@@ -281,18 +275,18 @@ note right of f_01
  申し込みのあった利用者を窓口が手動でシステムに登録する
 end note
 
-usecase 利用申込みをする
-usecase 利用者を確認をする
-usecase 利用者を登録をする
-usecase 利用者情報の更新をする
-usecase 利用者登録を抹消する
+usecase 利用申込みをする as uc_01
+usecase 利用者を確認する as uc_02
+usecase 利用者を登録をする as uc_03
+usecase 利用者情報の更新をする as uc_04
+usecase 利用者登録を抹消する as uc_05
 
 :ac_02: -- f_01
-f_01 -- (利用申込みをする)
-f_01 -- (利用を確認する)
-f_01 -- (利用者を登録をする)
-f_01 -- (利用者情報の更新をする)
-f_01 -- (利用者登録を抹消する)
+f_01 -- (uc_01)
+f_01 -- (uc_02)
+f_01 -- (uc_03)
+f_01 -- (uc_04)
+f_01 -- (uc_05)
 
 @enduml
 ----
@@ -369,7 +363,7 @@ usecase 予約可能な会議室を登録する
 
 ==== ユースケース複合図
 
-===== 認証
+===== 会員管理
 
 ====== 利用者の認証
 
@@ -618,35 +612,23 @@ app_prd -> db_prd
 
 === 仕様
 
-==== ユースケース
+==== コンテキストマップ
 
 [plantuml]
 ----
-@startuml
-left to right direction
-actor "利用者" as user
-actor "会員" as member
-actor "管理者" as admin
-user <|- member
-user <|- admin
+skinparam componentStyle uml2
 
-rectangle 認証 {
-  usecase "利用者の認証" as UC1
-  usecase "利用者の管理" as UC4
-}
+component [認証・認可コンテキスト]
+component [予約コンテキスト]
 
-rectangle 予約 {
-  usecase "会議室の検索" as UC2
-  usecase "会議室の予約" as UC3
-}
-user --> 認証
-user --> 予約
-@enduml
+[認証・認可コンテキスト]<-->[予約コンテキスト] : Shared Kernel
 ----
+
+==== ユースケース
 
 image:images/jig/service-method-call-hierarchy.svg[]
 
-===== 認証
+===== 認証・認可コンテキスト
 
 [plantuml]
 ----
@@ -654,7 +636,7 @@ image:images/jig/service-method-call-hierarchy.svg[]
 left to right direction
 actor "会員" as member
 actor "管理者" as admin
-rectangle 認証 {
+rectangle 認証・認可 {
   usecase "利用者の認証" as UC1
   usecase "利用者の管理" as UC2
 }
@@ -671,7 +653,7 @@ include::../cypress/integration/Auth/Login.feature[]
 include::../cypress/integration/Auth/User.feature[]
 ----
 
-===== 予約管理
+===== 予約コンテキスト
 
 [plantuml]
 ----
@@ -701,7 +683,6 @@ include::../cypress/integration/Reservation/Cancel.feature[]
 
 === 設計
 
-
 ==== アプリケーションアーキテクチャ
 
 image::images/jig/architecture.svg[]
@@ -712,19 +693,90 @@ image::images/jig/package-relation-depth5.svg[]
 
 image::images/jig/business-rule-relation.svg[]
 
+===== 認証・認可
+
+[plantuml]
+----
+skinparam componentStyle uml2
+
+package mrs.domain.model.auth.user {
+	package "'User' Aggregate" <<Rectangle>> {
+		class User <<(E,DarkSeaGreen) Entity>> {
+		}
+		class UserId <<(V,DarkSeaGreen) Value Object>> {
+		}
+		class UserName <<(V,DarkSeaGreen) Value Object>> {
+		}
+		enum RoleName {
+			ADMIN
+			USER
+		}
+		class Administrator <<(E,DarkSeaGreen) Entity>> {
+		}
+		class Member <<(E,DarkSeaGreen) Entity>> {
+		}
+
+        User <|-- Administrator
+        User <|-- Member
+        UserId *-- User
+        UserName -* User
+        User *- RoleName
+	}
+}
+----
+
+===== 予約
+
+[plantuml]
+----
+skinparam componentStyle uml2
+
+package mrs.domain.model.reservation.reservation {
+	package "'Reservation' Aggregate" <<Rectangle>> {
+		class Reservation <<(E,DarkSeaGreen) Entity>> {
+		}
+		class ReservationId <<(V,DarkSeaGreen) Value Object>> {
+		}
+		class ReservedTime <<(V,DarkSeaGreen) Value Object>> {
+		}
+		class ReservedDate <<(V,DarkSeaGreen) Value Object>> {
+		}
+		class MeetingRoom <<(E,DarkSeaGreen) Entity>> {
+		}
+		class RoomId <<(V,DarkSeaGreen) Value Object>> {
+		}
+		class ReservableRoom <<(E,DarkSeaGreen) Entity>> {
+		}
+		class ReservableRoomId <<(V,DarkSeaGreen) Value Object>> {
+		}
+		class ReserbableRoomList <<(V,DarkSeaGreen) Value Object>> {
+		}
+	}
+    Reservation *- ReservationId
+    ReservedTime -* Reservation
+    Reservation *-- ReservableRoom
+    ReservableRoomId -* ReservableRoom
+    ReservableRoomId *-- RoomId
+    ReservedDate -* ReservableRoomId
+    ReservableRoom *- MeetingRoom
+    MeetingRoom *-- RoomId
+    ReservableRoom --* ReserbableRoomList
+}
+----
+
 ==== データモデル
 
 image::images/erd/jig-erd-overview.svg[]
 image::images/erd/jig-erd-summary.svg[]
 image::images/erd/jig-erd-detail.svg[]
 
+===== 認証・認可
+
+image::images/schemaspy/auth/diagrams/summary/relationships.real.large.png[]
+
 ===== 予約
 
 image::images/schemaspy/reservation/diagrams/summary/relationships.real.large.png[]
-
-===== 認証
-
-image::images/schemaspy/auth/diagrams/summary/relationships.real.large.png[]
 
 == 運用
 
