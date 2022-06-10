@@ -11,36 +11,28 @@
         <polygon fill="white" stroke="transparent" points="-4,4 -4,-427 1453,-427 1453,4 -4,4"/>
         <text text-anchor="middle" x="724.5" y="-7.8" font-family="Times New Roman,serif" font-size="14.00">ビジネスルール関連図
         </text>
-        <g id="clust1" class="cluster">
-            <title>cluster_mrs.domain.model.auth.administrator</title>
+        <g id="clust2" class="cluster">
+            <title>cluster_mrs.domain.model.auth.user.administrator</title>
             <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
-                     points="777,-338 777,-415 893,-415 893,-338 777,-338"/>
-            <text text-anchor="middle" x="835" y="-399.8" font-family="Times New Roman,serif" font-size="14.00">
-                auth.administrator
+                     points="749,-338 749,-415 892,-415 892,-338 749,-338"/>
+            <text text-anchor="middle" x="820.5" y="-399.8" font-family="Times New Roman,serif" font-size="14.00">
+                auth.user.administrator
             </text>
         </g>
         <g id="clust3" class="cluster">
+            <title>cluster_mrs.domain.model.auth.user.member</title>
+            <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
+                     points="471,-264 471,-415 587,-415 587,-264 471,-264"/>
+            <text text-anchor="middle" x="529" y="-399.8" font-family="Times New Roman,serif" font-size="14.00">
+                auth.user.member
+            </text>
+        </g>
+        <g id="clust1" class="cluster">
             <title>cluster_mrs.domain.model.auth.user</title>
             <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
                      points="8,-179 8,-415 463,-415 463,-179 8,-179"/>
             <text text-anchor="middle" x="235.5" y="-399.8" font-family="Times New Roman,serif" font-size="14.00">
                 auth.user
-            </text>
-        </g>
-        <g id="clust2" class="cluster">
-            <title>cluster_mrs.domain.model.auth.member</title>
-            <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
-                     points="471,-264 471,-415 573,-415 573,-264 471,-264"/>
-            <text text-anchor="middle" x="522" y="-399.8" font-family="Times New Roman,serif" font-size="14.00">
-                auth.member
-            </text>
-        </g>
-        <g id="clust5" class="cluster">
-            <title>cluster_mrs.domain.model.reservation.room</title>
-            <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
-                     points="1321,-31 1321,-256 1441,-256 1441,-31 1321,-31"/>
-            <text text-anchor="middle" x="1381" y="-240.8" font-family="Times New Roman,serif" font-size="14.00">
-                reservation.room
             </text>
         </g>
         <g id="clust4" class="cluster">
@@ -51,18 +43,16 @@
                 reservation.reservation
             </text>
         </g>
-        <!-- mrs.domain.model.auth.administrator.Administrator -->
-        <g id="node1" class="node">
-            <title>mrs.domain.model.auth.administrator.Administrator</title>
-            <polygon fill="#eedd82" stroke="black" points="881.5,-384 788.5,-384 788.5,-346 881.5,-346 881.5,-384"/>
-            <text text-anchor="middle" x="835" y="-368.8" font-family="Times New Roman,serif" font-size="14.00">管理者
-            </text>
-            <text text-anchor="middle" x="835" y="-353.8" font-family="Times New Roman,serif" font-size="14.00">
-                Administrator
+        <g id="clust5" class="cluster">
+            <title>cluster_mrs.domain.model.reservation.room</title>
+            <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
+                     points="1321,-31 1321,-256 1441,-256 1441,-31 1321,-31"/>
+            <text text-anchor="middle" x="1381" y="-240.8" font-family="Times New Roman,serif" font-size="14.00">
+                reservation.room
             </text>
         </g>
         <!-- mrs.domain.model.auth.user.Password -->
-        <g id="node4" class="node">
+        <g id="node1" class="node">
             <title>mrs.domain.model.auth.user.Password</title>
             <polygon fill="#eedd82" stroke="black" points="361.5,-225 258.5,-225 258.5,-187 361.5,-187 361.5,-225"/>
             <text text-anchor="middle" x="310" y="-209.8" font-family="Times New Roman,serif" font-size="14.00">パスワード
@@ -71,15 +61,8 @@
                 Password
             </text>
         </g>
-        <!-- mrs.domain.model.auth.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.Password -->
-        <g id="edge1" class="edge">
-            <title>mrs.domain.model.auth.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.Password</title>
-            <path fill="none" stroke="black"
-                  d="M841.76,-345.64C848.74,-323.12 855.93,-285.3 835,-264 825.94,-254.79 382.13,-260.44 370,-256 356.31,-250.99 343.46,-241.44 333.19,-232.09"/>
-            <polygon fill="black" stroke="black" points="335.51,-229.46 325.87,-225.06 330.66,-234.51 335.51,-229.46"/>
-        </g>
         <!-- mrs.domain.model.auth.user.RoleName -->
-        <g id="node5" class="node">
+        <g id="node2" class="node">
             <title>mrs.domain.model.auth.user.RoleName</title>
             <polygon fill="#eedd82" stroke="black" points="119.5,-225 16.5,-225 16.5,-187 119.5,-187 119.5,-225"/>
             <text text-anchor="middle" x="68" y="-209.8" font-family="Times New Roman,serif" font-size="14.00">利用者区分
@@ -88,146 +71,14 @@
                 RoleName
             </text>
         </g>
-        <!-- mrs.domain.model.auth.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.RoleName -->
-        <g id="edge2" class="edge">
-            <title>mrs.domain.model.auth.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.RoleName</title>
-            <path fill="none" stroke="black"
-                  d="M802.45,-345.98C756.97,-321.89 671.08,-280.34 592,-264 541.5,-253.56 176.42,-273.73 128,-256 114.31,-250.99 101.46,-241.44 91.19,-232.09"/>
-            <polygon fill="black" stroke="black" points="93.51,-229.46 83.87,-225.06 88.66,-234.51 93.51,-229.46"/>
-        </g>
         <!-- mrs.domain.model.auth.user.User -->
-        <g id="node6" class="node">
+        <g id="node3" class="node">
             <title>mrs.domain.model.auth.user.User</title>
             <polygon fill="#eedd82" stroke="black" points="382,-310 314,-310 314,-272 382,-272 382,-310"/>
             <text text-anchor="middle" x="348" y="-294.8" font-family="Times New Roman,serif" font-size="14.00">利用者
             </text>
             <text text-anchor="middle" x="348" y="-279.8" font-family="Times New Roman,serif" font-size="14.00">User
             </text>
-        </g>
-        <!-- mrs.domain.model.auth.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.User -->
-        <g id="edge3" class="edge">
-            <title>mrs.domain.model.auth.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.User</title>
-            <path fill="none" stroke="black"
-                  d="M788.23,-357.2C718.32,-347.03 582.44,-327.2 467,-310 442.18,-306.3 414.45,-302.11 392.01,-298.71"/>
-            <polygon fill="black" stroke="black" points="392.52,-295.24 382.11,-297.2 391.47,-302.16 392.52,-295.24"/>
-        </g>
-        <!-- mrs.domain.model.auth.user.UserId -->
-        <g id="node8" class="node">
-            <title>mrs.domain.model.auth.user.UserId</title>
-            <polygon fill="#eedd82" stroke="black" points="240.5,-225 137.5,-225 137.5,-187 240.5,-187 240.5,-225"/>
-            <text text-anchor="middle" x="189" y="-209.8" font-family="Times New Roman,serif" font-size="14.00">利用者番号
-            </text>
-            <text text-anchor="middle" x="189" y="-194.8" font-family="Times New Roman,serif" font-size="14.00">UserId
-            </text>
-        </g>
-        <!-- mrs.domain.model.auth.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.UserId -->
-        <g id="edge4" class="edge">
-            <title>mrs.domain.model.auth.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.UserId</title>
-            <path fill="none" stroke="black"
-                  d="M833.99,-345.9C831.6,-322.53 823.62,-282.65 797,-264 772.06,-246.53 277.6,-266.43 249,-256 235.31,-251.01 222.45,-241.46 212.18,-232.11"/>
-            <polygon fill="black" stroke="black" points="214.5,-229.48 204.86,-225.08 209.65,-234.53 214.5,-229.48"/>
-        </g>
-        <!-- mrs.domain.model.auth.user.UserName -->
-        <g id="node9" class="node">
-            <title>mrs.domain.model.auth.user.UserName</title>
-            <polygon fill="#eedd82" stroke="black" points="454.5,-225 379.5,-225 379.5,-187 454.5,-187 454.5,-225"/>
-            <text text-anchor="middle" x="417" y="-209.8" font-family="Times New Roman,serif" font-size="14.00">氏名
-            </text>
-            <text text-anchor="middle" x="417" y="-194.8" font-family="Times New Roman,serif" font-size="14.00">
-                UserName
-            </text>
-        </g>
-        <!-- mrs.domain.model.auth.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.UserName -->
-        <g id="edge5" class="edge">
-            <title>mrs.domain.model.auth.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.UserName</title>
-            <path fill="none" stroke="black"
-                  d="M852.06,-345.74C870.28,-324 893.9,-287.67 873,-264 846.27,-233.73 576.59,-215.68 464.97,-209.46"/>
-            <polygon fill="black" stroke="black" points="464.85,-205.95 454.68,-208.9 464.47,-212.94 464.85,-205.95"/>
-        </g>
-        <!-- mrs.domain.model.reservation.reservation.Reservation -->
-        <g id="node13" class="node">
-            <title>mrs.domain.model.reservation.reservation.Reservation</title>
-            <polygon fill="#eedd82" stroke="black"
-                     points="1104.5,-225 1021.5,-225 1021.5,-187 1104.5,-187 1104.5,-225"/>
-            <text text-anchor="middle" x="1063" y="-209.8" font-family="Times New Roman,serif" font-size="14.00">予約
-            </text>
-            <text text-anchor="middle" x="1063" y="-194.8" font-family="Times New Roman,serif" font-size="14.00">
-                Reservation
-            </text>
-        </g>
-        <!-- mrs.domain.model.auth.administrator.Administrator&#45;&gt;mrs.domain.model.reservation.reservation.Reservation -->
-        <g id="edge6" class="edge">
-            <title>mrs.domain.model.auth.administrator.Administrator&#45;&gt;mrs.domain.model.reservation.reservation.Reservation</title>
-            <path fill="none" stroke="black" d="M861.15,-345.99C902.36,-317.61 982.43,-262.48 1028.36,-230.85"/>
-            <polygon fill="black" stroke="black" points="1030.55,-233.6 1036.8,-225.04 1026.58,-227.83 1030.55,-233.6"/>
-        </g>
-        <!-- mrs.domain.model.auth.member.Member -->
-        <g id="node2" class="node">
-            <title>mrs.domain.model.auth.member.Member</title>
-            <polygon fill="#eedd82" stroke="black" points="564.5,-384 501.5,-384 501.5,-346 564.5,-346 564.5,-384"/>
-            <text text-anchor="middle" x="533" y="-368.8" font-family="Times New Roman,serif" font-size="14.00">会員
-            </text>
-            <text text-anchor="middle" x="533" y="-353.8" font-family="Times New Roman,serif" font-size="14.00">Member
-            </text>
-        </g>
-        <!-- mrs.domain.model.auth.member.MemberId -->
-        <g id="node3" class="node">
-            <title>mrs.domain.model.auth.member.MemberId</title>
-            <polygon fill="#eedd82" stroke="black" points="565,-310 479,-310 479,-272 565,-272 565,-310"/>
-            <text text-anchor="middle" x="522" y="-294.8" font-family="Times New Roman,serif" font-size="14.00">会員番号
-            </text>
-            <text text-anchor="middle" x="522" y="-279.8" font-family="Times New Roman,serif" font-size="14.00">
-                MemberId
-            </text>
-        </g>
-        <!-- mrs.domain.model.auth.member.Member&#45;&gt;mrs.domain.model.auth.member.MemberId -->
-        <g id="edge7" class="edge">
-            <title>mrs.domain.model.auth.member.Member&#45;&gt;mrs.domain.model.auth.member.MemberId</title>
-            <path fill="none" stroke="black" d="M530.22,-345.83C529.05,-338.13 527.65,-328.97 526.34,-320.42"/>
-            <polygon fill="black" stroke="black" points="529.78,-319.77 524.81,-310.41 522.86,-320.83 529.78,-319.77"/>
-        </g>
-        <!-- mrs.domain.model.auth.member.Member&#45;&gt;mrs.domain.model.auth.user.Password -->
-        <g id="edge8" class="edge">
-            <title>mrs.domain.model.auth.member.Member&#45;&gt;mrs.domain.model.auth.user.Password</title>
-            <path fill="none" stroke="black"
-                  d="M564.53,-358.33C591.1,-351.7 627.49,-337.88 645,-310 655.87,-292.69 659.24,-278.67 645,-264 634.35,-253.04 384.32,-261.34 370,-256 356.54,-250.98 343.87,-241.62 333.68,-232.42"/>
-            <polygon fill="black" stroke="black" points="336.05,-229.84 326.39,-225.49 331.22,-234.92 336.05,-229.84"/>
-        </g>
-        <!-- mrs.domain.model.auth.member.Member&#45;&gt;mrs.domain.model.auth.user.RoleName -->
-        <g id="edge9" class="edge">
-            <title>mrs.domain.model.auth.member.Member&#45;&gt;mrs.domain.model.auth.user.RoleName</title>
-            <path fill="none" stroke="black"
-                  d="M550.99,-345.82C570.64,-323.82 596.48,-286.89 574,-264 565.32,-255.16 139.63,-260.26 128,-256 114.32,-250.98 101.46,-241.43 91.19,-232.09"/>
-            <polygon fill="black" stroke="black" points="93.51,-229.46 83.87,-225.06 88.66,-234.51 93.51,-229.46"/>
-        </g>
-        <!-- mrs.domain.model.auth.member.Member&#45;&gt;mrs.domain.model.auth.user.User -->
-        <g id="edge10" class="edge">
-            <title>mrs.domain.model.auth.member.Member&#45;&gt;mrs.domain.model.auth.user.User</title>
-            <path fill="none" stroke="black"
-                  d="M501.46,-351.53C490.55,-347.23 478.24,-342.39 467,-338 442.11,-328.29 414.25,-317.51 391.74,-308.83"/>
-            <polygon fill="black" stroke="black" points="392.72,-305.46 382.13,-305.13 390.21,-311.99 392.72,-305.46"/>
-        </g>
-        <!-- mrs.domain.model.auth.member.Member&#45;&gt;mrs.domain.model.auth.user.UserId -->
-        <g id="edge11" class="edge">
-            <title>mrs.domain.model.auth.member.Member&#45;&gt;mrs.domain.model.auth.user.UserId</title>
-            <path fill="none" stroke="black"
-                  d="M564.61,-349.76C580.42,-340.8 598.07,-327.58 607,-310 616.26,-291.77 621.29,-278.62 607,-264 593.09,-249.78 267.66,-262.89 249,-256 235.33,-250.95 222.48,-241.4 212.2,-232.06"/>
-            <polygon fill="black" stroke="black" points="214.52,-229.43 204.88,-225.03 209.67,-234.48 214.52,-229.43"/>
-        </g>
-        <!-- mrs.domain.model.auth.member.Member&#45;&gt;mrs.domain.model.auth.user.UserName -->
-        <g id="edge12" class="edge">
-            <title>mrs.domain.model.auth.member.Member&#45;&gt;mrs.domain.model.auth.user.UserName</title>
-            <path fill="none" stroke="black"
-                  d="M564.51,-362.73C600.02,-359.41 656.26,-348.04 683,-310 694.76,-293.27 695.85,-279.9 683,-264 656.06,-230.68 533.7,-215.96 464.7,-210.21"/>
-            <polygon fill="black" stroke="black" points="464.76,-206.7 454.51,-209.39 464.2,-213.68 464.76,-206.7"/>
-        </g>
-        <!-- mrs.domain.model.auth.member.Member&#45;&gt;mrs.domain.model.reservation.reservation.Reservation -->
-        <g id="edge13" class="edge">
-            <title>mrs.domain.model.auth.member.Member&#45;&gt;mrs.domain.model.reservation.reservation.Reservation
-            </title>
-            <path fill="none" stroke="black" d="M564.57,-354.65C652.85,-328.5 902.89,-254.43 1011.54,-222.24"/>
-            <polygon fill="black" stroke="black"
-                     points="1012.7,-225.55 1021.29,-219.36 1010.71,-218.84 1012.7,-225.55"/>
         </g>
         <!-- mrs.domain.model.auth.user.User&#45;&gt;mrs.domain.model.auth.user.Password -->
         <g id="edge14" class="edge">
@@ -242,6 +93,15 @@
                   d="M313.65,-290.19C268.99,-289.24 189.43,-283.36 128,-256 115.11,-250.26 102.7,-240.99 92.55,-232.05"/>
             <polygon fill="black" stroke="black" points="94.65,-229.23 84.93,-225.02 89.91,-234.37 94.65,-229.23"/>
         </g>
+        <!-- mrs.domain.model.auth.user.UserId -->
+        <g id="node5" class="node">
+            <title>mrs.domain.model.auth.user.UserId</title>
+            <polygon fill="#eedd82" stroke="black" points="240.5,-225 137.5,-225 137.5,-187 240.5,-187 240.5,-225"/>
+            <text text-anchor="middle" x="189" y="-209.8" font-family="Times New Roman,serif" font-size="14.00">利用者番号
+            </text>
+            <text text-anchor="middle" x="189" y="-194.8" font-family="Times New Roman,serif" font-size="14.00">UserId
+            </text>
+        </g>
         <!-- mrs.domain.model.auth.user.User&#45;&gt;mrs.domain.model.auth.user.UserId -->
         <g id="edge16" class="edge">
             <title>mrs.domain.model.auth.user.User&#45;&gt;mrs.domain.model.auth.user.UserId</title>
@@ -249,11 +109,32 @@
                   d="M313.74,-281.48C294.08,-275.81 269.33,-267.31 249,-256 237.13,-249.39 225.29,-240.37 215.3,-231.87"/>
             <polygon fill="black" stroke="black" points="217.54,-229.19 207.72,-225.22 212.93,-234.45 217.54,-229.19"/>
         </g>
+        <!-- mrs.domain.model.auth.user.UserName -->
+        <g id="node6" class="node">
+            <title>mrs.domain.model.auth.user.UserName</title>
+            <polygon fill="#eedd82" stroke="black" points="454.5,-225 379.5,-225 379.5,-187 454.5,-187 454.5,-225"/>
+            <text text-anchor="middle" x="417" y="-209.8" font-family="Times New Roman,serif" font-size="14.00">氏名
+            </text>
+            <text text-anchor="middle" x="417" y="-194.8" font-family="Times New Roman,serif" font-size="14.00">
+                UserName
+            </text>
+        </g>
         <!-- mrs.domain.model.auth.user.User&#45;&gt;mrs.domain.model.auth.user.UserName -->
         <g id="edge17" class="edge">
             <title>mrs.domain.model.auth.user.User&#45;&gt;mrs.domain.model.auth.user.UserName</title>
             <path fill="none" stroke="black" d="M362.97,-271.99C372.4,-260.65 384.73,-245.82 395.23,-233.18"/>
             <polygon fill="black" stroke="black" points="398.12,-235.19 401.82,-225.26 392.73,-230.71 398.12,-235.19"/>
+        </g>
+        <!-- mrs.domain.model.reservation.reservation.Reservation -->
+        <g id="node13" class="node">
+            <title>mrs.domain.model.reservation.reservation.Reservation</title>
+            <polygon fill="#eedd82" stroke="black"
+                     points="1104.5,-225 1021.5,-225 1021.5,-187 1104.5,-187 1104.5,-225"/>
+            <text text-anchor="middle" x="1063" y="-209.8" font-family="Times New Roman,serif" font-size="14.00">予約
+            </text>
+            <text text-anchor="middle" x="1063" y="-194.8" font-family="Times New Roman,serif" font-size="14.00">
+                Reservation
+            </text>
         </g>
         <!-- mrs.domain.model.auth.user.User&#45;&gt;mrs.domain.model.reservation.reservation.Reservation -->
         <g id="edge18" class="edge">
@@ -264,7 +145,7 @@
                      points="1011.47,-213.66 1021.23,-209.55 1011.03,-206.68 1011.47,-213.66"/>
         </g>
         <!-- mrs.domain.model.auth.user.UserDetailsImpl -->
-        <g id="node7" class="node">
+        <g id="node4" class="node">
             <title>mrs.domain.model.auth.user.UserDetailsImpl</title>
             <polygon fill="#eedd82" stroke="black" points="289,-384 183,-384 183,-346 289,-346 289,-384"/>
             <text text-anchor="middle" x="236" y="-368.8" font-family="Times New Roman,serif" font-size="14.00">利用者
@@ -296,6 +177,131 @@
             <title>mrs.domain.model.auth.user.UserDetailsImpl&#45;&gt;mrs.domain.model.auth.user.UserId</title>
             <path fill="none" stroke="black" d="M230.61,-345.99C222.47,-318.81 206.98,-267.07 197.37,-234.96"/>
             <polygon fill="black" stroke="black" points="200.69,-233.86 194.47,-225.28 193.99,-235.87 200.69,-233.86"/>
+        </g>
+        <!-- mrs.domain.model.auth.user.administrator.Administrator -->
+        <g id="node7" class="node">
+            <title>mrs.domain.model.auth.user.administrator.Administrator</title>
+            <polygon fill="#eedd82" stroke="black" points="875.5,-384 782.5,-384 782.5,-346 875.5,-346 875.5,-384"/>
+            <text text-anchor="middle" x="829" y="-368.8" font-family="Times New Roman,serif" font-size="14.00">管理者
+            </text>
+            <text text-anchor="middle" x="829" y="-353.8" font-family="Times New Roman,serif" font-size="14.00">
+                Administrator
+            </text>
+        </g>
+        <!-- mrs.domain.model.auth.user.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.Password -->
+        <g id="edge1" class="edge">
+            <title>mrs.domain.model.auth.user.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.Password
+            </title>
+            <path fill="none" stroke="black"
+                  d="M837.29,-345.66C846.05,-323.14 855.97,-285.33 835,-264 825.94,-254.79 382.13,-260.44 370,-256 356.31,-250.99 343.46,-241.44 333.19,-232.09"/>
+            <polygon fill="black" stroke="black" points="335.51,-229.46 325.87,-225.06 330.66,-234.51 335.51,-229.46"/>
+        </g>
+        <!-- mrs.domain.model.auth.user.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.RoleName -->
+        <g id="edge2" class="edge">
+            <title>mrs.domain.model.auth.user.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.RoleName
+            </title>
+            <path fill="none" stroke="black"
+                  d="M797.17,-345.98C752.68,-321.89 668.63,-280.34 591,-264 540.65,-253.4 176.31,-273.69 128,-256 114.31,-250.99 101.46,-241.44 91.19,-232.09"/>
+            <polygon fill="black" stroke="black" points="93.51,-229.46 83.87,-225.06 88.66,-234.51 93.51,-229.46"/>
+        </g>
+        <!-- mrs.domain.model.auth.user.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.User -->
+        <g id="edge3" class="edge">
+            <title>mrs.domain.model.auth.user.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.User
+            </title>
+            <path fill="none" stroke="black"
+                  d="M782.42,-357.08C713.49,-346.84 580.26,-327.01 467,-310 442.18,-306.27 414.46,-302.08 392.02,-298.68"/>
+            <polygon fill="black" stroke="black" points="392.52,-295.22 382.11,-297.18 391.47,-302.14 392.52,-295.22"/>
+        </g>
+        <!-- mrs.domain.model.auth.user.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.UserId -->
+        <g id="edge4" class="edge">
+            <title>mrs.domain.model.auth.user.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.UserId
+            </title>
+            <path fill="none" stroke="black"
+                  d="M829.1,-345.61C828.11,-322.3 822.48,-282.89 797,-264 772.54,-245.87 277.6,-266.43 249,-256 235.31,-251.01 222.45,-241.46 212.18,-232.11"/>
+            <polygon fill="black" stroke="black" points="214.5,-229.48 204.86,-225.08 209.65,-234.53 214.5,-229.48"/>
+        </g>
+        <!-- mrs.domain.model.auth.user.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.UserName -->
+        <g id="edge5" class="edge">
+            <title>mrs.domain.model.auth.user.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.UserName
+            </title>
+            <path fill="none" stroke="black"
+                  d="M847.79,-345.91C867.93,-324.34 894.34,-288.17 873,-264 846.27,-233.73 576.59,-215.68 464.97,-209.46"/>
+            <polygon fill="black" stroke="black" points="464.85,-205.95 454.68,-208.9 464.47,-212.94 464.85,-205.95"/>
+        </g>
+        <!-- mrs.domain.model.auth.user.administrator.Administrator&#45;&gt;mrs.domain.model.reservation.reservation.Reservation -->
+        <g id="edge6" class="edge">
+            <title>mrs.domain.model.auth.user.administrator.Administrator&#45;&gt;mrs.domain.model.reservation.reservation.Reservation</title>
+            <path fill="none" stroke="black"
+                  d="M856.77,-345.84C872.68,-335.41 893,-322.03 911,-310 951.17,-283.17 997.04,-252.01 1027.79,-231.05"/>
+            <polygon fill="black" stroke="black"
+                     points="1030.15,-233.68 1036.44,-225.15 1026.2,-227.9 1030.15,-233.68"/>
+        </g>
+        <!-- mrs.domain.model.auth.user.member.Member -->
+        <g id="node8" class="node">
+            <title>mrs.domain.model.auth.user.member.Member</title>
+            <polygon fill="#eedd82" stroke="black" points="578.5,-384 515.5,-384 515.5,-346 578.5,-346 578.5,-384"/>
+            <text text-anchor="middle" x="547" y="-368.8" font-family="Times New Roman,serif" font-size="14.00">会員
+            </text>
+            <text text-anchor="middle" x="547" y="-353.8" font-family="Times New Roman,serif" font-size="14.00">Member
+            </text>
+        </g>
+        <!-- mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.auth.user.Password -->
+        <g id="edge7" class="edge">
+            <title>mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.auth.user.Password</title>
+            <path fill="none" stroke="black"
+                  d="M578.69,-355.87C601.54,-348.16 630.77,-334.08 645,-310 655.4,-292.4 659.24,-278.67 645,-264 634.35,-253.04 384.32,-261.34 370,-256 356.54,-250.98 343.87,-241.62 333.68,-232.42"/>
+            <polygon fill="black" stroke="black" points="336.05,-229.84 326.39,-225.49 331.22,-234.92 336.05,-229.84"/>
+        </g>
+        <!-- mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.auth.user.RoleName -->
+        <g id="edge8" class="edge">
+            <title>mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.auth.user.RoleName</title>
+            <path fill="none" stroke="black"
+                  d="M560.81,-345.89C576.04,-323.62 595.67,-286.07 574,-264 565.32,-255.16 139.63,-260.26 128,-256 114.32,-250.98 101.46,-241.43 91.19,-232.09"/>
+            <polygon fill="black" stroke="black" points="93.51,-229.46 83.87,-225.06 88.66,-234.51 93.51,-229.46"/>
+        </g>
+        <!-- mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.auth.user.User -->
+        <g id="edge9" class="edge">
+            <title>mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.auth.user.User</title>
+            <path fill="none" stroke="black" d="M515.47,-352.59C482.07,-340.51 429.09,-321.34 391.68,-307.8"/>
+            <polygon fill="black" stroke="black" points="392.64,-304.43 382.05,-304.32 390.26,-311.01 392.64,-304.43"/>
+        </g>
+        <!-- mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.auth.user.UserId -->
+        <g id="edge10" class="edge">
+            <title>mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.auth.user.UserId</title>
+            <path fill="none" stroke="black"
+                  d="M576.22,-345.82C588.11,-336.68 600.56,-324.47 607,-310 615.32,-291.32 621.29,-278.62 607,-264 593.09,-249.78 267.66,-262.89 249,-256 235.33,-250.95 222.48,-241.4 212.2,-232.06"/>
+            <polygon fill="black" stroke="black" points="214.52,-229.43 204.88,-225.03 209.67,-234.48 214.52,-229.43"/>
+        </g>
+        <!-- mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.auth.user.UserName -->
+        <g id="edge11" class="edge">
+            <title>mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.auth.user.UserName</title>
+            <path fill="none" stroke="black"
+                  d="M578.6,-361.36C610.97,-356.78 659.74,-344.26 683,-310 694.48,-293.09 695.85,-279.9 683,-264 656.06,-230.68 533.7,-215.96 464.7,-210.21"/>
+            <polygon fill="black" stroke="black" points="464.76,-206.7 454.51,-209.39 464.2,-213.68 464.76,-206.7"/>
+        </g>
+        <!-- mrs.domain.model.auth.user.member.MemberId -->
+        <g id="node9" class="node">
+            <title>mrs.domain.model.auth.user.member.MemberId</title>
+            <polygon fill="#eedd82" stroke="black" points="565,-310 479,-310 479,-272 565,-272 565,-310"/>
+            <text text-anchor="middle" x="522" y="-294.8" font-family="Times New Roman,serif" font-size="14.00">会員番号
+            </text>
+            <text text-anchor="middle" x="522" y="-279.8" font-family="Times New Roman,serif" font-size="14.00">
+                MemberId
+            </text>
+        </g>
+        <!-- mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.auth.user.member.MemberId -->
+        <g id="edge12" class="edge">
+            <title>mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.auth.user.member.MemberId</title>
+            <path fill="none" stroke="black" d="M540.69,-345.83C537.99,-338.05 534.77,-328.77 531.77,-320.13"/>
+            <polygon fill="black" stroke="black" points="534.98,-318.71 528.39,-310.41 528.37,-321.01 534.98,-318.71"/>
+        </g>
+        <!-- mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.reservation.reservation.Reservation -->
+        <g id="edge13" class="edge">
+            <title>
+                mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.reservation.reservation.Reservation
+            </title>
+            <path fill="none" stroke="black" d="M578.5,-354.42C664.77,-328.17 905.49,-254.92 1011.62,-222.63"/>
+            <polygon fill="black" stroke="black" points="1012.92,-225.9 1021.46,-219.64 1010.88,-219.2 1012.92,-225.9"/>
         </g>
         <!-- mrs.domain.model.reservation.reservation.ReservableRoom -->
         <g id="node10" class="node">
@@ -348,9 +354,8 @@
         <g id="edge25" class="edge">
             <title>mrs.domain.model.reservation.reservation.ReservableRoom&#45;&gt;mrs.domain.model.reservation.room.MeetingRoom</title>
             <path fill="none" stroke="black"
-                  d="M1270.59,-271.98C1283.26,-267.53 1296.29,-262.22 1308,-256 1320.46,-249.38 1332.91,-240.18 1343.93,-231.53"/>
-            <polygon fill="black" stroke="black"
-                     points="1346.4,-234.04 1352.06,-225.08 1342.05,-228.56 1346.4,-234.04"/>
+                  d="M1278.53,-275.16C1294.66,-270.13 1311.37,-263.77 1326,-256 1338.12,-249.56 1350.23,-240.68 1359.95,-232.24"/>
+            <polygon fill="black" stroke="black" points="1362.5,-234.66 1367.51,-225.32 1357.77,-229.5 1362.5,-234.66"/>
         </g>
         <!-- mrs.domain.model.reservation.reservation.ReservedDate -->
         <g id="node16" class="node">
@@ -474,9 +479,9 @@
         <g id="edge35" class="edge">
             <title>mrs.domain.model.reservation.room.MeetingRoom&#45;&gt;mrs.domain.model.reservation.reservation.ReservableRoom</title>
             <path fill="none" stroke="black"
-                  d="M1367.51,-225.32C1357.01,-235.51 1341.51,-247.76 1326,-256 1314.34,-262.19 1301.36,-267.49 1288.41,-271.93"/>
+                  d="M1352.06,-225.08C1339.25,-235.32 1323.63,-247.7 1308,-256 1299.22,-260.66 1289.69,-264.82 1280.13,-268.48"/>
             <polygon fill="black" stroke="black"
-                     points="1286.95,-268.72 1278.53,-275.16 1289.12,-275.38 1286.95,-268.72"/>
+                     points="1278.77,-265.25 1270.59,-271.98 1281.19,-271.82 1278.77,-265.25"/>
         </g>
         <!-- mrs.domain.model.reservation.room.MeetingRoom&#45;&gt;mrs.domain.model.reservation.room.RoomId -->
         <g id="edge36" class="edge">
