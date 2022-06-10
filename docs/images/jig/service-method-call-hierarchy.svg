@@ -37,17 +37,6 @@
                 UserAuthService
             </text>
         </g>
-        <g id="clust3" class="cluster">
-            <title>cluster_mrs.application.service.reservation.ReservationService</title>
-            <polygon fill="none" stroke="black"
-                     points="718.96,-529.69 718.96,-781.69 1048.24,-781.69 1048.24,-529.69 718.96,-529.69"/>
-            <text text-anchor="middle" x="883.6" y="-766.49" font-family="Times New Roman,serif" font-size="14.00">
-                会議室の予約
-            </text>
-            <text text-anchor="middle" x="883.6" y="-751.49" font-family="Times New Roman,serif" font-size="14.00">
-                ReservationService
-            </text>
-        </g>
         <g id="clust6" class="cluster">
             <title>cluster_mrs.application.service.auth.UserManagementService</title>
             <polygon fill="none" stroke="black"
@@ -57,6 +46,17 @@
             </text>
             <text text-anchor="middle" x="686.54" y="-393.49" font-family="Times New Roman,serif" font-size="14.00">
                 UserManagementService
+            </text>
+        </g>
+        <g id="clust3" class="cluster">
+            <title>cluster_mrs.application.service.reservation.ReservationService</title>
+            <polygon fill="none" stroke="black"
+                     points="718.96,-529.69 718.96,-781.69 1048.24,-781.69 1048.24,-529.69 718.96,-529.69"/>
+            <text text-anchor="middle" x="883.6" y="-766.49" font-family="Times New Roman,serif" font-size="14.00">
+                会議室の予約
+            </text>
+            <text text-anchor="middle" x="883.6" y="-751.49" font-family="Times New Roman,serif" font-size="14.00">
+                ReservationService
             </text>
         </g>
         <g id="clust5" class="cluster">
