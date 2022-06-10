@@ -23,7 +23,7 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 3666000000
+              "duration": 4321000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "\"利用者一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 94000000
+              "duration": 104000000
             }
           },
           {
@@ -43,7 +43,7 @@
             "name": "利用者登録画面に利用者番号 \"aaaa\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 17000000
+              "duration": 27000000
             }
           }
         ]
@@ -63,7 +63,7 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 1761000000
+              "duration": 1694000000
             }
           },
           {
@@ -83,7 +83,7 @@
             "name": "利用者番号 \"U000002\" を新規登録する",
             "result": {
               "status": "passed",
-              "duration": 1613000000
+              "duration": 1713000000
             }
           },
           {
@@ -93,7 +93,7 @@
             "name": "利用者登録画面に \"利用者を登録しました\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 18000000
+              "duration": 21000000
             }
           }
         ]
@@ -113,7 +113,7 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 1682000000
+              "duration": 1695000000
             }
           },
           {
@@ -123,7 +123,7 @@
             "name": "\"利用者一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 56000000
+              "duration": 74000000
             }
           },
           {
@@ -133,7 +133,7 @@
             "name": "存在する利用者を新規登録する",
             "result": {
               "status": "passed",
-              "duration": 1543000000
+              "duration": 1517000000
             }
           },
           {
@@ -143,7 +143,7 @@
             "name": "利用者登録画面に \"利用者はすでに登録されています\" がエラー表示される",
             "result": {
               "status": "passed",
-              "duration": 21000000
+              "duration": 19000000
             }
           }
         ]
@@ -163,7 +163,7 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 1720000000
+              "duration": 1701000000
             }
           },
           {
@@ -173,7 +173,7 @@
             "name": "\"利用者一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 65000000
+              "duration": 70000000
             }
           },
           {
@@ -183,7 +183,7 @@
             "name": "利用者番号 \"U000002\" を更新する",
             "result": {
               "status": "passed",
-              "duration": 1412000000
+              "duration": 1309000000
             }
           },
           {
@@ -193,7 +193,7 @@
             "name": "利用者登録画面に \"利用者を更新しました\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 26000000
+              "duration": 17000000
             }
           }
         ]
@@ -213,7 +213,7 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 1736000000
+              "duration": 1698000000
             }
           },
           {
@@ -223,7 +223,7 @@
             "name": "\"利用者一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 134000000
+              "duration": 64000000
             }
           },
           {
@@ -233,7 +233,7 @@
             "name": "利用者番号 \"U000002\" を削除する",
             "result": {
               "status": "passed",
-              "duration": 112000000
+              "duration": 111000000
             }
           },
           {
@@ -243,7 +243,7 @@
             "name": "利用者登録画面に \"利用者を削除しました\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 13000000
+              "duration": 14000000
             }
           }
         ]

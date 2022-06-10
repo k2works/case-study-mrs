@@ -9,10 +9,11 @@
     <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 261)">
         <title>ERD</title>
         <polygon fill="white" stroke="transparent" points="-4,4 -4,-261 462,-261 462,4 -4,4"/>
-        <g id="clust2" class="cluster">
-            <title>cluster_AUTH</title>
-            <polygon fill="lightyellow" stroke="black" points="146.5,-8 146.5,-83 230.5,-83 230.5,-8 146.5,-8"/>
-            <text text-anchor="middle" x="188.5" y="-67.8" font-family="Times New Roman,serif" font-size="14.00">AUTH
+        <g id="clust1" class="cluster">
+            <title>cluster_RESERVATION</title>
+            <polygon fill="lightyellow" stroke="black" points="8,-91 8,-166 402.5,-166 402.5,-91 8,-91"/>
+            <text text-anchor="middle" x="205.25" y="-150.8" font-family="Times New Roman,serif" font-size="14.00">
+                RESERVATION
             </text>
         </g>
         <g id="clust3" class="cluster">
@@ -22,11 +23,10 @@
                 PUBLIC
             </text>
         </g>
-        <g id="clust1" class="cluster">
-            <title>cluster_RESERVATION</title>
-            <polygon fill="lightyellow" stroke="black" points="8,-91 8,-166 402.5,-166 402.5,-91 8,-91"/>
-            <text text-anchor="middle" x="205.25" y="-150.8" font-family="Times New Roman,serif" font-size="14.00">
-                RESERVATION
+        <g id="clust2" class="cluster">
+            <title>cluster_AUTH</title>
+            <polygon fill="lightyellow" stroke="black" points="146.5,-8 146.5,-83 230.5,-83 230.5,-8 146.5,-8"/>
+            <text text-anchor="middle" x="188.5" y="-67.8" font-family="Times New Roman,serif" font-size="14.00">AUTH
             </text>
         </g>
         <!-- RESERVATION.会議室 -->
