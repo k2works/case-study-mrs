@@ -40,10 +40,10 @@ public class UserManagementService {
         Optional<User> result = userRepository.findByUserId(user.UserId());
         if (result.isPresent())
             throw new IllegalArgumentException(message.getMessageByKey("user_already_regist"));
-        if (user.Password() == null || user.Password().isEmpty())
+        if (user.Password() == null || user.Password().Value().isEmpty())
             throw new IllegalArgumentException(message.getMessageByKey("user_no_password"));
 
-        User registUser = new User(user.UserId().Value(), user.Name().FirstName(), user.Name().LastName(), encoder.encode(user.Password()), user.RoleName());
+        User registUser = new User(user.UserId().Value(), user.Name().FirstName(), user.Name().LastName(), encoder.encode(user.Password().Value()), user.RoleName());
         userRepository.save(registUser);
     }
 
@@ -52,11 +52,11 @@ public class UserManagementService {
      */
     public void update(User user) {
         User existUser = userRepository.findByUserId(user.UserId()).orElseThrow(() -> new IllegalArgumentException(message.getMessageByKey("user_not_exist_id")));
-        if (user.Password() != null && !user.Password().isEmpty()) {
-            User updateUser = new User(user.UserId().Value(), user.Name().FirstName(), user.Name().LastName(), encoder.encode(user.Password()), user.RoleName());
+        if (user.Password() != null && !user.Password().Value().isEmpty()) {
+            User updateUser = new User(user.UserId().Value(), user.Name().FirstName(), user.Name().LastName(), encoder.encode(user.Password().Value()), user.RoleName());
             userRepository.save(updateUser);
         } else {
-            User updateUser = new User(user.UserId().Value(), user.Name().FirstName(), user.Name().LastName(), existUser.Password(), user.RoleName());
+            User updateUser = new User(user.UserId().Value(), user.Name().FirstName(), user.Name().LastName(), existUser.Password().Value(), user.RoleName());
             userRepository.save(updateUser);
         }
     }

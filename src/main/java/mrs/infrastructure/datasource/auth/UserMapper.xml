@@ -5,7 +5,7 @@
     <id column="利用者番号" jdbcType="VARCHAR" property="userId.value"/>
     <result column="姓" jdbcType="VARCHAR" property="name.firstName"/>
     <result column="名" jdbcType="VARCHAR" property="name.lastName"/>
-    <result column="パスワード" jdbcType="VARCHAR" property="password"/>
+    <result column="パスワード" jdbcType="VARCHAR" property="password.value"/>
     <result column="役割" jdbcType="VARCHAR" property="roleName"/>
     <collection property="reservations"
                 javaType="ArrayList"
@@ -17,7 +17,7 @@
 
   <insert id="insert" useGeneratedKeys="true">
     INSERT INTO auth.利用者 (利用者番号, 姓, 名, パスワード, 役割)
-    VALUES (#{userId.value}, #{name.firstName}, #{name.lastName}, #{password}, #{roleName})
+    VALUES (#{userId.value}, #{name.firstName}, #{name.lastName}, #{password.value}, #{roleName})
   </insert>
 
   <select id="select" resultMap="BaseResultMap">
@@ -35,7 +35,7 @@
     UPDATE auth.利用者
     SET 姓     = #{name.firstName},
         名     = #{name.lastName},
-        パスワード = #{password},
+        パスワード = #{password.value},
         役割    = #{roleName}
     WHERE 利用者番号 = #{userId.value}
   </update>

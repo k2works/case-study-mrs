@@ -10,7 +10,7 @@ import java.util.List;
 public class User {
     private UserId userId;
 
-    private String password;
+    private Password password;
 
     private UserName name;
 
@@ -21,7 +21,7 @@ public class User {
     public User(String userId, String firstName, String lastName, String password, RoleName roleName) {
         this.userId = new UserId(userId);
         this.name = new UserName(firstName, lastName);
-        this.password = password;
+        this.password = new Password(password);
         this.roleName = roleName;
     }
 
@@ -33,7 +33,7 @@ public class User {
         return userId;
     }
 
-    public String Password() {
+    public Password Password() {
         return password;
     }
 

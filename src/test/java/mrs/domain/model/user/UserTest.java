@@ -16,7 +16,7 @@ public class UserTest {
         assertEquals("1", user.UserId().Value());
         assertEquals("テスト", user.Name().FirstName());
         assertEquals("太郎", user.Name().LastName());
-        assertEquals("password", user.Password());
+        assertEquals("password", user.Password().Value());
         assertEquals(RoleName.MEMBER, user.RoleName());
     }
 
@@ -28,7 +28,7 @@ public class UserTest {
         assertEquals("1", member.UserId().Value());
         assertEquals("テスト", member.Name().FirstName());
         assertEquals("太郎", member.Name().LastName());
-        assertEquals("password", member.Password());
+        assertEquals("password", member.Password().Value());
         assertEquals(RoleName.MEMBER, member.RoleName());
     }
 
@@ -40,7 +40,7 @@ public class UserTest {
         assertEquals("1", administrator.UserId().Value());
         assertEquals("テスト", administrator.Name().FirstName());
         assertEquals("太郎", administrator.Name().LastName());
-        assertEquals("password", administrator.Password());
+        assertEquals("password", administrator.Password().Value());
         assertEquals(RoleName.MEMBER, administrator.RoleName());
     }
 }

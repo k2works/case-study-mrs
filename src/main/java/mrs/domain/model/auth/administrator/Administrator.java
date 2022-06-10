@@ -1,9 +1,6 @@
 package mrs.domain.model.auth.administrator;
 
-import mrs.domain.model.auth.user.RoleName;
-import mrs.domain.model.auth.user.User;
-import mrs.domain.model.auth.user.UserId;
-import mrs.domain.model.auth.user.UserName;
+import mrs.domain.model.auth.user.*;
 import mrs.domain.model.reservation.reservation.Reservation;
 
 import java.util.List;
@@ -16,7 +13,7 @@ public class Administrator extends User {
 
     private UserId userId;
 
-    private String password;
+    private Password password;
 
     private UserName name;
 
@@ -39,7 +36,7 @@ public class Administrator extends User {
     }
 
     @Override
-    public String Password() {
+    public Password Password() {
         return this.user.Password();
     }
 
