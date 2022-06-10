@@ -35,7 +35,7 @@ public class UserAuthService implements UserDetailsService {
         }
         if (user.get().RoleName().equals(RoleName.ADMIN))
             return new UserDetailsImpl(new Administrator(user.get()));
-        if (user.get().RoleName().equals(RoleName.USER))
+        if (user.get().RoleName().equals(RoleName.MEMBER))
             return new UserDetailsImpl(new Member(user.get()));
         else
             return new UserDetailsImpl(user.get());

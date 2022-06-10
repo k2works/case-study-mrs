@@ -54,7 +54,7 @@ public class ReservableRoomMapperTest {
 
     @Test
     public void 予約を複数保持している() {
-        User user = new User("1", "テスト", "太郎", "password", RoleName.USER);
+        User user = new User("1", "テスト", "太郎", "password", RoleName.MEMBER);
         userMapper.insert(user);
         MeetingRoom meetingRoom = new MeetingRoom(1, "会議室A");
         roomMapper.insert(meetingRoom);

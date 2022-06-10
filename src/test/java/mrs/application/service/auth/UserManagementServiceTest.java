@@ -24,7 +24,7 @@ public class UserManagementServiceTest {
     TestDataFactory testDataFactory;
 
     private User getUser(String userId) {
-        return new User(userId, "山田", "太郎", "password", RoleName.USER);
+        return new User(userId, "山田", "太郎", "password", RoleName.MEMBER);
     }
 
     @Nested
@@ -48,7 +48,7 @@ public class UserManagementServiceTest {
             User user = getUser("2");
             userManagementService.regist(user);
             User registUser = userManagementService.findOne(user.UserId());
-            User updateUser = new User(user.UserId().Value(), "山田", "次郎", "password", RoleName.USER);
+            User updateUser = new User(user.UserId().Value(), "山田", "次郎", "password", RoleName.MEMBER);
             userManagementService.update(updateUser);
 
             User result = userManagementService.findOne(user.UserId());
@@ -86,7 +86,7 @@ public class UserManagementServiceTest {
                 User user = getUser("2");
                 userManagementService.regist(user);
 
-                User user2 = new User(user.UserId().Value(), "山田", "次郎", "password", RoleName.USER);
+                User user2 = new User(user.UserId().Value(), "山田", "次郎", "password", RoleName.MEMBER);
                 assertThrows(IllegalArgumentException.class, () -> userManagementService.regist(user2));
             }
         }

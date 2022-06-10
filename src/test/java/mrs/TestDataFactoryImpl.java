@@ -68,7 +68,7 @@ public class TestDataFactoryImpl implements TestDataFactory {
     }
 
     void createUser() {
-        User user = new User("1", "テスト", "太郎", "password", RoleName.USER);
+        User user = new User("1", "テスト", "太郎", "password", RoleName.MEMBER);
         userMapper.insert(user);
     }
 
@@ -90,7 +90,7 @@ public class TestDataFactoryImpl implements TestDataFactory {
     }
 
     void createReservation() {
-        User user = new User("1", "テスト", "太郎", "password", RoleName.USER);
+        User user = new User("1", "テスト", "太郎", "password", RoleName.MEMBER);
         ReservableRoomId reservableRoomId = new ReservableRoomId(1, LocalDate.of(2020, 1, 1));
         Reservation reservation = new Reservation(1, LocalTime.of(9, 0), LocalTime.of(10, 0), reservableRoomId, user);
         reservationMapper.insert(reservation);

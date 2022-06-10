@@ -41,7 +41,7 @@ public class UserMapperTest {
 
     @Test
     public void 利用者が登録できる() {
-        userMapper.insert(new User("1", "テスト", "太郎", "password", RoleName.USER));
+        userMapper.insert(new User("1", "テスト", "太郎", "password", RoleName.MEMBER));
 
         UserId userId = new UserId("1");
         User user = userMapper.select(userId);
@@ -49,13 +49,13 @@ public class UserMapperTest {
         assert (user.Name().FirstName().equals("テスト"));
         assert (user.Name().LastName().equals("太郎"));
         assert (user.Password().equals("password"));
-        assert (user.RoleName().equals(RoleName.USER));
+        assert (user.RoleName().equals(RoleName.MEMBER));
     }
 
     @Test
     public void 利用者を検索できる() {
-        userMapper.insert(new User("1", "テスト", "太郎", "password", RoleName.USER));
-        userMapper.insert(new User("2", "テスト", "太郎", "password", RoleName.USER));
+        userMapper.insert(new User("1", "テスト", "太郎", "password", RoleName.MEMBER));
+        userMapper.insert(new User("2", "テスト", "太郎", "password", RoleName.MEMBER));
 
         List<User> users = userMapper.selectAll();
         assert (users.size() == 2);
@@ -63,7 +63,7 @@ public class UserMapperTest {
 
     @Test
     public void 複数の予約を保持している() {
-        User user = new User("1", "テスト", "太郎", "password", RoleName.USER);
+        User user = new User("1", "テスト", "太郎", "password", RoleName.MEMBER);
         userMapper.insert(user);
         MeetingRoom meetingRoom = new MeetingRoom(1, "会議室A");
         roomMapper.insert(meetingRoom);
@@ -94,7 +94,7 @@ public class UserMapperTest {
 
     @Test
     public void 利用者を更新できる() {
-        userMapper.insert(new User("3", "テスト", "太郎", "password", RoleName.USER));
+        userMapper.insert(new User("3", "テスト", "太郎", "password", RoleName.MEMBER));
         UserId userId = new UserId("3");
         User user = userMapper.select(userId);
         User updateUser = new User(user.UserId().Value(), "更新1", "更新2", "updated", RoleName.ADMIN);
@@ -109,7 +109,7 @@ public class UserMapperTest {
 
     @Test
     public void 利用者を削除できる() {
-        userMapper.insert(new User("4", "テスト", "太郎", "password", RoleName.USER));
+        userMapper.insert(new User("4", "テスト", "太郎", "password", RoleName.MEMBER));
 
         UserId userId = new UserId("4");
         userMapper.delete(userId);

@@ -23,7 +23,7 @@
             "name": "\"利用者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 17514000000
+              "duration": 16179000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "\"会議室予約一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 52000000
+              "duration": 46000000
             }
           },
           {
@@ -53,7 +53,7 @@
             "name": "選択した会議室を予約する",
             "result": {
               "status": "passed",
-              "duration": 166000000
+              "duration": 155000000
             }
           },
           {
@@ -63,7 +63,7 @@
             "name": "\"会議室予約一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 66000000
+              "duration": 53000000
             }
           },
           {
@@ -73,7 +73,7 @@
             "name": "\"有楽町\" 会議室を選択する",
             "result": {
               "status": "passed",
-              "duration": 106000000
+              "duration": 96000000
             }
           },
           {
@@ -83,7 +83,7 @@
             "name": "選択した会議室を予約する",
             "result": {
               "status": "passed",
-              "duration": 133000000
+              "duration": 120000000
             }
           },
           {
@@ -93,7 +93,7 @@
             "name": "会議室予約画面に \"入力の時間帯はすでに予約済です。\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 18000000
+              "duration": 15000000
             }
           }
         ]
