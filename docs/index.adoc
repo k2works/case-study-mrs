@@ -749,18 +749,18 @@ package mrs.domain.model.reservation.reservation {
 		}
 		class ReservableRoomId <<(V,DarkSeaGreen) Value Object>> {
 		}
-		class ReserbableRoomList <<(V,DarkSeaGreen) Value Object>> {
+		class ReservableRoomList <<(V,DarkSeaGreen) Value Object>> {
 		}
 	}
-    Reservation *- ReservationId
-    ReservedTime -* Reservation
+    ReservationId --* Reservation
+    ReservedTime --* Reservation
     Reservation *-- ReservableRoom
-    ReservableRoomId -* ReservableRoom
+    ReservableRoom *- ReservableRoomId
     ReservableRoomId *-- RoomId
-    ReservedDate -* ReservableRoomId
-    ReservableRoom *- MeetingRoom
+    ReservableRoomId *-- ReservedDate
+    MeetingRoom --* ReservableRoom
     MeetingRoom *-- RoomId
-    ReservableRoom --* ReserbableRoomList
+    ReservableRoomList *-- ReservableRoom
 }
 ----
 
