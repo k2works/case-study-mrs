@@ -354,7 +354,7 @@ usecase 予約可能な会議室を登録する
 |===
 |利用者区分
 
-|利用者
+|会員
 |管理者
 
 |===
@@ -618,17 +618,17 @@ app_prd -> db_prd
 ----
 skinparam componentStyle uml2
 
-component [認証・認可コンテキスト]
-component [予約コンテキスト]
+component [AuthContext] <<認証・認可>>
+component [ReservationContext] <<予約>>
 
-[認証・認可コンテキスト]<-->[予約コンテキスト] : Shared Kernel
+[AuthContext]<-->[ReservationContext] : Shared Kernel
 ----
 
 ==== ユースケース
 
 image:images/jig/service-method-call-hierarchy.svg[]
 
-===== 認証・認可コンテキスト
+===== 認証・認可
 
 [plantuml]
 ----
@@ -653,7 +653,7 @@ include::../cypress/integration/Auth/Login.feature[]
 include::../cypress/integration/Auth/User.feature[]
 ----
 
-===== 予約コンテキスト
+===== 予約
 
 [plantuml]
 ----
