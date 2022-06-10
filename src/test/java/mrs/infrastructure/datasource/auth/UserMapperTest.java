@@ -40,7 +40,7 @@ public class UserMapperTest {
     }
 
     @Test
-    public void ユーザーが登録できる() {
+    public void 利用者が登録できる() {
         userMapper.insert(new User("1", "テスト", "太郎", "password", RoleName.USER));
 
         UserId userId = new UserId("1");
@@ -53,7 +53,7 @@ public class UserMapperTest {
     }
 
     @Test
-    public void ユーザーを検索できる() {
+    public void 利用者を検索できる() {
         userMapper.insert(new User("1", "テスト", "太郎", "password", RoleName.USER));
         userMapper.insert(new User("2", "テスト", "太郎", "password", RoleName.USER));
 
@@ -93,7 +93,7 @@ public class UserMapperTest {
     }
 
     @Test
-    public void ユーザーを更新できる() {
+    public void 利用者を更新できる() {
         userMapper.insert(new User("3", "テスト", "太郎", "password", RoleName.USER));
         UserId userId = new UserId("3");
         User user = userMapper.select(userId);
@@ -108,7 +108,7 @@ public class UserMapperTest {
     }
 
     @Test
-    public void ユーザーを削除できる() {
+    public void 利用者を削除できる() {
         userMapper.insert(new User("4", "テスト", "太郎", "password", RoleName.USER));
 
         UserId userId = new UserId("4");
