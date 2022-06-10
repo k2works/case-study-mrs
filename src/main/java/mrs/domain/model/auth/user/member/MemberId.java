@@ -1,4 +1,4 @@
-package mrs.domain.model.auth.member;
+package mrs.domain.model.auth.user.member;
 
 import java.util.Objects;
 

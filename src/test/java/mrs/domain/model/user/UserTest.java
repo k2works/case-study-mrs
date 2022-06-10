@@ -1,9 +1,9 @@
 package mrs.domain.model.user;
 
-import mrs.domain.model.auth.administrator.Administrator;
-import mrs.domain.model.auth.member.Member;
 import mrs.domain.model.auth.user.RoleName;
 import mrs.domain.model.auth.user.User;
+import mrs.domain.model.auth.user.administrator.Administrator;
+import mrs.domain.model.auth.user.member.Member;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

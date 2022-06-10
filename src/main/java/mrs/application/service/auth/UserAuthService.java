@@ -1,11 +1,11 @@
 package mrs.application.service.auth;
 
-import mrs.domain.model.auth.administrator.Administrator;
-import mrs.domain.model.auth.member.Member;
 import mrs.domain.model.auth.user.RoleName;
 import mrs.domain.model.auth.user.User;
 import mrs.domain.model.auth.user.UserDetailsImpl;
 import mrs.domain.model.auth.user.UserId;
+import mrs.domain.model.auth.user.administrator.Administrator;
+import mrs.domain.model.auth.user.member.Member;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

@@ -1,4 +1,4 @@
-package mrs.domain.model.auth.administrator;
+package mrs.domain.model.auth.user.administrator;
 
 import mrs.domain.model.auth.user.*;
 import mrs.domain.model.reservation.reservation.Reservation;
