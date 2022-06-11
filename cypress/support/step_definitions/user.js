@@ -46,7 +46,7 @@ Then(/^利用者登録画面に "([^"]*)" がエラー表示される$/, (value)
     cy.get('.error').should('contain', value);
 });
 
-Given(/^利用者番号 "([^"]*)" を更新する$/, (value) => {
+Given(/^利用者番号 "([^"]*)" の利用者情報を更新する$/, (value) => {
     cy.get(':nth-child(6) > :nth-child(5) > button.btn').click();
     cy.get('#update_firstName').clear().type('更新');
     cy.get('#update_lastName').clear().type('更新');
@@ -57,4 +57,24 @@ Given(/^利用者番号 "([^"]*)" を更新する$/, (value) => {
 
 Given(/^利用者番号 "([^"]*)" を削除する$/, (value) => {
     cy.get(':nth-child(6) > :nth-child(5) > .btn-accent').click();
+});
+
+Given(/^新規登録した利用者で認証する$/, () => {
+    page = new LoginPage()
+    page.visit()
+    page.loginBy('U000002', 'パスワード')
+});
+
+Then(/^新規登録利用者で認証される$/, () => {
+    cy.get('form > a').should('contain', 'ログアウト')
+});
+
+Given(/^更新した利用者で認証する$/, () => {
+    page = new LoginPage()
+    page.visit()
+    page.loginBy('U000002', '更新')
+});
+
+Then(/^更新した利用者で認証される$/, () => {
+    cy.get('form > a').should('contain', 'ログアウト')
 });

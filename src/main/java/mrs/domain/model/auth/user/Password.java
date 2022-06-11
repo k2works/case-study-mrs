@@ -13,7 +13,11 @@ public class Password {
     }
 
     public Password(String value) {
-        this.value = value;
+        if (value == null || value.isEmpty()) {
+            this.value = "";
+        } else {
+            this.value = value;
+        }
     }
 
     public String Value() {

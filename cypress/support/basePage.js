@@ -13,4 +13,11 @@ export class BasePage {
         cy.get('#username').clear().type('cccc')
         cy.get('button').click()
     }
+
+    loginBy(id, password) {
+        cy.visit(this._url);
+        cy.get('#username').clear().type(id)
+        cy.get('#password').clear().type(password)
+        cy.get('button').click()
+    }
 }

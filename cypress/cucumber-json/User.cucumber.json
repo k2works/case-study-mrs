@@ -23,7 +23,7 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 3960000000
+              "duration": 3810000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "\"利用者一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 131000000
+              "duration": 105000000
             }
           },
           {
@@ -43,7 +43,7 @@
             "name": "利用者登録画面に利用者番号 \"aaaa\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 19000000
+              "duration": 17000000
             }
           }
         ]
@@ -63,7 +63,7 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 1607000000
+              "duration": 1632000000
             }
           },
           {
@@ -73,7 +73,7 @@
             "name": "\"利用者一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 65000000
+              "duration": 69000000
             }
           },
           {
@@ -83,7 +83,7 @@
             "name": "利用者番号 \"U000002\" を新規登録する",
             "result": {
               "status": "passed",
-              "duration": 1568000000
+              "duration": 1715000000
             }
           },
           {
@@ -93,7 +93,27 @@
             "name": "利用者登録画面に \"利用者を登録しました\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 19000000
+              "duration": 17000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 18,
+            "name": "新規登録した利用者で認証する",
+            "result": {
+              "status": "passed",
+              "duration": 1204000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 19,
+            "name": "新規登録利用者で認証される",
+            "result": {
+              "status": "passed",
+              "duration": 18000000
             }
           }
         ]
@@ -101,7 +121,7 @@
       {
         "id": "利用者の管理;認証:登録済み利用者を新規登録する",
         "keyword": "Scenario",
-        "line": 19,
+        "line": 21,
         "name": "認証:登録済み利用者を新規登録する",
         "tags": [],
         "type": "scenario",
@@ -113,37 +133,37 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 2092000000
+              "duration": 1849000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 20,
+            "line": 22,
             "name": "\"利用者一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 60000000
+              "duration": 67000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 21,
+            "line": 23,
             "name": "存在する利用者を新規登録する",
             "result": {
               "status": "passed",
-              "duration": 1598000000
+              "duration": 1538000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 22,
+            "line": 24,
             "name": "利用者登録画面に \"利用者はすでに登録されています\" がエラー表示される",
             "result": {
               "status": "passed",
-              "duration": 18000000
+              "duration": 15000000
             }
           }
         ]
@@ -151,7 +171,7 @@
       {
         "id": "利用者の管理;認証:登録済み利用者を更新登録する",
         "keyword": "Scenario",
-        "line": 24,
+        "line": 26,
         "name": "認証:登録済み利用者を更新登録する",
         "tags": [],
         "type": "scenario",
@@ -163,37 +183,57 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 1664000000
+              "duration": 1621000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 25,
+            "line": 27,
             "name": "\"利用者一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 63000000
+              "duration": 55000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 26,
-            "name": "利用者番号 \"U000002\" を更新する",
+            "line": 28,
+            "name": "利用者番号 \"U000002\" の利用者情報を更新する",
             "result": {
               "status": "passed",
-              "duration": 1209000000
+              "duration": 1124000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 27,
+            "line": 29,
             "name": "利用者登録画面に \"利用者を更新しました\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 18000000
+              "duration": 14000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 30,
+            "name": "更新した利用者で認証する",
+            "result": {
+              "status": "passed",
+              "duration": 894000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 31,
+            "name": "更新した利用者で認証される",
+            "result": {
+              "status": "passed",
+              "duration": 14000000
             }
           }
         ]
@@ -201,7 +241,7 @@
       {
         "id": "利用者の管理;認証:登録済み利用者を削除する",
         "keyword": "Scenario",
-        "line": 29,
+        "line": 33,
         "name": "認証:登録済み利用者を削除する",
         "tags": [],
         "type": "scenario",
@@ -213,37 +253,37 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 1614000000
+              "duration": 1633000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 30,
+            "line": 34,
             "name": "\"利用者一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 61000000
+              "duration": 51000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 31,
+            "line": 35,
             "name": "利用者番号 \"U000002\" を削除する",
             "result": {
               "status": "passed",
-              "duration": 142000000
+              "duration": 132000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 32,
+            "line": 36,
             "name": "利用者登録画面に \"利用者を削除しました\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 16000000
+              "duration": 17000000
             }
           }
         ]
