@@ -23,7 +23,7 @@ Given(/^利用者番号 "([^"]*)" を新規登録する$/, (value) => {
     cy.get('#regist_id').clear().type(value);
     cy.get('#regist_firstName').clear().type('姓');
     cy.get('#regist_lastName').clear().type('名');
-    cy.get('#regist_password').click().type('パスワード');
+    cy.get('#regist_password').click().type('a234567Z');
     cy.get('#regist_role').select('MEMBER');
     cy.get('[name="regist"]').click();
 });
@@ -37,7 +37,7 @@ Given(/^存在する利用者を新規登録する$/, function () {
     cy.get('#regist_id').clear().type('U000002');
     cy.get('#regist_firstName').clear().type('姓');
     cy.get('#regist_lastName').clear().type('名');
-    cy.get('#regist_password').click().type('パスワード');
+    cy.get('#regist_password').click().type('a234567Z');
     cy.get('#regist_role').select('MEMBER');
     cy.get('[name="regist"]').click();
 });
@@ -50,7 +50,7 @@ Given(/^利用者番号 "([^"]*)" の利用者情報を更新する$/, (value) =
     cy.get(':nth-child(6) > :nth-child(5) > button.btn').click();
     cy.get('#update_firstName').clear().type('更新');
     cy.get('#update_lastName').clear().type('更新');
-    cy.get('#update_password').click().type('更新');
+    cy.get('#update_password').click().type('A234567z');
     cy.get('#update_role').select('ADMIN');
     cy.get('[name="update"]').click();
 });
@@ -62,7 +62,7 @@ Given(/^利用者番号 "([^"]*)" を削除する$/, (value) => {
 Given(/^新規登録した利用者で認証する$/, () => {
     page = new LoginPage()
     page.visit()
-    page.loginBy('U000002', 'パスワード')
+    page.loginBy('U000002', 'a234567Z')
 });
 
 Then(/^新規登録利用者で認証される$/, () => {
@@ -72,7 +72,7 @@ Then(/^新規登録利用者で認証される$/, () => {
 Given(/^更新した利用者で認証する$/, () => {
     page = new LoginPage()
     page.visit()
-    page.loginBy('U000002', '更新')
+    page.loginBy('U000002', 'A234567z')
 });
 
 Then(/^更新した利用者で認証される$/, () => {

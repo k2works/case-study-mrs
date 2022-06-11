@@ -70,9 +70,13 @@ public class ReservationMapperTest {
         reservationMapper.insert(addReservation);
     }
 
+    private User newUser() {
+        return new User("1", "テスト", "太郎", "a234567Z", RoleName.MEMBER);
+    }
+
     @Test
     public void 予約を登録できる() {
-        User user = new User("1", "テスト", "太郎", "password", RoleName.MEMBER);
+        User user = newUser();
         userMapper.insert(user);
         MeetingRoom meetingRoom = new MeetingRoom(1, "会議室A");
         roomMapper.insert(meetingRoom);
@@ -98,7 +102,7 @@ public class ReservationMapperTest {
 
     @Test
     public void 予約を検索できる() {
-        User user = new User("1", "テスト", "太郎", "password", RoleName.MEMBER);
+        User user = newUser();
         userMapper.insert(user);
         MeetingRoom meetingRoom = new MeetingRoom(1, "会議室A");
         roomMapper.insert(meetingRoom);
@@ -114,7 +118,7 @@ public class ReservationMapperTest {
 
     @Test
     public void 予約を複合キーで検索できる() {
-        User user = new User("1", "テスト", "太郎", "password", RoleName.MEMBER);
+        User user = newUser();
         userMapper.insert(user);
         MeetingRoom meetingRoom = new MeetingRoom(1, "会議室A");
         roomMapper.insert(meetingRoom);
@@ -130,7 +134,7 @@ public class ReservationMapperTest {
 
     @Test
     public void 予約を更新できる() {
-        User user = new User("1", "テスト", "太郎", "password", RoleName.MEMBER);
+        User user = newUser();
         userMapper.insert(user);
         MeetingRoom meetingRoom = new MeetingRoom(1, "会議室A");
         roomMapper.insert(meetingRoom);
@@ -158,7 +162,7 @@ public class ReservationMapperTest {
 
     @Test
     public void 予約を削除できる() {
-        User user = new User("1", "テスト", "太郎", "password", RoleName.MEMBER);
+        User user = newUser();
         userMapper.insert(user);
         MeetingRoom meetingRoom = new MeetingRoom(1, "会議室A");
         roomMapper.insert(meetingRoom);

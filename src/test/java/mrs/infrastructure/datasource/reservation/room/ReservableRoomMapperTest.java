@@ -38,6 +38,10 @@ public class ReservableRoomMapperTest {
         userMapper.deleteAll();
     }
 
+    private User newUser() {
+        return new User("1", "テスト", "太郎", "a234567Z", RoleName.MEMBER);
+    }
+
     @Test
     public void 予約可能会議室を登録できる() {
         MeetingRoom meetingRoom = new MeetingRoom(1, "会議室A");
@@ -54,7 +58,7 @@ public class ReservableRoomMapperTest {
 
     @Test
     public void 予約を複数保持している() {
-        User user = new User("1", "テスト", "太郎", "password", RoleName.MEMBER);
+        User user = newUser();
         userMapper.insert(user);
         MeetingRoom meetingRoom = new MeetingRoom(1, "会議室A");
         roomMapper.insert(meetingRoom);

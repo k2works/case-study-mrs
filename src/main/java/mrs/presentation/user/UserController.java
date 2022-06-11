@@ -55,8 +55,8 @@ public class UserController {
             model.addAttribute("errors", result.getAllErrors());
             return userList(model);
         }
-        User user = new User(form.getUserId(), form.getFirstName(), form.getLastName(), form.getPassword(), form.getRoleName());
         try {
+            User user = new User(form.getUserId(), form.getFirstName(), form.getLastName(), form.getPassword(), form.getRoleName());
             this.userManagementService.regist(user);
             model.addAttribute("success", message.getMessageByKey("user_regist"));
         } catch (Exception e) {
@@ -72,8 +72,8 @@ public class UserController {
             model.addAttribute("errors", result.getAllErrors());
             return userList(model);
         }
-        User user = new User(form.getUserId(), form.getFirstName(), form.getLastName(), form.getPassword(), form.getRoleName());
         try {
+            User user = new User(form.getUserId(), form.getFirstName(), form.getLastName(), form.getPassword(), form.getRoleName());
             this.userManagementService.update(user);
             model.addAttribute("success", message.getMessageByKey("user_update"));
         } catch (Exception e) {

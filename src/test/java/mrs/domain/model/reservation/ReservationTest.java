@@ -12,9 +12,13 @@ import java.time.LocalTime;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ReservationTest {
+    private User newUser() {
+        return new User("1", "テスト", "太郎", "a234567Z", RoleName.MEMBER);
+    }
+
     @Test
     void 予約を生成できる() {
-        User user = new User("1", "テスト", "太郎", "password", RoleName.MEMBER);
+        User user = newUser();
         ReservableRoomId reservableRoomId = new ReservableRoomId(1, LocalDate.of(2020, 1, 1));
         Reservation reservation = new Reservation(
                 1,

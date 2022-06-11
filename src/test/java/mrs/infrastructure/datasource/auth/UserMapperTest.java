@@ -41,21 +41,25 @@ public class UserMapperTest {
 
     @Test
     public void 利用者が登録できる() {
-        userMapper.insert(new User("1", "テスト", "太郎", "password", RoleName.MEMBER));
+        userMapper.insert(newUser("1"));
 
         UserId userId = new UserId("1");
         User user = userMapper.select(userId);
         assert (user.UserId().equals(userId));
         assert (user.Name().FirstName().equals("テスト"));
         assert (user.Name().LastName().equals("太郎"));
-        assert (user.Password().Value().equals("password"));
+        assert (user.Password().Value().equals("a234567Z"));
         assert (user.RoleName().equals(RoleName.MEMBER));
+    }
+
+    private User newUser(String userId) {
+        return new User(userId, "テスト", "太郎", "a234567Z", RoleName.MEMBER);
     }
 
     @Test
     public void 利用者を検索できる() {
-        userMapper.insert(new User("1", "テスト", "太郎", "password", RoleName.MEMBER));
-        userMapper.insert(new User("2", "テスト", "太郎", "password", RoleName.MEMBER));
+        userMapper.insert(newUser("1"));
+        userMapper.insert(new User("2", "テスト", "太郎", "a234567Z", RoleName.MEMBER));
 
         List<User> users = userMapper.selectAll();
         assert (users.size() == 2);
@@ -63,7 +67,7 @@ public class UserMapperTest {
 
     @Test
     public void 複数の予約を保持している() {
-        User user = new User("1", "テスト", "太郎", "password", RoleName.MEMBER);
+        User user = newUser("1");
         userMapper.insert(user);
         MeetingRoom meetingRoom = new MeetingRoom(1, "会議室A");
         roomMapper.insert(meetingRoom);
@@ -94,22 +98,22 @@ public class UserMapperTest {
 
     @Test
     public void 利用者を更新できる() {
-        userMapper.insert(new User("3", "テスト", "太郎", "password", RoleName.MEMBER));
+        userMapper.insert(newUser("3"));
         UserId userId = new UserId("3");
         User user = userMapper.select(userId);
-        User updateUser = new User(user.UserId().Value(), "更新1", "更新2", "updated", RoleName.ADMIN);
+        User updateUser = new User(user.UserId().Value(), "更新1", "更新2", "A234567z", RoleName.ADMIN);
         userMapper.update(updateUser);
 
         User updatedUser = userMapper.select(userId);
         assert (updatedUser.Name().FirstName().equals("更新1"));
         assert (updatedUser.Name().LastName().equals("更新2"));
-        assert (updatedUser.Password().Value().equals("updated"));
+        assert (updatedUser.Password().Value().equals("A234567z"));
         assert (updatedUser.RoleName().equals(RoleName.ADMIN));
     }
 
     @Test
     public void 利用者を削除できる() {
-        userMapper.insert(new User("4", "テスト", "太郎", "password", RoleName.MEMBER));
+        userMapper.insert(newUser("4"));
 
         UserId userId = new UserId("4");
         userMapper.delete(userId);

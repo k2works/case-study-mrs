@@ -67,8 +67,12 @@ public class TestDataFactoryImpl implements TestDataFactory {
         return new ReservableRoomId(1, LocalDate.of(2020, 1, 1));
     }
 
+    private User newUser() {
+        return new User("1", "テスト", "太郎", "a234567Z", RoleName.MEMBER);
+    }
+
     void createUser() {
-        User user = new User("1", "テスト", "太郎", "password", RoleName.MEMBER);
+        User user = newUser();
         userMapper.insert(user);
     }
 
@@ -90,7 +94,7 @@ public class TestDataFactoryImpl implements TestDataFactory {
     }
 
     void createReservation() {
-        User user = new User("1", "テスト", "太郎", "password", RoleName.MEMBER);
+        User user = newUser();
         ReservableRoomId reservableRoomId = new ReservableRoomId(1, LocalDate.of(2020, 1, 1));
         Reservation reservation = new Reservation(1, LocalTime.of(9, 0), LocalTime.of(10, 0), reservableRoomId, user);
         reservationMapper.insert(reservation);
