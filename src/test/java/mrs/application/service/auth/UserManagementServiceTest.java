@@ -87,7 +87,7 @@ public class UserManagementServiceTest {
                 userManagementService.regist(user);
 
                 User user2 = new User(user.UserId().Value(), "山田", "次郎", "a234567Z", RoleName.MEMBER);
-                assertThrows(IllegalArgumentException.class, () -> userManagementService.regist(user2));
+                assertThrows(UserAlreadyRegistException.class, () -> userManagementService.regist(user2));
             }
         }
 

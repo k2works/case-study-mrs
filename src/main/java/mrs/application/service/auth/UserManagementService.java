@@ -1,5 +1,6 @@
 package mrs.application.service.auth;
 
+import mrs.domain.model.auth.user.PasswordException;
 import mrs.domain.model.auth.user.User;
 import mrs.domain.model.auth.user.UserId;
 import mrs.infrastructure.datasource.Message;
@@ -39,9 +40,9 @@ public class UserManagementService {
     public void regist(User user) {
         Optional<User> result = userRepository.findByUserId(user.UserId());
         if (result.isPresent())
-            throw new IllegalArgumentException(message.getMessageByKey("user_already_regist"));
+            throw new UserAlreadyRegistException(message.getMessageByKey("user_already_regist"));
         if (user.Password() == null || user.Password().Value().isEmpty())
-            throw new IllegalArgumentException(message.getMessageByKey("user_no_password"));
+            throw new PasswordException(message.getMessageByKey("user_no_password"));
 
         User registUser = new User(user.UserId().Value(), user.Name().FirstName(), user.Name().LastName(), encoder.encode(user.Password().Value()), user.RoleName());
         userRepository.save(registUser);
@@ -51,7 +52,7 @@ public class UserManagementService {
      * 利用者を更新する
      */
     public void update(User user) {
-        User existUser = userRepository.findByUserId(user.UserId()).orElseThrow(() -> new IllegalArgumentException(message.getMessageByKey("user_not_exist_id")));
+        User existUser = userRepository.findByUserId(user.UserId()).orElseThrow(() -> new UserNotExistException(message.getMessageByKey("user_not_exist_id")));
         if (user.Password() != null && !user.Password().Value().isEmpty()) {
             User updateUser = new User(user.UserId().Value(), user.Name().FirstName(), user.Name().LastName(), encoder.encode(user.Password().Value()), user.RoleName());
             userRepository.save(updateUser);
@@ -65,7 +66,7 @@ public class UserManagementService {
      * 利用者を削除する
      */
     public void delete(UserId userId) {
-        User user = userRepository.findByUserId(userId).orElseThrow(() -> new IllegalArgumentException(message.getMessageByKey("user_not_exist_id")));
+        User user = userRepository.findByUserId(userId).orElseThrow(() -> new UserNotExistException(message.getMessageByKey("user_not_exist_id")));
         userRepository.delete(user);
     }
 
