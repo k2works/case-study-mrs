@@ -13,6 +13,12 @@ public class UserId {
     }
 
     public UserId(String value) {
+        if (value.charAt(0) != 'U') throw new UserIdException("利用者番号の先頭はUから始まります");
+        if (value.length() != 7) throw new UserIdException("利用者番号の長さは7文字です");
+        StringBuilder sb = new StringBuilder(value);
+        String result = sb.substring(1, 7);
+        if (!result.matches("\\d+")) throw new UserIdException("利用者番号は数字です");
+
         this.value = value;
     }
 

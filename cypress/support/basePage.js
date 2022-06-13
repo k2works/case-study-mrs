@@ -10,7 +10,7 @@ export class BasePage {
 
     loginAdmin() {
         cy.visit(this._url);
-        cy.get('#username').clear().type('cccc')
+        cy.get('#username').clear().type('U000003')
         cy.get('button').click()
     }
 

@@ -45,7 +45,7 @@ public class UserManagementServiceTest {
         @Test
         @WithMockUser
         void 利用者を更新する() {
-            User user = getUser("2");
+            User user = getUser("U999992");
             userManagementService.regist(user);
             User registUser = userManagementService.findOne(user.UserId());
             User updateUser = new User(user.UserId().Value(), "山田", "次郎", "A234567z", RoleName.MEMBER);
@@ -58,7 +58,7 @@ public class UserManagementServiceTest {
         @Test
         @WithMockUser
         void 利用者を削除する() {
-            User user = getUser("2");
+            User user = getUser("U999992");
             userManagementService.regist(user);
             User registUser = userManagementService.findOne(user.UserId());
             userManagementService.delete(registUser.UserId());
@@ -72,7 +72,7 @@ public class UserManagementServiceTest {
             @Test
             @WithMockUser
             void 新規利用者番号を使って登録する() {
-                User user = getUser("2");
+                User user = getUser("U999992");
 
                 userManagementService.regist(user);
 
@@ -83,7 +83,7 @@ public class UserManagementServiceTest {
             @Test
             @WithMockUser
             void すでに存在する利用者番号を使って登録する() {
-                User user = getUser("2");
+                User user = getUser("U999992");
                 userManagementService.regist(user);
 
                 User user2 = new User(user.UserId().Value(), "山田", "次郎", "a234567Z", RoleName.MEMBER);

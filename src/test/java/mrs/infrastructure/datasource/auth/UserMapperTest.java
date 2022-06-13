@@ -41,9 +41,9 @@ public class UserMapperTest {
 
     @Test
     public void 利用者が登録できる() {
-        userMapper.insert(newUser("1"));
+        userMapper.insert(newUser("U999999"));
 
-        UserId userId = new UserId("1");
+        UserId userId = new UserId("U999999");
         User user = userMapper.select(userId);
         assert (user.UserId().equals(userId));
         assert (user.Name().FirstName().equals("テスト"));
@@ -58,8 +58,8 @@ public class UserMapperTest {
 
     @Test
     public void 利用者を検索できる() {
-        userMapper.insert(newUser("1"));
-        userMapper.insert(new User("2", "テスト", "太郎", "a234567Z", RoleName.MEMBER));
+        userMapper.insert(newUser("U999991"));
+        userMapper.insert(new User("U999992", "テスト", "太郎", "a234567Z", RoleName.MEMBER));
 
         List<User> users = userMapper.selectAll();
         assert (users.size() == 2);
@@ -67,7 +67,7 @@ public class UserMapperTest {
 
     @Test
     public void 複数の予約を保持している() {
-        User user = newUser("1");
+        User user = newUser("U999991");
         userMapper.insert(user);
         MeetingRoom meetingRoom = new MeetingRoom(1, "会議室A");
         roomMapper.insert(meetingRoom);
@@ -98,8 +98,8 @@ public class UserMapperTest {
 
     @Test
     public void 利用者を更新できる() {
-        userMapper.insert(newUser("3"));
-        UserId userId = new UserId("3");
+        userMapper.insert(newUser("U999993"));
+        UserId userId = new UserId("U999993");
         User user = userMapper.select(userId);
         User updateUser = new User(user.UserId().Value(), "更新1", "更新2", "A234567z", RoleName.ADMIN);
         userMapper.update(updateUser);
@@ -113,9 +113,9 @@ public class UserMapperTest {
 
     @Test
     public void 利用者を削除できる() {
-        userMapper.insert(newUser("4"));
+        userMapper.insert(newUser("U999994"));
 
-        UserId userId = new UserId("4");
+        UserId userId = new UserId("U999994");
         userMapper.delete(userId);
         User user = userMapper.select(userId);
         assert (user == null);

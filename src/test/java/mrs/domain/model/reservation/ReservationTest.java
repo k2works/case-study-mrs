@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ReservationTest {
     private User newUser() {
-        return new User("1", "テスト", "太郎", "a234567Z", RoleName.MEMBER);
+        return new User("U999999", "テスト", "太郎", "a234567Z", RoleName.MEMBER);
     }
 
     @Test
