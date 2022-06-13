@@ -344,6 +344,7 @@ end note
 usecase 予約可能な会議室を登録する
 
 :ac_01: -- 会議室の登録
+会議室の登録 -- (会議室を登録する)
 会議室の登録 -- (予約可能な会議室を登録する)
 
 
@@ -480,6 +481,39 @@ UC3 -- c01
 f01 - UC4
 b02 -- UC4
 UC4 - e02
+
+@enduml
+----
+
+====== 会議室の登録
+
+[plantuml]
+----
+@startuml
+actor "管理者" as admin
+frame "会議室の登録" as f01
+usecase "会議室を登録する" as UC1
+usecase "予約可能な会議室を登録する" as UC2
+boundary "会議室一覧画面" as b01
+boundary "会議室登録画面" as b02
+boundary "会議室予約可能一覧画面" as b03
+boundary "会議室予約可能登録画面" as b04
+control "予約可能条件" as c01
+entity "会議室" as e01
+entity "予約" as e02
+
+admin - f01
+f01 - UC1
+b01 -- UC1
+b02 -- UC1
+UC1 -- e01
+
+f01 - UC2
+b03 -- UC2
+b04 -- UC2
+UC2 -- e01
+UC2 -- e02
+UC2 - c01
 
 @enduml
 ----
@@ -664,11 +698,13 @@ actor "管理者" as admin
 rectangle 予約 {
   usecase "会議室の検索" as UC2
   usecase "会議室の予約" as UC3
+  usecase "会議室の登録" as UC4
 }
 member --> UC2
 member --> UC3
 UC2 <-- admin
 UC3 <-- admin
+UC4 <-- admin
 @enduml
 ----
 
@@ -679,6 +715,8 @@ include::../cypress/integration/Room/Room.feature[]
 include::../cypress/integration/Reservation/Reserve.feature[]
 
 include::../cypress/integration/Reservation/Cancel.feature[]
+
+include::../cypress/integration/Room/Regist.feature[]
 ----
 
 === 設計
