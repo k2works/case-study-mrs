@@ -81,7 +81,13 @@ public class MeetingRoomController {
 
     @GetMapping("delete/{id}")
     String deleteRoom(@PathVariable("id") int id, Model model) {
-        roomService.deleteMeetingRoom(id);
+        try {
+            roomService.deleteMeetingRoom(id);
+            model.addAttribute("success", message.getMessageByKey("meeting_room_delete"));
+        } catch (Exception e) {
+            model.addAttribute("error", e.getMessage());
+            return roomList(model);
+        }
         return roomList(model);
     }
 }
