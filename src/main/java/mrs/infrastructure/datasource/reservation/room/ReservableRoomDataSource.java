@@ -35,4 +35,14 @@ public class ReservableRoomDataSource implements ReservableRoomRepository {
     public List<ReservableRoom> findAll() {
         return reservableRoomMapper.selectAll();
     }
+
+    @Override
+    public ReservableRoom findReservableRoom(ReservableRoomId reservableRoomId) {
+        return reservableRoomMapper.select(reservableRoomId);
+    }
+
+    @Override
+    public void deleteReservableRoom(ReservableRoomId reservableRoomId) {
+        reservableRoomMapper.delete(reservableRoomId);
+    }
 }

@@ -84,14 +84,16 @@ public class RoomService {
     }
 
     /**
-     * 予約可能会議室を更新する
-     */
-    public void updateReservableRoom(ReservableRoomId reservableRoomId) {
-    }
-
-    /**
      * 予約可能会議室を削除する
      */
     public void deleteReservableRoom(ReservableRoomId reservableRoomId) {
+        reservableRoomRepository.deleteReservableRoom(reservableRoomId);
+    }
+
+    /**
+     * 予約可能会議室を検索する
+     */
+    public ReservableRoom findReservableRoomById(ReservableRoomId reservableRoomId) {
+        return reservableRoomRepository.findReservableRoom(reservableRoomId);
     }
 }

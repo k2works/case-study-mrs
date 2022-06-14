@@ -28,31 +28,22 @@
         <div class="reservable-room-decoration">
             <table class="reservable-room-table">
                 <tr>
-                    <th>会議室番号</th>
                     <th>予約日</th>
+                    <th>会議室番号</th>
                     <th>会議室名</th>
                     <th>操作</th>
                 </tr>
                 <tr th:each="room : ${rooms}">
                     <td>
-                        <span th:text="${room.ReservableRoomId.RoomId.Value}">
+                        <span th:text="${room.ReservableRoomId.ReservedDate.Value}">
                     </td>
                     <td>
-                        <span th:text="${room.ReservableRoomId.ReservedDate.Value}">
+                        <span th:text="${room.ReservableRoomId.RoomId.Value}">
                     </td>
                     <td>
                         <span th:text="${room.MeetingRoom.RoomName}">
                     </td>
                     <td>
-                        <button class="btn" onclick="
-                            let row = this.parentElement.parentElement;
-                            getElementById('update_id').value = row.cells[0].innerText;
-                            getElementById('update_name').value = row.cells[1].innerText;
-                            var dialog = getElementById('updateDialog');
-                            dialog.style.left = ((window.innerWidth - 500) / 2) + 'px';
-                            dialog.style.display = 'block';
-                        " type="submit">編集
-                        </button>
                         <a class="btn btn-accent"
                            th:href="@{'/reservableRooms/delete/' + ${room.ReservableRoomId.RoomId.Value} + '/' + ${room.ReservableRoomId.ReservedDate.Value}}">削除</a>
                     </td>

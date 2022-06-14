@@ -2,6 +2,8 @@ package mrs.application.service.room;
 
 import mrs.IntegrationTest;
 import mrs.TestDataFactory;
+import mrs.domain.model.reservation.reservation.ReservableRoom;
+import mrs.domain.model.reservation.reservation.ReservableRoomId;
 import mrs.domain.model.reservation.reservation.ReservableRoomList;
 import mrs.domain.model.reservation.reservation.ReservedDate;
 import mrs.domain.model.reservation.room.MeetingRoom;
@@ -88,6 +90,32 @@ public class RoomServiceTest {
             roomService.registMeetingRoom(room);
             roomService.deleteMeetingRoom(4);
             MeetingRoom result = roomService.findMeetingRoom(new RoomId(4));
+
+            assertNull(result);
+        }
+
+        @Test
+        void 利用可能な会議室を取得する() {
+            List<ReservableRoom> rooms = roomService.findAllReservableRooms();
+
+            assertEquals(3, rooms.size());
+        }
+
+        @Test
+        void 利用可能な会議室を登録する() {
+            ReservableRoomId reservableRoomId = new ReservableRoomId(1, LocalDate.of(2022, 1, 1));
+            roomService.registReservableRoom(reservableRoomId);
+
+            ReservableRoom result = roomService.findReservableRoomById(reservableRoomId);
+            assertEquals(reservableRoomId, result.ReservableRoomId());
+        }
+
+        @Test
+        void 利用可能な会議室を削除する() {
+            ReservableRoomId reservableRoomId = new ReservableRoomId(1, LocalDate.of(2022, 1, 1));
+            roomService.registReservableRoom(reservableRoomId);
+            roomService.deleteReservableRoom(reservableRoomId);
+            ReservableRoom result = roomService.findReservableRoomById(reservableRoomId);
 
             assertNull(result);
         }

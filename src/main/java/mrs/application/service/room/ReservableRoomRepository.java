@@ -20,4 +20,8 @@ public interface ReservableRoomRepository {
     void save(ReservableRoomId id);
 
     List<ReservableRoom> findAll();
+
+    ReservableRoom findReservableRoom(ReservableRoomId reservableRoomId);
+
+    void deleteReservableRoom(ReservableRoomId reservableRoomId);
 }

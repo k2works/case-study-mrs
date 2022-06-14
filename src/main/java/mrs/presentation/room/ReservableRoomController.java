@@ -39,13 +39,6 @@ public class ReservableRoomController {
         return roomList(model);
     }
 
-    @PostMapping(params = "update")
-    String updateRoom(Model model) {
-        ReservableRoomId reservableRoomId = new ReservableRoomId(1, LocalDate.of(2022, 1, 1));
-        roomService.updateReservableRoom(reservableRoomId);
-        return roomList(model);
-    }
-
     @GetMapping("delete/{id}/{date}")
     String deleteRoom(@PathVariable("id") int id, @PathVariable("date") LocalDate date, Model model) {
         ReservableRoomId reservableRoomId = new ReservableRoomId(id, date);
