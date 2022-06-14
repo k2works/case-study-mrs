@@ -41,8 +41,9 @@
                     <td>
                         <button class="btn" onclick="
                         let row = this.parentElement.parentElement;
+                        console.log(row.cells[1].innerText);
                         getElementById('update_id').value = row.cells[0].innerText;
-                        getElementById('update_name').value = row.cells[1].innerText;
+                        getElementById('update_roomName').value = row.cells[1].innerText;
                         var dialog = getElementById('updateDialog');
                         dialog.style.left = ((window.innerWidth - 500) / 2) + 'px';
                         dialog.style.display = 'block';
@@ -75,6 +76,27 @@
                 </div>
             </div>
 
+            <div id="updateDialog">
+                <div>
+                    <form class="meeting-room-form" method="post" th:action="@{/meetingRooms}"
+                          th:object="${meetingRoomForm}">
+                        <label>会議室番号</label>
+                        <input id="update_id" name="id" readonly th:field="*{roomId}" type="text"/>
+                        <ul>
+                            <li class="error" th:each="err : ${#fields.errors('roomId')}" th:text="${err}"/>
+                        </ul>
+                        <label>会議室名</label>
+                        <input id="update_roomName" name="roomName" th:field="*{roomName}" type="text"/>
+                        <ul>
+                            <li class="error" th:each="err : ${#fields.errors('roomName')}" th:text="${err}"/>
+                        </ul>
+                        <button class="btn" name="update" type="submit">登録</button>
+                        <button class="btn btn-accent" onclick="getElementById('updateDialog').style.display='none';"
+                                type="reset">キャンセル
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

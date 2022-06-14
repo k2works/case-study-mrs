@@ -64,8 +64,18 @@ public class MeetingRoomController {
 
     @PostMapping(params = "update")
     String updateRoom(Model model, @Validated MeetingRoomForm form, BindingResult result) {
-        MeetingRoom meetingRoom = new MeetingRoom(1, "会議室1");
-        roomService.updateMeetingRoom(meetingRoom);
+        if (result.hasErrors()) {
+            model.addAttribute("errors", result.getAllErrors());
+            return roomList(model);
+        }
+        try {
+            MeetingRoom meetingRoom = new MeetingRoom(form.getRoomId(), form.getRoomName());
+            roomService.updateMeetingRoom(meetingRoom);
+            model.addAttribute("success", message.getMessageByKey("meeting_room_update"));
+        } catch (Exception e) {
+            model.addAttribute("error", e.getMessage());
+            return roomList(model);
+        }
         return roomList(model);
     }
 
