@@ -13,12 +13,10 @@
             <p class="success" th:if="${success != null}" th:text="${success}"></p>
         </div>
 
-        <button class="btn" id="update_button" onclick="
+        <button class="btn" id="regist_button" onclick="
               let row = this.parentElement.parentElement;
               getElementById('regist_id').value = '';
-              getElementById('regist_firstName').value = '';
-              getElementById('regist_lastName').value = '';
-              getElementById('regist_role').value = '';
+              getElementById('regist_reservedDate').value = '';
               var dialog = getElementById('registDialog');
               dialog.style.left = ((window.innerWidth - 500) / 2) + 'px';
               dialog.style.display = 'block';
@@ -49,6 +47,28 @@
                     </td>
                 </tr>
             </table>
+
+            <div id="registDialog">
+                <div>
+                    <form class="meeting-room-form" method="post" th:action="@{/reservableRooms}"
+                          th:object="${reservableRoomForm}">
+                        <label>予約日</label>
+                        <input id="regist_reservedDate" name="id" th:field="*{reservedDate}" type="date"/>
+                        <ul>
+                            <li class="error" th:each="err : ${#fields.errors('reservedDate')}" th:text="${err}"/>
+                        </ul>
+                        <label>会議室番号</label>
+                        <input id="regist_id" name="roomId" th:field="*{roomId}" type="text"/>
+                        <ul>
+                            <li class="error" th:each="err : ${#fields.errors('roomId')}" th:text="${err}"/>
+                        </ul>
+                        <button class="btn" name="regist" type="submit">登録</button>
+                        <button class="btn btn-accent" onclick="getElementById('registDialog').style.display='none';"
+                                type="reset">キャンセル
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -1,13 +1,15 @@
+import {ReservableRoomsPage} from "../pages/reservableRoomsPage";
+import {LoginPage} from "../pages/loginPage";
+import {RoomsPage} from "../pages/roomsPage";
+import {UsersPage} from "../pages/usersPage";
+import {MeetingRoomsPage} from "../pages/meetingRoomsPage";
+
 const {
     Before,
     After,
     Given,
     Then,
 } = require("cypress-cucumber-preprocessor/steps");
-
-import {LoginPage} from "../pages/loginPage";
-import {RoomsPage} from "../pages/roomsPage";
-import {UsersPage} from "../pages/usersPage";
 
 // this will get called before each scenario
 let page;
@@ -25,6 +27,12 @@ Given(`{string} ページにアクセスする`, (pageName) => {
             break;
         case "利用者一覧画面":
             page = new UsersPage();
+            break;
+        case "会議室一覧画面":
+            page = new MeetingRoomsPage();
+            break;
+        case "予約可能会議室一覧画面":
+            page = new ReservableRoomsPage();
             break;
         default:
             console.log("該当するページが存在しません");

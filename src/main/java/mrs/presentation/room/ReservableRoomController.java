@@ -3,12 +3,14 @@ package mrs.presentation.room;
 import mrs.application.service.room.RoomService;
 import mrs.domain.model.reservation.reservation.ReservableRoom;
 import mrs.domain.model.reservation.reservation.ReservableRoomId;
+import mrs.infrastructure.datasource.Message;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -21,8 +23,21 @@ import java.util.List;
 public class ReservableRoomController {
     private final RoomService roomService;
 
-    public ReservableRoomController(RoomService roomService) {
+    private final Message message;
+
+    public ReservableRoomController(RoomService roomService, Message message) {
         this.roomService = roomService;
+        this.message = message;
+    }
+
+    @ModelAttribute
+    public ReservableRoomForm setUpForm() {
+        return new ReservableRoomForm();
+    }
+
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));
     }
 
     @GetMapping
@@ -33,9 +48,19 @@ public class ReservableRoomController {
     }
 
     @PostMapping(params = "regist")
-    String creatRoom(Model model) {
-        ReservableRoomId reservableRoomId = new ReservableRoomId(1, LocalDate.of(2022, 1, 1));
-        roomService.registReservableRoom(reservableRoomId);
+    String creatRoom(Model model, @Validated ReservableRoomForm form, BindingResult result) {
+        if (result.hasErrors()) {
+            model.addAttribute("errors", result.getAllErrors());
+            return roomList(model);
+        }
+        try {
+            ReservableRoomId reservableRoomId = new ReservableRoomId(form.getRoomId(), form.getReservedDate());
+            roomService.registReservableRoom(reservableRoomId);
+            model.addAttribute("success", message.getMessageByKey("reservable_room_regist"));
+        } catch (Exception e) {
+            model.addAttribute("error", e.getMessage());
+            return roomList(model);
+        }
         return roomList(model);
     }
 

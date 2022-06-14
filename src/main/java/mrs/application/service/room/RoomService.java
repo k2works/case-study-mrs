@@ -1,11 +1,13 @@
 package mrs.application.service.room;
 
+import mrs.application.service.auth.UserAlreadyRegistException;
 import mrs.domain.model.reservation.reservation.ReservableRoom;
 import mrs.domain.model.reservation.reservation.ReservableRoomId;
 import mrs.domain.model.reservation.reservation.ReservableRoomList;
 import mrs.domain.model.reservation.reservation.ReservedDate;
 import mrs.domain.model.reservation.room.MeetingRoom;
 import mrs.domain.model.reservation.room.RoomId;
+import mrs.infrastructure.datasource.Message;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -21,9 +23,12 @@ public class RoomService {
     private final MeetingRoomRepository meetingRoomRepository;
     private final ReservableRoomRepository reservableRoomRepository;
 
-    public RoomService(MeetingRoomRepository meetingRoomRepository, ReservableRoomRepository reservableRoomRepository) {
+    private final Message message;
+
+    public RoomService(MeetingRoomRepository meetingRoomRepository, ReservableRoomRepository reservableRoomRepository, Message message) {
         this.meetingRoomRepository = meetingRoomRepository;
         this.reservableRoomRepository = reservableRoomRepository;
+        this.message = message;
     }
 
     /**
@@ -52,6 +57,11 @@ public class RoomService {
      * 会議室を登録する
      */
     public void registMeetingRoom(MeetingRoom meetingRoom) {
+        MeetingRoom result = meetingRoomRepository.getById(meetingRoom.RoomId());
+        if (result != null) {
+            throw new UserAlreadyRegistException(message.getMessageByKey("meeting_room_already_regist"));
+        }
+
         meetingRoomRepository.save(meetingRoom);
     }
 
@@ -80,6 +90,12 @@ public class RoomService {
      * 予約可能会議室を登録する
      */
     public void registReservableRoom(ReservableRoomId reservableRoomId) {
+        ReservableRoom result = reservableRoomRepository.findReservableRoom(reservableRoomId);
+        if (result != null)
+            throw new UserAlreadyRegistException(message.getMessageByKey("reservable_room_already_regist"));
+        if (result != null && result.getReservations().size() > 0)
+            throw new UserAlreadyRegistException(message.getMessageByKey("reservable_room_already_reserved"));
+
         reservableRoomRepository.save(reservableRoomId);
     }
 
