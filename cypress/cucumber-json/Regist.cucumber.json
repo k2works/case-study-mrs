@@ -23,7 +23,7 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 1706000000
+              "duration": 1698000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "\"会議室一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 55000000
+              "duration": 54000000
             }
           },
           {
@@ -43,7 +43,7 @@
             "name": "\"新会議室\" を削除する",
             "result": {
               "status": "passed",
-              "duration": 93000000
+              "duration": 101000000
             }
           },
           {
@@ -53,7 +53,7 @@
             "name": "会議室一覧に \"会議室を削除しました\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 16000000
+              "duration": 13000000
             }
           }
         ]
@@ -61,7 +61,7 @@
       {
         "id": "会議室の登録;予約管理:予約可能な会議室を登録する",
         "keyword": "Scenario",
-        "line": 25,
+        "line": 30,
         "name": "予約管理:予約可能な会議室を登録する",
         "tags": [],
         "type": "scenario",
@@ -73,37 +73,37 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 1721000000
+              "duration": 1713000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 26,
+            "line": 31,
             "name": "\"予約可能会議室一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 69000000
+              "duration": 58000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 27,
-            "name": "\"新会議室\" を \"2022-01-01\" 予約可能登録する",
+            "line": 32,
+            "name": "予約可能会議室を削除する",
             "result": {
               "status": "passed",
-              "duration": 809000000
+              "duration": 87000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 28,
-            "name": "予約可能会議室一覧に \"予約可能会議室を登録しました\" が表示される",
+            "line": 33,
+            "name": "予約可能会議室一覧に \"予約可能会議室を削除しました\" が表示される",
             "result": {
-              "status": "failed",
-              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.success`, but never found it.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\\integration\\Room\\Regist.feature:474:22)\n    at Context.resolveAndRunStepDefinition (http://localhost:8080/__cypress/tests?p=cypress\\integration\\Room\\Regist.feature:11725:29)\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\\integration\\Room\\Regist.feature:11046:35)"
+              "status": "passed",
+              "duration": 12000000
             }
           }
         ]

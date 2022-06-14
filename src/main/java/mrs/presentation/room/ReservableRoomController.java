@@ -5,6 +5,7 @@ import mrs.domain.model.reservation.reservation.ReservableRoom;
 import mrs.domain.model.reservation.reservation.ReservableRoomId;
 import mrs.infrastructure.datasource.Message;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -65,9 +66,14 @@ public class ReservableRoomController {
     }
 
     @GetMapping("delete/{id}/{date}")
-    String deleteRoom(@PathVariable("id") int id, @PathVariable("date") LocalDate date, Model model) {
-        ReservableRoomId reservableRoomId = new ReservableRoomId(id, date);
-        roomService.deleteReservableRoom(reservableRoomId);
+    String deleteRoom(@PathVariable("id") int id, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable("date") LocalDate date, Model model) {
+        try {
+            ReservableRoomId reservableRoomId = new ReservableRoomId(id, date);
+            roomService.deleteReservableRoom(reservableRoomId);
+            model.addAttribute("success", message.getMessageByKey("reservable_room_delete"));
+        } catch (Exception e) {
+            model.addAttribute("error", e.getMessage());
+        }
         return roomList(model);
     }
 }

@@ -17,7 +17,7 @@ Before(() => {
 Given(/^"([^"]*)" を "([^"]*)" 予約可能登録する$/, (id, date) => {
     cy.get('#regist_button').click();
     cy.get('#regist_reservedDate').clear().type(date);
-    cy.get('#regist_id').clear().type(8);
+    cy.get('#regist_id').clear().type(1);
     cy.get('[name="regist"]').click();
 });
 
@@ -25,3 +25,6 @@ Then(/^予約可能会議室一覧に "([^"]*)" が表示される$/, (value) =>
     cy.get('.success').should('contain', value);
 });
 
+Given(/^予約可能会議室を削除する$/, function () {
+    cy.get(':nth-child(2) > :nth-child(4) > .btn').click();
+});
