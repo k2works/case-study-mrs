@@ -34,4 +34,9 @@ public class RoomDataSource implements MeetingRoomRepository {
     public List<MeetingRoom> findAll() {
         return roomMapper.selectAll();
     }
+
+    @Override
+    public void deleteById(RoomId roomId) {
+        roomMapper.delete(roomId);
+    }
 }

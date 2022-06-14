@@ -59,12 +59,14 @@ public class RoomService {
      * 会議室を更新する
      */
     public void updateMeetingRoom(MeetingRoom meetingRoom) {
+        meetingRoomRepository.save(meetingRoom);
     }
 
     /**
      * 会議室を削除する
      */
     public void deleteMeetingRoom(int id) {
+        meetingRoomRepository.deleteById(new RoomId(id));
     }
 
     /**
