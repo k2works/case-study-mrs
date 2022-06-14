@@ -18,4 +18,6 @@ public interface ReservableRoomRepository {
     ReservableRoom findOneForUpdateByReservableRoomId(ReservableRoomId reservableRoomId);
 
     void save(ReservableRoomId id);
+
+    List<ReservableRoom> findAll();
 }

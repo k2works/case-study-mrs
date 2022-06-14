@@ -31,4 +31,8 @@ public class ReservableRoomDataSource implements ReservableRoomRepository {
         reservableRoomMapper.insert(id);
     }
 
+    @Override
+    public List<ReservableRoom> findAll() {
+        return reservableRoomMapper.selectAll();
+    }
 }

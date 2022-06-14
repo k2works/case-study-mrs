@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymelef.org">
+<html lang="ja">
+
+<div th:include="fragment/app-header"></div>
+
+<body>
+<div class="reservable-room">
+    <div class="reservable-room-container w-container">
+        <div class="message">
+            <p class="error" th:if="${error != null}" th:text="${error}"></p>
+            <p class="error" th:if="${errors != null}" th:text="入力内容にエラーがあります"></p>
+            <p class="success" th:if="${success != null}" th:text="${success}"></p>
+        </div>
+
+        <button class="btn" id="update_button" onclick="
+              let row = this.parentElement.parentElement;
+              getElementById('regist_id').value = '';
+              getElementById('regist_firstName').value = '';
+              getElementById('regist_lastName').value = '';
+              getElementById('regist_role').value = '';
+              var dialog = getElementById('registDialog');
+              dialog.style.left = ((window.innerWidth - 500) / 2) + 'px';
+              dialog.style.display = 'block';
+              " type="submit">新規
+        </button>
+
+        <div class="reservable-room-decoration">
+            <table class="reservable-room-table">
+                <tr>
+                    <th>会議室番号</th>
+                    <th>予約日</th>
+                    <th>会議室名</th>
+                    <th>操作</th>
+                </tr>
+                <tr th:each="room : ${rooms}">
+                    <td>
+                        <span th:text="${room.ReservableRoomId.RoomId.Value}">
+                    </td>
+                    <td>
+                        <span th:text="${room.ReservableRoomId.ReservedDate.Value}">
+                    </td>
+                    <td>
+                        <span th:text="${room.MeetingRoom.RoomName}">
+                    </td>
+                    <td>
+                        <button class="btn" onclick="
+                            let row = this.parentElement.parentElement;
+                            getElementById('update_id').value = row.cells[0].innerText;
+                            getElementById('update_name').value = row.cells[1].innerText;
+                            var dialog = getElementById('updateDialog');
+                            dialog.style.left = ((window.innerWidth - 500) / 2) + 'px';
+                            dialog.style.display = 'block';
+                        " type="submit">編集
+                        </button>
+                        <a class="btn btn-accent"
+                           th:href="@{'/reservableRooms/delete/' + ${room.ReservableRoomId.RoomId.Value} + '/' + ${room.ReservableRoomId.ReservedDate.Value}}">削除</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
