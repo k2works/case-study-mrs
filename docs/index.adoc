@@ -496,8 +496,8 @@ usecase "会議室を登録する" as UC1
 usecase "予約可能な会議室を登録する" as UC2
 boundary "会議室一覧画面" as b01
 boundary "会議室登録画面" as b02
-boundary "会議室予約可能一覧画面" as b03
-boundary "会議室予約可能登録画面" as b04
+boundary "予約可能会議室一覧画面" as b03
+boundary "予約可能会議室登録画面" as b04
 control "予約可能条件" as c01
 entity "会議室" as e01
 entity "予約" as e02

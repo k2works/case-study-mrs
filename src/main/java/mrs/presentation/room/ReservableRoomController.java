@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * 予約可能会議室一覧画面
+ */
 @Controller
 @RequestMapping("reservableRooms")
 public class ReservableRoomController {
