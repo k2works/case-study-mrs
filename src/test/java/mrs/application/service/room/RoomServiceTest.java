@@ -2,6 +2,7 @@ package mrs.application.service.room;
 
 import mrs.IntegrationTest;
 import mrs.TestDataFactory;
+import mrs.application.service.auth.UserAlreadyRegistException;
 import mrs.domain.model.reservation.reservation.ReservableRoom;
 import mrs.domain.model.reservation.reservation.ReservableRoomId;
 import mrs.domain.model.reservation.reservation.ReservableRoomList;
@@ -16,8 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.time.LocalDate;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 @IntegrationTest
@@ -61,14 +61,24 @@ public class RoomServiceTest {
             assertEquals(3, rooms.size());
         }
 
-        @Test
-        void 会議室を登録する() {
-            MeetingRoom room = new MeetingRoom(4, "会議室A");
-            roomService.registMeetingRoom(room);
+        @Nested
+        class 会議室を登録する {
+            @Test
+            void 会議室を新規登録する() {
+                MeetingRoom room = new MeetingRoom(4, "会議室A");
+                roomService.registMeetingRoom(room);
 
-            MeetingRoom result = roomService.findMeetingRoom(new RoomId(4));
-            assertEquals(4, result.RoomId().Value());
-            assertEquals("会議室A", result.RoomName());
+                MeetingRoom result = roomService.findMeetingRoom(new RoomId(4));
+                assertEquals(4, result.RoomId().Value());
+                assertEquals("会議室A", result.RoomName());
+            }
+
+            @Test
+            void 登録済みの会議室は新規登録できない() {
+                MeetingRoom room = new MeetingRoom(1, "会議室A");
+
+                assertThrows(UserAlreadyRegistException.class, () -> roomService.registMeetingRoom(room));
+            }
         }
 
         @Test
@@ -84,14 +94,22 @@ public class RoomServiceTest {
             assertEquals("会議室B", result.RoomName());
         }
 
-        @Test
-        void 会議室を削除する() {
-            MeetingRoom room = new MeetingRoom(4, "会議室A");
-            roomService.registMeetingRoom(room);
-            roomService.deleteMeetingRoom(4);
-            MeetingRoom result = roomService.findMeetingRoom(new RoomId(4));
+        @Nested
+        class 会議室を削除する {
+            @Test
+            void 新規登録した会議室を削除する() {
+                MeetingRoom room = new MeetingRoom(4, "会議室A");
+                roomService.registMeetingRoom(room);
+                roomService.deleteMeetingRoom(4);
+                MeetingRoom result = roomService.findMeetingRoom(new RoomId(4));
 
-            assertNull(result);
+                assertNull(result);
+            }
+
+            @Test
+            void 予約可能会議室は削除できない() {
+                assertThrows(MeetingRoomAlreadyUsedException.class, () -> roomService.deleteMeetingRoom(1));
+            }
         }
 
         @Test
@@ -110,14 +128,23 @@ public class RoomServiceTest {
             assertEquals(reservableRoomId, result.ReservableRoomId());
         }
 
-        @Test
-        void 利用可能な会議室を削除する() {
-            ReservableRoomId reservableRoomId = new ReservableRoomId(1, LocalDate.of(2022, 1, 1));
-            roomService.registReservableRoom(reservableRoomId);
-            roomService.deleteReservableRoom(reservableRoomId);
-            ReservableRoom result = roomService.findReservableRoomById(reservableRoomId);
+        @Nested
+        class 利用可能な会議室を削除する {
+            @Test
+            void 新規登録した利用可能な会議室を削除する() {
+                ReservableRoomId reservableRoomId = new ReservableRoomId(1, LocalDate.of(2022, 1, 1));
+                roomService.registReservableRoom(reservableRoomId);
+                roomService.deleteReservableRoom(reservableRoomId);
+                ReservableRoom result = roomService.findReservableRoomById(reservableRoomId);
 
-            assertNull(result);
+                assertNull(result);
+            }
+
+            @Test
+            void 予約済みの会議室は削除できない() {
+                ReservableRoomId reservableRoomId = new ReservableRoomId(1, LocalDate.of(2020, 1, 1));
+                assertThrows(ReservableRoomAlreadyReservedException.class, () -> roomService.deleteReservableRoom(reservableRoomId));
+            }
         }
     }
 }

@@ -76,6 +76,11 @@ public class RoomService {
      * 会議室を削除する
      */
     public void deleteMeetingRoom(int id) {
+        MeetingRoom meetingRoom = meetingRoomRepository.getById(new RoomId(id));
+        var usedReservableRoom = meetingRoom.getReservableRooms().stream().filter(reservableRoom -> reservableRoom.MeetingRoom().equals(meetingRoom));
+        if (usedReservableRoom.findAny().isPresent()) {
+            throw new MeetingRoomAlreadyUsedException(message.getMessageByKey("meeting_room_already_used"));
+        }
         meetingRoomRepository.deleteById(new RoomId(id));
     }
 
@@ -92,9 +97,7 @@ public class RoomService {
     public void registReservableRoom(ReservableRoomId reservableRoomId) {
         ReservableRoom result = reservableRoomRepository.findReservableRoom(reservableRoomId);
         if (result != null)
-            throw new UserAlreadyRegistException(message.getMessageByKey("reservable_room_already_regist"));
-        if (result != null && result.getReservations().size() > 0)
-            throw new UserAlreadyRegistException(message.getMessageByKey("reservable_room_already_reserved"));
+            throw new ReservableRoomAlreadyRegistException(message.getMessageByKey("reservable_room_already_regist"));
 
         reservableRoomRepository.save(reservableRoomId);
     }
@@ -103,6 +106,12 @@ public class RoomService {
      * 予約可能会議室を削除する
      */
     public void deleteReservableRoom(ReservableRoomId reservableRoomId) {
+        ReservableRoom result = reservableRoomRepository.findReservableRoom(reservableRoomId);
+        if (result == null)
+            throw new ReservableNotExitException(message.getMessageByKey("reservable_room_not_exist"));
+        if (result.getReservations().size() > 0)
+            throw new ReservableRoomAlreadyReservedException(message.getMessageByKey("reservable_room_already_reserved"));
+
         reservableRoomRepository.deleteReservableRoom(reservableRoomId);
     }
 
