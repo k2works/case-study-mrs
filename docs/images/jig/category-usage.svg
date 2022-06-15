@@ -5,24 +5,24 @@
  -->
 <!-- Title: 区分使用図 Pages: 1 -->
 <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1203pt"
-     height="1226pt" viewBox="0.00 0.00 1202.96 1226.00" xmlns="http://www.w3.org/2000/svg">
-    <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 1222)">
+     height="1498pt" viewBox="0.00 0.00 1202.96 1497.64" xmlns="http://www.w3.org/2000/svg">
+    <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 1493.64)">
         <title>区分使用図</title>
-        <polygon fill="white" stroke="transparent" points="-4,4 -4,-1222 1198.96,-1222 1198.96,4 -4,4"/>
+        <polygon fill="white" stroke="transparent" points="-4,4 -4,-1493.64 1198.96,-1493.64 1198.96,4 -4,4"/>
         <text text-anchor="middle" x="597.48" y="-7.8" font-family="Times New Roman,serif" font-size="14.00">区分使用図
         </text>
         <!-- mrs.domain.model.auth.user.RoleName -->
         <g id="node1" class="node">
             <title>mrs.domain.model.auth.user.RoleName</title>
             <polygon fill="#eedd82" stroke="black"
-                     points="1194.96,-945 1095.96,-945 1091.96,-941 1091.96,-907 1190.96,-907 1194.96,-911 1194.96,-945"/>
-            <polyline fill="none" stroke="black" points="1190.96,-941 1091.96,-941 "/>
-            <polyline fill="none" stroke="black" points="1190.96,-941 1190.96,-907 "/>
-            <polyline fill="none" stroke="black" points="1190.96,-941 1194.96,-945 "/>
-            <text text-anchor="middle" x="1143.46" y="-929.8" font-family="Times New Roman,serif" font-size="14.00">
+                     points="1194.96,-1309.64 1095.96,-1309.64 1091.96,-1305.64 1091.96,-1271.64 1190.96,-1271.64 1194.96,-1275.64 1194.96,-1309.64"/>
+            <polyline fill="none" stroke="black" points="1190.96,-1305.64 1091.96,-1305.64 "/>
+            <polyline fill="none" stroke="black" points="1190.96,-1305.64 1190.96,-1271.64 "/>
+            <polyline fill="none" stroke="black" points="1190.96,-1305.64 1194.96,-1309.64 "/>
+            <text text-anchor="middle" x="1143.46" y="-1294.44" font-family="Times New Roman,serif" font-size="14.00">
                 利用者区分
             </text>
-            <text text-anchor="middle" x="1143.46" y="-914.8" font-family="Times New Roman,serif" font-size="14.00">
+            <text text-anchor="middle" x="1143.46" y="-1279.44" font-family="Times New Roman,serif" font-size="14.00">
                 RoleName
             </text>
         </g>
@@ -34,20 +34,21 @@
             <g id="a_node2">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/scenario/MeetingRoomReservationScenario.java"
                    xlink:title="MeetingRoomReservationScenario.cancel(Reservation)">
-                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-797" rx="133.78" ry="18"/>
-                    <text text-anchor="middle" x="201.48" y="-793.3" font-family="Times New Roman,serif"
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-650.64" rx="133.78" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-646.94" font-family="Times New Roman,serif"
                           font-size="14.00">会議室の予約を取り消す
                     </text>
                 </a>
             </g>
         </g>
         <!-- mrs.domain.model.reservation.reservation.Reservation -->
-        <g id="node28" class="node">
+        <g id="node31" class="node">
             <title>mrs.domain.model.reservation.reservation.Reservation</title>
-            <polygon fill="white" stroke="black" points="706.46,-700 623.46,-700 623.46,-662 706.46,-662 706.46,-700"/>
-            <text text-anchor="middle" x="664.96" y="-684.8" font-family="Times New Roman,serif" font-size="14.00">予約
+            <polygon fill="white" stroke="black"
+                     points="706.46,-831.64 623.46,-831.64 623.46,-793.64 706.46,-793.64 706.46,-831.64"/>
+            <text text-anchor="middle" x="664.96" y="-816.44" font-family="Times New Roman,serif" font-size="14.00">予約
             </text>
-            <text text-anchor="middle" x="664.96" y="-669.8" font-family="Times New Roman,serif" font-size="14.00">
+            <text text-anchor="middle" x="664.96" y="-801.44" font-family="Times New Roman,serif" font-size="14.00">
                 Reservation
             </text>
         </g>
@@ -57,44 +58,44 @@
                 mrs.application.scenario.MeetingRoomReservationScenario#cancel(mrs.domain.model.reservation.reservation.Reservation)&#45;&gt;mrs.domain.model.reservation.reservation.Reservation
             </title>
             <path fill="none" stroke="black"
-                  d="M310.09,-786.43C340.35,-782.4 373.14,-777.02 402.96,-770 477.98,-752.34 561.86,-721.69 613.79,-701.38"/>
-            <polygon fill="black" stroke="black" points="615.08,-704.63 623.11,-697.71 612.52,-698.12 615.08,-704.63"/>
+                  d="M312.08,-660.81C341.83,-664.82 373.85,-670.27 402.96,-677.64 467.46,-693.96 483.91,-699.99 542.96,-730.64 574.46,-746.99 607.65,-769.94 631.28,-787.41"/>
+            <polygon fill="black" stroke="black" points="629.43,-790.39 639.54,-793.57 633.62,-784.78 629.43,-790.39"/>
         </g>
-        <!-- mrs.application.scenario.MeetingRoomReservationScenario#findMeetingRoom(mrs.domain.model.reservation.room.RoomId) -->
+        <!-- mrs.application.scenario.MeetingRoomReservationScenario#findMeetingRoom(mrs.domain.model.property.room.RoomId) -->
         <g id="node3" class="node">
             <title>
-                mrs.application.scenario.MeetingRoomReservationScenario#findMeetingRoom(mrs.domain.model.reservation.room.RoomId)
+                mrs.application.scenario.MeetingRoomReservationScenario#findMeetingRoom(mrs.domain.model.property.room.RoomId)
             </title>
             <g id="a_node3">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/scenario/MeetingRoomReservationScenario.java"
                    xlink:title="MeetingRoomReservationScenario.findMeetingRoom(RoomId)">
-                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-95" rx="167.87" ry="18"/>
-                    <text text-anchor="middle" x="201.48" y="-91.3" font-family="Times New Roman,serif"
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-1028.64" rx="167.87" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-1024.94" font-family="Times New Roman,serif"
                           font-size="14.00">選択した会議室情報を取得する
                     </text>
                 </a>
             </g>
         </g>
-        <!-- mrs.domain.model.reservation.room.MeetingRoom -->
+        <!-- mrs.domain.model.property.room.MeetingRoom -->
         <g id="node30" class="node">
-            <title>mrs.domain.model.reservation.room.MeetingRoom</title>
+            <title>mrs.domain.model.property.room.MeetingRoom</title>
             <polygon fill="white" stroke="black"
-                     points="1055.96,-222 959.96,-222 959.96,-184 1055.96,-184 1055.96,-222"/>
-            <text text-anchor="middle" x="1007.96" y="-206.8" font-family="Times New Roman,serif" font-size="14.00">
+                     points="1055.96,-426.64 959.96,-426.64 959.96,-388.64 1055.96,-388.64 1055.96,-426.64"/>
+            <text text-anchor="middle" x="1007.96" y="-411.44" font-family="Times New Roman,serif" font-size="14.00">
                 会議室
             </text>
-            <text text-anchor="middle" x="1007.96" y="-191.8" font-family="Times New Roman,serif" font-size="14.00">
+            <text text-anchor="middle" x="1007.96" y="-396.44" font-family="Times New Roman,serif" font-size="14.00">
                 MeetingRoom
             </text>
         </g>
-        <!-- mrs.application.scenario.MeetingRoomReservationScenario#findMeetingRoom(mrs.domain.model.reservation.room.RoomId)&#45;&gt;mrs.domain.model.reservation.room.MeetingRoom -->
+        <!-- mrs.application.scenario.MeetingRoomReservationScenario#findMeetingRoom(mrs.domain.model.property.room.RoomId)&#45;&gt;mrs.domain.model.property.room.MeetingRoom -->
         <g id="edge19" class="edge">
             <title>
-                mrs.application.scenario.MeetingRoomReservationScenario#findMeetingRoom(mrs.domain.model.reservation.room.RoomId)&#45;&gt;mrs.domain.model.reservation.room.MeetingRoom
+                mrs.application.scenario.MeetingRoomReservationScenario#findMeetingRoom(mrs.domain.model.property.room.RoomId)&#45;&gt;mrs.domain.model.property.room.MeetingRoom
             </title>
             <path fill="none" stroke="black"
-                  d="M326.49,-107.06C470.62,-121.87 715.38,-149.45 923.96,-185 932.32,-186.42 941.11,-188.12 949.72,-189.89"/>
-            <polygon fill="black" stroke="black" points="949.2,-193.35 959.7,-191.99 950.64,-186.5 949.2,-193.35"/>
+                  d="M342.18,-1018.79C458.75,-1005.24 625.49,-973.06 750.96,-896.64 843.56,-840.24 869.88,-818.61 923.96,-724.64 979.26,-628.55 998.47,-495.07 1004.49,-436.8"/>
+            <polygon fill="black" stroke="black" points="1007.97,-437.11 1005.46,-426.82 1001,-436.43 1007.97,-437.11"/>
         </g>
         <!-- mrs.application.scenario.MeetingRoomReservationScenario#findOne(mrs.domain.model.reservation.reservation.ReservationId) -->
         <g id="node4" class="node">
@@ -104,8 +105,8 @@
             <g id="a_node4">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/scenario/MeetingRoomReservationScenario.java"
                    xlink:title="MeetingRoomReservationScenario.findOne(ReservationId)">
-                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-743" rx="201.46" ry="18"/>
-                    <text text-anchor="middle" x="201.48" y="-739.3" font-family="Times New Roman,serif"
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-596.64" rx="201.46" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-592.94" font-family="Times New Roman,serif"
                           font-size="14.00">取り消したい会議室の予約を選択する
                     </text>
                 </a>
@@ -116,42 +117,45 @@
             <title>
                 mrs.application.scenario.MeetingRoomReservationScenario#findOne(mrs.domain.model.reservation.reservation.ReservationId)&#45;&gt;mrs.domain.model.reservation.reservation.Reservation
             </title>
-            <path fill="none" stroke="black" d="M313.9,-728.03C409.11,-715.24 541.71,-697.43 613.29,-687.81"/>
-            <polygon fill="black" stroke="black" points="613.95,-691.25 623.4,-686.45 613.02,-684.31 613.95,-691.25"/>
+            <path fill="none" stroke="black"
+                  d="M344.58,-609.32C409.66,-620.67 485,-642.12 542.96,-682.64 584.37,-711.58 622.33,-756.72 644.3,-785.47"/>
+            <polygon fill="black" stroke="black" points="641.52,-787.59 650.33,-793.48 647.11,-783.38 641.52,-787.59"/>
         </g>
-        <!-- mrs.application.scenario.MeetingRoomReservationScenario#findReservations(mrs.domain.model.reservation.reservation.ReservableRoomId) -->
+        <!-- mrs.application.scenario.MeetingRoomReservationScenario#findReservations(mrs.domain.model.reservation.room.ReservableRoomId) -->
         <g id="node5" class="node">
             <title>
-                mrs.application.scenario.MeetingRoomReservationScenario#findReservations(mrs.domain.model.reservation.reservation.ReservableRoomId)
+                mrs.application.scenario.MeetingRoomReservationScenario#findReservations(mrs.domain.model.reservation.room.ReservableRoomId)
             </title>
             <g id="a_node5">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/scenario/MeetingRoomReservationScenario.java"
                    xlink:title="MeetingRoomReservationScenario.findReservations(ReservableRoomId)">
-                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-527" rx="156.77" ry="18"/>
-                    <text text-anchor="middle" x="201.48" y="-523.3" font-family="Times New Roman,serif"
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-704.64" rx="156.77" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-700.94" font-family="Times New Roman,serif"
                           font-size="14.00">予約可能な会議室を選択する
                     </text>
                 </a>
             </g>
         </g>
         <!-- mrs.domain.model.reservation.reservation.ReservationList -->
-        <g id="node29" class="node">
+        <g id="node32" class="node">
             <title>mrs.domain.model.reservation.reservation.ReservationList</title>
-            <polygon fill="white" stroke="black" points="542.96,-546 438.96,-546 438.96,-508 542.96,-508 542.96,-546"/>
-            <text text-anchor="middle" x="490.96" y="-530.8" font-family="Times New Roman,serif" font-size="14.00">
+            <polygon fill="white" stroke="black"
+                     points="542.96,-777.64 438.96,-777.64 438.96,-739.64 542.96,-739.64 542.96,-777.64"/>
+            <text text-anchor="middle" x="490.96" y="-762.44" font-family="Times New Roman,serif" font-size="14.00">
                 予約一覧
             </text>
-            <text text-anchor="middle" x="490.96" y="-515.8" font-family="Times New Roman,serif" font-size="14.00">
+            <text text-anchor="middle" x="490.96" y="-747.44" font-family="Times New Roman,serif" font-size="14.00">
                 ReservationList
             </text>
         </g>
-        <!-- mrs.application.scenario.MeetingRoomReservationScenario#findReservations(mrs.domain.model.reservation.reservation.ReservableRoomId)&#45;&gt;mrs.domain.model.reservation.reservation.ReservationList -->
+        <!-- mrs.application.scenario.MeetingRoomReservationScenario#findReservations(mrs.domain.model.reservation.room.ReservableRoomId)&#45;&gt;mrs.domain.model.reservation.reservation.ReservationList -->
         <g id="edge21" class="edge">
             <title>
-                mrs.application.scenario.MeetingRoomReservationScenario#findReservations(mrs.domain.model.reservation.reservation.ReservableRoomId)&#45;&gt;mrs.domain.model.reservation.reservation.ReservationList
+                mrs.application.scenario.MeetingRoomReservationScenario#findReservations(mrs.domain.model.reservation.room.ReservableRoomId)&#45;&gt;mrs.domain.model.reservation.reservation.ReservationList
             </title>
-            <path fill="none" stroke="black" d="M358.42,-527C383.26,-527 407.62,-527 428.48,-527"/>
-            <polygon fill="black" stroke="black" points="428.75,-530.5 438.75,-527 428.75,-523.5 428.75,-530.5"/>
+            <path fill="none" stroke="black"
+                  d="M317.56,-716.79C345.66,-720.67 375.53,-725.58 402.96,-731.64 411.49,-733.52 420.39,-735.85 429.1,-738.34"/>
+            <polygon fill="black" stroke="black" points="428.24,-741.74 438.82,-741.21 430.22,-735.03 428.24,-741.74"/>
         </g>
         <!-- mrs.application.scenario.MeetingRoomReservationScenario#reserve(mrs.domain.model.reservation.reservation.Reservation) -->
         <g id="node6" class="node">
@@ -161,8 +165,8 @@
             <g id="a_node6">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/scenario/MeetingRoomReservationScenario.java"
                    xlink:title="MeetingRoomReservationScenario.reserve(Reservation)">
-                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-689" rx="100.98" ry="18"/>
-                    <text text-anchor="middle" x="201.48" y="-685.3" font-family="Times New Roman,serif"
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-920.64" rx="100.98" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-916.94" font-family="Times New Roman,serif"
                           font-size="14.00">会議室を予約する
                     </text>
                 </a>
@@ -173,8 +177,9 @@
             <title>
                 mrs.application.scenario.MeetingRoomReservationScenario#reserve(mrs.domain.model.reservation.reservation.Reservation)&#45;&gt;mrs.domain.model.reservation.reservation.Reservation
             </title>
-            <path fill="none" stroke="black" d="M301.77,-687.28C397.53,-685.62 538.62,-683.17 613.3,-681.88"/>
-            <polygon fill="black" stroke="black" points="613.44,-685.38 623.38,-681.7 613.32,-678.38 613.44,-685.38"/>
+            <path fill="none" stroke="black"
+                  d="M290.37,-912.02C325.61,-907.74 366.44,-901.71 402.96,-893.64 477.61,-877.15 561.68,-849.34 613.74,-830.98"/>
+            <polygon fill="black" stroke="black" points="615.14,-834.2 623.4,-827.55 612.8,-827.6 615.14,-834.2"/>
         </g>
         <!-- mrs.application.service.auth.UserAuthService#loadUserByUsername(java.lang.String) -->
         <g id="node7" class="node">
@@ -182,8 +187,8 @@
             <g id="a_node7">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/auth/UserAuthService.java"
                    xlink:title="UserAuthService.loadUserByUsername(String)">
-                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-898" rx="100.98" ry="18"/>
-                    <text text-anchor="middle" x="201.48" y="-894.3" font-family="Times New Roman,serif"
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-1223.64" rx="100.98" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-1219.94" font-family="Times New Roman,serif"
                           font-size="14.00">利用者を認証する
                     </text>
                 </a>
@@ -193,17 +198,19 @@
         <g id="edge23" class="edge">
             <title>mrs.application.service.auth.UserAuthService#loadUserByUsername(java.lang.String)&#45;&gt;mrs.domain.model.auth.user.RoleName</title>
             <path fill="none" stroke="black"
-                  d="M256.53,-913.21C373.9,-946.11 643.26,-1021 663.96,-1021 663.96,-1021 663.96,-1021 856.46,-1021 946.48,-1021 1044.68,-978.09 1099.41,-949.95"/>
+                  d="M241.79,-1240.22C320.45,-1271.83 503.45,-1337.64 663.96,-1337.64 663.96,-1337.64 663.96,-1337.64 856.46,-1337.64 935.02,-1337.64 1024.14,-1320.16 1081.71,-1306.52"/>
             <polygon fill="black" stroke="black"
-                     points="1101.21,-952.95 1108.46,-945.22 1097.97,-946.75 1101.21,-952.95"/>
+                     points="1082.83,-1309.85 1091.73,-1304.11 1081.19,-1303.05 1082.83,-1309.85"/>
         </g>
         <!-- mrs.domain.model.auth.user.User -->
-        <g id="node22" class="node">
+        <g id="node26" class="node">
             <title>mrs.domain.model.auth.user.User</title>
-            <polygon fill="white" stroke="black" points="889.46,-945 821.46,-945 821.46,-907 889.46,-907 889.46,-945"/>
-            <text text-anchor="middle" x="855.46" y="-929.8" font-family="Times New Roman,serif" font-size="14.00">利用者
+            <polygon fill="white" stroke="black"
+                     points="889.46,-1186.64 821.46,-1186.64 821.46,-1148.64 889.46,-1148.64 889.46,-1186.64"/>
+            <text text-anchor="middle" x="855.46" y="-1171.44" font-family="Times New Roman,serif" font-size="14.00">
+                利用者
             </text>
-            <text text-anchor="middle" x="855.46" y="-914.8" font-family="Times New Roman,serif" font-size="14.00">
+            <text text-anchor="middle" x="855.46" y="-1156.44" font-family="Times New Roman,serif" font-size="14.00">
                 User
             </text>
         </g>
@@ -211,57 +218,67 @@
         <g id="edge24" class="edge">
             <title>mrs.application.service.auth.UserAuthService#loadUserByUsername(java.lang.String)&#45;&gt;mrs.domain.model.auth.user.User</title>
             <path fill="none" stroke="black"
-                  d="M279.49,-909.44C325.63,-915.72 385.52,-922.85 438.96,-926 574.62,-934 735.63,-930.23 811.21,-927.67"/>
-            <polygon fill="black" stroke="black" points="811.43,-931.17 821.3,-927.32 811.19,-924.17 811.43,-931.17"/>
+                  d="M300.94,-1220.53C411.01,-1216.18 594.36,-1206.38 750.96,-1185.64 770.8,-1183.01 792.63,-1179.33 811.12,-1175.99"/>
+            <polygon fill="black" stroke="black"
+                     points="811.81,-1179.42 821.01,-1174.17 810.54,-1172.53 811.81,-1179.42"/>
         </g>
         <!-- mrs.domain.model.auth.user.UserDetailsImpl -->
-        <g id="node23" class="node">
+        <g id="node27" class="node">
             <title>mrs.domain.model.auth.user.UserDetailsImpl</title>
-            <polygon fill="white" stroke="black" points="717.96,-803 611.96,-803 611.96,-765 717.96,-765 717.96,-803"/>
-            <text text-anchor="middle" x="664.96" y="-787.8" font-family="Times New Roman,serif" font-size="14.00">利用者
+            <polygon fill="white" stroke="black"
+                     points="717.96,-1309.64 611.96,-1309.64 611.96,-1271.64 717.96,-1271.64 717.96,-1309.64"/>
+            <text text-anchor="middle" x="664.96" y="-1294.44" font-family="Times New Roman,serif" font-size="14.00">
+                利用者
             </text>
-            <text text-anchor="middle" x="664.96" y="-772.8" font-family="Times New Roman,serif" font-size="14.00">
+            <text text-anchor="middle" x="664.96" y="-1279.44" font-family="Times New Roman,serif" font-size="14.00">
                 UserDetailsImpl
             </text>
         </g>
         <!-- mrs.application.service.auth.UserAuthService#loadUserByUsername(java.lang.String)&#45;&gt;mrs.domain.model.auth.user.UserDetailsImpl -->
         <g id="edge25" class="edge">
             <title>mrs.application.service.auth.UserAuthService#loadUserByUsername(java.lang.String)&#45;&gt;mrs.domain.model.auth.user.UserDetailsImpl</title>
-            <path fill="none" stroke="black"
-                  d="M282.37,-887.21C352.08,-876.69 455.49,-858.4 542.96,-832 559.56,-826.99 562.88,-823.47 578.96,-817 587.18,-813.69 595.86,-810.26 604.42,-806.9"/>
-            <polygon fill="black" stroke="black" points="605.95,-810.06 613.99,-803.17 603.41,-803.54 605.95,-810.06"/>
+            <path fill="none" stroke="black" d="M280.24,-1234.93C370.74,-1248.07 518.38,-1269.5 601.67,-1281.6"/>
+            <polygon fill="black" stroke="black"
+                     points="601.35,-1285.09 611.75,-1283.06 602.36,-1278.16 601.35,-1285.09"/>
         </g>
         <!-- mrs.domain.model.auth.user.administrator.Administrator -->
-        <g id="node24" class="node">
+        <g id="node28" class="node">
             <title>mrs.domain.model.auth.user.administrator.Administrator</title>
-            <polygon fill="white" stroke="black" points="537.46,-823 444.46,-823 444.46,-785 537.46,-785 537.46,-823"/>
-            <text text-anchor="middle" x="490.96" y="-807.8" font-family="Times New Roman,serif" font-size="14.00">管理者
+            <polygon fill="white" stroke="black"
+                     points="537.46,-1195.64 444.46,-1195.64 444.46,-1157.64 537.46,-1157.64 537.46,-1195.64"/>
+            <text text-anchor="middle" x="490.96" y="-1180.44" font-family="Times New Roman,serif" font-size="14.00">
+                管理者
             </text>
-            <text text-anchor="middle" x="490.96" y="-792.8" font-family="Times New Roman,serif" font-size="14.00">
+            <text text-anchor="middle" x="490.96" y="-1165.44" font-family="Times New Roman,serif" font-size="14.00">
                 Administrator
             </text>
         </g>
         <!-- mrs.application.service.auth.UserAuthService#loadUserByUsername(java.lang.String)&#45;&gt;mrs.domain.model.auth.user.administrator.Administrator -->
         <g id="edge26" class="edge">
             <title>mrs.application.service.auth.UserAuthService#loadUserByUsername(java.lang.String)&#45;&gt;mrs.domain.model.auth.user.administrator.Administrator</title>
-            <path fill="none" stroke="black" d="M250.6,-882.27C301.31,-865.69 381.08,-839.6 434.43,-822.16"/>
-            <polygon fill="black" stroke="black" points="435.65,-825.44 444.07,-819.01 433.48,-818.79 435.65,-825.44"/>
+            <path fill="none" stroke="black" d="M276.52,-1211.54C325.75,-1203.49 389.38,-1193.08 434.32,-1185.74"/>
+            <polygon fill="black" stroke="black"
+                     points="435.16,-1189.15 444.46,-1184.08 434.03,-1182.24 435.16,-1189.15"/>
         </g>
         <!-- mrs.domain.model.auth.user.member.Member -->
-        <g id="node25" class="node">
+        <g id="node29" class="node">
             <title>mrs.domain.model.auth.user.member.Member</title>
-            <polygon fill="white" stroke="black" points="522.46,-917 459.46,-917 459.46,-879 522.46,-879 522.46,-917"/>
-            <text text-anchor="middle" x="490.96" y="-901.8" font-family="Times New Roman,serif" font-size="14.00">会員
+            <polygon fill="white" stroke="black"
+                     points="522.46,-1053.64 459.46,-1053.64 459.46,-1015.64 522.46,-1015.64 522.46,-1053.64"/>
+            <text text-anchor="middle" x="490.96" y="-1038.44" font-family="Times New Roman,serif" font-size="14.00">
+                会員
             </text>
-            <text text-anchor="middle" x="490.96" y="-886.8" font-family="Times New Roman,serif" font-size="14.00">
+            <text text-anchor="middle" x="490.96" y="-1023.44" font-family="Times New Roman,serif" font-size="14.00">
                 Member
             </text>
         </g>
         <!-- mrs.application.service.auth.UserAuthService#loadUserByUsername(java.lang.String)&#45;&gt;mrs.domain.model.auth.user.member.Member -->
         <g id="edge27" class="edge">
             <title>mrs.application.service.auth.UserAuthService#loadUserByUsername(java.lang.String)&#45;&gt;mrs.domain.model.auth.user.member.Member</title>
-            <path fill="none" stroke="black" d="M302.63,-898C352.99,-898 411.23,-898 449.24,-898"/>
-            <polygon fill="black" stroke="black" points="449.4,-901.5 459.4,-898 449.4,-894.5 449.4,-901.5"/>
+            <path fill="none" stroke="black"
+                  d="M288.97,-1214.5C326.77,-1207.12 369.92,-1193.77 402.96,-1169.64 440.15,-1142.49 465.56,-1094.19 478.92,-1063.33"/>
+            <polygon fill="black" stroke="black"
+                     points="482.2,-1064.55 482.83,-1053.97 475.74,-1061.85 482.2,-1064.55"/>
         </g>
         <!-- mrs.application.service.auth.UserManagementService#findAll() -->
         <g id="node8" class="node">
@@ -269,8 +286,8 @@
             <g id="a_node8">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/auth/UserManagementService.java"
                    xlink:title="UserManagementService.findAll()">
-                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-1059" rx="100.98" ry="18"/>
-                    <text text-anchor="middle" x="201.48" y="-1055.3" font-family="Times New Roman,serif"
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-1088.64" rx="100.98" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-1084.94" font-family="Times New Roman,serif"
                           font-size="14.00">利用者を確認する
                     </text>
                 </a>
@@ -282,8 +299,9 @@
                 mrs.application.service.auth.UserManagementService#findAll()&#45;&gt;mrs.domain.model.auth.user.User
             </title>
             <path fill="none" stroke="black"
-                  d="M288.68,-1049.82C397.7,-1036.97 590.56,-1010.11 750.96,-966 771.37,-960.39 793.32,-952.23 811.73,-944.74"/>
-            <polygon fill="black" stroke="black" points="813.11,-947.96 821.01,-940.9 810.43,-941.49 813.11,-947.96"/>
+                  d="M295.55,-1095.29C404.97,-1103.81 591.86,-1120.54 750.96,-1145.64 770.87,-1148.78 792.72,-1153.27 811.19,-1157.37"/>
+            <polygon fill="black" stroke="black"
+                     points="810.55,-1160.82 821.07,-1159.6 812.09,-1153.99 810.55,-1160.82"/>
         </g>
         <!-- mrs.application.service.auth.UserManagementService#findOne(mrs.domain.model.auth.user.UserId) -->
         <g id="node9" class="node">
@@ -291,8 +309,8 @@
             <g id="a_node9">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/auth/UserManagementService.java"
                    xlink:title="UserManagementService.findOne(UserId)">
-                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-983" rx="100.98" ry="18"/>
-                    <text text-anchor="middle" x="201.48" y="-979.3" font-family="Times New Roman,serif"
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-1142.64" rx="100.98" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-1138.94" font-family="Times New Roman,serif"
                           font-size="14.00">利用者を検索する
                     </text>
                 </a>
@@ -302,8 +320,9 @@
         <g id="edge29" class="edge">
             <title>mrs.application.service.auth.UserManagementService#findOne(mrs.domain.model.auth.user.UserId)&#45;&gt;mrs.domain.model.auth.user.User</title>
             <path fill="none" stroke="black"
-                  d="M299.86,-979.06C409.74,-973.91 593.67,-963.22 750.96,-944 770.82,-941.57 792.66,-937.92 811.14,-934.54"/>
-            <polygon fill="black" stroke="black" points="811.84,-937.97 821.03,-932.7 810.56,-931.09 811.84,-937.97"/>
+                  d="M302.33,-1143.26C370.21,-1143.97 462.03,-1145.46 542.96,-1148.64 638.72,-1152.4 750.86,-1160.04 811.03,-1164.4"/>
+            <polygon fill="black" stroke="black"
+                     points="811.07,-1167.91 821.3,-1165.14 811.58,-1160.93 811.07,-1167.91"/>
         </g>
         <!-- mrs.application.service.auth.UserManagementService#regist(mrs.domain.model.auth.user.User) -->
         <g id="node10" class="node">
@@ -311,8 +330,8 @@
             <g id="a_node10">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/auth/UserManagementService.java"
                    xlink:title="UserManagementService.regist(User)">
-                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-1200" rx="100.98" ry="18"/>
-                    <text text-anchor="middle" x="201.48" y="-1196.3" font-family="Times New Roman,serif"
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-1470.64" rx="100.98" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-1466.94" font-family="Times New Roman,serif"
                           font-size="14.00">利用者を登録する
                     </text>
                 </a>
@@ -322,15 +341,17 @@
         <g id="edge30" class="edge">
             <title>mrs.application.service.auth.UserManagementService#regist(mrs.domain.model.auth.user.User)&#45;&gt;mrs.domain.model.auth.user.RoleName</title>
             <path fill="none" stroke="black"
-                  d="M300.15,-1203.68C393.54,-1206.88 538.34,-1211 663.96,-1211 663.96,-1211 663.96,-1211 856.46,-1211 911.96,-1211 1054.18,-1115.92 1055.96,-1114 1099.39,-1067.24 1124.2,-994.86 1135.32,-954.92"/>
-            <polygon fill="black" stroke="black" points="1138.76,-955.6 1137.97,-945.04 1132,-953.79 1138.76,-955.6"/>
+                  d="M296.56,-1476.78C389.79,-1482.33 536.67,-1489.64 663.96,-1489.64 663.96,-1489.64 663.96,-1489.64 856.46,-1489.64 975.32,-1489.64 1080.21,-1372.41 1122.55,-1317.9"/>
+            <polygon fill="black" stroke="black"
+                     points="1125.51,-1319.79 1128.8,-1309.72 1119.95,-1315.54 1125.51,-1319.79"/>
         </g>
         <!-- mrs.application.service.auth.UserManagementService#regist(mrs.domain.model.auth.user.User)&#45;&gt;mrs.domain.model.auth.user.User -->
         <g id="edge31" class="edge">
             <title>mrs.application.service.auth.UserManagementService#regist(mrs.domain.model.auth.user.User)&#45;&gt;mrs.domain.model.auth.user.User</title>
             <path fill="none" stroke="black"
-                  d="M288.7,-1190.79C402.44,-1175.32 605.24,-1136.01 750.96,-1042 786.83,-1018.87 817.87,-980.05 836.37,-953.76"/>
-            <polygon fill="black" stroke="black" points="839.37,-955.58 842.15,-945.36 833.6,-951.61 839.37,-955.58"/>
+                  d="M301.03,-1473.48C419.14,-1471.96 617.74,-1453.18 750.96,-1354.64 804.73,-1314.87 834.09,-1238.42 846.76,-1196.64"/>
+            <polygon fill="black" stroke="black"
+                     points="850.19,-1197.39 849.63,-1186.81 843.47,-1195.43 850.19,-1197.39"/>
         </g>
         <!-- mrs.application.service.auth.UserManagementService#update(mrs.domain.model.auth.user.User) -->
         <g id="node11" class="node">
@@ -338,8 +359,8 @@
             <g id="a_node11">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/auth/UserManagementService.java"
                    xlink:title="UserManagementService.update(User)">
-                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-1124" rx="100.98" ry="18"/>
-                    <text text-anchor="middle" x="201.48" y="-1120.3" font-family="Times New Roman,serif"
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-1394.64" rx="100.98" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-1390.94" font-family="Times New Roman,serif"
                           font-size="14.00">利用者を更新する
                     </text>
                 </a>
@@ -349,16 +370,17 @@
         <g id="edge32" class="edge">
             <title>mrs.application.service.auth.UserManagementService#update(mrs.domain.model.auth.user.User)&#45;&gt;mrs.domain.model.auth.user.RoleName</title>
             <path fill="none" stroke="black"
-                  d="M274.57,-1136.43C365.17,-1150.94 525.59,-1173 663.96,-1173 663.96,-1173 663.96,-1173 856.46,-1173 989.03,-1173 1090.51,-1019.12 1127.38,-954.27"/>
+                  d="M302.38,-1394.96C370.28,-1394.66 462.1,-1393.27 542.96,-1388.64 712.82,-1378.91 754.91,-1370.73 923.96,-1351.64 982.74,-1345 999.44,-1352.08 1055.96,-1334.64 1071.81,-1329.75 1088.26,-1322.11 1102.51,-1314.57"/>
             <polygon fill="black" stroke="black"
-                     points="1130.53,-955.82 1132.35,-945.38 1124.42,-952.4 1130.53,-955.82"/>
+                     points="1104.42,-1317.51 1111.52,-1309.65 1101.07,-1311.37 1104.42,-1317.51"/>
         </g>
         <!-- mrs.application.service.auth.UserManagementService#update(mrs.domain.model.auth.user.User)&#45;&gt;mrs.domain.model.auth.user.User -->
         <g id="edge33" class="edge">
             <title>mrs.application.service.auth.UserManagementService#update(mrs.domain.model.auth.user.User)&#45;&gt;mrs.domain.model.auth.user.User</title>
             <path fill="none" stroke="black"
-                  d="M290.11,-1115.24C401.45,-1101.63 597.58,-1069.28 750.96,-999 777.73,-986.74 804.8,-967.34 824.55,-951.62"/>
-            <polygon fill="black" stroke="black" points="826.97,-954.15 832.54,-945.14 822.56,-948.72 826.97,-954.15"/>
+                  d="M299.63,-1390.54C436.45,-1383.2 677.43,-1364.11 750.96,-1318.64 797.46,-1289.89 828.21,-1231.6 843.37,-1196.45"/>
+            <polygon fill="black" stroke="black"
+                     points="846.79,-1197.34 847.41,-1186.76 840.33,-1194.65 846.79,-1197.34"/>
         </g>
         <!-- mrs.application.service.reservation.ReservationService#cancel(mrs.domain.model.reservation.reservation.Reservation) -->
         <g id="node12" class="node">
@@ -368,8 +390,8 @@
             <g id="a_node12">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/reservation/ReservationService.java"
                    xlink:title="ReservationService.cancel(Reservation)">
-                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-635" rx="133.78" ry="18"/>
-                    <text text-anchor="middle" x="201.48" y="-631.3" font-family="Times New Roman,serif"
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-866.64" rx="133.78" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-862.94" font-family="Times New Roman,serif"
                           font-size="14.00">会議室の予約を取り消す
                     </text>
                 </a>
@@ -380,8 +402,8 @@
             <title>
                 mrs.application.service.reservation.ReservationService#cancel(mrs.domain.model.reservation.reservation.Reservation)&#45;&gt;mrs.domain.model.reservation.reservation.Reservation
             </title>
-            <path fill="none" stroke="black" d="M309.52,-645.67C404.94,-655.18 540.43,-668.69 613.15,-675.94"/>
-            <polygon fill="black" stroke="black" points="613.12,-679.45 623.42,-676.96 613.81,-672.48 613.12,-679.45"/>
+            <path fill="none" stroke="black" d="M303.19,-854.86C398.93,-843.65 539.03,-827.26 613.33,-818.57"/>
+            <polygon fill="black" stroke="black" points="613.84,-822.03 623.36,-817.39 613.02,-815.08 613.84,-822.03"/>
         </g>
         <!-- mrs.application.service.reservation.ReservationService#findOne(mrs.domain.model.reservation.reservation.ReservationId) -->
         <g id="node13" class="node">
@@ -391,8 +413,8 @@
             <g id="a_node13">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/reservation/ReservationService.java"
                    xlink:title="ReservationService.findOne(ReservationId)">
-                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-581" rx="133.78" ry="18"/>
-                    <text text-anchor="middle" x="201.48" y="-577.3" font-family="Times New Roman,serif"
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-812.64" rx="133.78" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-808.94" font-family="Times New Roman,serif"
                           font-size="14.00">会議室の予約を検索する
                     </text>
                 </a>
@@ -403,33 +425,31 @@
             <title>
                 mrs.application.service.reservation.ReservationService#findOne(mrs.domain.model.reservation.reservation.ReservationId)&#45;&gt;mrs.domain.model.reservation.reservation.Reservation
             </title>
-            <path fill="none" stroke="black"
-                  d="M306.48,-592.22C337.66,-596.33 371.84,-601.58 402.96,-608 477.21,-623.31 561.38,-648.26 613.58,-664.66"/>
-            <polygon fill="black" stroke="black" points="612.67,-668.04 623.26,-667.72 614.78,-661.37 612.67,-668.04"/>
+            <path fill="none" stroke="black" d="M335.65,-812.64C428.4,-812.64 546.93,-812.64 613.21,-812.64"/>
+            <polygon fill="black" stroke="black" points="613.39,-816.14 623.39,-812.64 613.39,-809.14 613.39,-816.14"/>
         </g>
-        <!-- mrs.application.service.reservation.ReservationService#findReservations(mrs.domain.model.reservation.reservation.ReservableRoomId) -->
+        <!-- mrs.application.service.reservation.ReservationService#findReservations(mrs.domain.model.reservation.room.ReservableRoomId) -->
         <g id="node14" class="node">
             <title>
-                mrs.application.service.reservation.ReservationService#findReservations(mrs.domain.model.reservation.reservation.ReservableRoomId)
+                mrs.application.service.reservation.ReservationService#findReservations(mrs.domain.model.reservation.room.ReservableRoomId)
             </title>
             <g id="a_node14">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/reservation/ReservationService.java"
                    xlink:title="ReservationService.findReservations(ReservableRoomId)">
-                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-473" rx="156.77" ry="18"/>
-                    <text text-anchor="middle" x="201.48" y="-469.3" font-family="Times New Roman,serif"
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-758.64" rx="156.77" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-754.94" font-family="Times New Roman,serif"
                           font-size="14.00">会議室の予約一覧を取得する
                     </text>
                 </a>
             </g>
         </g>
-        <!-- mrs.application.service.reservation.ReservationService#findReservations(mrs.domain.model.reservation.reservation.ReservableRoomId)&#45;&gt;mrs.domain.model.reservation.reservation.ReservationList -->
+        <!-- mrs.application.service.reservation.ReservationService#findReservations(mrs.domain.model.reservation.room.ReservableRoomId)&#45;&gt;mrs.domain.model.reservation.reservation.ReservationList -->
         <g id="edge36" class="edge">
             <title>
-                mrs.application.service.reservation.ReservationService#findReservations(mrs.domain.model.reservation.reservation.ReservableRoomId)&#45;&gt;mrs.domain.model.reservation.reservation.ReservationList
+                mrs.application.service.reservation.ReservationService#findReservations(mrs.domain.model.reservation.room.ReservableRoomId)&#45;&gt;mrs.domain.model.reservation.reservation.ReservationList
             </title>
-            <path fill="none" stroke="black"
-                  d="M317.56,-485.14C345.66,-489.03 375.53,-493.94 402.96,-500 411.49,-501.88 420.39,-504.21 429.1,-506.7"/>
-            <polygon fill="black" stroke="black" points="428.24,-510.1 438.82,-509.57 430.22,-503.38 428.24,-510.1"/>
+            <path fill="none" stroke="black" d="M358.42,-758.64C383.26,-758.64 407.62,-758.64 428.48,-758.64"/>
+            <polygon fill="black" stroke="black" points="428.75,-762.14 438.75,-758.64 428.75,-755.14 428.75,-762.14"/>
         </g>
         <!-- mrs.application.service.reservation.ReservationService#reserve(mrs.domain.model.reservation.reservation.Reservation) -->
         <g id="node15" class="node">
@@ -439,299 +459,404 @@
             <g id="a_node15">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/reservation/ReservationService.java"
                    xlink:title="ReservationService.reserve(Reservation)">
-                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-419" rx="100.98" ry="18"/>
-                    <text text-anchor="middle" x="201.48" y="-415.3" font-family="Times New Roman,serif"
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-488.64" rx="100.98" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-484.94" font-family="Times New Roman,serif"
                           font-size="14.00">会議室を予約する
                     </text>
                 </a>
             </g>
         </g>
-        <!-- mrs.domain.model.reservation.reservation.ReservableRoom -->
-        <g id="node26" class="node">
-            <title>mrs.domain.model.reservation.reservation.ReservableRoom</title>
-            <polygon fill="white" stroke="black" points="923.96,-384 786.96,-384 786.96,-346 923.96,-346 923.96,-384"/>
-            <text text-anchor="middle" x="855.46" y="-368.8" font-family="Times New Roman,serif" font-size="14.00">
-                予約可能会議室
-            </text>
-            <text text-anchor="middle" x="855.46" y="-353.8" font-family="Times New Roman,serif" font-size="14.00">
-                ReservableRoom
-            </text>
-        </g>
-        <!-- mrs.application.service.reservation.ReservationService#reserve(mrs.domain.model.reservation.reservation.Reservation)&#45;&gt;mrs.domain.model.reservation.reservation.ReservableRoom -->
-        <g id="edge37" class="edge">
-            <title>
-                mrs.application.service.reservation.ReservationService#reserve(mrs.domain.model.reservation.reservation.Reservation)&#45;&gt;mrs.domain.model.reservation.reservation.ReservableRoom
-            </title>
-            <path fill="none" stroke="black"
-                  d="M301.97,-420.73C412.36,-421.16 595.46,-417.42 750.96,-393 761.45,-391.35 772.41,-389.05 783.1,-386.46"/>
-            <polygon fill="black" stroke="black" points="783.97,-389.85 792.82,-384.02 782.27,-383.06 783.97,-389.85"/>
-        </g>
         <!-- mrs.application.service.reservation.ReservationService#reserve(mrs.domain.model.reservation.reservation.Reservation)&#45;&gt;mrs.domain.model.reservation.reservation.Reservation -->
-        <g id="edge38" class="edge">
+        <g id="edge37" class="edge">
             <title>
                 mrs.application.service.reservation.ReservationService#reserve(mrs.domain.model.reservation.reservation.Reservation)&#45;&gt;mrs.domain.model.reservation.reservation.Reservation
             </title>
             <path fill="none" stroke="black"
-                  d="M302.09,-420.27C375.75,-426.06 474.71,-444.59 542.96,-499 595.89,-541.19 633.81,-612.95 651.94,-652.59"/>
-            <polygon fill="black" stroke="black" points="648.84,-654.24 656.12,-661.94 655.23,-651.38 648.84,-654.24"/>
+                  d="M301.19,-491.25C334.56,-494.89 371.35,-502.03 402.96,-515.64 529.2,-569.98 617.63,-721 650.17,-784.22"/>
+            <polygon fill="black" stroke="black" points="647.1,-785.9 654.74,-793.24 653.34,-782.74 647.1,-785.9"/>
         </g>
-        <!-- mrs.application.service.room.RoomService#findAll() -->
+        <!-- mrs.domain.model.reservation.room.ReservableRoom -->
+        <g id="node33" class="node">
+            <title>mrs.domain.model.reservation.room.ReservableRoom</title>
+            <polygon fill="white" stroke="black"
+                     points="923.96,-345.64 786.96,-345.64 786.96,-307.64 923.96,-307.64 923.96,-345.64"/>
+            <text text-anchor="middle" x="855.46" y="-330.44" font-family="Times New Roman,serif" font-size="14.00">
+                予約可能会議室
+            </text>
+            <text text-anchor="middle" x="855.46" y="-315.44" font-family="Times New Roman,serif" font-size="14.00">
+                ReservableRoom
+            </text>
+        </g>
+        <!-- mrs.application.service.reservation.ReservationService#reserve(mrs.domain.model.reservation.reservation.Reservation)&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom -->
+        <g id="edge38" class="edge">
+            <title>
+                mrs.application.service.reservation.ReservationService#reserve(mrs.domain.model.reservation.reservation.Reservation)&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom
+            </title>
+            <path fill="none" stroke="black"
+                  d="M289.84,-479.89C325.18,-475.57 366.23,-469.56 402.96,-461.64 543.7,-431.32 704.29,-378.9 790.94,-349.08"/>
+            <polygon fill="black" stroke="black" points="792.31,-352.31 800.62,-345.74 790.03,-345.69 792.31,-352.31"/>
+        </g>
+        <!-- mrs.application.service.room.RoomService#deleteMeetingRoom(int) -->
         <g id="node16" class="node">
-            <title>mrs.application.service.room.RoomService#findAll()</title>
+            <title>mrs.application.service.room.RoomService#deleteMeetingRoom(int)</title>
             <g id="a_node16">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/room/RoomService.java"
+                   xlink:title="RoomService.deleteMeetingRoom(int)">
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-55.64" rx="100.98" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-51.94" font-family="Times New Roman,serif"
+                          font-size="14.00">会議室を削除する
+                    </text>
+                </a>
+            </g>
+        </g>
+        <!-- mrs.application.service.room.RoomService#deleteMeetingRoom(int)&#45;&gt;mrs.domain.model.property.room.MeetingRoom -->
+        <g id="edge39" class="edge">
+            <title>mrs.application.service.room.RoomService#deleteMeetingRoom(int)&#45;&gt;mrs.domain.model.property.room.MeetingRoom</title>
+            <path fill="none" stroke="black"
+                  d="M267.35,-41.98C374.78,-22.84 593.39,1.15 750.96,-80.64 880.31,-147.78 964.99,-312.75 994.91,-379.21"/>
+            <polygon fill="black" stroke="black" points="991.83,-380.91 999.08,-388.64 998.23,-378.08 991.83,-380.91"/>
+        </g>
+        <!-- mrs.application.service.room.RoomService#deleteMeetingRoom(int)&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom -->
+        <g id="edge40" class="edge">
+            <title>mrs.application.service.room.RoomService#deleteMeetingRoom(int)&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom</title>
+            <path fill="none" stroke="black"
+                  d="M297.28,-61.24C444.41,-70.67 714.69,-91.19 750.96,-116.64 812.7,-159.96 839.32,-250.8 849.29,-297.52"/>
+            <polygon fill="black" stroke="black" points="845.91,-298.49 851.33,-307.59 852.77,-297.1 845.91,-298.49"/>
+        </g>
+        <!-- mrs.application.service.room.RoomService#deleteReservableRoom(mrs.domain.model.reservation.room.ReservableRoomId) -->
+        <g id="node17" class="node">
+            <title>
+                mrs.application.service.room.RoomService#deleteReservableRoom(mrs.domain.model.reservation.room.ReservableRoomId)
+            </title>
+            <g id="a_node17">
+                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/room/RoomService.java"
+                   xlink:title="RoomService.deleteReservableRoom(ReservableRoomId)">
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-164.64" rx="145.67" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-160.94" font-family="Times New Roman,serif"
+                          font-size="14.00">予約可能会議室を削除する
+                    </text>
+                </a>
+            </g>
+        </g>
+        <!-- mrs.application.service.room.RoomService#deleteReservableRoom(mrs.domain.model.reservation.room.ReservableRoomId)&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom -->
+        <g id="edge41" class="edge">
+            <title>
+                mrs.application.service.room.RoomService#deleteReservableRoom(mrs.domain.model.reservation.room.ReservableRoomId)&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom
+            </title>
+            <path fill="none" stroke="black"
+                  d="M340.09,-159.09C478.86,-155.75 682.13,-157.7 750.96,-193.64 794.45,-216.34 825.37,-266.35 841.53,-298.17"/>
+            <polygon fill="black" stroke="black" points="838.52,-299.97 846.07,-307.4 844.8,-296.89 838.52,-299.97"/>
+        </g>
+        <!-- mrs.application.service.room.RoomService#findAll() -->
+        <g id="node18" class="node">
+            <title>mrs.application.service.room.RoomService#findAll()</title>
+            <g id="a_node18">
+                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/room/RoomService.java"
                    xlink:title="RoomService.findAll()">
-                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-41" rx="122.68" ry="18"/>
-                    <text text-anchor="middle" x="201.48" y="-37.3" font-family="Times New Roman,serif"
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-974.64" rx="122.68" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-970.94" font-family="Times New Roman,serif"
                           font-size="14.00">会議室一覧を取得する
                     </text>
                 </a>
             </g>
         </g>
-        <!-- mrs.application.service.room.RoomService#findAll()&#45;&gt;mrs.domain.model.reservation.room.MeetingRoom -->
-        <g id="edge39" class="edge">
-            <title>mrs.application.service.room.RoomService#findAll()&#45;&gt;mrs.domain.model.reservation.room.MeetingRoom</title>
+        <!-- mrs.application.service.room.RoomService#findAll()&#45;&gt;mrs.domain.model.property.room.MeetingRoom -->
+        <g id="edge42" class="edge">
+            <title>
+                mrs.application.service.room.RoomService#findAll()&#45;&gt;mrs.domain.model.property.room.MeetingRoom
+            </title>
             <path fill="none" stroke="black"
-                  d="M295.18,-52.64C329.13,-57.13 367.83,-62.5 402.96,-68 635.35,-104.37 700.88,-86.44 923.96,-161 938.01,-165.7 952.65,-172.42 965.65,-179.11"/>
-            <polygon fill="black" stroke="black" points="964.32,-182.37 974.8,-183.96 967.6,-176.18 964.32,-182.37"/>
+                  d="M324.06,-973.2C444.34,-965.81 627.8,-937.74 750.96,-840.64 893.06,-728.62 972.84,-514.29 998.09,-436.64"/>
+            <polygon fill="black" stroke="black"
+                     points="1001.45,-437.62 1001.17,-427.03 994.79,-435.48 1001.45,-437.62"/>
         </g>
         <!-- mrs.application.service.room.RoomService#findAllReservableRooms() -->
-        <g id="node17" class="node">
+        <g id="node19" class="node">
             <title>mrs.application.service.room.RoomService#findAllReservableRooms()</title>
-            <g id="a_node17">
+            <g id="a_node19">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/room/RoomService.java"
                    xlink:title="RoomService.findAllReservableRooms()">
-                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-311" rx="167.87" ry="18"/>
-                    <text text-anchor="middle" x="201.48" y="-307.3" font-family="Times New Roman,serif"
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-110.64" rx="167.87" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-106.94" font-family="Times New Roman,serif"
                           font-size="14.00">予約可能会議室一覧を取得する
                     </text>
                 </a>
             </g>
         </g>
-        <!-- mrs.application.service.room.RoomService#findAllReservableRooms()&#45;&gt;mrs.domain.model.reservation.reservation.ReservableRoom -->
-        <g id="edge40" class="edge">
-            <title>mrs.application.service.room.RoomService#findAllReservableRooms()&#45;&gt;mrs.domain.model.reservation.reservation.ReservableRoom</title>
+        <!-- mrs.application.service.room.RoomService#findAllReservableRooms()&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom -->
+        <g id="edge43" class="edge">
+            <title>mrs.application.service.room.RoomService#findAllReservableRooms()&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom</title>
             <path fill="none" stroke="black"
-                  d="M368.74,-309.55C477.98,-310.88 623.71,-317.01 750.96,-337 761.45,-338.65 772.41,-340.95 783.1,-343.54"/>
-            <polygon fill="black" stroke="black" points="782.27,-346.94 792.82,-345.98 783.97,-340.15 782.27,-346.94"/>
+                  d="M368.53,-109.06C506.18,-110.65 688.94,-120.36 750.96,-158.64 802.61,-190.52 832.34,-258.74 845.76,-297.73"/>
+            <polygon fill="black" stroke="black" points="842.5,-299.04 848.97,-307.43 849.15,-296.84 842.5,-299.04"/>
         </g>
-        <!-- mrs.application.service.room.RoomService#findMeetingRoom(mrs.domain.model.reservation.room.RoomId) -->
-        <g id="node18" class="node">
-            <title>mrs.application.service.room.RoomService#findMeetingRoom(mrs.domain.model.reservation.room.RoomId)
+        <!-- mrs.application.service.room.RoomService#findMeetingRoom(mrs.domain.model.property.room.RoomId) -->
+        <g id="node20" class="node">
+            <title>mrs.application.service.room.RoomService#findMeetingRoom(mrs.domain.model.property.room.RoomId)
             </title>
-            <g id="a_node18">
+            <g id="a_node20">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/room/RoomService.java"
                    xlink:title="RoomService.findMeetingRoom(RoomId)">
-                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-257" rx="100.98" ry="18"/>
-                    <text text-anchor="middle" x="201.48" y="-253.3" font-family="Times New Roman,serif"
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-542.64" rx="100.98" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-538.94" font-family="Times New Roman,serif"
                           font-size="14.00">会議室を検索する
                     </text>
                 </a>
             </g>
         </g>
-        <!-- mrs.application.service.room.RoomService#findMeetingRoom(mrs.domain.model.reservation.room.RoomId)&#45;&gt;mrs.domain.model.reservation.room.MeetingRoom -->
-        <g id="edge41" class="edge">
-            <title>mrs.application.service.room.RoomService#findMeetingRoom(mrs.domain.model.reservation.room.RoomId)&#45;&gt;mrs.domain.model.reservation.room.MeetingRoom</title>
+        <!-- mrs.application.service.room.RoomService#findMeetingRoom(mrs.domain.model.property.room.RoomId)&#45;&gt;mrs.domain.model.property.room.MeetingRoom -->
+        <g id="edge44" class="edge">
+            <title>mrs.application.service.room.RoomService#findMeetingRoom(mrs.domain.model.property.room.RoomId)&#45;&gt;mrs.domain.model.property.room.MeetingRoom</title>
             <path fill="none" stroke="black"
-                  d="M301.68,-255C441.03,-251.4 702.51,-241.74 923.96,-217 932.31,-216.07 941.1,-214.85 949.71,-213.52"/>
-            <polygon fill="black" stroke="black" points="950.37,-216.95 959.69,-211.91 949.26,-210.04 950.37,-216.95"/>
+                  d="M284.51,-532.26C320.85,-527.49 364.08,-521.58 402.96,-515.64 635.18,-480.18 693.6,-472.65 923.96,-426.64 932.3,-424.98 941.08,-423.1 949.68,-421.19"/>
+            <polygon fill="black" stroke="black" points="950.67,-424.56 959.66,-418.95 949.13,-417.73 950.67,-424.56"/>
+        </g>
+        <!-- mrs.application.service.room.RoomService#findReservableRoomById(mrs.domain.model.reservation.room.ReservableRoomId) -->
+        <g id="node21" class="node">
+            <title>
+                mrs.application.service.room.RoomService#findReservableRoomById(mrs.domain.model.reservation.room.ReservableRoomId)
+            </title>
+            <g id="a_node21">
+                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/room/RoomService.java"
+                   xlink:title="RoomService.findReservableRoomById(ReservableRoomId)">
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-326.64" rx="145.67" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-322.94" font-family="Times New Roman,serif"
+                          font-size="14.00">予約可能会議室を検索する
+                    </text>
+                </a>
+            </g>
+        </g>
+        <!-- mrs.application.service.room.RoomService#findReservableRoomById(mrs.domain.model.reservation.room.ReservableRoomId)&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom -->
+        <g id="edge45" class="edge">
+            <title>
+                mrs.application.service.room.RoomService#findReservableRoomById(mrs.domain.model.reservation.room.ReservableRoomId)&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom
+            </title>
+            <path fill="none" stroke="black" d="M347.18,-326.64C479.7,-326.64 670.82,-326.64 776.61,-326.64"/>
+            <polygon fill="black" stroke="black" points="776.89,-330.14 786.89,-326.64 776.89,-323.14 776.89,-330.14"/>
         </g>
         <!-- mrs.application.service.room.RoomService#findReservableRooms(mrs.domain.model.reservation.reservation.ReservedDate) -->
-        <g id="node19" class="node">
+        <g id="node22" class="node">
             <title>
                 mrs.application.service.room.RoomService#findReservableRooms(mrs.domain.model.reservation.reservation.ReservedDate)
             </title>
-            <g id="a_node19">
+            <g id="a_node22">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/room/RoomService.java"
                    xlink:title="RoomService.findReservableRooms(ReservedDate)">
-                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-365" rx="156.77" ry="18"/>
-                    <text text-anchor="middle" x="201.48" y="-361.3" font-family="Times New Roman,serif"
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-218.64" rx="156.77" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-214.94" font-family="Times New Roman,serif"
                           font-size="14.00">予約可能な会議室を検索する
                     </text>
                 </a>
             </g>
         </g>
-        <!-- mrs.domain.model.reservation.reservation.ReservableRoomList -->
-        <g id="node27" class="node">
-            <title>mrs.domain.model.reservation.reservation.ReservableRoomList</title>
-            <polygon fill="white" stroke="black" points="750.96,-384 578.96,-384 578.96,-346 750.96,-346 750.96,-384"/>
-            <text text-anchor="middle" x="664.96" y="-368.8" font-family="Times New Roman,serif" font-size="14.00">
+        <!-- mrs.domain.model.reservation.room.ReservableRoomList -->
+        <g id="node34" class="node">
+            <title>mrs.domain.model.reservation.room.ReservableRoomList</title>
+            <polygon fill="white" stroke="black"
+                     points="750.96,-240.64 578.96,-240.64 578.96,-202.64 750.96,-202.64 750.96,-240.64"/>
+            <text text-anchor="middle" x="664.96" y="-225.44" font-family="Times New Roman,serif" font-size="14.00">
                 予約可能会議室一覧
             </text>
-            <text text-anchor="middle" x="664.96" y="-353.8" font-family="Times New Roman,serif" font-size="14.00">
+            <text text-anchor="middle" x="664.96" y="-210.44" font-family="Times New Roman,serif" font-size="14.00">
                 ReservableRoomList
             </text>
         </g>
-        <!-- mrs.application.service.room.RoomService#findReservableRooms(mrs.domain.model.reservation.reservation.ReservedDate)&#45;&gt;mrs.domain.model.reservation.reservation.ReservableRoomList -->
-        <g id="edge42" class="edge">
+        <!-- mrs.application.service.room.RoomService#findReservableRooms(mrs.domain.model.reservation.reservation.ReservedDate)&#45;&gt;mrs.domain.model.reservation.room.ReservableRoomList -->
+        <g id="edge46" class="edge">
             <title>
-                mrs.application.service.room.RoomService#findReservableRooms(mrs.domain.model.reservation.reservation.ReservedDate)&#45;&gt;mrs.domain.model.reservation.reservation.ReservableRoomList
+                mrs.application.service.room.RoomService#findReservableRooms(mrs.domain.model.reservation.reservation.ReservedDate)&#45;&gt;mrs.domain.model.reservation.room.ReservableRoomList
             </title>
-            <path fill="none" stroke="black" d="M358.4,-365C428,-365 507.8,-365 568.39,-365"/>
-            <polygon fill="black" stroke="black" points="568.7,-368.5 578.7,-365 568.7,-361.5 568.7,-368.5"/>
+            <path fill="none" stroke="black" d="M358.08,-219.65C427.83,-220.11 507.87,-220.63 568.58,-221.02"/>
+            <polygon fill="black" stroke="black" points="568.89,-224.52 578.91,-221.09 568.93,-217.52 568.89,-224.52"/>
         </g>
-        <!-- mrs.application.service.room.RoomService#registMeetingRoom(mrs.domain.model.reservation.room.MeetingRoom) -->
-        <g id="node20" class="node">
+        <!-- mrs.application.service.room.RoomService#registMeetingRoom(mrs.domain.model.property.room.MeetingRoom) -->
+        <g id="node23" class="node">
             <title>
-                mrs.application.service.room.RoomService#registMeetingRoom(mrs.domain.model.reservation.room.MeetingRoom)
+                mrs.application.service.room.RoomService#registMeetingRoom(mrs.domain.model.property.room.MeetingRoom)
             </title>
-            <g id="a_node20">
+            <g id="a_node23">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/room/RoomService.java"
                    xlink:title="RoomService.registMeetingRoom(MeetingRoom)">
-                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-203" rx="100.98" ry="18"/>
-                    <text text-anchor="middle" x="201.48" y="-199.3" font-family="Times New Roman,serif"
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-434.64" rx="100.98" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-430.94" font-family="Times New Roman,serif"
                           font-size="14.00">会議室を登録する
                     </text>
                 </a>
             </g>
         </g>
-        <!-- mrs.application.service.room.RoomService#registMeetingRoom(mrs.domain.model.reservation.room.MeetingRoom)&#45;&gt;mrs.domain.model.reservation.room.MeetingRoom -->
-        <g id="edge43" class="edge">
+        <!-- mrs.application.service.room.RoomService#registMeetingRoom(mrs.domain.model.property.room.MeetingRoom)&#45;&gt;mrs.domain.model.property.room.MeetingRoom -->
+        <g id="edge47" class="edge">
             <title>
-                mrs.application.service.room.RoomService#registMeetingRoom(mrs.domain.model.reservation.room.MeetingRoom)&#45;&gt;mrs.domain.model.reservation.room.MeetingRoom
+                mrs.application.service.room.RoomService#registMeetingRoom(mrs.domain.model.property.room.MeetingRoom)&#45;&gt;mrs.domain.model.property.room.MeetingRoom
             </title>
-            <path fill="none" stroke="black" d="M302.34,-203C472.74,-203 814.37,-203 949.78,-203"/>
-            <polygon fill="black" stroke="black" points="949.94,-206.5 959.94,-203 949.94,-199.5 949.94,-206.5"/>
+            <path fill="none" stroke="black" d="M300.72,-431.34C470.46,-425.65 813.49,-414.13 949.51,-409.57"/>
+            <polygon fill="black" stroke="black" points="949.84,-413.06 959.72,-409.23 949.61,-406.06 949.84,-413.06"/>
         </g>
-        <!-- mrs.application.service.room.RoomService#updateMeetingRoom(mrs.domain.model.reservation.room.MeetingRoom) -->
-        <g id="node21" class="node">
+        <!-- mrs.application.service.room.RoomService#registReservableRoom(mrs.domain.model.reservation.room.ReservableRoomId) -->
+        <g id="node24" class="node">
             <title>
-                mrs.application.service.room.RoomService#updateMeetingRoom(mrs.domain.model.reservation.room.MeetingRoom)
+                mrs.application.service.room.RoomService#registReservableRoom(mrs.domain.model.reservation.room.ReservableRoomId)
             </title>
-            <g id="a_node21">
+            <g id="a_node24">
+                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/room/RoomService.java"
+                   xlink:title="RoomService.registReservableRoom(ReservableRoomId)">
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-272.64" rx="145.67" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-268.94" font-family="Times New Roman,serif"
+                          font-size="14.00">予約可能会議室を登録する
+                    </text>
+                </a>
+            </g>
+        </g>
+        <!-- mrs.application.service.room.RoomService#registReservableRoom(mrs.domain.model.reservation.room.ReservableRoomId)&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom -->
+        <g id="edge48" class="edge">
+            <title>
+                mrs.application.service.room.RoomService#registReservableRoom(mrs.domain.model.reservation.room.ReservableRoomId)&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom
+            </title>
+            <path fill="none" stroke="black" d="M322.83,-282.61C455.2,-293.57 664.04,-310.87 776.52,-320.19"/>
+            <polygon fill="black" stroke="black" points="776.52,-323.7 786.77,-321.03 777.09,-316.72 776.52,-323.7"/>
+        </g>
+        <!-- mrs.application.service.room.RoomService#updateMeetingRoom(mrs.domain.model.property.room.MeetingRoom) -->
+        <g id="node25" class="node">
+            <title>
+                mrs.application.service.room.RoomService#updateMeetingRoom(mrs.domain.model.property.room.MeetingRoom)
+            </title>
+            <g id="a_node25">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/room/RoomService.java"
                    xlink:title="RoomService.updateMeetingRoom(MeetingRoom)">
-                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-149" rx="100.98" ry="18"/>
-                    <text text-anchor="middle" x="201.48" y="-145.3" font-family="Times New Roman,serif"
+                    <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-380.64" rx="100.98" ry="18"/>
+                    <text text-anchor="middle" x="201.48" y="-376.94" font-family="Times New Roman,serif"
                           font-size="14.00">会議室を更新する
                     </text>
                 </a>
             </g>
         </g>
-        <!-- mrs.application.service.room.RoomService#updateMeetingRoom(mrs.domain.model.reservation.room.MeetingRoom)&#45;&gt;mrs.domain.model.reservation.room.MeetingRoom -->
-        <g id="edge44" class="edge">
+        <!-- mrs.application.service.room.RoomService#updateMeetingRoom(mrs.domain.model.property.room.MeetingRoom)&#45;&gt;mrs.domain.model.property.room.MeetingRoom -->
+        <g id="edge49" class="edge">
             <title>
-                mrs.application.service.room.RoomService#updateMeetingRoom(mrs.domain.model.reservation.room.MeetingRoom)&#45;&gt;mrs.domain.model.reservation.room.MeetingRoom
+                mrs.application.service.room.RoomService#updateMeetingRoom(mrs.domain.model.property.room.MeetingRoom)&#45;&gt;mrs.domain.model.property.room.MeetingRoom
             </title>
-            <path fill="none" stroke="black" d="M295.95,-155.27C463.81,-166.54 811.67,-189.89 949.2,-199.12"/>
-            <polygon fill="black" stroke="black" points="949.3,-202.64 959.51,-199.81 949.77,-195.65 949.3,-202.64"/>
+            <path fill="none" stroke="black" d="M300.72,-383.94C470.46,-389.63 813.49,-401.15 949.51,-405.71"/>
+            <polygon fill="black" stroke="black" points="949.61,-409.22 959.72,-406.05 949.84,-402.22 949.61,-409.22"/>
         </g>
         <!-- mrs.domain.model.auth.user.User&#45;&gt;mrs.domain.model.auth.user.RoleName -->
-        <g id="edge3" class="edge">
+        <g id="edge2" class="edge">
             <title>mrs.domain.model.auth.user.User&#45;&gt;mrs.domain.model.auth.user.RoleName</title>
-            <path fill="none" stroke="black" d="M889.55,-926C936.44,-926 1023.01,-926 1081.66,-926"/>
-            <polygon fill="black" stroke="black" points="1081.91,-929.5 1091.91,-926 1081.91,-922.5 1081.91,-929.5"/>
+            <path fill="none" stroke="black"
+                  d="M889.8,-1174.62C930.42,-1183.88 1000.49,-1202.31 1055.96,-1229.64 1075.44,-1239.23 1095.36,-1252.96 1111.16,-1264.97"/>
+            <polygon fill="black" stroke="black"
+                     points="1109.44,-1268.06 1119.49,-1271.42 1113.73,-1262.53 1109.44,-1268.06"/>
         </g>
         <!-- mrs.domain.model.auth.user.User&#45;&gt;mrs.domain.model.reservation.reservation.Reservation -->
         <g id="edge13" class="edge">
             <title>mrs.domain.model.auth.user.User&#45;&gt;mrs.domain.model.reservation.reservation.Reservation</title>
-            <path fill="none" stroke="black"
-                  d="M842.2,-906.84C824.68,-875.2 790.24,-811.88 750.96,-765 732.99,-743.55 708.75,-722.78 690.76,-707.02"/>
-            <polygon fill="black" stroke="black" points="692.79,-704.14 682.98,-700.14 688.15,-709.39 692.79,-704.14"/>
+            <path fill="none" stroke="black" d="M842.31,-1148.28C808.56,-1088.97 713.91,-910.76 679.06,-840.96"/>
+            <polygon fill="black" stroke="black" points="682.13,-839.26 674.55,-831.85 675.85,-842.36 682.13,-839.26"/>
         </g>
         <!-- mrs.domain.model.auth.user.UserDetailsImpl&#45;&gt;mrs.domain.model.auth.user.RoleName -->
-        <g id="edge4" class="edge">
+        <g id="edge3" class="edge">
             <title>mrs.domain.model.auth.user.UserDetailsImpl&#45;&gt;mrs.domain.model.auth.user.RoleName</title>
-            <path fill="none" stroke="black"
-                  d="M718.21,-775.95C796.67,-766.49 947.27,-758.72 1055.96,-817 1089.34,-834.9 1114.27,-871.74 1128.59,-897.62"/>
+            <path fill="none" stroke="black" d="M718.32,-1290.64C807.22,-1290.64 987.2,-1290.64 1081.58,-1290.64"/>
             <polygon fill="black" stroke="black"
-                     points="1125.59,-899.43 1133.38,-906.61 1131.76,-896.14 1125.59,-899.43"/>
+                     points="1081.82,-1294.14 1091.82,-1290.64 1081.82,-1287.14 1081.82,-1294.14"/>
         </g>
         <!-- mrs.domain.model.auth.user.UserDetailsImpl&#45;&gt;mrs.domain.model.auth.user.User -->
         <g id="edge12" class="edge">
             <title>mrs.domain.model.auth.user.UserDetailsImpl&#45;&gt;mrs.domain.model.auth.user.User</title>
-            <path fill="none" stroke="black" d="M691.39,-803.15C724.93,-828.42 784.04,-872.95 821.13,-900.89"/>
-            <polygon fill="black" stroke="black" points="819.05,-903.71 829.14,-906.93 823.26,-898.11 819.05,-903.71"/>
+            <path fill="none" stroke="black" d="M695.42,-1271.42C728.06,-1250.12 780.81,-1215.7 816.53,-1192.39"/>
+            <polygon fill="black" stroke="black"
+                     points="818.76,-1195.12 825.22,-1186.72 814.93,-1189.26 818.76,-1195.12"/>
         </g>
         <!-- mrs.domain.model.auth.user.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.RoleName -->
         <g id="edge8" class="edge">
             <title>mrs.domain.model.auth.user.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.RoleName
             </title>
-            <path fill="none" stroke="black"
-                  d="M518.28,-784.88C534.81,-774.07 557.08,-761.64 578.96,-756 784.5,-703.06 877.54,-664.06 1055.96,-779 1098.38,-806.32 1122.65,-862.39 1134.14,-896.84"/>
+            <path fill="none" stroke="black" d="M537.71,-1184.66C652.45,-1204.76 952.51,-1257.35 1081.78,-1280.01"/>
             <polygon fill="black" stroke="black"
-                     points="1130.94,-898.31 1137.3,-906.78 1137.61,-896.19 1130.94,-898.31"/>
+                     points="1081.44,-1283.5 1091.9,-1281.78 1082.65,-1276.6 1081.44,-1283.5"/>
         </g>
         <!-- mrs.domain.model.auth.user.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.User -->
         <g id="edge5" class="edge">
             <title>mrs.domain.model.auth.user.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.User
             </title>
-            <path fill="none" stroke="black" d="M537.51,-819.33C608.1,-843.09 742.96,-888.47 811.78,-911.63"/>
-            <polygon fill="black" stroke="black" points="810.84,-915.01 821.43,-914.88 813.07,-908.38 810.84,-915.01"/>
+            <path fill="none" stroke="black" d="M537.51,-1175.51C607.96,-1173.76 742.41,-1170.42 811.35,-1168.71"/>
+            <polygon fill="black" stroke="black"
+                     points="811.52,-1172.21 821.43,-1168.46 811.35,-1165.21 811.52,-1172.21"/>
         </g>
         <!-- mrs.domain.model.auth.user.administrator.Administrator&#45;&gt;mrs.domain.model.reservation.reservation.Reservation -->
         <g id="edge14" class="edge">
             <title>mrs.domain.model.auth.user.administrator.Administrator&#45;&gt;mrs.domain.model.reservation.reservation.Reservation</title>
-            <path fill="none" stroke="black"
-                  d="M525.33,-784.85C531.49,-780.65 537.64,-775.96 542.96,-771 562.46,-752.81 558.45,-740.04 578.96,-723 589.36,-714.37 601.82,-706.95 613.97,-700.86"/>
-            <polygon fill="black" stroke="black" points="615.64,-703.94 623.15,-696.47 612.62,-697.63 615.64,-703.94"/>
+            <path fill="none" stroke="black" d="M500.97,-1157.58C529.29,-1097.65 616.67,-912.74 650.44,-841.26"/>
+            <polygon fill="black" stroke="black" points="653.73,-842.49 654.84,-831.95 647.4,-839.49 653.73,-842.49"/>
         </g>
         <!-- mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.auth.user.RoleName -->
-        <g id="edge2" class="edge">
+        <g id="edge1" class="edge">
             <title>mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.auth.user.RoleName</title>
             <path fill="none" stroke="black"
-                  d="M522.65,-896.66C593.45,-893.86 773.71,-888.41 923.96,-898 977.61,-901.42 1038.21,-909.53 1081.96,-916.14"/>
+                  d="M522.81,-1029.66C571.92,-1022.77 670.53,-1013.26 750.96,-1032.64 898.99,-1068.3 936.63,-1094.08 1055.96,-1188.64 1082.95,-1210.03 1107.7,-1240.87 1123.75,-1263.03"/>
             <polygon fill="black" stroke="black"
-                     points="1081.45,-919.6 1091.87,-917.66 1082.51,-912.68 1081.45,-919.6"/>
+                     points="1121.02,-1265.23 1129.67,-1271.36 1126.73,-1261.18 1121.02,-1265.23"/>
         </g>
         <!-- mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.auth.user.User -->
         <g id="edge6" class="edge">
             <title>mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.auth.user.User</title>
-            <path fill="none" stroke="black" d="M522.56,-900.36C586.9,-905.33 736.41,-916.88 810.81,-922.63"/>
-            <polygon fill="black" stroke="black" points="810.98,-926.15 821.22,-923.43 811.52,-919.17 810.98,-926.15"/>
+            <path fill="none" stroke="black"
+                  d="M522.67,-1034.43C572.84,-1035.22 674.47,-1041.62 750.96,-1077.64 782.67,-1092.57 812.14,-1120.09 831.45,-1140.78"/>
+            <polygon fill="black" stroke="black"
+                     points="829.02,-1143.3 838.34,-1148.34 834.19,-1138.59 829.02,-1143.3"/>
         </g>
         <!-- mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.reservation.reservation.Reservation -->
         <g id="edge11" class="edge">
             <title>
                 mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.reservation.reservation.Reservation
             </title>
-            <path fill="none" stroke="black"
-                  d="M508.52,-878.87C519.12,-866.11 532.74,-848.66 542.96,-832 562.5,-800.14 556.49,-785.86 578.96,-756 593,-737.35 612.27,-719.88 628.92,-706.51"/>
-            <polygon fill="black" stroke="black" points="631.14,-709.21 636.84,-700.28 626.82,-703.71 631.14,-709.21"/>
+            <path fill="none" stroke="black" d="M506.93,-1015.33C537.63,-975.7 607.8,-885.13 643.01,-839.69"/>
+            <polygon fill="black" stroke="black" points="645.8,-841.8 649.16,-831.75 640.27,-837.51 645.8,-841.8"/>
         </g>
-        <!-- mrs.domain.model.reservation.reservation.ReservableRoom&#45;&gt;mrs.domain.model.reservation.reservation.Reservation -->
-        <g id="edge17" class="edge">
-            <title>mrs.domain.model.reservation.reservation.ReservableRoom&#45;&gt;mrs.domain.model.reservation.reservation.Reservation</title>
-            <path fill="none" stroke="black" d="M844.8,-384.4C815.09,-438.56 724.69,-590.46 685,-653.36"/>
-            <polygon fill="black" stroke="black" points="681.93,-651.66 679.52,-661.98 687.84,-655.42 681.93,-651.66"/>
-        </g>
-        <!-- mrs.domain.model.reservation.reservation.ReservableRoom&#45;&gt;mrs.domain.model.reservation.room.MeetingRoom -->
-        <g id="edge7" class="edge">
-            <title>mrs.domain.model.reservation.reservation.ReservableRoom&#45;&gt;mrs.domain.model.reservation.room.MeetingRoom</title>
-            <path fill="none" stroke="black" d="M870.35,-345.94C894.54,-316.94 944.89,-262.28 977.24,-229.49"/>
-            <polygon fill="black" stroke="black" points="980.08,-231.6 984.66,-222.05 975.12,-226.66 980.08,-231.6"/>
-        </g>
-        <!-- mrs.domain.model.reservation.reservation.ReservableRoomList&#45;&gt;mrs.domain.model.reservation.reservation.ReservableRoom -->
-        <g id="edge15" class="edge">
-            <title>mrs.domain.model.reservation.reservation.ReservableRoomList&#45;&gt;mrs.domain.model.reservation.reservation.ReservableRoom</title>
-            <path fill="none" stroke="black" d="M751.11,-365C759.65,-365 768.28,-365 776.73,-365"/>
-            <polygon fill="black" stroke="black" points="776.92,-368.5 786.92,-365 776.92,-361.5 776.92,-368.5"/>
+        <!-- mrs.domain.model.property.room.MeetingRoom&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom -->
+        <g id="edge4" class="edge">
+            <title>mrs.domain.model.property.room.MeetingRoom&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom
+            </title>
+            <path fill="none" stroke="black" d="M959.88,-388.61C937.58,-377.34 911.42,-363.08 891,-351.01"/>
+            <polygon fill="black" stroke="black" points="892.71,-347.95 882.34,-345.81 889.11,-353.96 892.71,-347.95"/>
         </g>
         <!-- mrs.domain.model.reservation.reservation.Reservation&#45;&gt;mrs.domain.model.auth.user.User -->
         <g id="edge10" class="edge">
             <title>mrs.domain.model.reservation.reservation.Reservation&#45;&gt;mrs.domain.model.auth.user.User</title>
-            <path fill="none" stroke="black"
-                  d="M701.69,-700.22C717.8,-712.75 736.43,-729.65 750.96,-747 791.19,-795.02 826.35,-860.29 843.45,-897.49"/>
-            <polygon fill="black" stroke="black" points="840.31,-899.05 847.59,-906.75 846.7,-896.2 840.31,-899.05"/>
+            <path fill="none" stroke="black" d="M678.04,-831.86C711.72,-891.04 806.5,-1069.48 841.37,-1139.34"/>
+            <polygon fill="black" stroke="black"
+                     points="838.31,-1141.04 845.88,-1148.45 844.58,-1137.94 838.31,-1141.04"/>
         </g>
-        <!-- mrs.domain.model.reservation.reservation.Reservation&#45;&gt;mrs.domain.model.reservation.reservation.ReservableRoom -->
-        <g id="edge1" class="edge">
-            <title>mrs.domain.model.reservation.reservation.Reservation&#45;&gt;mrs.domain.model.reservation.reservation.ReservableRoom</title>
-            <path fill="none" stroke="black" d="M675.57,-661.71C705.18,-607.73 795.4,-456.1 835.23,-392.96"/>
-            <polygon fill="black" stroke="black" points="838.32,-394.63 840.73,-384.31 832.41,-390.87 838.32,-394.63"/>
+        <!-- mrs.domain.model.reservation.reservation.Reservation&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom -->
+        <g id="edge7" class="edge">
+            <title>mrs.domain.model.reservation.reservation.Reservation&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom</title>
+            <path fill="none" stroke="black" d="M672.34,-793.54C699.49,-718.4 805.69,-444.29 842.12,-354.91"/>
+            <polygon fill="black" stroke="black" points="845.36,-356.23 845.92,-345.65 838.88,-353.58 845.36,-356.23"/>
         </g>
         <!-- mrs.domain.model.reservation.reservation.ReservationList&#45;&gt;mrs.domain.model.reservation.reservation.Reservation -->
-        <g id="edge16" class="edge">
+        <g id="edge15" class="edge">
             <title>mrs.domain.model.reservation.reservation.ReservationList&#45;&gt;mrs.domain.model.reservation.reservation.Reservation</title>
-            <path fill="none" stroke="black"
-                  d="M517.23,-546.09C525.56,-552.57 534.77,-559.96 542.96,-567 576.53,-595.87 613.31,-631.07 637.41,-654.66"/>
-            <polygon fill="black" stroke="black" points="635.18,-657.37 644.77,-661.88 640.08,-652.38 635.18,-657.37"/>
+            <path fill="none" stroke="black" d="M543.1,-774.7C565.45,-781.71 591.57,-789.91 613.8,-796.89"/>
+            <polygon fill="black" stroke="black" points="612.79,-800.24 623.38,-799.9 614.89,-793.57 612.79,-800.24"/>
         </g>
-        <!-- mrs.domain.model.reservation.room.MeetingRoom&#45;&gt;mrs.domain.model.reservation.reservation.ReservableRoom -->
+        <!-- mrs.domain.model.reservation.room.ReservableRoom&#45;&gt;mrs.domain.model.property.room.MeetingRoom -->
         <g id="edge9" class="edge">
-            <title>mrs.domain.model.reservation.room.MeetingRoom&#45;&gt;mrs.domain.model.reservation.reservation.ReservableRoom</title>
-            <path fill="none" stroke="black" d="M992.87,-222.31C968.66,-251.3 918.67,-305.58 886.39,-338.3"/>
-            <polygon fill="black" stroke="black" points="883.57,-336.17 879,-345.73 888.53,-341.11 883.57,-336.17"/>
+            <title>mrs.domain.model.reservation.room.ReservableRoom&#45;&gt;mrs.domain.model.property.room.MeetingRoom
+            </title>
+            <path fill="none" stroke="black" d="M903.67,-345.73C925.9,-356.97 951.93,-371.16 972.31,-383.2"/>
+            <polygon fill="black" stroke="black" points="970.57,-386.24 980.95,-388.39 974.17,-380.24 970.57,-386.24"/>
+        </g>
+        <!-- mrs.domain.model.reservation.room.ReservableRoom&#45;&gt;mrs.domain.model.reservation.reservation.Reservation -->
+        <g id="edge16" class="edge">
+            <title>mrs.domain.model.reservation.room.ReservableRoom&#45;&gt;mrs.domain.model.reservation.reservation.Reservation</title>
+            <path fill="none" stroke="black" d="M848.06,-345.81C820.88,-421.03 714.81,-694.8 678.35,-784.26"/>
+            <polygon fill="black" stroke="black" points="675.11,-782.95 674.55,-793.53 681.59,-785.6 675.11,-782.95"/>
+        </g>
+        <!-- mrs.domain.model.reservation.room.ReservableRoomList&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom -->
+        <g id="edge17" class="edge">
+            <title>mrs.domain.model.reservation.room.ReservableRoomList&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom</title>
+            <path fill="none" stroke="black"
+                  d="M713.86,-240.79C726.15,-246.16 739.22,-252.28 750.96,-258.64 774.68,-271.47 800.01,-288.06 819.67,-301.63"/>
+            <polygon fill="black" stroke="black" points="817.8,-304.59 828,-307.44 821.8,-298.85 817.8,-304.59"/>
         </g>
     </g>
 </svg>
