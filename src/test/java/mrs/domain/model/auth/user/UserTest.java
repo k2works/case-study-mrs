@@ -2,11 +2,13 @@ package mrs.domain.model.auth.user;
 
 import mrs.domain.model.auth.user.administrator.Administrator;
 import mrs.domain.model.auth.user.member.Member;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@DisplayName("認証・認可ドメイン")
 public class UserTest {
 
     private User newUser() {

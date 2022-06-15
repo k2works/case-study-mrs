@@ -1,4 +1,4 @@
-package mrs.application.service.room;
+package mrs.application.service.property.room;
 
 import mrs.application.service.auth.UserAlreadyRegistException;
 import mrs.domain.model.property.room.MeetingRoom;

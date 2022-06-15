@@ -1,4 +1,4 @@
-package mrs.application.service.reservation;
+package mrs.application.service.reservation.reservation;
 
 import mrs.IntegrationTest;
 import mrs.TestDataFactory;
@@ -9,6 +9,7 @@ import mrs.domain.model.reservation.reservation.ReservationId;
 import mrs.domain.model.reservation.reservation.ReservationList;
 import mrs.domain.model.reservation.room.ReservableRoomId;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 @IntegrationTest
+@DisplayName("予約サービス")
 public class ReservationServiceTest {
     @Autowired
     ReservationService reservationService;

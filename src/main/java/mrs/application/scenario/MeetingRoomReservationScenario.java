@@ -1,8 +1,8 @@
 package mrs.application.scenario;
 
-import mrs.application.service.reservation.ReservationService;
-import mrs.application.service.room.MeetingRoomService;
-import mrs.application.service.room.ReservableRoomService;
+import mrs.application.service.property.room.MeetingRoomService;
+import mrs.application.service.reservation.reservation.ReservationService;
+import mrs.application.service.reservation.room.ReservableRoomService;
 import mrs.domain.model.property.room.MeetingRoom;
 import mrs.domain.model.property.room.RoomId;
 import mrs.domain.model.reservation.reservation.Reservation;

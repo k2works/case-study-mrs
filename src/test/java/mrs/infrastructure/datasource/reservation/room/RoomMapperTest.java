@@ -4,6 +4,7 @@ import mrs.domain.model.property.room.MeetingRoom;
 import mrs.domain.model.property.room.RoomId;
 import mrs.domain.model.reservation.room.ReservableRoomId;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @MybatisTest
+@DisplayName("会議室エンティティ")
 public class RoomMapperTest {
     @Autowired
     private RoomMapper roomMapper;

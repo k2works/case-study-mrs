@@ -1,6 +1,6 @@
 package mrs.presentation.room;
 
-import mrs.application.service.room.ReservableRoomService;
+import mrs.application.service.reservation.room.ReservableRoomService;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
 import mrs.infrastructure.datasource.Message;

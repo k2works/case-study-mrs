@@ -10,6 +10,7 @@ import mrs.infrastructure.datasource.auth.UserMapper;
 import mrs.infrastructure.datasource.reservation.room.ReservableRoomMapper;
 import mrs.infrastructure.datasource.reservation.room.RoomMapper;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 @MybatisTest
+@DisplayName("予約エンティティ")
 public class ReservationMapperTest {
     @Autowired
     UserMapper userMapper;

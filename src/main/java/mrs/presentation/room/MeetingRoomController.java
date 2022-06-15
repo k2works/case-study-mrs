@@ -1,7 +1,7 @@
 package mrs.presentation.room;
 
-import mrs.application.service.room.MeetingRoomService;
-import mrs.application.service.room.ReservableRoomService;
+import mrs.application.service.property.room.MeetingRoomService;
+import mrs.application.service.reservation.room.ReservableRoomService;
 import mrs.domain.model.property.room.MeetingRoom;
 import mrs.infrastructure.datasource.Message;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;

@@ -1,7 +1,7 @@
 package mrs.presentation.room;
 
 import mrs.application.scenario.MeetingRoomReservationScenario;
-import mrs.application.service.room.ReservableRoomService;
+import mrs.application.service.reservation.room.ReservableRoomService;
 import mrs.presentation.reservation.ReservationsController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

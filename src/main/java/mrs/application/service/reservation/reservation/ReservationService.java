@@ -1,6 +1,6 @@
-package mrs.application.service.reservation;
+package mrs.application.service.reservation.reservation;
 
-import mrs.application.service.room.ReservableRoomRepository;
+import mrs.application.service.reservation.room.ReservableRoomRepository;
 import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.reservation.ReservationId;
 import mrs.domain.model.reservation.reservation.ReservationList;

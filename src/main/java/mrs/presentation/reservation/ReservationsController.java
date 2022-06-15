@@ -1,8 +1,8 @@
 package mrs.presentation.reservation;
 
 import mrs.application.scenario.MeetingRoomReservationScenario;
-import mrs.application.service.reservation.AlreadyReservedException;
-import mrs.application.service.reservation.UnavailableReservationException;
+import mrs.application.service.reservation.reservation.AlreadyReservedException;
+import mrs.application.service.reservation.reservation.UnavailableReservationException;
 import mrs.domain.model.auth.user.User;
 import mrs.domain.model.auth.user.UserDetailsImpl;
 import mrs.domain.model.property.room.RoomId;

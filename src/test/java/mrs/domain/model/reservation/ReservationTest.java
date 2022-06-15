@@ -4,6 +4,7 @@ import mrs.domain.model.auth.user.RoleName;
 import mrs.domain.model.auth.user.User;
 import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.room.ReservableRoomId;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -11,6 +12,7 @@ import java.time.LocalTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@DisplayName("予約ドメイン")
 public class ReservationTest {
     private User newUser() {
         return new User("U999999", "テスト", "太郎", "a234567Z", RoleName.MEMBER);

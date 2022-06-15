@@ -1,4 +1,4 @@
-package mrs.application.service.room;
+package mrs.application.service.reservation.room;
 
 public class ReservableRoomAlreadyUsedException extends RuntimeException {
     public ReservableRoomAlreadyUsedException(String message) {

@@ -5,6 +5,7 @@ import mrs.TestDataFactory;
 import mrs.domain.model.auth.user.RoleName;
 import mrs.domain.model.auth.user.User;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 @IntegrationTest
+@DisplayName("認証・認可サービス")
 public class UserManagementServiceTest {
     @Autowired
     UserManagementService userManagementService;

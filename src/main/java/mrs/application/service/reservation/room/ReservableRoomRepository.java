@@ -1,4 +1,4 @@
-package mrs.application.service.room;
+package mrs.application.service.reservation.room;
 
 import mrs.domain.model.reservation.reservation.ReservedDate;
 import mrs.domain.model.reservation.room.ReservableRoom;

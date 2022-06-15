@@ -1,4 +1,4 @@
-package mrs.application.service.reservation;
+package mrs.application.service.reservation.reservation;
 
 import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.reservation.ReservationId;

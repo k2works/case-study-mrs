@@ -1,6 +1,6 @@
 package mrs.infrastructure.datasource.reservation.room;
 
-import mrs.application.service.room.ReservableRoomRepository;
+import mrs.application.service.reservation.room.ReservableRoomRepository;
 import mrs.domain.model.reservation.reservation.ReservedDate;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;

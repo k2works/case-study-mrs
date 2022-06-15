@@ -1,4 +1,4 @@
-package mrs.application.service.room;
+package mrs.application.service.property.room;
 
 import mrs.domain.model.property.room.MeetingRoom;
 import mrs.domain.model.property.room.RoomId;

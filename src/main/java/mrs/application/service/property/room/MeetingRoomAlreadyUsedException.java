@@ -1,4 +1,4 @@
-package mrs.application.service.room;
+package mrs.application.service.property.room;
 
 public class MeetingRoomAlreadyUsedException extends RuntimeException {
     public MeetingRoomAlreadyUsedException(String message) {
