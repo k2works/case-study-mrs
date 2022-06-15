@@ -18,16 +18,31 @@ import java.util.Optional;
  */
 @Service
 public class MeetingRoomReservationScenario {
-    private final ReservableRoomService reservableRoomService;
 
     private final MeetingRoomService meetingRoomService;
 
+    private final ReservableRoomService reservableRoomService;
+
     private final ReservationService reservationService;
 
-    public MeetingRoomReservationScenario(ReservableRoomService reservableRoomService, MeetingRoomService meetingRoomService, ReservationService reservationService) {
-        this.reservableRoomService = reservableRoomService;
+    public MeetingRoomReservationScenario(MeetingRoomService meetingRoomService, ReservableRoomService reservableRoomService, ReservationService reservationService) {
         this.meetingRoomService = meetingRoomService;
+        this.reservableRoomService = reservableRoomService;
         this.reservationService = reservationService;
+    }
+
+    /**
+     * 会議室を登録する
+     */
+    public void registMeetingRoom(MeetingRoom meetingRoom) {
+        meetingRoomService.registMeetingRoom(meetingRoom);
+    }
+
+    /**
+     * 予約可能会議室を登録する
+     */
+    public void registReservableRoom(ReservableRoomId reservableRoomId) {
+        reservableRoomService.registReservableRoom(reservableRoomId);
     }
 
     /**

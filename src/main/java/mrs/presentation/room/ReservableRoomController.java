@@ -1,5 +1,6 @@
 package mrs.presentation.room;
 
+import mrs.application.scenario.MeetingRoomReservationScenario;
 import mrs.application.service.reservation.room.ReservableRoomService;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
@@ -24,10 +25,13 @@ import java.util.List;
 public class ReservableRoomController {
     private final ReservableRoomService reservableRoomService;
 
+    private final MeetingRoomReservationScenario meetingRoomReservationScenario;
+
     private final Message message;
 
-    public ReservableRoomController(ReservableRoomService reservableRoomService, Message message) {
+    public ReservableRoomController(ReservableRoomService reservableRoomService, MeetingRoomReservationScenario meetingRoomReservationScenario, Message message) {
         this.reservableRoomService = reservableRoomService;
+        this.meetingRoomReservationScenario = meetingRoomReservationScenario;
         this.message = message;
     }
 
@@ -56,7 +60,7 @@ public class ReservableRoomController {
         }
         try {
             ReservableRoomId reservableRoomId = new ReservableRoomId(form.getRoomId(), form.getReservedDate());
-            reservableRoomService.registReservableRoom(reservableRoomId);
+            meetingRoomReservationScenario.registReservableRoom(reservableRoomId);
             model.addAttribute("success", message.getMessageByKey("reservable_room_regist"));
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());

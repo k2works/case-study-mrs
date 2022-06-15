@@ -1,7 +1,7 @@
 package mrs.presentation.room;
 
+import mrs.application.scenario.MeetingRoomReservationScenario;
 import mrs.application.service.property.room.MeetingRoomService;
-import mrs.application.service.reservation.room.ReservableRoomService;
 import mrs.domain.model.property.room.MeetingRoom;
 import mrs.infrastructure.datasource.Message;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
@@ -20,15 +20,16 @@ import java.util.List;
 @Controller
 @RequestMapping("meetingRooms")
 public class MeetingRoomController {
-    private final ReservableRoomService reservableRoomService;
 
     private final MeetingRoomService meetingRoomService;
 
+    private final MeetingRoomReservationScenario meetingRoomReservationScenario;
+
     private final Message message;
 
-    public MeetingRoomController(ReservableRoomService reservableRoomService, MeetingRoomService meetingRoomService, Message message) {
-        this.reservableRoomService = reservableRoomService;
+    public MeetingRoomController(MeetingRoomService meetingRoomService, MeetingRoomReservationScenario meetingRoomReservationScenario, Message message) {
         this.meetingRoomService = meetingRoomService;
+        this.meetingRoomReservationScenario = meetingRoomReservationScenario;
         this.message = message;
     }
 
@@ -57,7 +58,7 @@ public class MeetingRoomController {
         }
         try {
             MeetingRoom meetingRoom = new MeetingRoom(form.getRoomId(), form.getRoomName());
-            meetingRoomService.registMeetingRoom(meetingRoom);
+            meetingRoomReservationScenario.registMeetingRoom(meetingRoom);
             model.addAttribute("success", message.getMessageByKey("meeting_room_regist"));
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
