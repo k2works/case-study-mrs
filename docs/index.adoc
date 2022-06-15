@@ -583,9 +583,9 @@ admin --> UC2
 
 [source,yml]
 ----
-include::../cypress/integration/Auth/Login.feature[]
+include::../cypress/integration/UserManagement/UserAuth.feature[]
 
-include::../cypress/integration/Auth/User.feature[]
+include::../cypress/integration/UserManagement/UserMnagement.feature[]
 ----
 
 ===== 予約
@@ -611,13 +611,11 @@ UC4 <-- admin
 
 [source,yml]
 ----
-include::../cypress/integration/Room/Room.feature[]
+include::../cypress/integration/ReservationManagement/RoomSearch.feature[]
 
-include::../cypress/integration/Reservation/Reserve.feature[]
+include::../cypress/integration/ReservationManagement/RoomReserve.feature[]
 
-include::../cypress/integration/Reservation/Cancel.feature[]
-
-include::../cypress/integration/Room/Regist.feature[]
+include::../cypress/integration/ReservationManagement/RoomRegist.feature[]
 ----
 
 === 設計

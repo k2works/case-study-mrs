@@ -2,17 +2,17 @@
   {
     "description": "  システムとして\n  アプリケーション利用者の認証をしたい\n  なぜなら認証された利用者むけのサービスだから",
     "keyword": "Feature",
-    "name": "利用者の認証",
+    "name": "会員管理:利用者の認証",
     "line": 1,
-    "id": "利用者の認証",
+    "id": "会員管理:利用者の認証",
     "tags": [],
-    "uri": "Login.feature",
+    "uri": "UserAuth.feature",
     "elements": [
       {
-        "id": "利用者の認証;認証:利用者を認証する",
+        "id": "会員管理:利用者の認証;利用者を認証する",
         "keyword": "Scenario",
         "line": 7,
-        "name": "認証:利用者を認証する",
+        "name": "利用者を認証する",
         "tags": [],
         "type": "scenario",
         "steps": [
@@ -23,7 +23,7 @@
             "name": "\"ログイン\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 1723000000
+              "duration": 19097000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "\"ログイン\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 22000000
+              "duration": 11000000
             }
           }
         ]

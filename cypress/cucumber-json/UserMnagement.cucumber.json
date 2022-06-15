@@ -2,17 +2,17 @@
   {
     "description": "  管理者として\n  アプリケーション利用者の登録をしたい\n  なぜなら登録された利用者しか認証できないから",
     "keyword": "Feature",
-    "name": "利用者の管理",
+    "name": "会員管理:利用者の管理",
     "line": 1,
-    "id": "利用者の管理",
+    "id": "会員管理:利用者の管理",
     "tags": [],
-    "uri": "User.feature",
+    "uri": "UserMnagement.feature",
     "elements": [
       {
-        "id": "利用者の管理;認証:利用者を一覧表示する",
+        "id": "会員管理:利用者の管理;利用者を一覧表示する",
         "keyword": "Scenario",
         "line": 10,
-        "name": "認証:利用者を一覧表示する",
+        "name": "利用者を一覧表示する",
         "tags": [],
         "type": "scenario",
         "steps": [
@@ -23,7 +23,7 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 4104000000
+              "duration": 20829000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "\"利用者一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 88000000
+              "duration": 91000000
             }
           },
           {
@@ -43,16 +43,16 @@
             "name": "利用者登録画面に利用者番号 \"U000001\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 23000000
+              "duration": 19000000
             }
           }
         ]
       },
       {
-        "id": "利用者の管理;認証:利用者を新規登録する",
+        "id": "会員管理:利用者の管理;利用者を新規登録する",
         "keyword": "Scenario",
         "line": 14,
-        "name": "認証:利用者を新規登録する",
+        "name": "利用者を新規登録する",
         "tags": [],
         "type": "scenario",
         "steps": [
@@ -63,7 +63,7 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 1686000000
+              "duration": 3252000000
             }
           },
           {
@@ -73,7 +73,7 @@
             "name": "\"利用者一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 79000000
+              "duration": 82000000
             }
           },
           {
@@ -83,7 +83,7 @@
             "name": "利用者番号 \"U000005\" を新規登録する",
             "result": {
               "status": "passed",
-              "duration": 1644000000
+              "duration": 2050000000
             }
           },
           {
@@ -93,7 +93,7 @@
             "name": "利用者登録画面に \"利用者を登録しました\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 16000000
+              "duration": 47000000
             }
           },
           {
@@ -103,7 +103,7 @@
             "name": "新規登録した利用者番号 \"U000005\" で認証する",
             "result": {
               "status": "passed",
-              "duration": 1033000000
+              "duration": 1527000000
             }
           },
           {
@@ -113,16 +113,16 @@
             "name": "新規登録利用者で認証される",
             "result": {
               "status": "passed",
-              "duration": 21000000
+              "duration": 24000000
             }
           }
         ]
       },
       {
-        "id": "利用者の管理;認証:登録済み利用者を新規登録する",
+        "id": "会員管理:利用者の管理;登録済み利用者を新規登録する",
         "keyword": "Scenario",
         "line": 21,
-        "name": "認証:登録済み利用者を新規登録する",
+        "name": "登録済み利用者を新規登録する",
         "tags": [],
         "type": "scenario",
         "steps": [
@@ -133,7 +133,7 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 1700000000
+              "duration": 1762000000
             }
           },
           {
@@ -153,7 +153,7 @@
             "name": "存在する利用者を新規登録する",
             "result": {
               "status": "passed",
-              "duration": 1521000000
+              "duration": 1559000000
             }
           },
           {
@@ -163,16 +163,16 @@
             "name": "利用者登録画面に \"利用者はすでに登録されています\" がエラー表示される",
             "result": {
               "status": "passed",
-              "duration": 20000000
+              "duration": 26000000
             }
           }
         ]
       },
       {
-        "id": "利用者の管理;認証:登録済み利用者を更新登録する",
+        "id": "会員管理:利用者の管理;登録済み利用者を更新登録する",
         "keyword": "Scenario",
         "line": 26,
-        "name": "認証:登録済み利用者を更新登録する",
+        "name": "登録済み利用者を更新登録する",
         "tags": [],
         "type": "scenario",
         "steps": [
@@ -183,7 +183,7 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 1696000000
+              "duration": 2254000000
             }
           },
           {
@@ -193,7 +193,7 @@
             "name": "\"利用者一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 67000000
+              "duration": 209000000
             }
           },
           {
@@ -203,7 +203,7 @@
             "name": "利用者番号 \"U000005\" の利用者情報を更新する",
             "result": {
               "status": "passed",
-              "duration": 1279000000
+              "duration": 1430000000
             }
           },
           {
@@ -213,7 +213,7 @@
             "name": "利用者登録画面に \"利用者を更新しました\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 18000000
+              "duration": 31000000
             }
           },
           {
@@ -223,7 +223,7 @@
             "name": "更新した利用者番号 \"U000005\" で認証する",
             "result": {
               "status": "passed",
-              "duration": 997000000
+              "duration": 1155000000
             }
           },
           {
@@ -233,16 +233,16 @@
             "name": "更新した利用者で認証される",
             "result": {
               "status": "passed",
-              "duration": 21000000
+              "duration": 19000000
             }
           }
         ]
       },
       {
-        "id": "利用者の管理;認証:登録済み利用者を削除する",
+        "id": "会員管理:利用者の管理;登録済み利用者を削除する",
         "keyword": "Scenario",
         "line": 33,
-        "name": "認証:登録済み利用者を削除する",
+        "name": "登録済み利用者を削除する",
         "tags": [],
         "type": "scenario",
         "steps": [
@@ -253,7 +253,7 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 1692000000
+              "duration": 1737000000
             }
           },
           {
@@ -263,7 +263,7 @@
             "name": "\"利用者一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 62000000
+              "duration": 61000000
             }
           },
           {
@@ -273,7 +273,7 @@
             "name": "利用者番号 \"U000005\" を削除する",
             "result": {
               "status": "passed",
-              "duration": 123000000
+              "duration": 109000000
             }
           },
           {
@@ -283,7 +283,7 @@
             "name": "利用者登録画面に \"利用者を削除しました\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 15000000
+              "duration": 14000000
             }
           }
         ]

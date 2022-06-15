@@ -1,0 +1,163 @@
+[
+  {
+    "description": "  利用者として\n  会議室を予約したい\n  なぜなら会議室を利用したいから",
+    "keyword": "Feature",
+    "name": "予約管理:会議室の予約",
+    "line": 1,
+    "id": "予約管理:会議室の予約",
+    "tags": [],
+    "uri": "RoomReserve.feature",
+    "elements": [
+      {
+        "id": "予約管理:会議室の予約;会議室を予約する",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "会議室を予約する",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "\"利用者\" としてログインしている",
+            "result": {
+              "status": "passed",
+              "duration": 14205000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 11,
+            "name": "\"会議室予約一覧画面\" ページにアクセスする",
+            "result": {
+              "status": "passed",
+              "duration": 55000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "\"新木場\" 会議室を選択する",
+            "result": {
+              "status": "passed",
+              "duration": 154000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 13,
+            "name": "選択した会議室を予約する",
+            "result": {
+              "status": "passed",
+              "duration": 184000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "予約者 \"Aaa\" が表示される",
+            "result": {
+              "status": "passed",
+              "duration": 14000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "予約管理:会議室の予約;会議室の予約を取り消す",
+        "keyword": "Scenario",
+        "line": 16,
+        "name": "会議室の予約を取り消す",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "\"利用者\" としてログインしている",
+            "result": {
+              "status": "passed",
+              "duration": 1377000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 17,
+            "name": "\"会議室予約一覧画面\" ページにアクセスする",
+            "result": {
+              "status": "passed",
+              "duration": 60000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 18,
+            "name": "\"有楽町\" 会議室を選択する",
+            "result": {
+              "status": "passed",
+              "duration": 109000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 19,
+            "name": "選択した会議室を予約する",
+            "result": {
+              "status": "passed",
+              "duration": 118000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 20,
+            "name": "\"会議室予約一覧画面\" ページにアクセスする",
+            "result": {
+              "status": "passed",
+              "duration": 59000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 21,
+            "name": "\"有楽町\" 会議室を選択する",
+            "result": {
+              "status": "passed",
+              "duration": 121000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 22,
+            "name": "選択した会議室を予約する",
+            "result": {
+              "status": "passed",
+              "duration": 195000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 23,
+            "name": "会議室予約画面に \"入力の時間帯はすでに予約済です。\" が表示される",
+            "result": {
+              "status": "passed",
+              "duration": 18000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

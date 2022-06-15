@@ -2,17 +2,17 @@
   {
     "description": "  利用者として\n  会議室を検索したい\n  なぜなら会議室を利用したいから",
     "keyword": "Feature",
-    "name": "会議室の検索",
+    "name": "予約管理:会議室の検索",
     "line": 1,
-    "id": "会議室の検索",
+    "id": "予約管理:会議室の検索",
     "tags": [],
-    "uri": "Room.feature",
+    "uri": "RoomSearch.feature",
     "elements": [
       {
-        "id": "会議室の検索;予約管理:予約可能な会議室を検索する",
+        "id": "予約管理:会議室の検索;予約可能な会議室を検索する",
         "keyword": "Scenario",
         "line": 10,
-        "name": "予約管理:予約可能な会議室を検索する",
+        "name": "予約可能な会議室を検索する",
         "tags": [],
         "type": "scenario",
         "steps": [
@@ -23,7 +23,7 @@
             "name": "\"利用者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 34120000000
+              "duration": 17977000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "\"会議室予約一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 56000000
+              "duration": 52000000
             }
           },
           {
@@ -43,7 +43,7 @@
             "name": "会議室予約一覧に \"新木場\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 15000000
+              "duration": 14000000
             }
           }
         ]

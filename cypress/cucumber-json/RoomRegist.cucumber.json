@@ -1,0 +1,263 @@
+[
+  {
+    "description": "  管理者として\n  会議室を登録したい\n  なぜなら会議室を利用するために必要だから",
+    "keyword": "Feature",
+    "name": "予約管理:会議室の登録",
+    "line": 1,
+    "id": "予約管理:会議室の登録",
+    "tags": [],
+    "uri": "RoomRegist.feature",
+    "elements": [
+      {
+        "id": "予約管理:会議室の登録;会議室を登録する",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "会議室を登録する",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "\"管理者\" としてログインしている",
+            "result": {
+              "status": "passed",
+              "duration": 2929000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 11,
+            "name": "\"会議室一覧画面\" ページにアクセスする",
+            "result": {
+              "status": "passed",
+              "duration": 108000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "\"新会議室\" を登録する",
+            "result": {
+              "status": "passed",
+              "duration": 805000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "会議室一覧に \"会議室を登録しました\" が表示される",
+            "result": {
+              "status": "passed",
+              "duration": 21000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "予約管理:会議室の登録;会議室を更新する",
+        "keyword": "Scenario",
+        "line": 15,
+        "name": "会議室を更新する",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "\"管理者\" としてログインしている",
+            "result": {
+              "status": "passed",
+              "duration": 1746000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 16,
+            "name": "\"会議室一覧画面\" ページにアクセスする",
+            "result": {
+              "status": "passed",
+              "duration": 64000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 17,
+            "name": "\"新会議室\" を \"更新会議室\" に更新する",
+            "result": {
+              "status": "passed",
+              "duration": 552000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "会議室一覧に \"会議室を更新しました\" が表示される",
+            "result": {
+              "status": "passed",
+              "duration": 17000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "予約管理:会議室の登録;会議室を削除する",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "会議室を削除する",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "\"管理者\" としてログインしている",
+            "result": {
+              "status": "passed",
+              "duration": 1718000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 21,
+            "name": "\"会議室一覧画面\" ページにアクセスする",
+            "result": {
+              "status": "passed",
+              "duration": 65000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 22,
+            "name": "\"新会議室\" を削除する",
+            "result": {
+              "status": "passed",
+              "duration": 135000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 23,
+            "name": "会議室一覧に \"会議室を削除しました\" が表示される",
+            "result": {
+              "status": "passed",
+              "duration": 16000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "予約管理:会議室の登録;予約可能な会議室を登録する",
+        "keyword": "Scenario",
+        "line": 25,
+        "name": "予約可能な会議室を登録する",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "\"管理者\" としてログインしている",
+            "result": {
+              "status": "passed",
+              "duration": 1736000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 26,
+            "name": "\"予約可能会議室一覧画面\" ページにアクセスする",
+            "result": {
+              "status": "passed",
+              "duration": 69000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 27,
+            "name": "\"新木場\" を \"2022-01-01\" 予約可能登録する",
+            "result": {
+              "status": "passed",
+              "duration": 819000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "予約可能会議室一覧に \"予約可能会議室を登録しました\" が表示される",
+            "result": {
+              "status": "passed",
+              "duration": 16000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "予約管理:会議室の登録;予約可能な会議室を削除する",
+        "keyword": "Scenario",
+        "line": 30,
+        "name": "予約可能な会議室を削除する",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "\"管理者\" としてログインしている",
+            "result": {
+              "status": "passed",
+              "duration": 1844000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 31,
+            "name": "\"予約可能会議室一覧画面\" ページにアクセスする",
+            "result": {
+              "status": "passed",
+              "duration": 59000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 32,
+            "name": "予約可能会議室を削除する",
+            "result": {
+              "status": "passed",
+              "duration": 111000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 33,
+            "name": "予約可能会議室一覧に \"予約可能会議室を削除しました\" が表示される",
+            "result": {
+              "status": "passed",
+              "duration": 16000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
