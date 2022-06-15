@@ -11,14 +11,14 @@
         <polygon fill="white" stroke="transparent" points="-4,4 -4,-409 257,-409 257,4 -4,4"/>
         <text text-anchor="middle" x="126.5" y="-7.8" font-family="Times New Roman,serif" font-size="14.00">パッケージ関連図
         </text>
-        <g id="clust3" class="cluster">
-            <title>cluster_mrs.domain.model.auth</title>
+        <g id="clust2" class="cluster">
+            <title>cluster_mrs.domain.model.property</title>
             <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
-                     points="142,-31 142,-123 245,-123 245,-31 142,-31"/>
-            <text text-anchor="middle" x="193.5" y="-107.8" font-family="Times New Roman,serif" font-size="14.00">
-                認証・認可
+                     points="144,-305 144,-397 228,-397 228,-305 144,-305"/>
+            <text text-anchor="middle" x="186" y="-381.8" font-family="Times New Roman,serif" font-size="14.00">資産
             </text>
-            <text text-anchor="middle" x="193.5" y="-92.8" font-family="Times New Roman,serif" font-size="14.00">auth
+            <text text-anchor="middle" x="186" y="-366.8" font-family="Times New Roman,serif" font-size="14.00">
+                property
             </text>
         </g>
         <g id="clust1" class="cluster">
@@ -31,14 +31,14 @@
                 reservation
             </text>
         </g>
-        <g id="clust2" class="cluster">
-            <title>cluster_mrs.domain.model.property</title>
+        <g id="clust3" class="cluster">
+            <title>cluster_mrs.domain.model.auth</title>
             <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
-                     points="144,-305 144,-397 228,-397 228,-305 144,-305"/>
-            <text text-anchor="middle" x="186" y="-381.8" font-family="Times New Roman,serif" font-size="14.00">資産
+                     points="142,-31 142,-123 245,-123 245,-31 142,-31"/>
+            <text text-anchor="middle" x="193.5" y="-107.8" font-family="Times New Roman,serif" font-size="14.00">
+                認証・認可
             </text>
-            <text text-anchor="middle" x="186" y="-366.8" font-family="Times New Roman,serif" font-size="14.00">
-                property
+            <text text-anchor="middle" x="193.5" y="-92.8" font-family="Times New Roman,serif" font-size="14.00">auth
             </text>
         </g>
         <!-- summary -->
