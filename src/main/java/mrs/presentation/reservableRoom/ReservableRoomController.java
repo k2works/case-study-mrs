@@ -1,4 +1,4 @@
-package mrs.presentation.room;
+package mrs.presentation.reservableRoom;
 
 import mrs.application.scenario.MeetingRoomReservationScenario;
 import mrs.application.service.reservation.room.ReservableRoomService;

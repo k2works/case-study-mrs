@@ -1,4 +1,4 @@
-package mrs.presentation.room;
+package mrs.presentation.meetingRoom;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;

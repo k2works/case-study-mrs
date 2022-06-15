@@ -1,4 +1,4 @@
-package mrs.presentation.room;
+package mrs.presentation.reservableRoom;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
