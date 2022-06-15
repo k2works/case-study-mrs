@@ -2,12 +2,12 @@ package mrs.application.scenario;
 
 import mrs.application.service.reservation.ReservationService;
 import mrs.application.service.room.RoomService;
-import mrs.domain.model.reservation.reservation.ReservableRoomId;
+import mrs.domain.model.property.room.MeetingRoom;
+import mrs.domain.model.property.room.RoomId;
 import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.reservation.ReservationId;
 import mrs.domain.model.reservation.reservation.ReservationList;
-import mrs.domain.model.reservation.room.MeetingRoom;
-import mrs.domain.model.reservation.room.RoomId;
+import mrs.domain.model.reservation.room.ReservableRoomId;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

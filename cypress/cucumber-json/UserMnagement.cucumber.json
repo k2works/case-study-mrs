@@ -23,7 +23,7 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 20829000000
+              "duration": 20285000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "\"利用者一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 91000000
+              "duration": 78000000
             }
           },
           {
@@ -43,7 +43,7 @@
             "name": "利用者登録画面に利用者番号 \"U000001\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 19000000
+              "duration": 23000000
             }
           }
         ]
@@ -63,7 +63,7 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 3252000000
+              "duration": 1719000000
             }
           },
           {
@@ -73,7 +73,7 @@
             "name": "\"利用者一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 82000000
+              "duration": 59000000
             }
           },
           {
@@ -83,7 +83,7 @@
             "name": "利用者番号 \"U000005\" を新規登録する",
             "result": {
               "status": "passed",
-              "duration": 2050000000
+              "duration": 1860000000
             }
           },
           {
@@ -93,7 +93,7 @@
             "name": "利用者登録画面に \"利用者を登録しました\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 47000000
+              "duration": 36000000
             }
           },
           {
@@ -103,7 +103,7 @@
             "name": "新規登録した利用者番号 \"U000005\" で認証する",
             "result": {
               "status": "passed",
-              "duration": 1527000000
+              "duration": 1821000000
             }
           },
           {
@@ -113,7 +113,7 @@
             "name": "新規登録利用者で認証される",
             "result": {
               "status": "passed",
-              "duration": 24000000
+              "duration": 18000000
             }
           }
         ]
@@ -133,7 +133,7 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 1762000000
+              "duration": 1748000000
             }
           },
           {
@@ -143,7 +143,7 @@
             "name": "\"利用者一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 60000000
+              "duration": 55000000
             }
           },
           {
@@ -153,7 +153,7 @@
             "name": "存在する利用者を新規登録する",
             "result": {
               "status": "passed",
-              "duration": 1559000000
+              "duration": 1522000000
             }
           },
           {
@@ -163,7 +163,7 @@
             "name": "利用者登録画面に \"利用者はすでに登録されています\" がエラー表示される",
             "result": {
               "status": "passed",
-              "duration": 26000000
+              "duration": 17000000
             }
           }
         ]
@@ -183,7 +183,7 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 2254000000
+              "duration": 1717000000
             }
           },
           {
@@ -193,7 +193,7 @@
             "name": "\"利用者一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 209000000
+              "duration": 66000000
             }
           },
           {
@@ -203,7 +203,7 @@
             "name": "利用者番号 \"U000005\" の利用者情報を更新する",
             "result": {
               "status": "passed",
-              "duration": 1430000000
+              "duration": 1258000000
             }
           },
           {
@@ -213,7 +213,7 @@
             "name": "利用者登録画面に \"利用者を更新しました\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 31000000
+              "duration": 16000000
             }
           },
           {
@@ -223,7 +223,7 @@
             "name": "更新した利用者番号 \"U000005\" で認証する",
             "result": {
               "status": "passed",
-              "duration": 1155000000
+              "duration": 1171000000
             }
           },
           {
@@ -233,7 +233,7 @@
             "name": "更新した利用者で認証される",
             "result": {
               "status": "passed",
-              "duration": 19000000
+              "duration": 22000000
             }
           }
         ]
@@ -253,7 +253,7 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 1737000000
+              "duration": 1772000000
             }
           },
           {
@@ -263,7 +263,7 @@
             "name": "\"利用者一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 61000000
+              "duration": 76000000
             }
           },
           {
@@ -273,7 +273,7 @@
             "name": "利用者番号 \"U000005\" を削除する",
             "result": {
               "status": "passed",
-              "duration": 109000000
+              "duration": 105000000
             }
           },
           {
@@ -283,7 +283,7 @@
             "name": "利用者登録画面に \"利用者を削除しました\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 14000000
+              "duration": 12000000
             }
           }
         ]

@@ -1,12 +1,12 @@
 package mrs.application.service.room;
 
 import mrs.application.service.auth.UserAlreadyRegistException;
-import mrs.domain.model.reservation.reservation.ReservableRoom;
-import mrs.domain.model.reservation.reservation.ReservableRoomId;
-import mrs.domain.model.reservation.reservation.ReservableRoomList;
+import mrs.domain.model.property.room.MeetingRoom;
+import mrs.domain.model.property.room.RoomId;
 import mrs.domain.model.reservation.reservation.ReservedDate;
-import mrs.domain.model.reservation.room.MeetingRoom;
-import mrs.domain.model.reservation.room.RoomId;
+import mrs.domain.model.reservation.room.ReservableRoom;
+import mrs.domain.model.reservation.room.ReservableRoomId;
+import mrs.domain.model.reservation.room.ReservableRoomList;
 import mrs.infrastructure.datasource.Message;
 import org.springframework.stereotype.Service;
 

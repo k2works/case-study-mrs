@@ -1,8 +1,8 @@
 package mrs.infrastructure.datasource.reservation.room;
 
 import mrs.application.service.room.MeetingRoomRepository;
-import mrs.domain.model.reservation.room.MeetingRoom;
-import mrs.domain.model.reservation.room.RoomId;
+import mrs.domain.model.property.room.MeetingRoom;
+import mrs.domain.model.property.room.RoomId;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

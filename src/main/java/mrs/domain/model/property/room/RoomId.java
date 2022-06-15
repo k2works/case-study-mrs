@@ -1,4 +1,4 @@
-package mrs.domain.model.reservation.room;
+package mrs.domain.model.property.room;
 
 import java.util.Objects;
 

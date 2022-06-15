@@ -1,7 +1,11 @@
 package mrs.application.service.reservation;
 
 import mrs.application.service.room.ReservableRoomRepository;
-import mrs.domain.model.reservation.reservation.*;
+import mrs.domain.model.reservation.reservation.Reservation;
+import mrs.domain.model.reservation.reservation.ReservationId;
+import mrs.domain.model.reservation.reservation.ReservationList;
+import mrs.domain.model.reservation.room.ReservableRoom;
+import mrs.domain.model.reservation.room.ReservableRoomId;
 import mrs.infrastructure.datasource.Message;
 import org.springframework.security.access.method.P;
 import org.springframework.security.access.prepost.PreAuthorize;

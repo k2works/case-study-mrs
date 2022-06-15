@@ -1,8 +1,8 @@
 package mrs.infrastructure.datasource.reservation.room;
 
-import mrs.domain.model.reservation.reservation.ReservableRoom;
-import mrs.domain.model.reservation.reservation.ReservableRoomId;
 import mrs.domain.model.reservation.reservation.ReservedDate;
+import mrs.domain.model.reservation.room.ReservableRoom;
+import mrs.domain.model.reservation.room.ReservableRoomId;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

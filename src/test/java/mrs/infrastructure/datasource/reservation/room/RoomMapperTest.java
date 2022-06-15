@@ -1,8 +1,8 @@
 package mrs.infrastructure.datasource.reservation.room;
 
-import mrs.domain.model.reservation.reservation.ReservableRoomId;
-import mrs.domain.model.reservation.room.MeetingRoom;
-import mrs.domain.model.reservation.room.RoomId;
+import mrs.domain.model.property.room.MeetingRoom;
+import mrs.domain.model.property.room.RoomId;
+import mrs.domain.model.reservation.room.ReservableRoomId;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;

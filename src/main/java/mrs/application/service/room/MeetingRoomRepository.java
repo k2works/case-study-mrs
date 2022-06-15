@@ -1,7 +1,7 @@
 package mrs.application.service.room;
 
-import mrs.domain.model.reservation.room.MeetingRoom;
-import mrs.domain.model.reservation.room.RoomId;
+import mrs.domain.model.property.room.MeetingRoom;
+import mrs.domain.model.property.room.RoomId;
 
 import java.util.List;
 

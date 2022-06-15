@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mrs.infrastructure.datasource.reservation.room.RoomMapper">
-  <resultMap id="BaseResultMap" type="mrs.domain.model.reservation.room.MeetingRoom">
-    <id column="会議室番号" jdbcType="INTEGER" property="roomId.value"/>
-    <result column="会議室名" jdbcType="VARCHAR" property="roomName"/>
-    <collection property="reservableRooms"
-                javaType="ArrayList"
-                column="会議室番号"
-                select="mrs.infrastructure.datasource.reservation.room.ReservableRoomMapper.selectAll"
-                fetchType="lazy"
-    />
+  <resultMap id="BaseResultMap" type="mrs.domain.model.property.room.MeetingRoom">
+      <id column="会議室番号" jdbcType="INTEGER" property="roomId.value"/>
+      <result column="会議室名" jdbcType="VARCHAR" property="roomName"/>
+      <collection property="reservableRooms"
+                  javaType="ArrayList"
+                  column="会議室番号"
+                  select="mrs.infrastructure.datasource.reservation.room.ReservableRoomMapper.selectAll"
+                  fetchType="lazy"
+      />
   </resultMap>
 
   <insert id="insert" useGeneratedKeys="true">
@@ -28,11 +28,11 @@
     FROM reservation.会議室
   </select>
 
-  <update id="update" parameterType="mrs.domain.model.reservation.room.MeetingRoom">
-    UPDATE reservation.会議室
-    SET 会議室名 = #{roomName}
-    WHERE 会議室番号 = #{roomId.value}
-  </update>
+    <update id="update" parameterType="mrs.domain.model.property.room.MeetingRoom">
+        UPDATE reservation.会議室
+        SET 会議室名 = #{roomName}
+        WHERE 会議室番号 = #{roomId.value}
+    </update>
 
   <delete id="delete">
     DELETE

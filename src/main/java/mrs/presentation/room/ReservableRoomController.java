@@ -1,8 +1,8 @@
 package mrs.presentation.room;
 
 import mrs.application.service.room.RoomService;
-import mrs.domain.model.reservation.reservation.ReservableRoom;
-import mrs.domain.model.reservation.reservation.ReservableRoomId;
+import mrs.domain.model.reservation.room.ReservableRoom;
+import mrs.domain.model.reservation.room.ReservableRoomId;
 import mrs.infrastructure.datasource.Message;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.format.annotation.DateTimeFormat;

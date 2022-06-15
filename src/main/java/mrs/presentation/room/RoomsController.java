@@ -1,8 +1,8 @@
 package mrs.presentation.room;
 
 import mrs.application.service.room.RoomService;
-import mrs.domain.model.reservation.reservation.ReservableRoomList;
 import mrs.domain.model.reservation.reservation.ReservedDate;
+import mrs.domain.model.reservation.room.ReservableRoomList;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

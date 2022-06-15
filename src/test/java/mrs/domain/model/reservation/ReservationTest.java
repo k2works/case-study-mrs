@@ -2,8 +2,8 @@ package mrs.domain.model.reservation;
 
 import mrs.domain.model.auth.user.RoleName;
 import mrs.domain.model.auth.user.User;
-import mrs.domain.model.reservation.reservation.ReservableRoomId;
 import mrs.domain.model.reservation.reservation.Reservation;
+import mrs.domain.model.reservation.room.ReservableRoomId;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
