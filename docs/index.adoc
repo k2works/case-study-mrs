@@ -542,106 +542,6 @@ entity 会議室
 
 ==== 状態モデル
 
-== 構築
-
-[cols="1,1,1"]
-|===
-|ソフトウェア |バージョン |備考
-|Java
-|17
-|
-|Node.js
-|16.3.0
-|
-|===
-
-=== アプリケーションコンポーネント
-
-==== プロダクション・開発環境
-
-[plantuml]
-----
-package "APP" {
-  [SpringBoot]
-}
-
-database "DB" {
-  frame "H2" {
-    [mrs_test]
-  }
-
-  frame "PostgreSQL" {
-    [mrs_development]
-  }
-}
-
-[SpringBoot] -- [mrs_test]
-[SpringBoot] -- [mrs_development]
-----
-
-=== コンポーネントセットアップ
-
-==== 開発関連
-
-===== 開発ツール
-
-[source,bash]
-----
-npm init -y
-npm install --save-dev @babel/core @babel/cli @babel/preset-env @babel/register
-npm install --save-dev npm-run-all watch foreman cpx rimraf marked@1.2.2
-npm install --save-dev webpack webpack-cli html-webpack-plugin webpack-dev-server
-touch Procfile.dev
-npm install --save-dev jest
-----
-
-===== Cypress
-
-[source,bash]
-----
-npm install cypress
-npmx cypress open
-npm install --save-dev cypress-cucumber-preprocessor
-npm install --save-dev cucumber-html-reporter
-----
-
-==== ドキュメント関連
-
-===== Asciidoctor
-
-[source,bash]
-----
-npm install --save-dev asciidoctor asciidoctor-kroki
-----
-
-== 配置
-
-=== システムアーキテクチャ
-
-[plantuml]
-----
-@startuml
-actor 開発者
-actor 利用者
-cloud "Heroku" as Heroku {
-    package "Production Environment" as prd {
-      [APP] as app_prd
-      [DB] as db_prd
-    }
-}
-
-cloud "GitHub" as github {
-  [Git] as repository
-}
-
-開発者 --> app_prd
-開発者 --> repository
-app_prd <-- 利用者
-repository --> prd
-app_prd -> db_prd
-@enduml
-----
-
 == 開発
 
 === 仕様
@@ -850,6 +750,106 @@ npm build
 [source,bash]
 ----
 npm run deploy
+----
+
+== 構築
+
+[cols="1,1,1"]
+|===
+|ソフトウェア |バージョン |備考
+|Java
+|17
+|
+|Node.js
+|16.3.0
+|
+|===
+
+=== アプリケーションコンポーネント
+
+==== プロダクション・開発環境
+
+[plantuml]
+----
+package "APP" {
+  [SpringBoot]
+}
+
+database "DB" {
+  frame "H2" {
+    [mrs_test]
+  }
+
+  frame "PostgreSQL" {
+    [mrs_development]
+  }
+}
+
+[SpringBoot] -- [mrs_test]
+[SpringBoot] -- [mrs_development]
+----
+
+=== コンポーネントセットアップ
+
+==== 開発関連
+
+===== 開発ツール
+
+[source,bash]
+----
+npm init -y
+npm install --save-dev @babel/core @babel/cli @babel/preset-env @babel/register
+npm install --save-dev npm-run-all watch foreman cpx rimraf marked@1.2.2
+npm install --save-dev webpack webpack-cli html-webpack-plugin webpack-dev-server
+touch Procfile.dev
+npm install --save-dev jest
+----
+
+===== Cypress
+
+[source,bash]
+----
+npm install cypress
+npmx cypress open
+npm install --save-dev cypress-cucumber-preprocessor
+npm install --save-dev cucumber-html-reporter
+----
+
+==== ドキュメント関連
+
+===== Asciidoctor
+
+[source,bash]
+----
+npm install --save-dev asciidoctor asciidoctor-kroki
+----
+
+== 配置
+
+=== システムアーキテクチャ
+
+[plantuml]
+----
+@startuml
+actor 開発者
+actor 利用者
+cloud "Heroku" as Heroku {
+    package "Production Environment" as prd {
+      [APP] as app_prd
+      [DB] as db_prd
+    }
+}
+
+cloud "GitHub" as github {
+  [Git] as repository
+}
+
+開発者 --> app_prd
+開発者 --> repository
+app_prd <-- 利用者
+repository --> prd
+app_prd -> db_prd
+@enduml
 ----
 
 == 参照
