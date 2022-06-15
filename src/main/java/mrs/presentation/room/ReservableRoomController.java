@@ -1,6 +1,6 @@
 package mrs.presentation.room;
 
-import mrs.application.service.room.RoomService;
+import mrs.application.service.room.ReservableRoomService;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
 import mrs.infrastructure.datasource.Message;
@@ -22,12 +22,12 @@ import java.util.List;
 @Controller
 @RequestMapping("reservableRooms")
 public class ReservableRoomController {
-    private final RoomService roomService;
+    private final ReservableRoomService reservableRoomService;
 
     private final Message message;
 
-    public ReservableRoomController(RoomService roomService, Message message) {
-        this.roomService = roomService;
+    public ReservableRoomController(ReservableRoomService reservableRoomService, Message message) {
+        this.reservableRoomService = reservableRoomService;
         this.message = message;
     }
 
@@ -43,7 +43,7 @@ public class ReservableRoomController {
 
     @GetMapping
     String roomList(Model model) {
-        List<ReservableRoom> reservableRoomList = roomService.findAllReservableRooms();
+        List<ReservableRoom> reservableRoomList = reservableRoomService.findAllReservableRooms();
         model.addAttribute("rooms", reservableRoomList);
         return "reservableRoom/listRooms";
     }
@@ -56,7 +56,7 @@ public class ReservableRoomController {
         }
         try {
             ReservableRoomId reservableRoomId = new ReservableRoomId(form.getRoomId(), form.getReservedDate());
-            roomService.registReservableRoom(reservableRoomId);
+            reservableRoomService.registReservableRoom(reservableRoomId);
             model.addAttribute("success", message.getMessageByKey("reservable_room_regist"));
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
@@ -69,7 +69,7 @@ public class ReservableRoomController {
     String deleteRoom(@PathVariable("id") int id, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable("date") LocalDate date, Model model) {
         try {
             ReservableRoomId reservableRoomId = new ReservableRoomId(id, date);
-            roomService.deleteReservableRoom(reservableRoomId);
+            reservableRoomService.deleteReservableRoom(reservableRoomId);
             model.addAttribute("success", message.getMessageByKey("reservable_room_delete"));
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());

@@ -1,7 +1,8 @@
 package mrs.application.scenario;
 
 import mrs.application.service.reservation.ReservationService;
-import mrs.application.service.room.RoomService;
+import mrs.application.service.room.MeetingRoomService;
+import mrs.application.service.room.ReservableRoomService;
 import mrs.domain.model.property.room.MeetingRoom;
 import mrs.domain.model.property.room.RoomId;
 import mrs.domain.model.reservation.reservation.Reservation;
@@ -17,12 +18,15 @@ import java.util.Optional;
  */
 @Service
 public class MeetingRoomReservationScenario {
-    private final RoomService roomService;
+    private final ReservableRoomService reservableRoomService;
+
+    private final MeetingRoomService meetingRoomService;
 
     private final ReservationService reservationService;
 
-    public MeetingRoomReservationScenario(RoomService roomService, ReservationService reservationService) {
-        this.roomService = roomService;
+    public MeetingRoomReservationScenario(ReservableRoomService reservableRoomService, MeetingRoomService meetingRoomService, ReservationService reservationService) {
+        this.reservableRoomService = reservableRoomService;
+        this.meetingRoomService = meetingRoomService;
         this.reservationService = reservationService;
     }
 
@@ -37,7 +41,7 @@ public class MeetingRoomReservationScenario {
      * 選択した会議室情報を取得する
      */
     public MeetingRoom findMeetingRoom(RoomId roomId) {
-        return roomService.findMeetingRoom(roomId);
+        return meetingRoomService.findMeetingRoom(roomId);
     }
 
     /**

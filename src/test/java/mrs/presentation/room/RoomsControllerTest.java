@@ -1,6 +1,6 @@
 package mrs.presentation.room;
 
-import mrs.application.service.room.RoomService;
+import mrs.application.service.room.ReservableRoomService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -20,7 +20,7 @@ public class RoomsControllerTest {
     RoomsController controller;
 
     @Mock
-    RoomService mockRoomService;
+    ReservableRoomService mockReservableRoomService;
 
     @BeforeEach
     public void setUpMockMvc() {

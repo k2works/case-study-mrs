@@ -1,7 +1,7 @@
 package mrs.presentation.room;
 
 import mrs.application.scenario.MeetingRoomReservationScenario;
-import mrs.application.service.room.RoomService;
+import mrs.application.service.room.ReservableRoomService;
 import mrs.presentation.reservation.ReservationsController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,7 +24,7 @@ public class ReservationsControllerTest {
     ReservationsController controller;
 
     @Mock
-    RoomService mockRoomService;
+    ReservableRoomService mockReservableRoomService;
 
     @Mock
     MeetingRoomReservationScenario reservationService;

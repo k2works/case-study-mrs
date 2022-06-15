@@ -1,6 +1,7 @@
 package mrs.presentation.room;
 
-import mrs.application.service.room.RoomService;
+import mrs.application.service.room.MeetingRoomService;
+import mrs.application.service.room.ReservableRoomService;
 import mrs.domain.model.property.room.MeetingRoom;
 import mrs.infrastructure.datasource.Message;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
@@ -19,12 +20,15 @@ import java.util.List;
 @Controller
 @RequestMapping("meetingRooms")
 public class MeetingRoomController {
-    private final RoomService roomService;
+    private final ReservableRoomService reservableRoomService;
+
+    private final MeetingRoomService meetingRoomService;
 
     private final Message message;
 
-    public MeetingRoomController(RoomService roomService, Message message) {
-        this.roomService = roomService;
+    public MeetingRoomController(ReservableRoomService reservableRoomService, MeetingRoomService meetingRoomService, Message message) {
+        this.reservableRoomService = reservableRoomService;
+        this.meetingRoomService = meetingRoomService;
         this.message = message;
     }
 
@@ -40,7 +44,7 @@ public class MeetingRoomController {
 
     @GetMapping
     String roomList(Model model) {
-        List<MeetingRoom> meetingRoomList = roomService.findAll();
+        List<MeetingRoom> meetingRoomList = meetingRoomService.findAll();
         model.addAttribute("rooms", meetingRoomList);
         return "meetingRoom/listRooms";
     }
@@ -53,7 +57,7 @@ public class MeetingRoomController {
         }
         try {
             MeetingRoom meetingRoom = new MeetingRoom(form.getRoomId(), form.getRoomName());
-            this.roomService.registMeetingRoom(meetingRoom);
+            meetingRoomService.registMeetingRoom(meetingRoom);
             model.addAttribute("success", message.getMessageByKey("meeting_room_regist"));
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
@@ -70,7 +74,7 @@ public class MeetingRoomController {
         }
         try {
             MeetingRoom meetingRoom = new MeetingRoom(form.getRoomId(), form.getRoomName());
-            roomService.updateMeetingRoom(meetingRoom);
+            meetingRoomService.updateMeetingRoom(meetingRoom);
             model.addAttribute("success", message.getMessageByKey("meeting_room_update"));
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
@@ -82,7 +86,7 @@ public class MeetingRoomController {
     @GetMapping("delete/{id}")
     String deleteRoom(@PathVariable("id") int id, Model model) {
         try {
-            roomService.deleteMeetingRoom(id);
+            meetingRoomService.deleteMeetingRoom(id);
             model.addAttribute("success", message.getMessageByKey("meeting_room_delete"));
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
