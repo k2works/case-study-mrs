@@ -11,14 +11,6 @@
         <polygon fill="white" stroke="transparent" points="-4,4 -4,-512 1558,-512 1558,4 -4,4"/>
         <text text-anchor="middle" x="777" y="-7.8" font-family="Times New Roman,serif" font-size="14.00">ビジネスルール関連図
         </text>
-        <g id="clust1" class="cluster">
-            <title>cluster_mrs.domain.model.auth.user</title>
-            <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
-                     points="8,-180 8,-500 580,-500 580,-180 8,-180"/>
-            <text text-anchor="middle" x="294" y="-484.8" font-family="Times New Roman,serif" font-size="14.00">
-                auth.user
-            </text>
-        </g>
         <g id="clust2" class="cluster">
             <title>cluster_mrs.domain.model.auth.user.administrator</title>
             <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
@@ -41,6 +33,14 @@
                      points="1426,-31 1426,-330 1546,-330 1546,-31 1426,-31"/>
             <text text-anchor="middle" x="1486" y="-314.8" font-family="Times New Roman,serif" font-size="14.00">
                 property.room
+            </text>
+        </g>
+        <g id="clust1" class="cluster">
+            <title>cluster_mrs.domain.model.auth.user</title>
+            <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
+                     points="8,-180 8,-500 580,-500 580,-180 8,-180"/>
+            <text text-anchor="middle" x="294" y="-484.8" font-family="Times New Roman,serif" font-size="14.00">
+                auth.user
             </text>
         </g>
         <g id="clust5" class="cluster">
