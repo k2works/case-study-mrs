@@ -1,6 +1,5 @@
 package mrs.application.service.reservation.room;
 
-import mrs.application.service.property.room.MeetingRoomRepository;
 import mrs.domain.model.reservation.reservation.ReservedDate;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
@@ -18,13 +17,11 @@ import java.util.Optional;
 @Service
 @Transactional
 public class ReservableRoomService {
-    private final MeetingRoomRepository meetingRoomRepository;
     private final ReservableRoomRepository reservableRoomRepository;
 
     private final Message message;
 
-    public ReservableRoomService(MeetingRoomRepository meetingRoomRepository, ReservableRoomRepository reservableRoomRepository, Message message) {
-        this.meetingRoomRepository = meetingRoomRepository;
+    public ReservableRoomService(ReservableRoomRepository reservableRoomRepository, Message message) {
         this.reservableRoomRepository = reservableRoomRepository;
         this.message = message;
     }

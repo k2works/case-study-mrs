@@ -8,7 +8,9 @@ import mrs.domain.model.property.room.RoomId;
 import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.reservation.ReservationId;
 import mrs.domain.model.reservation.reservation.ReservationList;
+import mrs.domain.model.reservation.reservation.ReservedDate;
 import mrs.domain.model.reservation.room.ReservableRoomId;
+import mrs.domain.model.reservation.room.ReservableRoomList;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -43,6 +45,13 @@ public class MeetingRoomReservationScenario {
      */
     public void registReservableRoom(ReservableRoomId reservableRoomId) {
         reservableRoomService.registReservableRoom(reservableRoomId);
+    }
+
+    /**
+     * 予約可能な会議室を検索する
+     */
+    public Optional<ReservableRoomList> findReservableRooms(ReservedDate date) {
+        return reservableRoomService.findReservableRooms(date);
     }
 
     /**

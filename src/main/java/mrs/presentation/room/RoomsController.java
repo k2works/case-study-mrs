@@ -1,6 +1,6 @@
 package mrs.presentation.room;
 
-import mrs.application.service.reservation.room.ReservableRoomService;
+import mrs.application.scenario.MeetingRoomReservationScenario;
 import mrs.domain.model.reservation.reservation.ReservedDate;
 import mrs.domain.model.reservation.room.ReservableRoomList;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -13,21 +13,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.time.LocalDate;
 
 /**
- * 会議室一覧画面
+ * 会議室予約一覧画面
  */
-@Controller("会議室一覧")
+@Controller
 @RequestMapping("rooms")
 public class RoomsController {
-    private final ReservableRoomService reservableRoomService;
 
-    public RoomsController(ReservableRoomService reservableRoomService) {
-        this.reservableRoomService = reservableRoomService;
+    private final MeetingRoomReservationScenario meetingRoomReservationScenario;
+
+    public RoomsController(MeetingRoomReservationScenario meetingRoomReservationScenario) {
+        this.meetingRoomReservationScenario = meetingRoomReservationScenario;
     }
 
     @GetMapping
     String listRooms(Model model) {
         LocalDate today = LocalDate.now();
-        ReservableRoomList rooms = reservableRoomService.findReservableRooms(new ReservedDate(today)).orElse(new ReservableRoomList());
+        ReservableRoomList rooms = meetingRoomReservationScenario.findReservableRooms(new ReservedDate(today)).orElse(new ReservableRoomList());
         model.addAttribute("date", today);
         model.addAttribute("rooms", rooms.asList());
         return "room/listRooms";
@@ -35,7 +36,7 @@ public class RoomsController {
 
     @GetMapping("{date}")
     String listRooms(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable("date") LocalDate date, Model model) {
-        ReservableRoomList rooms = reservableRoomService.findReservableRooms(new ReservedDate(date)).orElse(new ReservableRoomList());
+        ReservableRoomList rooms = meetingRoomReservationScenario.findReservableRooms(new ReservedDate(date)).orElse(new ReservableRoomList());
         model.addAttribute("rooms", rooms.asList());
         return "room/listRooms";
     }
