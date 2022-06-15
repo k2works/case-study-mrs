@@ -431,8 +431,8 @@ actor "会員" as user
 actor "管理者" as admin
 frame "会議室の検索" as f01
 usecase "予約可能な会議室を検索する" as UC1
-boundary "会議室一覧画面" as b01
-entity "会議室" as e01
+boundary "会議室予約一覧画面" as b01
+entity "予約可能会議室" as e01
 
 user - f01
 admin - f01
@@ -456,10 +456,10 @@ usecase "予約可能な会議室を検索する" as UC1
 usecase "会議室の予約一覧を取得する" as UC2
 usecase "会議室を予約する" as UC3
 usecase "会議室の予約を取り消す" as UC4
-boundary "会議室一覧画面" as b01
+boundary "会議室予約一覧画面" as b01
 boundary "会議室予約画面" as b02
 control "予約条件" as c01
-entity "会議室" as e01
+entity "予約可能会議室" as e01
 entity "予約" as e02
 
 user - f01
@@ -499,20 +499,22 @@ boundary "会議室登録画面" as b02
 boundary "予約可能会議室一覧画面" as b03
 boundary "予約可能会議室登録画面" as b04
 control "予約可能条件" as c01
-entity "会議室" as e01
+entity "予約可能会議室" as e01
 entity "予約" as e02
+entity "会議室" as e03
 
 admin - f01
 f01 - UC1
 b01 -- UC1
 b02 -- UC1
-UC1 -- e01
+UC1 -- e03
 
 f01 - UC2
 b03 -- UC2
 b04 -- UC2
 UC2 -- e01
 UC2 -- e02
+UC2 -- e03
 UC2 - c01
 
 @enduml
@@ -533,9 +535,11 @@ left to right direction
 entity 利用者
 entity 予約
 entity 会議室
+entity 予約可能会議室
 
 予約 -- 利用者
-予約 -- 会議室
+予約 -- 予約可能会議室
+予約可能会議室 -- 会議室
 
 @enduml
 ----

@@ -23,7 +23,7 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 1677000000
+              "duration": 1788000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "\"会議室一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 56000000
+              "duration": 58000000
             }
           },
           {
@@ -43,7 +43,7 @@
             "name": "\"新会議室\" を削除する",
             "result": {
               "status": "passed",
-              "duration": 95000000
+              "duration": 105000000
             }
           },
           {
@@ -53,7 +53,7 @@
             "name": "会議室一覧に \"会議室を削除しました\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 11000000
+              "duration": 12000000
             }
           }
         ]
@@ -73,7 +73,7 @@
             "name": "\"管理者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 1656000000
+              "duration": 1747000000
             }
           },
           {
@@ -93,7 +93,7 @@
             "name": "予約可能会議室を削除する",
             "result": {
               "status": "passed",
-              "duration": 104000000
+              "duration": 98000000
             }
           },
           {
@@ -103,7 +103,7 @@
             "name": "予約可能会議室一覧に \"予約可能会議室を削除しました\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 14000000
+              "duration": 15000000
             }
           }
         ]
