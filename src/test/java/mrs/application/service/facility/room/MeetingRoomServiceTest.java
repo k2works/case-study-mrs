@@ -1,11 +1,11 @@
-package mrs.application.service.property.room;
+package mrs.application.service.facility.room;
 
 import mrs.IntegrationTest;
 import mrs.TestDataFactory;
 import mrs.application.service.auth.UserAlreadyRegistException;
 import mrs.application.service.reservation.room.ReservableRoomService;
-import mrs.domain.model.property.room.MeetingRoom;
-import mrs.domain.model.property.room.RoomId;
+import mrs.domain.model.facility.room.MeetingRoom;
+import mrs.domain.model.facility.room.RoomId;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;

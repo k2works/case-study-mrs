@@ -5,7 +5,7 @@ import mrs.application.service.reservation.reservation.AlreadyReservedException;
 import mrs.application.service.reservation.reservation.UnavailableReservationException;
 import mrs.domain.model.auth.user.User;
 import mrs.domain.model.auth.user.UserDetailsImpl;
-import mrs.domain.model.property.room.RoomId;
+import mrs.domain.model.facility.room.RoomId;
 import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.reservation.ReservationId;
 import mrs.domain.model.reservation.reservation.ReservationList;

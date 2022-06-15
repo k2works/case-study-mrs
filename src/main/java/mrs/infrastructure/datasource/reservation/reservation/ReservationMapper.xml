@@ -14,9 +14,9 @@
             <result property="reservedDate.value" column="予約日"/>
         </association>
         <association property="reservableRoom.meetingRoom"
-                     javaType="mrs.domain.model.property.room.MeetingRoom"
+                     javaType="mrs.domain.model.facility.room.MeetingRoom"
                      column="会議室番号"
-                     select="mrs.infrastructure.datasource.reservation.room.RoomMapper.select"
+                     select="mrs.infrastructure.datasource.facility.room.RoomMapper.select"
         />
         <association property="user"
                      javaType="mrs.domain.model.auth.user.User"

@@ -1,6 +1,6 @@
 package mrs.domain.model.reservation.room;
 
-import mrs.domain.model.property.room.MeetingRoom;
+import mrs.domain.model.facility.room.MeetingRoom;
 import mrs.domain.model.reservation.reservation.Reservation;
 
 import java.util.List;

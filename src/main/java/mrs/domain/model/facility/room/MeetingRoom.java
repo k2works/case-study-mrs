@@ -1,4 +1,4 @@
-package mrs.domain.model.property.room;
+package mrs.domain.model.facility.room;
 
 import mrs.domain.model.reservation.room.ReservableRoom;
 

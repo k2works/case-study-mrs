@@ -2,7 +2,7 @@ package mrs.application.service.reservation.room;
 
 import mrs.IntegrationTest;
 import mrs.TestDataFactory;
-import mrs.application.service.property.room.MeetingRoomService;
+import mrs.application.service.facility.room.MeetingRoomService;
 import mrs.domain.model.reservation.reservation.ReservedDate;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;

@@ -1,8 +1,8 @@
-package mrs.application.service.property.room;
+package mrs.application.service.facility.room;
 
 import mrs.application.service.auth.UserAlreadyRegistException;
-import mrs.domain.model.property.room.MeetingRoom;
-import mrs.domain.model.property.room.RoomId;
+import mrs.domain.model.facility.room.MeetingRoom;
+import mrs.domain.model.facility.room.RoomId;
 import mrs.infrastructure.datasource.Message;
 import org.springframework.stereotype.Service;
 
