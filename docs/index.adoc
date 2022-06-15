@@ -555,8 +555,13 @@ skinparam componentStyle uml2
 
 component [AuthContext] <<認証・認可>>
 component [ReservationContext] <<予約>>
+component [FacilityContext] <<施設>>
 
 [AuthContext]<-->[ReservationContext] : Shared Kernel
+
+[AuthContext]<-->[FacilityContext] : Shared Kernel
+
+[ReservationContext]<-->[FacilityContext] : Shared Kernel
 ----
 
 ==== ユースケース
@@ -704,6 +709,23 @@ package mrs.domain.model.reservation.reservation {
     MeetingRoom --* ReservableRoom
     MeetingRoom *-- RoomId
     ReservableRoomList *-- ReservableRoom
+}
+----
+
+===== 施設
+
+[plantuml]
+----
+skinparam componentStyle uml2
+
+package mrs.domain.model.facility.facility {
+	package "'MeetingRoom' Aggregate" <<Rectangle>> {
+		class MeetingRoom <<(E,DarkSeaGreen) Entity>> {
+		}
+		class RoomId <<(V,DarkSeaGreen) Value Object>> {
+		}
+	}
+    MeetingRoom *-- RoomId
 }
 ----
 

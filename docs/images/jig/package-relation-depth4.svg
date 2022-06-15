@@ -22,27 +22,10 @@
             <text text-anchor="start" x="8" y="-178.8" font-family="Times New Roman,serif" font-size="14.00">関連数: 4
             </text>
         </g>
-        <!-- mrs.domain.model.auth -->
-        <g id="node2" class="node">
-            <title>mrs.domain.model.auth</title>
-            <g id="a_node2">
-                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/auth"
-                   xlink:title="認証・認可\nauth">
-                    <polygon fill="#eedd82" stroke="black"
-                             points="255.5,-209 152.5,-209 152.5,-171 255.5,-171 255.5,-209"/>
-                    <text text-anchor="middle" x="204" y="-193.8" font-family="Times New Roman,serif" font-size="14.00">
-                        認証・認可
-                    </text>
-                    <text text-anchor="middle" x="204" y="-178.8" font-family="Times New Roman,serif" font-size="14.00">
-                        auth
-                    </text>
-                </a>
-            </g>
-        </g>
         <!-- mrs.domain.model.reservation -->
-        <g id="node3" class="node">
+        <g id="node2" class="node">
             <title>mrs.domain.model.reservation</title>
-            <g id="a_node3">
+            <g id="a_node2">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/reservation"
                    xlink:title="予約\nreservation">
                     <polygon fill="#eedd82" stroke="black"
@@ -56,39 +39,56 @@
                 </a>
             </g>
         </g>
-        <!-- mrs.domain.model.auth&#45;&gt;mrs.domain.model.reservation -->
+        <!-- mrs.domain.model.facility -->
+        <g id="node3" class="node">
+            <title>mrs.domain.model.facility</title>
+            <g id="a_node3">
+                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/facility"
+                   xlink:title="施設\nfacility">
+                    <polygon fill="#eedd82" stroke="black" points="231,-61 177,-61 177,-23 231,-23 231,-61"/>
+                    <text text-anchor="middle" x="204" y="-45.8" font-family="Times New Roman,serif" font-size="14.00">
+                        施設
+                    </text>
+                    <text text-anchor="middle" x="204" y="-30.8" font-family="Times New Roman,serif" font-size="14.00">
+                        facility
+                    </text>
+                </a>
+            </g>
+        </g>
+        <!-- mrs.domain.model.reservation&#45;&gt;mrs.domain.model.facility -->
         <g id="edge1" class="edge">
+            <title>mrs.domain.model.reservation&#45;&gt;mrs.domain.model.facility</title>
+            <path fill="none" stroke="red" stroke-width="2" d="M204,-86.57C204,-81.68 204,-76.59 204,-71.69"/>
+            <polygon fill="red" stroke="red" stroke-width="2"
+                     points="200.5,-86.83 204,-96.83 207.5,-86.83 200.5,-86.83"/>
+            <polygon fill="red" stroke="red" stroke-width="2"
+                     points="207.5,-71.41 204,-61.41 200.5,-71.41 207.5,-71.41"/>
+        </g>
+        <!-- mrs.domain.model.auth -->
+        <g id="node4" class="node">
+            <title>mrs.domain.model.auth</title>
+            <g id="a_node4">
+                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/auth"
+                   xlink:title="認証・認可\nauth">
+                    <polygon fill="#eedd82" stroke="black"
+                             points="255.5,-209 152.5,-209 152.5,-171 255.5,-171 255.5,-209"/>
+                    <text text-anchor="middle" x="204" y="-193.8" font-family="Times New Roman,serif" font-size="14.00">
+                        認証・認可
+                    </text>
+                    <text text-anchor="middle" x="204" y="-178.8" font-family="Times New Roman,serif" font-size="14.00">
+                        auth
+                    </text>
+                </a>
+            </g>
+        </g>
+        <!-- mrs.domain.model.auth&#45;&gt;mrs.domain.model.reservation -->
+        <g id="edge2" class="edge">
             <title>mrs.domain.model.auth&#45;&gt;mrs.domain.model.reservation</title>
             <path fill="none" stroke="red" stroke-width="2" d="M204,-160.57C204,-155.68 204,-150.59 204,-145.69"/>
             <polygon fill="red" stroke="red" stroke-width="2"
                      points="200.5,-160.83 204,-170.83 207.5,-160.83 200.5,-160.83"/>
             <polygon fill="red" stroke="red" stroke-width="2"
                      points="207.5,-145.41 204,-135.41 200.5,-145.41 207.5,-145.41"/>
-        </g>
-        <!-- mrs.domain.model.property -->
-        <g id="node4" class="node">
-            <title>mrs.domain.model.property</title>
-            <g id="a_node4">
-                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/property"
-                   xlink:title="資産\nproperty">
-                    <polygon fill="#eedd82" stroke="black" points="236.5,-61 171.5,-61 171.5,-23 236.5,-23 236.5,-61"/>
-                    <text text-anchor="middle" x="204" y="-45.8" font-family="Times New Roman,serif" font-size="14.00">
-                        資産
-                    </text>
-                    <text text-anchor="middle" x="204" y="-30.8" font-family="Times New Roman,serif" font-size="14.00">
-                        property
-                    </text>
-                </a>
-            </g>
-        </g>
-        <!-- mrs.domain.model.reservation&#45;&gt;mrs.domain.model.property -->
-        <g id="edge2" class="edge">
-            <title>mrs.domain.model.reservation&#45;&gt;mrs.domain.model.property</title>
-            <path fill="none" stroke="red" stroke-width="2" d="M204,-86.57C204,-81.68 204,-76.59 204,-71.69"/>
-            <polygon fill="red" stroke="red" stroke-width="2"
-                     points="200.5,-86.83 204,-96.83 207.5,-86.83 200.5,-86.83"/>
-            <polygon fill="red" stroke="red" stroke-width="2"
-                     points="207.5,-71.41 204,-61.41 200.5,-71.41 207.5,-71.41"/>
         </g>
     </g>
 </svg>

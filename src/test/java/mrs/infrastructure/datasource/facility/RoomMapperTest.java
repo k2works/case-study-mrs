@@ -1,8 +1,9 @@
-package mrs.infrastructure.datasource.facility.room;
+package mrs.infrastructure.datasource.facility;
 
 import mrs.domain.model.facility.room.MeetingRoom;
 import mrs.domain.model.facility.room.RoomId;
 import mrs.domain.model.reservation.room.ReservableRoomId;
+import mrs.infrastructure.datasource.facility.room.RoomMapper;
 import mrs.infrastructure.datasource.reservation.room.ReservableRoomMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

@@ -11,14 +11,24 @@
         <polygon fill="white" stroke="transparent" points="-4,4 -4,-409 257,-409 257,4 -4,4"/>
         <text text-anchor="middle" x="126.5" y="-7.8" font-family="Times New Roman,serif" font-size="14.00">パッケージ関連図
         </text>
+        <g id="clust3" class="cluster">
+            <title>cluster_mrs.domain.model.auth</title>
+            <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
+                     points="142,-31 142,-123 245,-123 245,-31 142,-31"/>
+            <text text-anchor="middle" x="193.5" y="-107.8" font-family="Times New Roman,serif" font-size="14.00">
+                認証・認可
+            </text>
+            <text text-anchor="middle" x="193.5" y="-92.8" font-family="Times New Roman,serif" font-size="14.00">auth
+            </text>
+        </g>
         <g id="clust2" class="cluster">
-            <title>cluster_mrs.domain.model.property</title>
+            <title>cluster_mrs.domain.model.facility</title>
             <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
                      points="144,-305 144,-397 228,-397 228,-305 144,-305"/>
-            <text text-anchor="middle" x="186" y="-381.8" font-family="Times New Roman,serif" font-size="14.00">資産
+            <text text-anchor="middle" x="186" y="-381.8" font-family="Times New Roman,serif" font-size="14.00">施設
             </text>
             <text text-anchor="middle" x="186" y="-366.8" font-family="Times New Roman,serif" font-size="14.00">
-                property
+                facility
             </text>
         </g>
         <g id="clust1" class="cluster">
@@ -29,16 +39,6 @@
             </text>
             <text text-anchor="middle" x="186" y="-266.8" font-family="Times New Roman,serif" font-size="14.00">
                 reservation
-            </text>
-        </g>
-        <g id="clust3" class="cluster">
-            <title>cluster_mrs.domain.model.auth</title>
-            <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
-                     points="142,-31 142,-123 245,-123 245,-31 142,-31"/>
-            <text text-anchor="middle" x="193.5" y="-107.8" font-family="Times New Roman,serif" font-size="14.00">
-                認証・認可
-            </text>
-            <text text-anchor="middle" x="193.5" y="-92.8" font-family="Times New Roman,serif" font-size="14.00">auth
             </text>
         </g>
         <!-- summary -->
@@ -52,10 +52,51 @@
             <text text-anchor="start" x="8" y="-320.8" font-family="Times New Roman,serif" font-size="14.00">関連数: 6
             </text>
         </g>
-        <!-- mrs.domain.model.reservation.reservation -->
+        <!-- mrs.domain.model.facility.room -->
         <g id="node2" class="node">
-            <title>mrs.domain.model.reservation.reservation</title>
+            <title>mrs.domain.model.facility.room</title>
             <g id="a_node2">
+                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/facility/room"
+                   xlink:title="会議室\nroom">
+                    <polygon fill="#eedd82" stroke="black" points="220,-351 152,-351 152,-313 220,-313 220,-351"/>
+                    <text text-anchor="middle" x="186" y="-335.8" font-family="Times New Roman,serif" font-size="14.00">
+                        会議室
+                    </text>
+                    <text text-anchor="middle" x="186" y="-320.8" font-family="Times New Roman,serif" font-size="14.00">
+                        room
+                    </text>
+                </a>
+            </g>
+        </g>
+        <!-- mrs.domain.model.reservation.room -->
+        <g id="node3" class="node">
+            <title>mrs.domain.model.reservation.room</title>
+            <g id="a_node3">
+                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/reservation/room"
+                   xlink:title="会議室\nroom">
+                    <polygon fill="#eedd82" stroke="black" points="220,-251 152,-251 152,-213 220,-213 220,-251"/>
+                    <text text-anchor="middle" x="186" y="-235.8" font-family="Times New Roman,serif" font-size="14.00">
+                        会議室
+                    </text>
+                    <text text-anchor="middle" x="186" y="-220.8" font-family="Times New Roman,serif" font-size="14.00">
+                        room
+                    </text>
+                </a>
+            </g>
+        </g>
+        <!-- mrs.domain.model.facility.room&#45;&gt;mrs.domain.model.reservation.room -->
+        <g id="edge1" class="edge">
+            <title>mrs.domain.model.facility.room&#45;&gt;mrs.domain.model.reservation.room</title>
+            <path fill="none" stroke="red" stroke-width="2" d="M186,-302.31C186,-289.36 186,-274.1 186,-261.2"/>
+            <polygon fill="red" stroke="red" stroke-width="2"
+                     points="182.5,-302.57 186,-312.57 189.5,-302.57 182.5,-302.57"/>
+            <polygon fill="red" stroke="red" stroke-width="2"
+                     points="189.5,-261.02 186,-251.02 182.5,-261.02 189.5,-261.02"/>
+        </g>
+        <!-- mrs.domain.model.reservation.reservation -->
+        <g id="node4" class="node">
+            <title>mrs.domain.model.reservation.reservation</title>
+            <g id="a_node4">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/reservation/reservation"
                    xlink:title="予約\nreservation">
                     <polygon fill="#eedd82" stroke="black"
@@ -69,10 +110,19 @@
                 </a>
             </g>
         </g>
+        <!-- mrs.domain.model.reservation.room&#45;&gt;mrs.domain.model.reservation.reservation -->
+        <g id="edge3" class="edge">
+            <title>mrs.domain.model.reservation.room&#45;&gt;mrs.domain.model.reservation.reservation</title>
+            <path fill="none" stroke="red" stroke-width="2" d="M186,-202.57C186,-197.68 186,-192.59 186,-187.69"/>
+            <polygon fill="red" stroke="red" stroke-width="2"
+                     points="182.5,-202.83 186,-212.83 189.5,-202.83 182.5,-202.83"/>
+            <polygon fill="red" stroke="red" stroke-width="2"
+                     points="189.5,-187.41 186,-177.41 182.5,-187.41 189.5,-187.41"/>
+        </g>
         <!-- mrs.domain.model.auth.user -->
-        <g id="node3" class="node">
+        <g id="node5" class="node">
             <title>mrs.domain.model.auth.user</title>
-            <g id="a_node3">
+            <g id="a_node5">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/auth/user"
                    xlink:title="利用者\nuser">
                     <polygon fill="#eedd82" stroke="black" points="220,-77 152,-77 152,-39 220,-39 220,-77"/>
@@ -86,63 +136,13 @@
             </g>
         </g>
         <!-- mrs.domain.model.reservation.reservation&#45;&gt;mrs.domain.model.auth.user -->
-        <g id="edge1" class="edge">
+        <g id="edge2" class="edge">
             <title>mrs.domain.model.reservation.reservation&#45;&gt;mrs.domain.model.auth.user</title>
             <path fill="none" stroke="red" stroke-width="2" d="M186,-128.31C186,-115.36 186,-100.1 186,-87.2"/>
             <polygon fill="red" stroke="red" stroke-width="2"
                      points="182.5,-128.57 186,-138.57 189.5,-128.57 182.5,-128.57"/>
             <polygon fill="red" stroke="red" stroke-width="2"
                      points="189.5,-87.02 186,-77.02 182.5,-87.02 189.5,-87.02"/>
-        </g>
-        <!-- mrs.domain.model.property.room -->
-        <g id="node4" class="node">
-            <title>mrs.domain.model.property.room</title>
-            <g id="a_node4">
-                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/property/room"
-                   xlink:title="会議室\nroom">
-                    <polygon fill="#eedd82" stroke="black" points="220,-351 152,-351 152,-313 220,-313 220,-351"/>
-                    <text text-anchor="middle" x="186" y="-335.8" font-family="Times New Roman,serif" font-size="14.00">
-                        会議室
-                    </text>
-                    <text text-anchor="middle" x="186" y="-320.8" font-family="Times New Roman,serif" font-size="14.00">
-                        room
-                    </text>
-                </a>
-            </g>
-        </g>
-        <!-- mrs.domain.model.reservation.room -->
-        <g id="node5" class="node">
-            <title>mrs.domain.model.reservation.room</title>
-            <g id="a_node5">
-                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/reservation/room"
-                   xlink:title="会議室\nroom">
-                    <polygon fill="#eedd82" stroke="black" points="220,-251 152,-251 152,-213 220,-213 220,-251"/>
-                    <text text-anchor="middle" x="186" y="-235.8" font-family="Times New Roman,serif" font-size="14.00">
-                        会議室
-                    </text>
-                    <text text-anchor="middle" x="186" y="-220.8" font-family="Times New Roman,serif" font-size="14.00">
-                        room
-                    </text>
-                </a>
-            </g>
-        </g>
-        <!-- mrs.domain.model.property.room&#45;&gt;mrs.domain.model.reservation.room -->
-        <g id="edge2" class="edge">
-            <title>mrs.domain.model.property.room&#45;&gt;mrs.domain.model.reservation.room</title>
-            <path fill="none" stroke="red" stroke-width="2" d="M186,-302.31C186,-289.36 186,-274.1 186,-261.2"/>
-            <polygon fill="red" stroke="red" stroke-width="2"
-                     points="182.5,-302.57 186,-312.57 189.5,-302.57 182.5,-302.57"/>
-            <polygon fill="red" stroke="red" stroke-width="2"
-                     points="189.5,-261.02 186,-251.02 182.5,-261.02 189.5,-261.02"/>
-        </g>
-        <!-- mrs.domain.model.reservation.room&#45;&gt;mrs.domain.model.reservation.reservation -->
-        <g id="edge3" class="edge">
-            <title>mrs.domain.model.reservation.room&#45;&gt;mrs.domain.model.reservation.reservation</title>
-            <path fill="none" stroke="red" stroke-width="2" d="M186,-202.57C186,-197.68 186,-192.59 186,-187.69"/>
-            <polygon fill="red" stroke="red" stroke-width="2"
-                     points="182.5,-202.83 186,-212.83 189.5,-202.83 182.5,-202.83"/>
-            <polygon fill="red" stroke="red" stroke-width="2"
-                     points="189.5,-187.41 186,-177.41 182.5,-187.41 189.5,-187.41"/>
         </g>
     </g>
 </svg>

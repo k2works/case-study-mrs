@@ -60,10 +60,10 @@
                   d="M311.54,-1002.75C393.97,-994.5 509.82,-981.87 610.96,-967 623.09,-965.22 636.1,-963.01 648.3,-960.82"/>
             <polygon fill="black" stroke="black" points="649.11,-964.23 658.31,-958.98 647.85,-957.34 649.11,-964.23"/>
         </g>
-        <!-- mrs.application.scenario.MeetingRoomReservationScenario#findMeetingRoom(mrs.domain.model.property.room.RoomId) -->
+        <!-- mrs.application.scenario.MeetingRoomReservationScenario#findMeetingRoom(mrs.domain.model.facility.room.RoomId) -->
         <g id="node3" class="node">
             <title>
-                mrs.application.scenario.MeetingRoomReservationScenario#findMeetingRoom(mrs.domain.model.property.room.RoomId)
+                mrs.application.scenario.MeetingRoomReservationScenario#findMeetingRoom(mrs.domain.model.facility.room.RoomId)
             </title>
             <g id="a_node3">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/scenario/MeetingRoomReservationScenario.java"
@@ -75,9 +75,9 @@
                 </a>
             </g>
         </g>
-        <!-- mrs.domain.model.property.room.MeetingRoom -->
+        <!-- mrs.domain.model.facility.room.MeetingRoom -->
         <g id="node32" class="node">
-            <title>mrs.domain.model.property.room.MeetingRoom</title>
+            <title>mrs.domain.model.facility.room.MeetingRoom</title>
             <polygon fill="white" stroke="black"
                      points="1057.96,-276 961.96,-276 961.96,-238 1057.96,-238 1057.96,-276"/>
             <text text-anchor="middle" x="1009.96" y="-260.8" font-family="Times New Roman,serif" font-size="14.00">
@@ -87,10 +87,10 @@
                 MeetingRoom
             </text>
         </g>
-        <!-- mrs.application.scenario.MeetingRoomReservationScenario#findMeetingRoom(mrs.domain.model.property.room.RoomId)&#45;&gt;mrs.domain.model.property.room.MeetingRoom -->
+        <!-- mrs.application.scenario.MeetingRoomReservationScenario#findMeetingRoom(mrs.domain.model.facility.room.RoomId)&#45;&gt;mrs.domain.model.facility.room.MeetingRoom -->
         <g id="edge19" class="edge">
             <title>
-                mrs.application.scenario.MeetingRoomReservationScenario#findMeetingRoom(mrs.domain.model.property.room.RoomId)&#45;&gt;mrs.domain.model.property.room.MeetingRoom
+                mrs.application.scenario.MeetingRoomReservationScenario#findMeetingRoom(mrs.domain.model.facility.room.RoomId)&#45;&gt;mrs.domain.model.facility.room.MeetingRoom
             </title>
             <path fill="none" stroke="black"
                   d="M365.62,-307.19C512.54,-302.52 734.22,-292.4 925.96,-271 934.32,-270.07 943.1,-268.85 951.71,-267.52"/>
@@ -190,10 +190,10 @@
             <polygon fill="black" stroke="black"
                      points="464.83,-1060.67 472.75,-1053.63 462.17,-1054.19 464.83,-1060.67"/>
         </g>
-        <!-- mrs.application.scenario.MeetingRoomReservationScenario#registMeetingRoom(mrs.domain.model.property.room.MeetingRoom) -->
+        <!-- mrs.application.scenario.MeetingRoomReservationScenario#registMeetingRoom(mrs.domain.model.facility.room.MeetingRoom) -->
         <g id="node7" class="node">
             <title>
-                mrs.application.scenario.MeetingRoomReservationScenario#registMeetingRoom(mrs.domain.model.property.room.MeetingRoom)
+                mrs.application.scenario.MeetingRoomReservationScenario#registMeetingRoom(mrs.domain.model.facility.room.MeetingRoom)
             </title>
             <g id="a_node7">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/scenario/MeetingRoomReservationScenario.java"
@@ -205,10 +205,10 @@
                 </a>
             </g>
         </g>
-        <!-- mrs.application.scenario.MeetingRoomReservationScenario#registMeetingRoom(mrs.domain.model.property.room.MeetingRoom)&#45;&gt;mrs.domain.model.property.room.MeetingRoom -->
+        <!-- mrs.application.scenario.MeetingRoomReservationScenario#registMeetingRoom(mrs.domain.model.facility.room.MeetingRoom)&#45;&gt;mrs.domain.model.facility.room.MeetingRoom -->
         <g id="edge23" class="edge">
             <title>
-                mrs.application.scenario.MeetingRoomReservationScenario#registMeetingRoom(mrs.domain.model.property.room.MeetingRoom)&#45;&gt;mrs.domain.model.property.room.MeetingRoom
+                mrs.application.scenario.MeetingRoomReservationScenario#registMeetingRoom(mrs.domain.model.facility.room.MeetingRoom)&#45;&gt;mrs.domain.model.facility.room.MeetingRoom
             </title>
             <path fill="none" stroke="black" d="M302.59,-257C473.41,-257 815.9,-257 951.64,-257"/>
             <polygon fill="black" stroke="black" points="951.82,-260.5 961.82,-257 951.82,-253.5 951.82,-260.5"/>
@@ -433,11 +433,11 @@
             <polygon fill="black" stroke="black"
                      points="847.46,-1301.56 848.51,-1291.02 841.12,-1298.61 847.46,-1301.56"/>
         </g>
-        <!-- mrs.application.service.property.room.MeetingRoomService#deleteMeetingRoom(int) -->
+        <!-- mrs.application.service.facility.room.MeetingRoomService#deleteMeetingRoom(int) -->
         <g id="node14" class="node">
-            <title>mrs.application.service.property.room.MeetingRoomService#deleteMeetingRoom(int)</title>
+            <title>mrs.application.service.facility.room.MeetingRoomService#deleteMeetingRoom(int)</title>
             <g id="a_node14">
-                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/property/room/MeetingRoomService.java"
+                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/facility/room/MeetingRoomService.java"
                    xlink:title="MeetingRoomService.deleteMeetingRoom(int)">
                     <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-365" rx="100.98" ry="18"/>
                     <text text-anchor="middle" x="201.48" y="-361.3" font-family="Times New Roman,serif"
@@ -446,9 +446,9 @@
                 </a>
             </g>
         </g>
-        <!-- mrs.application.service.property.room.MeetingRoomService#deleteMeetingRoom(int)&#45;&gt;mrs.domain.model.property.room.MeetingRoom -->
+        <!-- mrs.application.service.facility.room.MeetingRoomService#deleteMeetingRoom(int)&#45;&gt;mrs.domain.model.facility.room.MeetingRoom -->
         <g id="edge36" class="edge">
-            <title>mrs.application.service.property.room.MeetingRoomService#deleteMeetingRoom(int)&#45;&gt;mrs.domain.model.property.room.MeetingRoom</title>
+            <title>mrs.application.service.facility.room.MeetingRoomService#deleteMeetingRoom(int)&#45;&gt;mrs.domain.model.facility.room.MeetingRoom</title>
             <path fill="none" stroke="black"
                   d="M302.41,-364.27C443.51,-361.15 708.23,-347.55 925.96,-292 937.68,-289.01 949.9,-284.63 961.24,-279.98"/>
             <polygon fill="black" stroke="black" points="962.7,-283.16 970.53,-276.03 959.96,-276.72 962.7,-283.16"/>
@@ -464,18 +464,18 @@
                 ReservableRoom
             </text>
         </g>
-        <!-- mrs.application.service.property.room.MeetingRoomService#deleteMeetingRoom(int)&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom -->
+        <!-- mrs.application.service.facility.room.MeetingRoomService#deleteMeetingRoom(int)&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom -->
         <g id="edge37" class="edge">
-            <title>mrs.application.service.property.room.MeetingRoomService#deleteMeetingRoom(int)&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom</title>
+            <title>mrs.application.service.facility.room.MeetingRoomService#deleteMeetingRoom(int)&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom</title>
             <path fill="none" stroke="black"
                   d="M300.55,-368.51C415.63,-376.39 608.99,-401.65 752.96,-482 785.84,-500.35 816.03,-531.62 835.21,-554.11"/>
             <polygon fill="black" stroke="black" points="832.67,-556.53 841.77,-561.96 838.05,-552.04 832.67,-556.53"/>
         </g>
-        <!-- mrs.application.service.property.room.MeetingRoomService#findAll() -->
+        <!-- mrs.application.service.facility.room.MeetingRoomService#findAll() -->
         <g id="node15" class="node">
-            <title>mrs.application.service.property.room.MeetingRoomService#findAll()</title>
+            <title>mrs.application.service.facility.room.MeetingRoomService#findAll()</title>
             <g id="a_node15">
-                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/property/room/MeetingRoomService.java"
+                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/facility/room/MeetingRoomService.java"
                    xlink:title="MeetingRoomService.findAll()">
                     <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-203" rx="122.68" ry="18"/>
                     <text text-anchor="middle" x="201.48" y="-199.3" font-family="Times New Roman,serif"
@@ -484,19 +484,19 @@
                 </a>
             </g>
         </g>
-        <!-- mrs.application.service.property.room.MeetingRoomService#findAll()&#45;&gt;mrs.domain.model.property.room.MeetingRoom -->
+        <!-- mrs.application.service.facility.room.MeetingRoomService#findAll()&#45;&gt;mrs.domain.model.facility.room.MeetingRoom -->
         <g id="edge38" class="edge">
-            <title>mrs.application.service.property.room.MeetingRoomService#findAll()&#45;&gt;mrs.domain.model.property.room.MeetingRoom</title>
+            <title>mrs.application.service.facility.room.MeetingRoomService#findAll()&#45;&gt;mrs.domain.model.facility.room.MeetingRoom</title>
             <path fill="none" stroke="black" d="M313.77,-210.45C487.91,-222.11 818.62,-244.26 951.53,-253.15"/>
             <polygon fill="black" stroke="black" points="951.3,-256.65 961.51,-253.82 951.77,-249.66 951.3,-256.65"/>
         </g>
-        <!-- mrs.application.service.property.room.MeetingRoomService#findMeetingRoom(mrs.domain.model.property.room.RoomId) -->
+        <!-- mrs.application.service.facility.room.MeetingRoomService#findMeetingRoom(mrs.domain.model.facility.room.RoomId) -->
         <g id="node16" class="node">
             <title>
-                mrs.application.service.property.room.MeetingRoomService#findMeetingRoom(mrs.domain.model.property.room.RoomId)
+                mrs.application.service.facility.room.MeetingRoomService#findMeetingRoom(mrs.domain.model.facility.room.RoomId)
             </title>
             <g id="a_node16">
-                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/property/room/MeetingRoomService.java"
+                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/facility/room/MeetingRoomService.java"
                    xlink:title="MeetingRoomService.findMeetingRoom(RoomId)">
                     <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-149" rx="100.98" ry="18"/>
                     <text text-anchor="middle" x="201.48" y="-145.3" font-family="Times New Roman,serif"
@@ -505,22 +505,22 @@
                 </a>
             </g>
         </g>
-        <!-- mrs.application.service.property.room.MeetingRoomService#findMeetingRoom(mrs.domain.model.property.room.RoomId)&#45;&gt;mrs.domain.model.property.room.MeetingRoom -->
+        <!-- mrs.application.service.facility.room.MeetingRoomService#findMeetingRoom(mrs.domain.model.facility.room.RoomId)&#45;&gt;mrs.domain.model.facility.room.MeetingRoom -->
         <g id="edge39" class="edge">
             <title>
-                mrs.application.service.property.room.MeetingRoomService#findMeetingRoom(mrs.domain.model.property.room.RoomId)&#45;&gt;mrs.domain.model.property.room.MeetingRoom
+                mrs.application.service.facility.room.MeetingRoomService#findMeetingRoom(mrs.domain.model.facility.room.RoomId)&#45;&gt;mrs.domain.model.facility.room.MeetingRoom
             </title>
             <path fill="none" stroke="black"
                   d="M290.84,-157.41C427.52,-171 698.25,-200.22 925.96,-239 934.32,-240.42 943.11,-242.12 951.72,-243.88"/>
             <polygon fill="black" stroke="black" points="951.2,-247.35 961.7,-245.98 952.64,-240.5 951.2,-247.35"/>
         </g>
-        <!-- mrs.application.service.property.room.MeetingRoomService#registMeetingRoom(mrs.domain.model.property.room.MeetingRoom) -->
+        <!-- mrs.application.service.facility.room.MeetingRoomService#registMeetingRoom(mrs.domain.model.facility.room.MeetingRoom) -->
         <g id="node17" class="node">
             <title>
-                mrs.application.service.property.room.MeetingRoomService#registMeetingRoom(mrs.domain.model.property.room.MeetingRoom)
+                mrs.application.service.facility.room.MeetingRoomService#registMeetingRoom(mrs.domain.model.facility.room.MeetingRoom)
             </title>
             <g id="a_node17">
-                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/property/room/MeetingRoomService.java"
+                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/facility/room/MeetingRoomService.java"
                    xlink:title="MeetingRoomService.registMeetingRoom(MeetingRoom)">
                     <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-95" rx="100.98" ry="18"/>
                     <text text-anchor="middle" x="201.48" y="-91.3" font-family="Times New Roman,serif"
@@ -529,22 +529,22 @@
                 </a>
             </g>
         </g>
-        <!-- mrs.application.service.property.room.MeetingRoomService#registMeetingRoom(mrs.domain.model.property.room.MeetingRoom)&#45;&gt;mrs.domain.model.property.room.MeetingRoom -->
+        <!-- mrs.application.service.facility.room.MeetingRoomService#registMeetingRoom(mrs.domain.model.facility.room.MeetingRoom)&#45;&gt;mrs.domain.model.facility.room.MeetingRoom -->
         <g id="edge40" class="edge">
             <title>
-                mrs.application.service.property.room.MeetingRoomService#registMeetingRoom(mrs.domain.model.property.room.MeetingRoom)&#45;&gt;mrs.domain.model.property.room.MeetingRoom
+                mrs.application.service.facility.room.MeetingRoomService#registMeetingRoom(mrs.domain.model.facility.room.MeetingRoom)&#45;&gt;mrs.domain.model.facility.room.MeetingRoom
             </title>
             <path fill="none" stroke="black"
                   d="M284.53,-105.26C320.87,-110 364.1,-115.93 402.96,-122 636.23,-158.43 702.02,-140.24 925.96,-215 940.02,-219.69 954.66,-226.41 967.66,-233.11"/>
             <polygon fill="black" stroke="black" points="966.33,-236.36 976.8,-237.95 969.6,-230.18 966.33,-236.36"/>
         </g>
-        <!-- mrs.application.service.property.room.MeetingRoomService#updateMeetingRoom(mrs.domain.model.property.room.MeetingRoom) -->
+        <!-- mrs.application.service.facility.room.MeetingRoomService#updateMeetingRoom(mrs.domain.model.facility.room.MeetingRoom) -->
         <g id="node18" class="node">
             <title>
-                mrs.application.service.property.room.MeetingRoomService#updateMeetingRoom(mrs.domain.model.property.room.MeetingRoom)
+                mrs.application.service.facility.room.MeetingRoomService#updateMeetingRoom(mrs.domain.model.facility.room.MeetingRoom)
             </title>
             <g id="a_node18">
-                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/property/room/MeetingRoomService.java"
+                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/application/service/facility/room/MeetingRoomService.java"
                    xlink:title="MeetingRoomService.updateMeetingRoom(MeetingRoom)">
                     <ellipse fill="#eedd82" stroke="black" cx="201.48" cy="-41" rx="100.98" ry="18"/>
                     <text text-anchor="middle" x="201.48" y="-37.3" font-family="Times New Roman,serif"
@@ -553,10 +553,10 @@
                 </a>
             </g>
         </g>
-        <!-- mrs.application.service.property.room.MeetingRoomService#updateMeetingRoom(mrs.domain.model.property.room.MeetingRoom)&#45;&gt;mrs.domain.model.property.room.MeetingRoom -->
+        <!-- mrs.application.service.facility.room.MeetingRoomService#updateMeetingRoom(mrs.domain.model.facility.room.MeetingRoom)&#45;&gt;mrs.domain.model.facility.room.MeetingRoom -->
         <g id="edge41" class="edge">
             <title>
-                mrs.application.service.property.room.MeetingRoomService#updateMeetingRoom(mrs.domain.model.property.room.MeetingRoom)&#45;&gt;mrs.domain.model.property.room.MeetingRoom
+                mrs.application.service.facility.room.MeetingRoomService#updateMeetingRoom(mrs.domain.model.facility.room.MeetingRoom)&#45;&gt;mrs.domain.model.facility.room.MeetingRoom
             </title>
             <path fill="none" stroke="black"
                   d="M285.57,-51.01C321.71,-55.67 364.51,-61.59 402.96,-68 636.74,-106.95 717.62,-59.04 925.96,-172 951.71,-185.96 974.43,-210.58 989.56,-229.74"/>
@@ -782,7 +782,7 @@
             <polygon fill="black" stroke="black" points="778.31,-578.06 788.56,-575.39 778.89,-571.08 778.31,-578.06"/>
         </g>
         <!-- mrs.domain.model.auth.user.User&#45;&gt;mrs.domain.model.auth.user.RoleName -->
-        <g id="edge2" class="edge">
+        <g id="edge4" class="edge">
             <title>mrs.domain.model.auth.user.User&#45;&gt;mrs.domain.model.auth.user.RoleName</title>
             <path fill="none" stroke="black" d="M891.55,-1272C938.44,-1272 1025.01,-1272 1083.66,-1272"/>
             <polygon fill="black" stroke="black"
@@ -795,7 +795,7 @@
             <polygon fill="black" stroke="black" points="715.97,-977.75 708.68,-970.07 709.59,-980.62 715.97,-977.75"/>
         </g>
         <!-- mrs.domain.model.auth.user.UserDetailsImpl&#45;&gt;mrs.domain.model.auth.user.RoleName -->
-        <g id="edge3" class="edge">
+        <g id="edge5" class="edge">
             <title>mrs.domain.model.auth.user.UserDetailsImpl&#45;&gt;mrs.domain.model.auth.user.RoleName</title>
             <path fill="none" stroke="black"
                   d="M753.03,-1330.68C822.58,-1320.84 949.63,-1302.66 1057.96,-1286 1066.29,-1284.72 1075.05,-1283.34 1083.68,-1281.96"/>
@@ -810,7 +810,7 @@
                      points="815.61,-1293.14 823.45,-1286.01 812.87,-1286.7 815.61,-1293.14"/>
         </g>
         <!-- mrs.domain.model.auth.user.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.RoleName -->
-        <g id="edge8" class="edge">
+        <g id="edge9" class="edge">
             <title>mrs.domain.model.auth.user.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.RoleName
             </title>
             <path fill="none" stroke="black"
@@ -819,7 +819,7 @@
                      points="1083.48,-1264.32 1093.94,-1262.65 1084.72,-1257.43 1083.48,-1264.32"/>
         </g>
         <!-- mrs.domain.model.auth.user.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.User -->
-        <g id="edge5" class="edge">
+        <g id="edge6" class="edge">
             <title>mrs.domain.model.auth.user.administrator.Administrator&#45;&gt;mrs.domain.model.auth.user.User
             </title>
             <path fill="none" stroke="black"
@@ -835,7 +835,7 @@
             <polygon fill="black" stroke="black" points="697.9,-980.46 696.22,-970 691.01,-979.23 697.9,-980.46"/>
         </g>
         <!-- mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.auth.user.RoleName -->
-        <g id="edge1" class="edge">
+        <g id="edge3" class="edge">
             <title>mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.auth.user.RoleName</title>
             <path fill="none" stroke="black"
                   d="M556.58,-1133.6C639.09,-1143.82 872.4,-1176.24 1057.96,-1236 1069.58,-1239.74 1081.81,-1244.38 1093.3,-1249.07"/>
@@ -843,7 +843,7 @@
                      points="1092.17,-1252.39 1102.75,-1253 1094.86,-1245.93 1092.17,-1252.39"/>
         </g>
         <!-- mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.auth.user.User -->
-        <g id="edge6" class="edge">
+        <g id="edge7" class="edge">
             <title>mrs.domain.model.auth.user.member.Member&#45;&gt;mrs.domain.model.auth.user.User</title>
             <path fill="none" stroke="black"
                   d="M556.7,-1139.96C572.88,-1145.24 593.02,-1151.89 610.96,-1158 674.3,-1179.58 692.61,-1179.13 752.96,-1208 776.43,-1219.23 801.27,-1234.46 820.73,-1247.25"/>
@@ -859,9 +859,9 @@
                   d="M554.19,-1110.81C571.46,-1098.43 593.51,-1081.43 610.96,-1064 637.76,-1037.24 663.82,-1002.33 680.53,-978.43"/>
             <polygon fill="black" stroke="black" points="683.44,-980.38 686.25,-970.16 677.69,-976.4 683.44,-980.38"/>
         </g>
-        <!-- mrs.domain.model.property.room.MeetingRoom&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom -->
-        <g id="edge4" class="edge">
-            <title>mrs.domain.model.property.room.MeetingRoom&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom
+        <!-- mrs.domain.model.facility.room.MeetingRoom&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom -->
+        <g id="edge1" class="edge">
+            <title>mrs.domain.model.facility.room.MeetingRoom&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom
             </title>
             <path fill="none" stroke="black" d="M1001.56,-276.07C978.15,-330.88 905.42,-487.84 873.61,-552.66"/>
             <polygon fill="black" stroke="black" points="870.34,-551.37 869.05,-561.88 876.62,-554.47 870.34,-551.37"/>
@@ -874,7 +874,7 @@
                      points="841.37,-1245.07 848.67,-1252.75 847.76,-1242.2 841.37,-1245.07"/>
         </g>
         <!-- mrs.domain.model.reservation.reservation.Reservation&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom -->
-        <g id="edge7" class="edge">
+        <g id="edge8" class="edge">
             <title>mrs.domain.model.reservation.reservation.Reservation&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom</title>
             <path fill="none" stroke="black" d="M707.75,-931.89C731.42,-870.91 810.68,-681.97 842.78,-609.52"/>
             <polygon fill="black" stroke="black" points="846.11,-610.65 846.99,-600.09 839.72,-607.8 846.11,-610.65"/>
@@ -886,9 +886,9 @@
                   d="M577.34,-1017.61C588.57,-1013.17 600.28,-1008.19 610.96,-1003 627.78,-994.84 645.65,-984.59 660.87,-975.35"/>
             <polygon fill="black" stroke="black" points="662.8,-978.27 669.49,-970.05 659.14,-972.31 662.8,-978.27"/>
         </g>
-        <!-- mrs.domain.model.reservation.room.ReservableRoom&#45;&gt;mrs.domain.model.property.room.MeetingRoom -->
-        <g id="edge9" class="edge">
-            <title>mrs.domain.model.reservation.room.ReservableRoom&#45;&gt;mrs.domain.model.property.room.MeetingRoom
+        <!-- mrs.domain.model.reservation.room.ReservableRoom&#45;&gt;mrs.domain.model.facility.room.MeetingRoom -->
+        <g id="edge2" class="edge">
+            <title>mrs.domain.model.reservation.room.ReservableRoom&#45;&gt;mrs.domain.model.facility.room.MeetingRoom
             </title>
             <path fill="none" stroke="black" d="M865.93,-561.78C889.4,-506.86 962.02,-350.14 993.81,-285.37"/>
             <polygon fill="black" stroke="black" points="997.07,-286.66 998.37,-276.15 990.8,-283.56 997.07,-286.66"/>

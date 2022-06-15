@@ -24,13 +24,13 @@
         <!-- summary -->
         <g id="node1" class="node">
             <title>summary</title>
-            <polygon fill="none" stroke="black" points="202,-301 74,-301 74,-263 208,-263 208,-295 202,-301"/>
-            <polyline fill="none" stroke="black" points="202,-301 202,-295 "/>
-            <polyline fill="none" stroke="black" points="208,-295 202,-295 "/>
-            <text text-anchor="start" x="82" y="-285.8" font-family="Times New Roman,serif" font-size="14.00">パッケージ数:
+            <polygon fill="none" stroke="black" points="207,-301 79,-301 79,-263 213,-263 213,-295 207,-301"/>
+            <polyline fill="none" stroke="black" points="207,-301 207,-295 "/>
+            <polyline fill="none" stroke="black" points="213,-295 207,-295 "/>
+            <text text-anchor="start" x="87" y="-285.8" font-family="Times New Roman,serif" font-size="14.00">パッケージ数:
                 6
             </text>
-            <text text-anchor="start" x="82" y="-270.8" font-family="Times New Roman,serif" font-size="14.00">関連数: 10
+            <text text-anchor="start" x="87" y="-270.8" font-family="Times New Roman,serif" font-size="14.00">関連数: 10
             </text>
         </g>
         <!-- mrs.domain.model.auth.user.member -->
@@ -93,52 +93,27 @@
             <path fill="none" stroke="black" d="M84.72,-96.83C96.41,-87.88 110.67,-76.96 123.28,-67.3"/>
             <polygon fill="black" stroke="black" points="125.48,-70.02 131.29,-61.16 121.22,-64.47 125.48,-70.02"/>
         </g>
-        <!-- mrs.domain.model.reservation.reservation -->
+        <!-- mrs.domain.model.facility.room -->
         <g id="node5" class="node">
-            <title>mrs.domain.model.reservation.reservation</title>
+            <title>mrs.domain.model.facility.room</title>
             <g id="a_node5">
-                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/reservation/reservation"
-                   xlink:title="予約\nreservation.reservation">
-                    <polygon fill="#eedd82" stroke="black" points="346,-135 204,-135 204,-97 346,-97 346,-135"/>
-                    <text text-anchor="middle" x="275" y="-119.8" font-family="Times New Roman,serif" font-size="14.00">
-                        予約
-                    </text>
-                    <text text-anchor="middle" x="275" y="-104.8" font-family="Times New Roman,serif" font-size="14.00">
-                        reservation.reservation
-                    </text>
-                </a>
-            </g>
-        </g>
-        <!-- mrs.domain.model.reservation.reservation&#45;&gt;mrs.domain.model.auth.user -->
-        <g id="edge3" class="edge">
-            <title>mrs.domain.model.reservation.reservation&#45;&gt;mrs.domain.model.auth.user</title>
-            <path fill="none" stroke="red" stroke-width="2"
-                  d="M235.87,-91.52C222.39,-83.43 207.3,-74.38 193.85,-66.31"/>
-            <polygon fill="red" stroke="red" stroke-width="2"
-                     points="234.34,-94.69 244.72,-96.83 237.94,-88.69 234.34,-94.69"/>
-            <polygon fill="red" stroke="red" stroke-width="2"
-                     points="195.65,-63.31 185.27,-61.16 192.05,-69.31 195.65,-63.31"/>
-        </g>
-        <!-- mrs.domain.model.property.room -->
-        <g id="node6" class="node">
-            <title>mrs.domain.model.property.room</title>
-            <g id="a_node6">
-                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/property/room"
-                   xlink:title="会議室\nproperty.room">
-                    <polygon fill="#eedd82" stroke="black" points="324,-301 226,-301 226,-263 324,-263 324,-301"/>
+                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/facility/room"
+                   xlink:title="会議室\nfacility.room">
+                    <polygon fill="#eedd82" stroke="black"
+                             points="318.5,-301 231.5,-301 231.5,-263 318.5,-263 318.5,-301"/>
                     <text text-anchor="middle" x="275" y="-285.8" font-family="Times New Roman,serif" font-size="14.00">
                         会議室
                     </text>
                     <text text-anchor="middle" x="275" y="-270.8" font-family="Times New Roman,serif" font-size="14.00">
-                        property.room
+                        facility.room
                     </text>
                 </a>
             </g>
         </g>
         <!-- mrs.domain.model.reservation.room -->
-        <g id="node7" class="node">
+        <g id="node6" class="node">
             <title>mrs.domain.model.reservation.room</title>
-            <g id="a_node7">
+            <g id="a_node6">
                 <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/reservation/room"
                    xlink:title="会議室\nreservation.room">
                     <polygon fill="#eedd82" stroke="black"
@@ -152,14 +127,30 @@
                 </a>
             </g>
         </g>
-        <!-- mrs.domain.model.property.room&#45;&gt;mrs.domain.model.reservation.room -->
-        <g id="edge4" class="edge">
-            <title>mrs.domain.model.property.room&#45;&gt;mrs.domain.model.reservation.room</title>
+        <!-- mrs.domain.model.facility.room&#45;&gt;mrs.domain.model.reservation.room -->
+        <g id="edge3" class="edge">
+            <title>mrs.domain.model.facility.room&#45;&gt;mrs.domain.model.reservation.room</title>
             <path fill="none" stroke="red" stroke-width="2" d="M275,-252.57C275,-247.68 275,-242.59 275,-237.69"/>
             <polygon fill="red" stroke="red" stroke-width="2"
                      points="271.5,-252.83 275,-262.83 278.5,-252.83 271.5,-252.83"/>
             <polygon fill="red" stroke="red" stroke-width="2"
                      points="278.5,-237.41 275,-227.41 271.5,-237.41 278.5,-237.41"/>
+        </g>
+        <!-- mrs.domain.model.reservation.reservation -->
+        <g id="node7" class="node">
+            <title>mrs.domain.model.reservation.reservation</title>
+            <g id="a_node7">
+                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/reservation/reservation"
+                   xlink:title="予約\nreservation.reservation">
+                    <polygon fill="#eedd82" stroke="black" points="346,-135 204,-135 204,-97 346,-97 346,-135"/>
+                    <text text-anchor="middle" x="275" y="-119.8" font-family="Times New Roman,serif" font-size="14.00">
+                        予約
+                    </text>
+                    <text text-anchor="middle" x="275" y="-104.8" font-family="Times New Roman,serif" font-size="14.00">
+                        reservation.reservation
+                    </text>
+                </a>
+            </g>
         </g>
         <!-- mrs.domain.model.reservation.room&#45;&gt;mrs.domain.model.reservation.reservation -->
         <g id="edge5" class="edge">
@@ -169,6 +160,16 @@
                      points="271.5,-178.79 275,-188.79 278.5,-178.79 271.5,-178.79"/>
             <polygon fill="red" stroke="red" stroke-width="2"
                      points="278.5,-145.19 275,-135.19 271.5,-145.19 278.5,-145.19"/>
+        </g>
+        <!-- mrs.domain.model.reservation.reservation&#45;&gt;mrs.domain.model.auth.user -->
+        <g id="edge4" class="edge">
+            <title>mrs.domain.model.reservation.reservation&#45;&gt;mrs.domain.model.auth.user</title>
+            <path fill="none" stroke="red" stroke-width="2"
+                  d="M235.87,-91.52C222.39,-83.43 207.3,-74.38 193.85,-66.31"/>
+            <polygon fill="red" stroke="red" stroke-width="2"
+                     points="234.34,-94.69 244.72,-96.83 237.94,-88.69 234.34,-94.69"/>
+            <polygon fill="red" stroke="red" stroke-width="2"
+                     points="195.65,-63.31 185.27,-61.16 192.05,-69.31 195.65,-63.31"/>
         </g>
     </g>
 </svg>
