@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * 会議室の管理
+ * 会議室の登録
  */
 @Service
 public class MeetingRoomService {
