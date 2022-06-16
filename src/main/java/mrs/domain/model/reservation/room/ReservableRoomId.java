@@ -14,6 +14,8 @@ public class ReservableRoomId {
 
     private ReservedDate reservedDate;
 
+    private String roomNumber;
+
     public ReservableRoomId(Integer roomId, LocalDate reservedDate) {
         this.roomId = new RoomId(roomId);
         this.reservedDate = new ReservedDate(reservedDate);
@@ -60,5 +62,9 @@ public class ReservableRoomId {
 
     public ReservedDate ReservedDate() {
         return reservedDate;
+    }
+
+    public String RoomNumber() {
+        return roomId.format();
     }
 }

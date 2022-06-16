@@ -13,6 +13,8 @@ public class RoomId {
     }
 
     public RoomId(Integer value) {
+        if (value > 999) throw new RoomIdException("会議室番号は999以下である必要があります");
+
         this.value = value;
     }
 
@@ -38,5 +40,9 @@ public class RoomId {
         return "RoomId{" +
                 "value=" + value +
                 '}';
+    }
+
+    public String format() {
+        return String.format("%03d", value);
     }
 }

@@ -12,6 +12,8 @@ public class MeetingRoom {
 
     private String roomName;
 
+    private String roomNumber;
+
     private List<ReservableRoom> reservableRooms;
 
     @Deprecated
@@ -33,5 +35,9 @@ public class MeetingRoom {
 
     public List<ReservableRoom> getReservableRooms() {
         return reservableRooms;
+    }
+
+    public String RoomNumber() {
+        return roomId.format();
     }
 }
