@@ -28,7 +28,7 @@ Given(/^"([^"]*)" を "([^"]*)" に更新する$/, (value1, value2) => {
 });
 
 Given(/^"([^"]*)" を削除する$/, function () {
-    cy.get(':nth-child(9) > :nth-child(3) > .app-btn-accent').click();
+    cy.get(':nth-child(9) > :nth-child(4) > .app-btn').click();
 });
 
 Then(/^会議室一覧に "([^"]*)" が表示される$/, (value) => {

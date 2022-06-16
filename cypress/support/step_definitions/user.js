@@ -56,7 +56,7 @@ Given(/^利用者番号 "([^"]*)" の利用者情報を更新する$/, (value) =
 });
 
 Given(/^利用者番号 "([^"]*)" を削除する$/, (value) => {
-    cy.get(':nth-child(6) > :nth-child(5) > .app-btn-accent').click();
+    cy.get(':nth-child(6) > :nth-child(6) > .app-btn').click();
 });
 
 Given(/^新規登録した利用者番号 "([^"]*)" で認証する$/, (value) => {

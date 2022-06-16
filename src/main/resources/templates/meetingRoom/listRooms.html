@@ -29,7 +29,6 @@
                 <tr>
                     <th>会議室番号</th>
                     <th>会議室名</th>
-                    <th>操作</th>
                 </tr>
                 <tr th:each="room : ${rooms}">
                     <td>
@@ -49,6 +48,8 @@
                         dialog.style.display = 'block';
                     " type="submit">編集
                         </button>
+                    </td>
+                    <td>
                         <a class="app-btn app-btn-accent"
                            th:href="@{'/meetingRooms/delete/' + ${room.RoomId.Value}}">削除</a>
                     </td>

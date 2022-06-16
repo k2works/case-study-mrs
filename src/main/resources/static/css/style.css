@@ -624,6 +624,11 @@ button:hover {
     border-spacing: .5em;
 }
 
+.app-table .app-btn {
+    width: 130px;
+    padding: 10px;
+}
+
 .app-btn {
     display: block;
     width: 260px;

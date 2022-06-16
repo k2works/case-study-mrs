@@ -32,7 +32,6 @@
                     <th>姓</th>
                     <th>名</th>
                     <th>役割</th>
-                    <th>操作</th>
                 </tr>
                 <tr th:each="user : ${users}">
                     <td>
@@ -59,6 +58,8 @@
                           dialog.style.display = 'block';
                         " type="submit">編集
                         </button>
+                    </td>
+                    <td>
                         <a class="app-btn app-btn-accent" th:href="@{'/users/delete/' + ${user.UserId.Value}}">削除</a>
                     </td>
                 </tr>
