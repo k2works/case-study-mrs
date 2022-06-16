@@ -6,15 +6,15 @@
 
 <body>
 
-<div class="meeting-room">
-    <div class="meeting-room-container w-container">
+<div class="app">
+    <div class="app-container w-container">
         <div class="message">
             <p class="error" th:if="${error != null}" th:text="${error}"></p>
             <p class="error" th:if="${errors != null}" th:text="入力内容にエラーがあります"></p>
             <p class="success" th:if="${success != null}" th:text="${success}"></p>
         </div>
 
-        <button class="btn" id="regist_button" onclick="
+        <button class="app-btn" id="regist_button" onclick="
               let row = this.parentElement.parentElement;
               getElementById('regist_id').value = '';
               getElementById('regist_roomName').value = '';
@@ -24,8 +24,8 @@
               " type="submit">新規
         </button>
 
-        <div class="meeting-room-decoration">
-            <table class="meeting-room-table">
+        <div class="app-decoration">
+            <table class="app-table">
                 <tr>
                     <th>会議室番号</th>
                     <th>会議室名</th>
@@ -39,7 +39,7 @@
                     <span th:text="${room.RoomName}">
                     </td>
                     <td>
-                        <button class="btn" onclick="
+                        <button class="app-btn" onclick="
                         let row = this.parentElement.parentElement;
                         console.log(row.cells[1].innerText);
                         getElementById('update_id').value = row.cells[0].innerText;
@@ -49,14 +49,15 @@
                         dialog.style.display = 'block';
                     " type="submit">編集
                         </button>
-                        <a class="btn btn-accent" th:href="@{'/meetingRooms/delete/' + ${room.RoomId.Value}}">削除</a>
+                        <a class="app-btn app-btn-accent"
+                           th:href="@{'/meetingRooms/delete/' + ${room.RoomId.Value}}">削除</a>
                     </td>
                 </tr>
             </table>
 
             <div id="registDialog">
                 <div>
-                    <form class="meeting-room-form" method="post" th:action="@{/meetingRooms}"
+                    <form class="app-form" method="post" th:action="@{/meetingRooms}"
                           th:object="${meetingRoomForm}">
                         <label>会議室番号</label>
                         <input id="regist_id" name="id" th:field="*{roomId}" type="text"/>
@@ -68,8 +69,9 @@
                         <ul>
                             <li class="error" th:each="err : ${#fields.errors('roomName')}" th:text="${err}"/>
                         </ul>
-                        <button class="btn" name="regist" type="submit">登録</button>
-                        <button class="btn btn-accent" onclick="getElementById('registDialog').style.display='none';"
+                        <button class="app-btn" name="regist" type="submit">登録</button>
+                        <button class="app-btn app-btn-accent"
+                                onclick="getElementById('registDialog').style.display='none';"
                                 type="reset">キャンセル
                         </button>
                     </form>
@@ -78,7 +80,7 @@
 
             <div id="updateDialog">
                 <div>
-                    <form class="meeting-room-form" method="post" th:action="@{/meetingRooms}"
+                    <form class="app-form" method="post" th:action="@{/meetingRooms}"
                           th:object="${meetingRoomForm}">
                         <label>会議室番号</label>
                         <input id="update_id" name="id" readonly th:field="*{roomId}" type="text"/>
@@ -90,8 +92,9 @@
                         <ul>
                             <li class="error" th:each="err : ${#fields.errors('roomName')}" th:text="${err}"/>
                         </ul>
-                        <button class="btn" name="update" type="submit">登録</button>
-                        <button class="btn btn-accent" onclick="getElementById('updateDialog').style.display='none';"
+                        <button class="app-btn" name="update" type="submit">登録</button>
+                        <button class="app-btn app-btn-accent"
+                                onclick="getElementById('updateDialog').style.display='none';"
                                 type="reset">キャンセル
                         </button>
                     </form>

@@ -15,7 +15,7 @@ Before(() => {
 });
 
 Given(`選択した会議室を予約する`, () => {
-    cy.get('.reserve-form-form > button.btn').click();
+    cy.get('.app-form > button.app-btn').click();
 })
 
 Then(`予約者 {string} が表示される`, (name) => {

@@ -10,16 +10,16 @@
 </head>
 <body th:with="user=${#authentication.principal.user}">
 
-<section class="reserve-form">
-    <div class="reserve-form-container">
+<section class="app">
+    <div class="app-container">
         <div class="message">
             <p class="error" th:if="${error != null}" th:text="${error}"></p>
         </div>
 
-        <div class="reserve-form-decoration">
-            <form class="reserve-form-form" method="post" th:action="@{'/reservations/' + ${date} + '/' + ${roomId}}"
+        <div class="app-decoration">
+            <form class="app-form" method="post" th:action="@{'/reservations/' + ${date} + '/' + ${roomId}}"
                   th:object="${reservationForm}">
-                <a class="btn" th:href="@{'/rooms/' + ${date}}">戻る</a>
+                <a class="app-btn" th:href="@{'/rooms/' + ${date}}">戻る</a>
 
                 <label>会議室:</label>
                 <span th:text="${room.RoomName}">豊洲</span>
@@ -38,12 +38,12 @@
                 </select>
                 <span style="color:red" th:error="*{endTime}" th:if="${#fields.hasErrors('endTime')}">error</span>
 
-                <button class="btn">予約</button>
+                <button class="app-btn">予約</button>
             </form>
         </div>
 
-        <div class="reserve-form-decoration">
-            <table class="reserve-form-table">
+        <div class="app-decoration">
+            <table class="app-table">
                 <tr>
                     <th>時間帯</th>
                     <th>予約者</th>
@@ -64,7 +64,8 @@
                               sec:authorize="${hasRole('ADMIN') or #vars.user.UserId == #vars.reservation.User.UserId}"
                               th:action="@{'/reservations/' + ${date} + '/' + ${roomId}}">
                             <input name="reservationId" th:value="${reservation.ReservationId.Value}" type="hidden">
-                            <button class="btn btn-accent reserve-form-table-button" name="cancel" type="submit">
+                            <button class="app-btn app-btn-accent reserve-form-table-button" name="cancel"
+                                    type="submit">
                                 取消
                             </button>
                         </form>

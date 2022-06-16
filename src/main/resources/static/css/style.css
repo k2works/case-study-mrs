@@ -492,6 +492,25 @@ button:hover {
     width: auto;
 }
 
+/* おしらせ */
+.news-list {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 10px 10px;
+}
+
+.news-list-item {
+    display: table-row;
+}
+
+.news-list-head {
+    display: table-cell;
+}
+
+.news-list-body {
+    display: table-cell;
+}
+
 /* ログイン */
 .login {
     height: 650px;
@@ -535,47 +554,29 @@ button:hover {
     color: #ff0000;
 }
 
-/* 会議室一覧 */
-.room {
-    padding: var(--v-space) 0;
+/* アプリケーション */
+.app {
     background-color: #f3f1ed;
 }
 
-.room-container {
+.app-container {
     display: grid;
     gap: 27px;
     justify-items: center;
 }
 
-.room-decoration {
+.app-decoration {
     font-size: clamp(30px, 3vw, 40px);
     min-height: 0vw;
     font-weight: 400;
 }
 
-/* 会議室予約 */
-.reserve-form {
-    background-color: #f3f1ed;
-}
-
-.reserve-form-container {
-    display: grid;
-    gap: 27px;
-    justify-items: center;
-}
-
-.reserve-form-decoration {
-    font-size: clamp(30px, 3vw, 40px);
-    min-height: 0vw;
-    font-weight: 400;
-}
-
-.reserve-form-decoration .error {
+.app-decoration .error {
     font-weight: bold;
     color: #ff0000;
 }
 
-.reserve-form-form {
+.app-form {
     display: grid;
     grid-template-columns: [labels] auto [items] 1fr;
     grid-auto-flow: row;
@@ -583,80 +584,62 @@ button:hover {
     padding: .5em;
 }
 
-.reserve-form-form > label {
+.app-form > label {
     grid-column: labels;
     grid-row: auto;
     justify-self: end;
     align-self: center;
+    font-size: clamp(16px, 2.4vw, 18px);
 }
 
-.reserve-form-form > span {
+.app-form > span {
     grid-column: items;
     grid-row: auto;
     justify-self: start;
 }
 
-.reserve-form-form > select {
+.app-form > select {
     grid-column: items;
     grid-row: auto;
 }
 
-.reserve-form-form > button {
+.app-form > button {
     grid-column: 2 / 2;
     border: none;
 }
 
-.reserve-form-form > a {
+.app-form > a {
     grid-column: 2 / 2;
 }
 
-.reserve-form-table {
+.app-form > ul {
+    grid-column: items;
+    grid-row: auto;
+    font-size: 16px;
+    color: #ff0000;
+}
+
+.app-table {
     border-collapse: separate;
     border-spacing: .5em;
 }
 
-.reserve-form-table .btn {
+.app-btn {
+    display: block;
+    width: 260px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: #e8b368;
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+    text-shadow: 0 0 6px #00000052;
     border: none;
 }
 
-.news-list {
-    display: table;
-    border-collapse: separate;
-    border-spacing: 10px 10px;
-}
-
-.news-list-item {
-    display: table-row;
-}
-
-.news-list-head {
-    display: table-cell;
-}
-
-.news-list-body {
-    display: table-cell;
-}
-
-/* 利用者一覧 */
-.user {
-    padding: var(--v-space) 0;
-    background-color: #f3f1ed;
-}
-
-.user-container {
-    display: grid;
-    gap: 27px;
-    justify-items: center;
-}
-
-.user-container button {
-    border: none;
-}
-
-.user-decoration {
-    font-size: clamp(30px, 3vw, 40px);
-    min-height: 0vw;
-    font-weight: 400;
+.app-btn-accent {
+    background-color: #b72661;
 }
 
 #registDialog {
@@ -679,173 +662,18 @@ button:hover {
     z-index: 9999;
 }
 
-
-.user-form {
-    display: grid;
-    grid-template-columns: [labels] auto [items] 1fr;
-    grid-auto-flow: row;
-    grid-gap: .5em;
-    padding: .5em;
+/* 会議室予約 */
+.reserve {
 }
 
-.user-form > label {
-    grid-column: labels;
-    grid-row: auto;
-    justify-self: end;
-    align-self: center;
-}
-
-.user-form > span {
-    grid-column: items;
-    grid-row: auto;
-    justify-self: start;
-}
-
-.user-form > select {
-    grid-column: items;
-    grid-row: auto;
-}
-
-.user-form > button {
-    grid-column: 2 / 2;
-    border: none;
-}
-
-.user-form > a {
-    grid-column: 2 / 2;
-}
-
-.user-form > ul {
-    grid-column: items;
-    grid-row: auto;
-    font-size: 16px;
-    color: #ff0000;
+/* 利用者一覧 */
+.user {
 }
 
 /* 会議室一覧 */
 .meeting-room {
-    padding: var(--v-space) 0;
-    background-color: #f3f1ed;
-}
-
-.meeting-room-container {
-    display: grid;
-    gap: 27px;
-    justify-items: center;
-}
-
-.meeting-room-container button {
-    border: none;
-}
-
-.meeting-room-decoration {
-    font-size: clamp(30px, 3vw, 40px);
-    min-height: 0vw;
-    font-weight: 400;
-}
-
-.meeting-room-form {
-    display: grid;
-    grid-template-columns: [labels] auto [items] 1fr;
-    grid-auto-flow: row;
-    grid-gap: .5em;
-    padding: .5em;
-}
-
-.meeting-room-form > label {
-    grid-column: labels;
-    grid-row: auto;
-    justify-self: end;
-    align-self: center;
-}
-
-.meeting-room-form > span {
-    grid-column: items;
-    grid-row: auto;
-    justify-self: start;
-}
-
-.meeting-room-form > select {
-    grid-column: items;
-    grid-row: auto;
-}
-
-.meeting-room-form > button {
-    grid-column: 2 / 2;
-    border: none;
-}
-
-.meeting-room-form > a {
-    grid-column: 2 / 2;
-}
-
-.meeting-room-form > ul {
-    grid-column: items;
-    grid-row: auto;
-    font-size: 16px;
-    color: #ff0000;
 }
 
 /* 予約可能会議室一覧 */
 .reservable-room {
-    padding: var(--v-space) 0;
-    background-color: #f3f1ed;
-}
-
-.reservable-room-container {
-    display: grid;
-    gap: 27px;
-    justify-items: center;
-}
-
-.reservable-room-container button {
-    border: none;
-}
-
-.reservable-room-decoration {
-    font-size: clamp(30px, 3vw, 40px);
-    min-height: 0vw;
-    font-weight: 400;
-}
-
-.reservable-room-form {
-    display: grid;
-    grid-template-columns: [labels] auto [items] 1fr;
-    grid-auto-flow: row;
-    grid-gap: .5em;
-    padding: .5em;
-}
-
-.reservable-room-form > label {
-    grid-column: labels;
-    grid-row: auto;
-    justify-self: end;
-    align-self: center;
-}
-
-.reservable-room-form > span {
-    grid-column: items;
-    grid-row: auto;
-    justify-self: start;
-}
-
-.reservable-room-form > select {
-    grid-column: items;
-    grid-row: auto;
-}
-
-.reservable-room-form > button {
-    grid-column: 2 / 2;
-    border: none;
-}
-
-.reservable-room-form > a {
-    grid-column: 2 / 2;
-}
-
-.reservable-room-form > ul {
-    grid-column: items;
-    grid-row: auto;
-    font-size: 16px;
-    color: #ff0000;
 }

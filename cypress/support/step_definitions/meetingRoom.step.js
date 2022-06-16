@@ -22,13 +22,13 @@ Given(/^"([^"]*)" を登録する$/, (value) => {
 });
 
 Given(/^"([^"]*)" を "([^"]*)" に更新する$/, (value1, value2) => {
-    cy.get(':nth-child(9) > :nth-child(3) > button.btn').click();
+    cy.get(':nth-child(9) > :nth-child(3) > button.app-btn').click();
     cy.get('#update_roomName').clear().type(value2);
     cy.get('[name="update"]').click();
 });
 
 Given(/^"([^"]*)" を削除する$/, function () {
-    cy.get(':nth-child(9) > :nth-child(3) > .btn-accent').click();
+    cy.get(':nth-child(9) > :nth-child(3) > .app-btn-accent').click();
 });
 
 Then(/^会議室一覧に "([^"]*)" が表示される$/, (value) => {

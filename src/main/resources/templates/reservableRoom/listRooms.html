@@ -5,15 +5,15 @@
 <div th:include="fragment/app-header"></div>
 
 <body>
-<div class="reservable-room">
-    <div class="reservable-room-container w-container">
+<div class="app">
+    <div class="app-container w-container">
         <div class="message">
             <p class="error" th:if="${error != null}" th:text="${error}"></p>
             <p class="error" th:if="${errors != null}" th:text="入力内容にエラーがあります"></p>
             <p class="success" th:if="${success != null}" th:text="${success}"></p>
         </div>
 
-        <button class="btn" id="regist_button" onclick="
+        <button class="app-btn" id="regist_button" onclick="
               let row = this.parentElement.parentElement;
               getElementById('regist_id').value = '';
               getElementById('regist_reservedDate').value = '';
@@ -23,8 +23,8 @@
               " type="submit">新規
         </button>
 
-        <div class="reservable-room-decoration">
-            <table class="reservable-room-table">
+        <div class="app-decoration">
+            <table class="app-table">
                 <tr>
                     <th>予約日</th>
                     <th>会議室番号</th>
@@ -42,7 +42,7 @@
                         <span th:text="${room.MeetingRoom.RoomName}">
                     </td>
                     <td>
-                        <a class="btn btn-accent"
+                        <a class="app-btn app-btn-accent"
                            th:href="@{'/reservableRooms/delete/' + ${room.ReservableRoomId.RoomId.Value} + '/' + ${room.ReservableRoomId.ReservedDate.Value}}">削除</a>
                     </td>
                 </tr>
@@ -50,7 +50,7 @@
 
             <div id="registDialog">
                 <div>
-                    <form class="meeting-room-form" method="post" th:action="@{/reservableRooms}"
+                    <form class="app-form" method="post" th:action="@{/reservableRooms}"
                           th:object="${reservableRoomForm}">
                         <label>予約日</label>
                         <input id="regist_reservedDate" name="id" th:field="*{reservedDate}" type="date"/>
@@ -62,8 +62,9 @@
                         <ul>
                             <li class="error" th:each="err : ${#fields.errors('roomId')}" th:text="${err}"/>
                         </ul>
-                        <button class="btn" name="regist" type="submit">登録</button>
-                        <button class="btn btn-accent" onclick="getElementById('registDialog').style.display='none';"
+                        <button class="app-btn" name="regist" type="submit">登録</button>
+                        <button class="app-btn app-btn-accent"
+                                onclick="getElementById('registDialog').style.display='none';"
                                 type="reset">キャンセル
                         </button>
                     </form>

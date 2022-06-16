@@ -26,5 +26,5 @@ Then(/^予約可能会議室一覧に "([^"]*)" が表示される$/, (value) =>
 });
 
 Given(/^予約可能会議室を削除する$/, function () {
-    cy.get(':nth-child(2) > :nth-child(4) > .btn').click();
+    cy.get(':nth-child(2) > :nth-child(4) > .app-btn').click();
 });
