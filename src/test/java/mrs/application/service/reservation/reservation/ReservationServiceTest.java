@@ -61,7 +61,7 @@ public class ReservationServiceTest {
         }
 
         @Test
-        @WithMockUser(username = "cccc", roles = "ADMIN")
+        @WithMockUser(username = "cccc", roles = "管理者")
         void 会議室の予約を取り消す() {
             ReservationId reservationId = new ReservationId(1);
             Reservation reservation = reservationService.findOne(reservationId);
