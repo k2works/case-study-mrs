@@ -21,10 +21,10 @@
                 RoleName
             </text>
             <polygon fill="none" stroke="black" points="8.14,-25.3 8.14,-46.3 99.14,-46.3 99.14,-25.3 8.14,-25.3"/>
-            <text text-anchor="start" x="30.64" y="-32.1" font-family="Times New Roman,serif" font-size="14.00">ADMIN
+            <text text-anchor="start" x="27.64" y="-32.1" font-family="Times New Roman,serif" font-size="14.00">管理者
             </text>
             <polygon fill="none" stroke="black" points="8.14,-4.3 8.14,-25.3 99.14,-25.3 99.14,-4.3 8.14,-4.3"/>
-            <text text-anchor="start" x="23.64" y="-11.1" font-family="Times New Roman,serif" font-size="14.00">MEMBER
+            <text text-anchor="start" x="36.14" y="-11.1" font-family="Times New Roman,serif" font-size="14.00">会員
             </text>
         </g>
     </g>
