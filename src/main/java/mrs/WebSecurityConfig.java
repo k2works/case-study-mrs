@@ -39,7 +39,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .defaultSuccessUrl("/rooms", true)
-                .failureUrl("/loginForm?error=true").permitAll();
+                .failureUrl("/loginForm?error=true").permitAll().and()
+                .exceptionHandling().accessDeniedPage("/accessDenied");
         http.logout().logoutUrl("/logout").logoutSuccessUrl("/loginForm");
     }
 
