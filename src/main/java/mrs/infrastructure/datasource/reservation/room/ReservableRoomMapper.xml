@@ -32,7 +32,7 @@
                rr.予約日,
                rm.会議室名
         FROM reservation.予約可能会議室 rr
-                 LEFT OUTER JOIN reservation.会議室 rm ON rr.会議室番号 = rm.会議室番号
+                 LEFT OUTER JOIN facility.会議室 rm ON rr.会議室番号 = rm.会議室番号
         WHERE rr.会議室番号 = #{roomId.value}
           AND 予約日 = #{reservedDate.value}
     </select>
@@ -42,7 +42,7 @@
                rr.予約日,
                rm.会議室名
         FROM reservation.予約可能会議室 rr
-                 LEFT OUTER JOIN reservation.会議室 rm ON rr.会議室番号 = rm.会議室番号
+                 LEFT OUTER JOIN facility.会議室 rm ON rr.会議室番号 = rm.会議室番号
     </select>
 
     <delete id="delete" parameterType="mrs.domain.model.reservation.room.ReservableRoomId">
@@ -62,7 +62,7 @@
                rr.予約日,
                rm.会議室名
         FROM reservation.予約可能会議室 rr
-                 LEFT OUTER JOIN reservation.会議室 rm ON rr.会議室番号 = rm.会議室番号
+                 LEFT OUTER JOIN facility.会議室 rm ON rr.会議室番号 = rm.会議室番号
         WHERE 予約日 = #{value}
         ORDER BY rr.会議室番号 ASC
     </select>

@@ -91,7 +91,7 @@
                                  ON r.予約日 = rr.予約日 AND r.会議室番号 = rr.会議室番号
                  LEFT OUTER JOIN auth.利用者 u
                                  ON r.利用者番号 = u.利用者番号
-                 LEFT OUTER JOIN reservation.会議室 rm
+                 LEFT OUTER JOIN facility.会議室 rm
                                  ON r.会議室番号 = rm.会議室番号
     </select>
 
@@ -147,7 +147,7 @@
                                  ON r.予約日 = rr.予約日 AND r.会議室番号 = rr.会議室番号
                  LEFT OUTER JOIN auth.利用者 u
                                  ON r.利用者番号 = u.利用者番号
-                 LEFT OUTER JOIN reservation.会議室 rm
+                 LEFT OUTER JOIN facility.会議室 rm
                                  ON r.会議室番号 = rm.会議室番号
         WHERE rr.予約日 = #{reservedDate.value}
           AND rr.会議室番号 = #{roomId.value}
