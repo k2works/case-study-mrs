@@ -33,9 +33,9 @@ public class UserAuthService implements UserDetailsService {
         if (user.isEmpty()) {
             throw new UsernameNotFoundException(userId + " is not found.");
         }
-        if (user.get().RoleName().equals(RoleName.ADMIN))
+        if (user.get().RoleName().equals(RoleName.管理者))
             return new UserDetailsImpl(new Administrator(user.get()));
-        if (user.get().RoleName().equals(RoleName.MEMBER))
+        if (user.get().RoleName().equals(RoleName.会員))
             return new UserDetailsImpl(new Member(user.get()));
         else
             return new UserDetailsImpl(user.get());

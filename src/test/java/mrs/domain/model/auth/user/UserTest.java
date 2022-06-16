@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class UserTest {
 
     private User newUser() {
-        return new User("U999999", "テスト", "太郎", "a234567Z", RoleName.MEMBER);
+        return new User("U999999", "テスト", "太郎", "a234567Z", RoleName.会員);
     }
 
     @Nested
@@ -25,18 +25,18 @@ public class UserTest {
             assertEquals("テスト", user.Name().FirstName());
             assertEquals("太郎", user.Name().LastName());
             assertEquals("a234567Z", user.Password().Value());
-            assertEquals(RoleName.MEMBER, user.RoleName());
+            assertEquals(RoleName.会員, user.RoleName());
         }
 
         @Test
         public void 利用者番号が未入力の場合は生成できない() {
-            assertThrows(UserException.class, () -> new User(null, "テスト", "太郎", "password", RoleName.MEMBER));
+            assertThrows(UserException.class, () -> new User(null, "テスト", "太郎", "password", RoleName.会員));
         }
 
         @Test
         public void 名前が未入力の場合は生成できない() {
-            assertThrows(UserException.class, () -> new User("U999999", null, "太郎", "password", RoleName.MEMBER));
-            assertThrows(UserException.class, () -> new User("U999999", "テスト", null, "password", RoleName.MEMBER));
+            assertThrows(UserException.class, () -> new User("U999999", null, "太郎", "password", RoleName.会員));
+            assertThrows(UserException.class, () -> new User("U999999", "テスト", null, "password", RoleName.会員));
         }
 
         @Test
@@ -46,28 +46,28 @@ public class UserTest {
 
         @Test
         public void パスワードが未入力の場合は空の値を設定する() {
-            User user = new User("U999999", "テスト", "太郎", null, RoleName.MEMBER);
+            User user = new User("U999999", "テスト", "太郎", null, RoleName.会員);
             assertTrue(user.Password().Value().isEmpty());
         }
 
         @Test
         public void パスワードは少なくとも8文字以上であること() {
-            assertThrows(PasswordException.class, () -> new User("U999999", "テスト", "太郎", "pass", RoleName.MEMBER));
+            assertThrows(PasswordException.class, () -> new User("U999999", "テスト", "太郎", "pass", RoleName.会員));
         }
 
         @Test
         public void パスワードは小文字大文字数字を含むこと() {
-            assertThrows(PasswordException.class, () -> new User("U999999", "テスト", "太郎", "12345678", RoleName.MEMBER));
-            assertThrows(PasswordException.class, () -> new User("U999999", "テスト", "太郎", "a2345678", RoleName.MEMBER));
-            assertThrows(PasswordException.class, () -> new User("U999999", "テスト", "太郎", "A2345678", RoleName.MEMBER));
+            assertThrows(PasswordException.class, () -> new User("U999999", "テスト", "太郎", "12345678", RoleName.会員));
+            assertThrows(PasswordException.class, () -> new User("U999999", "テスト", "太郎", "a2345678", RoleName.会員));
+            assertThrows(PasswordException.class, () -> new User("U999999", "テスト", "太郎", "A2345678", RoleName.会員));
         }
 
         @Test
         public void 利用者番号は先頭の一文字目がUで始まる6桁の数字である() {
-            assertThrows(UserIdException.class, () -> new User("1", "テスト", "太郎", "password", RoleName.MEMBER));
-            assertThrows(UserIdException.class, () -> new User("X123456", "テスト", "太郎", "password", RoleName.MEMBER));
-            assertThrows(UserIdException.class, () -> new User("U12345", "テスト", "太郎", "password", RoleName.MEMBER));
-            assertThrows(UserIdException.class, () -> new User("Uabcdef", "テスト", "太郎", "password", RoleName.MEMBER));
+            assertThrows(UserIdException.class, () -> new User("1", "テスト", "太郎", "password", RoleName.会員));
+            assertThrows(UserIdException.class, () -> new User("X123456", "テスト", "太郎", "password", RoleName.会員));
+            assertThrows(UserIdException.class, () -> new User("U12345", "テスト", "太郎", "password", RoleName.会員));
+            assertThrows(UserIdException.class, () -> new User("Uabcdef", "テスト", "太郎", "password", RoleName.会員));
         }
     }
 
@@ -82,7 +82,7 @@ public class UserTest {
             assertEquals("テスト", member.Name().FirstName());
             assertEquals("太郎", member.Name().LastName());
             assertEquals("a234567Z", member.Password().Value());
-            assertEquals(RoleName.MEMBER, member.RoleName());
+            assertEquals(RoleName.会員, member.RoleName());
         }
 
     }
@@ -98,7 +98,7 @@ public class UserTest {
             assertEquals("テスト", administrator.Name().FirstName());
             assertEquals("太郎", administrator.Name().LastName());
             assertEquals("a234567Z", administrator.Password().Value());
-            assertEquals(RoleName.MEMBER, administrator.RoleName());
+            assertEquals(RoleName.会員, administrator.RoleName());
         }
     }
 }

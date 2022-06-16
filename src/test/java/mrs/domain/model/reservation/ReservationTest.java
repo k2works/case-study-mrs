@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayName("予約ドメイン")
 public class ReservationTest {
     private User newUser() {
-        return new User("U999999", "テスト", "太郎", "a234567Z", RoleName.MEMBER);
+        return new User("U999999", "テスト", "太郎", "a234567Z", RoleName.会員);
     }
 
     @Test

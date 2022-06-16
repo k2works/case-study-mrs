@@ -21,7 +21,7 @@ import java.util.List;
  * 利用者一覧画面
  */
 @Controller("利用者の管理")
-@PreAuthorize("hasRole('ADMIN')")
+@PreAuthorize("hasRole('管理者')")
 @RequestMapping("/users")
 public class UserController {
     private final UserManagementService userManagementService;

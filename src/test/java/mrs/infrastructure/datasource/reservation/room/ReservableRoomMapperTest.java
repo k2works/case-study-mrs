@@ -42,7 +42,7 @@ public class ReservableRoomMapperTest {
     }
 
     private User newUser() {
-        return new User("U999999", "テスト", "太郎", "a234567Z", RoleName.MEMBER);
+        return new User("U999999", "テスト", "太郎", "a234567Z", RoleName.会員);
     }
 
     @Test

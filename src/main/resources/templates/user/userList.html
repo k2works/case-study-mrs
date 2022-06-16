@@ -89,8 +89,8 @@
                         </ul>
                         <label>役割</label>
                         <select id="regist_role" name="done" th:field="*{roleName}">
-                            <option selected value="MEMBER">会員</option>
-                            <option value="ADMIN">管理者</option>
+                            <option selected value="会員">会員</option>
+                            <option value="管理者">管理者</option>
                         </select>
                         <ul>
                             <li class="error" th:each="err : ${#fields.errors('roleName')}" th:text="${err}"/>
@@ -126,8 +126,8 @@
                         </ul>
                         <label>役割</label>
                         <select id="update_role" name="done" th:field="*{roleName}">
-                            <option value="MEMBER">会員</option>
-                            <option value="ADMIN">管理者</option>
+                            <option value="会員">会員</option>
+                            <option value="管理者">管理者</option>
                         </select>
                         <ul>
                             <li class="error" th:each="err : ${#fields.errors('roleName')}" th:text="${err}"/>

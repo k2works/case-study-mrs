@@ -53,7 +53,7 @@ public class ReservationService {
     /**
      * 会議室の予約を取り消す
      */
-    @PreAuthorize("hasRole('ADMIN') or #reservation.User.UserId == principal.user.UserId")
+    @PreAuthorize("hasRole('管理者') or #reservation.User.UserId == principal.user.UserId")
     public void cancel(@P("reservation") Reservation reservation) {
         reservationRepository.delete(reservation);
     }

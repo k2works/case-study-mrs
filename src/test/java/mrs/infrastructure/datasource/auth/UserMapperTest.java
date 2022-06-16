@@ -51,17 +51,17 @@ public class UserMapperTest {
         assert (user.Name().FirstName().equals("テスト"));
         assert (user.Name().LastName().equals("太郎"));
         assert (user.Password().Value().equals("a234567Z"));
-        assert (user.RoleName().equals(RoleName.MEMBER));
+        assert (user.RoleName().equals(RoleName.会員));
     }
 
     private User newUser(String userId) {
-        return new User(userId, "テスト", "太郎", "a234567Z", RoleName.MEMBER);
+        return new User(userId, "テスト", "太郎", "a234567Z", RoleName.会員);
     }
 
     @Test
     public void 利用者を検索できる() {
         userMapper.insert(newUser("U999991"));
-        userMapper.insert(new User("U999992", "テスト", "太郎", "a234567Z", RoleName.MEMBER));
+        userMapper.insert(new User("U999992", "テスト", "太郎", "a234567Z", RoleName.会員));
 
         List<User> users = userMapper.selectAll();
         assert (users.size() == 2);
@@ -103,14 +103,14 @@ public class UserMapperTest {
         userMapper.insert(newUser("U999993"));
         UserId userId = new UserId("U999993");
         User user = userMapper.select(userId);
-        User updateUser = new User(user.UserId().Value(), "更新1", "更新2", "A234567z", RoleName.ADMIN);
+        User updateUser = new User(user.UserId().Value(), "更新1", "更新2", "A234567z", RoleName.管理者);
         userMapper.update(updateUser);
 
         User updatedUser = userMapper.select(userId);
         assert (updatedUser.Name().FirstName().equals("更新1"));
         assert (updatedUser.Name().LastName().equals("更新2"));
         assert (updatedUser.Password().Value().equals("A234567z"));
-        assert (updatedUser.RoleName().equals(RoleName.ADMIN));
+        assert (updatedUser.RoleName().equals(RoleName.管理者));
     }
 
     @Test

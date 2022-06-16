@@ -36,9 +36,9 @@
     <nav class="nav">
       <ul>
           <li><a href="/rooms">会議室予約一覧</a></li>
-          <li sec:authorize="${hasRole('ADMIN')}"><a href="/users">利用者一覧</a></li>
-          <li sec:authorize="${hasRole('ADMIN')}"><a href="/meetingRooms">会議室一覧</a></li>
-          <li sec:authorize="${hasRole('ADMIN')}"><a href="/reservableRooms">予約可能会議室一覧</a></li>
+          <li sec:authorize="${hasRole('管理者')}"><a href="/users">利用者一覧</a></li>
+          <li sec:authorize="${hasRole('管理者')}"><a href="/meetingRooms">会議室一覧</a></li>
+          <li sec:authorize="${hasRole('管理者')}"><a href="/reservableRooms">予約可能会議室一覧</a></li>
           <li>
               <form method="post" name="logout_form" th:action="@{/logout}">
                   <a href="#" onclick="document.logout_form.submit();">ログアウト</a>
