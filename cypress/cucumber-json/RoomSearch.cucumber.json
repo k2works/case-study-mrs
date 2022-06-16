@@ -23,7 +23,7 @@
             "name": "\"利用者\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 21895000000
+              "duration": 40904000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "\"会議室予約一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 91000000
+              "duration": 79000000
             }
           },
           {
@@ -43,7 +43,7 @@
             "name": "会議室予約一覧に \"新木場\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 17000000
+              "duration": 23000000
             }
           }
         ]

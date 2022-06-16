@@ -731,10 +731,6 @@ package mrs.domain.model.facility.facility {
 
 ==== データモデル
 
-image::images/erd/jig-erd-overview.svg[]
-image::images/erd/jig-erd-summary.svg[]
-image::images/erd/jig-erd-detail.svg[]
-
 ===== 認証・認可
 
 image::images/schemaspy/auth/diagrams/summary/relationships.real.large.png[]
@@ -742,6 +738,10 @@ image::images/schemaspy/auth/diagrams/summary/relationships.real.large.png[]
 ===== 予約
 
 image::images/schemaspy/reservation/diagrams/summary/relationships.real.large.png[]
+
+===== 施設
+
+image::images/schemaspy/facility/diagrams/summary/relationships.real.large.png[]
 
 == 運用
 
