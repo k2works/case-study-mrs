@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Map;
 
 public class ReservableRoomForm implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -15,6 +16,8 @@ public class ReservableRoomForm implements Serializable {
     @NotNull
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate reservedDate;
+
+    private Map<Integer, String> roomNameMap;
 
     public Integer getRoomId() {
         return roomId;
@@ -30,5 +33,13 @@ public class ReservableRoomForm implements Serializable {
 
     public void setReservedDate(LocalDate reservedDate) {
         this.reservedDate = reservedDate;
+    }
+
+    public Map<Integer, String> getRoomNameMap() {
+        return roomNameMap;
+    }
+
+    public void setRoomNameMap(Map<Integer, String> roomNameMap) {
+        this.roomNameMap = roomNameMap;
     }
 }

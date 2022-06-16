@@ -56,8 +56,13 @@
                         <ul>
                             <li class="error" th:each="err : ${#fields.errors('reservedDate')}" th:text="${err}"/>
                         </ul>
-                        <label>会議室番号</label>
-                        <input id="regist_id" name="roomId" th:field="*{roomId}" type="text"/>
+                        <label>会議室</label>
+                        <select id="regist_id" name="roomId" th:filed="*{roomId}">
+                            <option value="">---</option>
+                            <option th:each="item : ${roomNameMap}" th:selected="${item} == *{roomId}"
+                                    th:text="${item.value}" th:value="${item.key}">会議室A
+                            </option>
+                        </select>
                         <ul>
                             <li class="error" th:each="err : ${#fields.errors('roomId')}" th:text="${err}"/>
                         </ul>

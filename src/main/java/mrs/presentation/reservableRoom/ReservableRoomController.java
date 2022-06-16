@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 予約可能会議室一覧画面
@@ -50,7 +51,9 @@ public class ReservableRoomController {
     @GetMapping
     String roomList(Model model) {
         List<ReservableRoom> reservableRoomList = reservableRoomService.findAllReservableRooms();
+        Map<Integer, String> roomNameMap = reservableRoomService.createRoomNameMap();
         model.addAttribute("rooms", reservableRoomList);
+        model.addAttribute("roomNameMap", roomNameMap);
         return "reservableRoom/listRooms";
     }
 
