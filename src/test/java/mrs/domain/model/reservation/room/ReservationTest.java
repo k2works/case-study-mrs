@@ -1,9 +1,8 @@
-package mrs.domain.model.reservation;
+package mrs.domain.model.reservation.room;
 
 import mrs.domain.model.auth.user.RoleName;
 import mrs.domain.model.auth.user.User;
 import mrs.domain.model.reservation.reservation.Reservation;
-import mrs.domain.model.reservation.room.ReservableRoomId;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
