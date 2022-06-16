@@ -5,6 +5,7 @@ import mrs.domain.model.facility.room.MeetingRoom;
 import mrs.domain.model.facility.room.RoomId;
 import mrs.infrastructure.datasource.Message;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * 会議室の登録
  */
 @Service
+@Transactional
 public class MeetingRoomService {
     private final MeetingRoomRepository meetingRoomRepository;
 

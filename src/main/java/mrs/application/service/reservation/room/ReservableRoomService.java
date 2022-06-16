@@ -6,8 +6,8 @@ import mrs.domain.model.reservation.room.ReservableRoomId;
 import mrs.domain.model.reservation.room.ReservableRoomList;
 import mrs.infrastructure.datasource.Message;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
