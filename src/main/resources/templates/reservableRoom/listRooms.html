@@ -59,7 +59,7 @@
                         <label>会議室</label>
                         <select id="regist_id" name="roomId" th:filed="*{roomId}">
                             <option value="">---</option>
-                            <option th:each="item : ${roomNameMap}" th:selected="${item} == *{roomId}"
+                            <option th:each="item : *{meetingRooms}" th:selected="${item.key} == *{roomId}"
                                     th:text="${item.value}" th:value="${item.key}">会議室A
                             </option>
                         </select>

@@ -23,7 +23,7 @@
             "name": "\"ログイン\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 18670000000
+              "duration": 20588000000
             }
           },
           {

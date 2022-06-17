@@ -14,10 +14,10 @@ Before(() => {
     cy.wait(0);
 });
 
-Given(/^"([^"]*)" を "([^"]*)" 予約可能登録する$/, (id, date) => {
+Given(/^"([^"]*)" を "([^"]*)" 予約可能登録する$/, (room, date) => {
     cy.get('#regist_button').click();
     cy.get('#regist_reservedDate').clear().type(date);
-    cy.get('#regist_id').clear().type(1);
+    cy.get('#regist_id').select(room);
     cy.get('[name="regist"]').click();
 });
 

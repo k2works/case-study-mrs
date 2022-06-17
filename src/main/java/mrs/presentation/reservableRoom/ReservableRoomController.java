@@ -40,7 +40,10 @@ public class ReservableRoomController {
 
     @ModelAttribute
     public ReservableRoomForm setUpForm() {
-        return new ReservableRoomForm();
+        ReservableRoomForm form = new ReservableRoomForm();
+        Map<Integer, String> meetingRooms = reservableRoomService.createRoomNameMap();
+        form.setMeetingRooms(meetingRooms);
+        return form;
     }
 
     @InitBinder
@@ -51,9 +54,7 @@ public class ReservableRoomController {
     @GetMapping
     String roomList(Model model) {
         List<ReservableRoom> reservableRoomList = reservableRoomService.findAllReservableRooms();
-        Map<Integer, String> roomNameMap = reservableRoomService.createRoomNameMap();
         model.addAttribute("rooms", reservableRoomList);
-        model.addAttribute("roomNameMap", roomNameMap);
         return "reservableRoom/listRooms";
     }
 

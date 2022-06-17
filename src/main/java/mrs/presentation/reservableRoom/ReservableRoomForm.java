@@ -17,7 +17,7 @@ public class ReservableRoomForm implements Serializable {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate reservedDate;
 
-    private Map<Integer, String> roomNameMap;
+    private Map<Integer, String> meetingRooms;
 
     public Integer getRoomId() {
         return roomId;
@@ -35,11 +35,11 @@ public class ReservableRoomForm implements Serializable {
         this.reservedDate = reservedDate;
     }
 
-    public Map<Integer, String> getRoomNameMap() {
-        return roomNameMap;
+    public Map<Integer, String> getMeetingRooms() {
+        return meetingRooms;
     }
 
-    public void setRoomNameMap(Map<Integer, String> roomNameMap) {
-        this.roomNameMap = roomNameMap;
+    public void setMeetingRooms(Map<Integer, String> meetingRooms) {
+        this.meetingRooms = meetingRooms;
     }
 }
