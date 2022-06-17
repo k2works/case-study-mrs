@@ -13,6 +13,7 @@ import mrs.domain.model.reservation.room.ReservableRoomId;
 import mrs.domain.model.reservation.room.ReservableRoomList;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -89,4 +90,10 @@ public class MeetingRoomReservationScenario {
         reservationService.cancel(reservation);
     }
 
+    /**
+     * 会議室リストボックスを作成する
+     */
+    public Map<Integer, String> createRoomNameMap() {
+        return meetingRoomService.createRoomNameMap();
+    }
 }

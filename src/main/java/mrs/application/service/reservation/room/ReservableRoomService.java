@@ -1,7 +1,6 @@
 package mrs.application.service.reservation.room;
 
 import mrs.application.service.facility.room.MeetingRoomRepository;
-import mrs.domain.model.facility.room.MeetingRoom;
 import mrs.domain.model.reservation.reservation.ReservedDate;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
@@ -10,9 +9,7 @@ import mrs.infrastructure.datasource.Message;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -23,13 +20,10 @@ import java.util.Optional;
 public class ReservableRoomService {
     private final ReservableRoomRepository reservableRoomRepository;
 
-    private final MeetingRoomRepository meetingRoomRepositor;
-
     private final Message message;
 
     public ReservableRoomService(ReservableRoomRepository reservableRoomRepository, MeetingRoomRepository meetingRoomRepositor, Message message) {
         this.reservableRoomRepository = reservableRoomRepository;
-        this.meetingRoomRepositor = meetingRoomRepositor;
         this.message = message;
     }
 
@@ -77,17 +71,5 @@ public class ReservableRoomService {
      */
     public ReservableRoom findReservableRoomById(ReservableRoomId reservableRoomId) {
         return reservableRoomRepository.findReservableRoom(reservableRoomId);
-    }
-
-    /**
-     * 会議室リストボックスを作成する
-     */
-    public Map<Integer, String> createRoomNameMap() {
-        List<MeetingRoom> meetingRooms = meetingRoomRepositor.findAll();
-        Map<Integer, String> roomNameMap = new LinkedHashMap<Integer, String>();
-        meetingRooms.forEach(meetingRoom -> {
-            roomNameMap.put(meetingRoom.RoomId().Value(), meetingRoom.RoomName());
-        });
-        return roomNameMap;
     }
 }

@@ -41,7 +41,7 @@ public class ReservableRoomController {
     @ModelAttribute
     public ReservableRoomForm setUpForm() {
         ReservableRoomForm form = new ReservableRoomForm();
-        Map<Integer, String> meetingRooms = reservableRoomService.createRoomNameMap();
+        Map<Integer, String> meetingRooms = meetingRoomReservationScenario.createRoomNameMap();
         form.setMeetingRooms(meetingRooms);
         return form;
     }

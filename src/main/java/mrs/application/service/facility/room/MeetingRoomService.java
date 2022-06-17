@@ -7,7 +7,9 @@ import mrs.infrastructure.datasource.Message;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 会議室の登録
@@ -67,5 +69,17 @@ public class MeetingRoomService {
             throw new MeetingRoomAlreadyUsedException(message.getMessageByKey("meeting_room_already_used"));
         }
         meetingRoomRepository.deleteById(new RoomId(id));
+    }
+
+    /**
+     * 会議室リストボックスを作成する
+     */
+    public Map<Integer, String> createRoomNameMap() {
+        List<MeetingRoom> meetingRooms = meetingRoomRepository.findAll();
+        Map<Integer, String> roomNameMap = new LinkedHashMap<Integer, String>();
+        meetingRooms.forEach(meetingRoom -> {
+            roomNameMap.put(meetingRoom.RoomId().Value(), meetingRoom.RoomName());
+        });
+        return roomNameMap;
     }
 }
