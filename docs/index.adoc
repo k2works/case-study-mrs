@@ -631,7 +631,7 @@ image::images/jig/architecture.svg[]
 
 ==== ドメインモデル
 
-image::images/jig/package-relation-depth5.svg[]
+image::images/jig/package-relation-depth4.svg[]
 
 image::images/jig/business-rule-relation.svg[]
 
