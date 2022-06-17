@@ -652,17 +652,17 @@ package mrs.domain.model.auth.user {
 		class Password <<(V,DarkSeaGreen) Value Object>> {
 		}
 		enum RoleName {
-			ADMIN
-			MEMBER
+			管理者
+			一般
 		}
-		class Administrator <<(E,DarkSeaGreen) Entity>> {
+		class Staff <<(E,DarkSeaGreen) Entity>> {
 		}
 		class Member <<(E,DarkSeaGreen) Entity>> {
 		}
 		class MemberId <<(V,DarkSeaGreen) Value Object>> {
 		}
 
-        User <|-- Administrator
+        User <|-- Staff
         User <|-- Member
         UserId --* User
         Password --* User
