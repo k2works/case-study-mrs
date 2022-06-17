@@ -1,7 +1,7 @@
 package mrs.domain.model.auth.user;
 
-import mrs.domain.model.auth.user.administrator.Administrator;
 import mrs.domain.model.auth.user.member.Member;
+import mrs.domain.model.auth.user.staff.Staff;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -92,13 +92,13 @@ public class UserTest {
         @Test
         public void 管理者を生成できる() {
             User user = newUser();
-            Administrator administrator = new Administrator(user);
+            Staff staff = new Staff(user);
 
-            assertEquals("U999999", administrator.UserId().Value());
-            assertEquals("テスト", administrator.Name().FirstName());
-            assertEquals("太郎", administrator.Name().LastName());
-            assertEquals("a234567Z", administrator.Password().Value());
-            assertEquals(RoleName.会員, administrator.RoleName());
+            assertEquals("U999999", staff.UserId().Value());
+            assertEquals("テスト", staff.Name().FirstName());
+            assertEquals("太郎", staff.Name().LastName());
+            assertEquals("a234567Z", staff.Password().Value());
+            assertEquals(RoleName.会員, staff.RoleName());
         }
     }
 }

@@ -1,4 +1,4 @@
-package mrs.domain.model.auth.user.administrator;
+package mrs.domain.model.auth.user.staff;
 
 import mrs.domain.model.auth.user.*;
 import mrs.domain.model.reservation.reservation.Reservation;
@@ -6,9 +6,9 @@ import mrs.domain.model.reservation.reservation.Reservation;
 import java.util.List;
 
 /**
- * 管理者
+ * スタッフ
  */
-public class Administrator extends User {
+public class Staff extends User {
     private final User user;
 
     private UserId userId;
@@ -21,7 +21,7 @@ public class Administrator extends User {
 
     private List<Reservation> reservations;
 
-    public Administrator(User user) {
+    public Staff(User user) {
         this.user = user;
         this.userId = user.UserId();
         this.password = user.Password();

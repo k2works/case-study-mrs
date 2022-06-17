@@ -4,8 +4,8 @@ import mrs.domain.model.auth.user.RoleName;
 import mrs.domain.model.auth.user.User;
 import mrs.domain.model.auth.user.UserDetailsImpl;
 import mrs.domain.model.auth.user.UserId;
-import mrs.domain.model.auth.user.administrator.Administrator;
 import mrs.domain.model.auth.user.member.Member;
+import mrs.domain.model.auth.user.staff.Staff;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -34,7 +34,7 @@ public class UserAuthService implements UserDetailsService {
             throw new UsernameNotFoundException(userId + " is not found.");
         }
         if (user.get().RoleName().equals(RoleName.管理者))
-            return new UserDetailsImpl(new Administrator(user.get()));
+            return new UserDetailsImpl(new Staff(user.get()));
         if (user.get().RoleName().equals(RoleName.会員))
             return new UserDetailsImpl(new Member(user.get()));
         else

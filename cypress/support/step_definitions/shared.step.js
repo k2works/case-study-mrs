@@ -46,12 +46,12 @@ Then(`機能名 {string} が表示される`, (funcName) => {
 
 Given(`{string} としてログインしている`, (user) => {
     switch (user) {
-        case ("利用者"):
+        case ("会員"):
             page = new LoginPage()
             page.visit()
             page.login()
             break
-        case ("管理者"):
+        case ("スタッフ"):
             page = new LoginPage()
             page.visit()
             page.loginAdmin()
