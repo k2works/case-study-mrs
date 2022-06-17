@@ -1,4 +1,4 @@
-package mrs.domain.model.auth.user.member;
+package mrs.domain.model.user.staff;
 
 import mrs.domain.model.auth.user.*;
 import mrs.domain.model.reservation.reservation.Reservation;
@@ -6,9 +6,9 @@ import mrs.domain.model.reservation.reservation.Reservation;
 import java.util.List;
 
 /**
- * 会員
+ * スタッフ
  */
-public class Member extends User {
+public class Staff extends User {
     private final User user;
 
     private UserId userId;
@@ -21,16 +21,13 @@ public class Member extends User {
 
     private List<Reservation> reservations;
 
-    private MemberId memberId;
-
-    public Member(User user) {
+    public Staff(User user) {
         this.user = user;
         this.userId = user.UserId();
         this.password = user.Password();
         this.name = user.Name();
         this.roleName = user.RoleName();
         this.reservations = user.getReservations();
-        this.memberId = new MemberId(user.UserId().Value());
     }
 
     @Override
@@ -56,9 +53,5 @@ public class Member extends User {
     @Override
     public List<Reservation> getReservations() {
         return this.user.getReservations();
-    }
-
-    public MemberId MemberId() {
-        return this.memberId;
     }
 }

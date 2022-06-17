@@ -1,7 +1,7 @@
 package mrs.domain.model.auth.user;
 
-import mrs.domain.model.auth.user.member.Member;
-import mrs.domain.model.auth.user.staff.Staff;
+import mrs.domain.model.user.member.Member;
+import mrs.domain.model.user.staff.Staff;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
