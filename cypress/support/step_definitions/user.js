@@ -24,7 +24,7 @@ Given(/^利用者番号 "([^"]*)" を新規登録する$/, (value) => {
     cy.get('#regist_firstName').clear().type('姓');
     cy.get('#regist_lastName').clear().type('名');
     cy.get('#regist_password').click().type('a234567Z');
-    cy.get('#regist_role').select('会員');
+    cy.get('#regist_role').select('一般');
     cy.get('[name="regist"]').click();
 });
 
@@ -38,7 +38,7 @@ Given(/^存在する利用者を新規登録する$/, function () {
     cy.get('#regist_firstName').clear().type('姓');
     cy.get('#regist_lastName').clear().type('名');
     cy.get('#regist_password').click().type('a234567Z');
-    cy.get('#regist_role').select('会員');
+    cy.get('#regist_role').select('一般');
     cy.get('[name="regist"]').click();
 });
 

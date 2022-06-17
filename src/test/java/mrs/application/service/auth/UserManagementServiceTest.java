@@ -26,7 +26,7 @@ public class UserManagementServiceTest {
     TestDataFactory testDataFactory;
 
     private User getUser(String userId) {
-        return new User(userId, "山田", "太郎", "a234567Z", RoleName.会員);
+        return new User(userId, "山田", "太郎", "a234567Z", RoleName.一般);
     }
 
     @Nested
@@ -50,7 +50,7 @@ public class UserManagementServiceTest {
             User user = getUser("U999992");
             userManagementService.regist(user);
             User registUser = userManagementService.findOne(user.UserId());
-            User updateUser = new User(user.UserId().Value(), "山田", "次郎", "A234567z", RoleName.会員);
+            User updateUser = new User(user.UserId().Value(), "山田", "次郎", "A234567z", RoleName.一般);
             userManagementService.update(updateUser);
 
             User result = userManagementService.findOne(user.UserId());
@@ -88,7 +88,7 @@ public class UserManagementServiceTest {
                 User user = getUser("U999992");
                 userManagementService.regist(user);
 
-                User user2 = new User(user.UserId().Value(), "山田", "次郎", "a234567Z", RoleName.会員);
+                User user2 = new User(user.UserId().Value(), "山田", "次郎", "a234567Z", RoleName.一般);
                 assertThrows(UserAlreadyRegistException.class, () -> userManagementService.regist(user2));
             }
         }

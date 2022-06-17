@@ -51,17 +51,17 @@ public class UserMapperTest {
         assert (user.Name().FirstName().equals("テスト"));
         assert (user.Name().LastName().equals("太郎"));
         assert (user.Password().Value().equals("a234567Z"));
-        assert (user.RoleName().equals(RoleName.会員));
+        assert (user.RoleName().equals(RoleName.一般));
     }
 
     private User newUser(String userId) {
-        return new User(userId, "テスト", "太郎", "a234567Z", RoleName.会員);
+        return new User(userId, "テスト", "太郎", "a234567Z", RoleName.一般);
     }
 
     @Test
     public void 利用者を検索できる() {
         userMapper.insert(newUser("U999991"));
-        userMapper.insert(new User("U999992", "テスト", "太郎", "a234567Z", RoleName.会員));
+        userMapper.insert(new User("U999992", "テスト", "太郎", "a234567Z", RoleName.一般));
 
         List<User> users = userMapper.selectAll();
         assert (users.size() == 2);
