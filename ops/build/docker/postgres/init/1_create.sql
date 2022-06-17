@@ -1,3 +1,5 @@
 /* DATABASEを作成 */
 CREATE
 DATABASE mrs;
+CREATE
+DATABASE mrs_load_test;
