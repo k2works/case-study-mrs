@@ -11,7 +11,44 @@
 
 
 <section class="app">
-    <dvi class="app-container w-container">
+    <div class="app-container w-container">
+        <div class="app-decoration">
+            <nav>
+                <ul class="pagination">
+                    <li class="page-item " th:if="${startPage} > 1">
+                        <a class="page-link" th:href="@{'/rooms/' + ${date} + '?page=1'}" 　tabindex="-2">最初</a>
+                    </li>
+                    <li class="page-item " th:if="${page} > 1">
+                        <a class="page-link" th:href="@{'/rooms/' + ${date} + '?page=' + ${page-1}}"
+                           　tabindex="-1">前へ</a>
+                    </li>
+                    <th:block th:if="${endPage}<=1">
+                        <li class="page-item " th:classappend="${i == page} ? active" th:each="i : ${startPage}">
+                            <a class="page-link" th:href="@{'/rooms/' + ${date} + '?page=' + ${i}}" th:text="${i}"></a>
+                        </li>
+                    </th:block>
+
+                    <th:block th:if="${endPage}>10">
+                        <li class="page-item " th:classappend="${i == page} ? active"
+                            th:each="i : ${#numbers.sequence(page, page + 5)}">
+                            <a class="page-link" th:href="@{'/rooms/' + ${date} + '?page=' + ${i}}" th:text="${i}"></a>
+                        </li>
+                        <li>...</li>
+                        <li class="page-item " th:classappend="${i == page} ? active"
+                            th:each="i : ${#numbers.sequence(endPage, endPage - 5, -1)}">
+                            <a class="page-link" th:href="@{'/rooms/' + ${date} + '?page=' + ${i}}" th:text="${i}"></a>
+                        </li>
+                    </th:block>
+                    <li class="page-item " th:if="${page} < ${totalPage}">
+                        <a class="page-link" th:href="@{'/rooms/' + ${date} + '?page=' + ${page+1}}">次へ</a>
+                    </li>
+                    <li class="page-item " th:if="${endPage} < ${totalPage}">
+                        <a class="page-link" th:href="@{'/rooms/' + ${date} + '?page=' + ${totalPage}}">最後</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
         <div class="app-decoration">
             <a th:href="@{'/rooms/' + ${date.minusDays(1)}}">&lt; 前日</a>
             <span th:text="|${#temporals.format(date, 'yyyy/M/d')}の会議室|">2016/5/20の会議室</span>
@@ -27,7 +64,7 @@
                 </li>
             </ul>
         </div>
-    </dvi>
+    </div>
 </section>
 
 </body>

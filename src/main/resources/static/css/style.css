@@ -576,6 +576,14 @@ button:hover {
     color: #ff0000;
 }
 
+.app-decoration .pagination {
+    font-size: clamp(20px, 2vw, 30px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
 .app-form {
     display: grid;
     grid-template-columns: [labels] auto [items] 1fr;
@@ -666,6 +674,7 @@ button:hover {
     top: 120px;
     z-index: 9999;
 }
+
 
 /* 会議室予約 */
 .reserve {
