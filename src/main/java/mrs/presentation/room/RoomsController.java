@@ -33,25 +33,19 @@ public class RoomsController {
     @GetMapping
     String listRooms(Model model, @RequestParam HashMap<String, String> params) {
         int startPage = params.get("page") == null ? 1 : Integer.parseInt(params.get("page"));
-        PageHelper.startPage(startPage, 10);
         LocalDate today = LocalDate.now();
-        ReservableRoomList rooms = meetingRoomReservationScenario.findReservableRooms(new ReservedDate(today)).orElse(new ReservableRoomList());
-        PageInfo<ReservableRoom> pageInfo = new PageInfo<>(rooms.asList());
-        int page = pageInfo.getPageNum();
-        int endPage = pageInfo.getPages();
-        long totalPage = pageInfo.getTotal();
-        model.addAttribute("date", today);
-        model.addAttribute("rooms", rooms.asList());
-        model.addAttribute("page", page);
-        model.addAttribute("startPage", startPage);
-        model.addAttribute("endPage", endPage);
-        model.addAttribute("totalPage", totalPage);
+        setUpModel(model, startPage, today);
         return "room/listRooms";
     }
 
     @GetMapping("{date}")
     String listRooms(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable("date") LocalDate date, Model model, @RequestParam HashMap<String, String> params) {
         int startPage = params.get("page") == null ? 1 : Integer.parseInt(params.get("page"));
+        setUpModel(model, startPage, date);
+        return "room/listRooms";
+    }
+
+    private void setUpModel(Model model, int startPage, LocalDate date) {
         PageHelper.startPage(startPage, 10);
         ReservableRoomList rooms = meetingRoomReservationScenario.findReservableRooms(new ReservedDate(date)).orElse(new ReservableRoomList());
         PageInfo<ReservableRoom> pageInfo = new PageInfo<>(rooms.asList());
@@ -64,6 +58,5 @@ public class RoomsController {
         model.addAttribute("startPage", startPage);
         model.addAttribute("endPage", endPage);
         model.addAttribute("totalPage", totalPage);
-        return "room/listRooms";
     }
 }
