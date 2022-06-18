@@ -1,5 +1,6 @@
 package mrs.presentation.room;
 
+import com.github.pagehelper.PageHelper;
 import mrs.application.scenario.MeetingRoomReservationScenario;
 import mrs.domain.model.reservation.reservation.ReservedDate;
 import mrs.domain.model.reservation.room.ReservableRoomList;
@@ -27,6 +28,7 @@ public class RoomsController {
 
     @GetMapping
     String listRooms(Model model) {
+        PageHelper.startPage(1, 10);
         LocalDate today = LocalDate.now();
         ReservableRoomList rooms = meetingRoomReservationScenario.findReservableRooms(new ReservedDate(today)).orElse(new ReservableRoomList());
         model.addAttribute("date", today);
