@@ -13,6 +13,8 @@
     "test": "jest --coverage",
     "test:e2e": "cypress run",
     "test:cypress": "cypress open",
+    "test:load:setup": "gradlew setUpJmeter",
+    "test:load:run": "cd ./build/jmeter/apache-jmeter-5.5/bin && jmeter.bat",
     "watch": "webpack --watch --config webpack.config.js",
     "build": "npm-run-all clean build:*",
     "build:webpack": "webpack --config webpack.config.js",

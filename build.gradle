@@ -156,3 +156,18 @@ mybatisGenerator {
 						 'jdbcPassword'   : 'mrs',
 	]
 }
+
+task setUpJmeter(type: Copy) {
+	download {
+		ext.jmeter = file("${downloadTaskDir}/jmeter/apache-jmeter-5.5.zip")
+		src('https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.5.zip')
+		dest(jmeter)
+		overwrite = false
+	}
+
+	def zipFile = file("${buildDir}/download-task/jmeter/apache-jmeter-5.5.zip")
+	def outputDir = file("${buildDir}/jmeter")
+
+	from zipTree(zipFile)
+	into outputDir
+}
