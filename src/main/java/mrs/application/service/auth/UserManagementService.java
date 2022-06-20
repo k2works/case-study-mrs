@@ -3,7 +3,7 @@ package mrs.application.service.auth;
 import mrs.domain.model.auth.user.PasswordException;
 import mrs.domain.model.auth.user.User;
 import mrs.domain.model.auth.user.UserId;
-import mrs.infrastructure.datasource.Message;
+import mrs.infrastructure.Message;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

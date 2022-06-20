@@ -1,4 +1,4 @@
-package mrs.infrastructure.datasource;
+package mrs.infrastructure;
 
 public class PageNation {
     public static final int PAGE_SIZE = 10;

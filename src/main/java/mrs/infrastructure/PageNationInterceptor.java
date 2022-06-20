@@ -1,8 +1,7 @@
-package mrs;
+package mrs.infrastructure;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import mrs.infrastructure.datasource.PageNation;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 public class PageNationInterceptor implements HandlerInterceptor {

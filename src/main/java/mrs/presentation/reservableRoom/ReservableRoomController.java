@@ -4,7 +4,7 @@ import mrs.application.scenario.MeetingRoomReservationScenario;
 import mrs.application.service.reservation.room.ReservableRoomService;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
-import mrs.infrastructure.datasource.Message;
+import mrs.infrastructure.Message;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.access.prepost.PreAuthorize;
