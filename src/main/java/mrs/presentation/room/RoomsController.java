@@ -6,6 +6,7 @@ import mrs.application.scenario.MeetingRoomReservationScenario;
 import mrs.domain.model.reservation.reservation.ReservedDate;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomList;
+import mrs.infrastructure.datasource.PageNation;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,17 +47,15 @@ public class RoomsController {
     }
 
     private void setUpModel(Model model, int startPage, LocalDate date) {
-        PageHelper.startPage(startPage, 10);
+        PageHelper.startPage(startPage, PageNation.PAGE_SIZE);
         ReservableRoomList rooms = meetingRoomReservationScenario.findReservableRooms(new ReservedDate(date)).orElse(new ReservableRoomList());
         PageInfo<ReservableRoom> pageInfo = new PageInfo<>(rooms.asList());
         int page = pageInfo.getPageNum();
         int endPage = pageInfo.getPages();
         long totalPage = pageInfo.getTotal();
+        PageNation pageNation = new PageNation(page, startPage, endPage, totalPage);
         model.addAttribute("date", date);
         model.addAttribute("rooms", rooms.asList());
-        model.addAttribute("page", page);
-        model.addAttribute("startPage", startPage);
-        model.addAttribute("endPage", endPage);
-        model.addAttribute("totalPage", totalPage);
+        model.addAttribute("pageNation", pageNation);
     }
 }
