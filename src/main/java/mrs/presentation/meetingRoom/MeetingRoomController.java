@@ -1,5 +1,6 @@
 package mrs.presentation.meetingRoom;
 
+import com.github.pagehelper.PageInfo;
 import mrs.application.scenario.MeetingRoomReservationScenario;
 import mrs.application.service.facility.room.MeetingRoomService;
 import mrs.domain.model.facility.room.MeetingRoom;
@@ -48,7 +49,9 @@ public class MeetingRoomController {
     @GetMapping
     String roomList(Model model) {
         List<MeetingRoom> meetingRoomList = meetingRoomService.findAll();
+        PageInfo<MeetingRoom> pageInfo = new PageInfo<>(meetingRoomList);
         model.addAttribute("rooms", meetingRoomList);
+        model.addAttribute("pageInfo", pageInfo);
         return "meetingRoom/listRooms";
     }
 
