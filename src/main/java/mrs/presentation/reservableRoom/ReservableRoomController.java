@@ -1,5 +1,6 @@
 package mrs.presentation.reservableRoom;
 
+import com.github.pagehelper.PageInfo;
 import mrs.application.scenario.MeetingRoomReservationScenario;
 import mrs.application.service.reservation.room.ReservableRoomService;
 import mrs.domain.model.reservation.room.ReservableRoom;
@@ -40,10 +41,7 @@ public class ReservableRoomController {
 
     @ModelAttribute
     public ReservableRoomForm setUpForm() {
-        ReservableRoomForm form = new ReservableRoomForm();
-        Map<Integer, String> meetingRooms = meetingRoomReservationScenario.createRoomNameMap();
-        form.setMeetingRooms(meetingRooms);
-        return form;
+        return new ReservableRoomForm();
     }
 
     @InitBinder
@@ -54,7 +52,11 @@ public class ReservableRoomController {
     @GetMapping
     String roomList(Model model) {
         List<ReservableRoom> reservableRoomList = reservableRoomService.findAllReservableRooms();
+        PageInfo<ReservableRoom> pageInfo = new PageInfo<>(reservableRoomList);
+        Map<Integer, String> meetingRooms = meetingRoomReservationScenario.createRoomNameMap();
         model.addAttribute("rooms", reservableRoomList);
+        model.addAttribute("pageInfo", pageInfo);
+        model.addAttribute("meetingRooms", meetingRooms);
         return "reservableRoom/listRooms";
     }
 
