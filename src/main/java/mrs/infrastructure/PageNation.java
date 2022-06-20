@@ -29,4 +29,8 @@ public class PageNation {
     public Long TotalPage() {
         return totalPage;
     }
+
+    public Integer PageSize() {
+        return PAGE_SIZE;
+    }
 }

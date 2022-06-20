@@ -22,14 +22,14 @@
                         <a class="page-link" th:href="@{'/rooms/' + ${date} + '?page=' + ${pageNation.Page-1}}"
                            　tabindex="-1">前へ</a>
                     </li>
-                    <th:block th:if="${pageNation.EndPage}<=1">
+                    <th:block th:if="${pageNation.EndPage} <= 1">
                         <li class="page-item " th:classappend="${i == pageNation.Page} ? active"
                             th:each="i : ${pageNation.StartPage}">
                             <a class="page-link" th:href="@{'/rooms/' + ${date} + '?page=' + ${i}}" th:text="${i}"></a>
                         </li>
                     </th:block>
 
-                    <th:block th:if="${pageNation.EndPage}>10">
+                    <th:block th:if="${pageNation.EndPage}>${pageNation.PageSize}">
                         <li class="page-item " th:classappend="${i == pageNation.Page} ? active"
                             th:each="i : ${#numbers.sequence(pageNation.Page, pageNation.Page + 5)}">
                             <a class="page-link" th:href="@{'/rooms/' + ${date} + '?page=' + ${i}}" th:text="${i}"></a>

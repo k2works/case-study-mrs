@@ -1,5 +1,6 @@
 package mrs.presentation.user;
 
+import com.github.pagehelper.PageInfo;
 import mrs.application.service.auth.UserManagementService;
 import mrs.domain.model.auth.user.User;
 import mrs.domain.model.auth.user.UserId;
@@ -45,7 +46,9 @@ public class UserController {
     @GetMapping
     String userList(Model model) {
         List<User> users = userManagementService.findAll();
+        PageInfo<User> pageInfo = new PageInfo<>(users);
         model.addAttribute("users", users);
+        model.addAttribute("pageInfo", pageInfo);
         return "user/userList";
     }
 
