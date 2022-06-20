@@ -3,7 +3,7 @@ package mrs.presentation.meetingRoom;
 import mrs.application.scenario.MeetingRoomReservationScenario;
 import mrs.application.service.facility.room.MeetingRoomService;
 import mrs.domain.model.facility.room.MeetingRoom;
-import mrs.infrastructure.Message;
+import mrs.infrastructure.datasource.Message;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;

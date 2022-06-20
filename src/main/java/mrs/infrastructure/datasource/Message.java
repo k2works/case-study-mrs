@@ -1,4 +1,4 @@
-package mrs.infrastructure;
+package mrs.infrastructure.datasource;
 
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;

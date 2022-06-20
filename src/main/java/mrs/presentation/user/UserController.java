@@ -3,7 +3,7 @@ package mrs.presentation.user;
 import mrs.application.service.auth.UserManagementService;
 import mrs.domain.model.auth.user.User;
 import mrs.domain.model.auth.user.UserId;
-import mrs.infrastructure.Message;
+import mrs.infrastructure.datasource.Message;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;

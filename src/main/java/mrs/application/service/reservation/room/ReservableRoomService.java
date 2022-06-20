@@ -5,7 +5,7 @@ import mrs.domain.model.reservation.reservation.ReservedDate;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
 import mrs.domain.model.reservation.room.ReservableRoomList;
-import mrs.infrastructure.Message;
+import mrs.infrastructure.datasource.Message;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

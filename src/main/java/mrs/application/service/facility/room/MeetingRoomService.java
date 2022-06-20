@@ -3,7 +3,7 @@ package mrs.application.service.facility.room;
 import mrs.application.service.auth.UserAlreadyRegistException;
 import mrs.domain.model.facility.room.MeetingRoom;
 import mrs.domain.model.facility.room.RoomId;
-import mrs.infrastructure.Message;
+import mrs.infrastructure.datasource.Message;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
