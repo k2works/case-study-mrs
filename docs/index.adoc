@@ -604,13 +604,11 @@ actor "スタッフ" as admin
 rectangle 予約 {
   usecase "会議室の検索" as UC2
   usecase "会議室の予約" as UC3
-  usecase "会議室の登録" as UC4
 }
 member --> UC2
 member --> UC3
-UC2 <-- admin
-UC3 <-- admin
-UC4 <-- admin
+admin --> UC2
+admin --> UC3
 @enduml
 ----
 
@@ -620,6 +618,24 @@ include::../cypress/integration/ReservationManagement/RoomSearch.feature[]
 
 include::../cypress/integration/ReservationManagement/RoomReserve.feature[]
 
+----
+
+===== 施設
+
+[plantuml]
+----
+@startuml
+left to right direction
+actor "スタッフ" as admin
+rectangle 施設 {
+  usecase "会議室の登録" as UC4
+}
+admin --> UC4
+@enduml
+----
+
+[source,yml]
+----
 include::../cypress/integration/ReservationManagement/RoomRegist.feature[]
 ----
 

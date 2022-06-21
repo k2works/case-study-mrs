@@ -12,14 +12,6 @@
         <text text-anchor="middle" x="711.13" y="-7.8" font-family="Times New Roman,serif" font-size="14.00">
             ビジネスルール関連図
         </text>
-        <g id="clust1" class="cluster">
-            <title>cluster_mrs.domain.model.auth.user</title>
-            <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
-                     points="584,-252 584,-572 1156,-572 1156,-252 584,-252"/>
-            <text text-anchor="middle" x="870" y="-556.8" font-family="Times New Roman,serif" font-size="14.00">
-                auth.user
-            </text>
-        </g>
         <g id="clust2" class="cluster">
             <title>cluster_mrs.domain.model.facility.room</title>
             <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
@@ -44,12 +36,12 @@
                 reservation.room
             </text>
         </g>
-        <g id="clust5" class="cluster">
-            <title>cluster_mrs.domain.model.user.member</title>
+        <g id="clust1" class="cluster">
+            <title>cluster_mrs.domain.model.auth.user</title>
             <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
-                     points="1194,-410 1194,-572 1296,-572 1296,-410 1194,-410"/>
-            <text text-anchor="middle" x="1245" y="-556.8" font-family="Times New Roman,serif" font-size="14.00">
-                user.member
+                     points="584,-252 584,-572 1156,-572 1156,-252 584,-252"/>
+            <text text-anchor="middle" x="870" y="-556.8" font-family="Times New Roman,serif" font-size="14.00">
+                auth.user
             </text>
         </g>
         <g id="clust6" class="cluster">
@@ -58,6 +50,14 @@
                      points="474,-495 474,-572 576,-572 576,-495 474,-495"/>
             <text text-anchor="middle" x="525" y="-556.8" font-family="Times New Roman,serif" font-size="14.00">
                 user.staff
+            </text>
+        </g>
+        <g id="clust5" class="cluster">
+            <title>cluster_mrs.domain.model.user.member</title>
+            <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
+                     points="1194,-410 1194,-572 1296,-572 1296,-410 1194,-410"/>
+            <text text-anchor="middle" x="1245" y="-556.8" font-family="Times New Roman,serif" font-size="14.00">
+                user.member
             </text>
         </g>
         <!-- mrs.domain.model.auth.user.Password -->
@@ -180,8 +180,8 @@
         <g id="edge7" class="edge">
             <title>mrs.domain.model.auth.user.User&#45;&gt;mrs.domain.model.reservation.reservation.Reservation</title>
             <path fill="none" stroke="black"
-                  d="M783.96,-434.18C738.49,-431.11 656.33,-423.03 589,-402 568.5,-395.6 547.01,-385.31 528.63,-375.81"/>
-            <polygon fill="black" stroke="black" points="530.08,-372.62 519.6,-371.08 526.84,-378.82 530.08,-372.62"/>
+                  d="M783.85,-434.88C735.19,-432.45 644.31,-424.9 571,-402 550.78,-395.68 529.6,-385.59 512.87,-376.2"/>
+            <polygon fill="black" stroke="black" points="514.47,-373.08 504.07,-371.08 510.96,-379.13 514.47,-373.08"/>
         </g>
         <!-- mrs.domain.model.auth.user.UserDetailsImpl -->
         <g id="node5" class="node">
@@ -298,8 +298,8 @@
         <g id="edge16" class="edge">
             <title>mrs.domain.model.reservation.reservation.Reservation&#45;&gt;mrs.domain.model.auth.user.User</title>
             <path fill="none" stroke="black"
-                  d="M504.07,-371.08C521.73,-381.72 547.03,-394.51 571,-402 639.44,-423.38 723.19,-431.38 773.61,-434.32"/>
-            <polygon fill="black" stroke="black" points="773.67,-437.83 783.85,-434.88 774.05,-430.84 773.67,-437.83"/>
+                  d="M519.6,-371.08C539.73,-381.72 565.03,-394.51 589,-402 651.6,-421.55 727.01,-429.91 773.84,-433.45"/>
+            <polygon fill="black" stroke="black" points="773.74,-436.95 783.96,-434.18 774.23,-429.97 773.74,-436.95"/>
         </g>
         <!-- mrs.domain.model.reservation.reservation.ReservationId -->
         <g id="node14" class="node">
