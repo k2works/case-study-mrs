@@ -63,8 +63,8 @@
         <div class="app-decoration">
             <ul>
                 <li th:each="room: ${rooms}">
-                    <a ${room.MeetingRoom.RoomName}
-                       th:href="@{'/reservations/' + ${date} + '/' + ${room.MeetingRoom.RoomId.Value}}"
+                    <a th:href="@{'/reservations/' + ${date} + '/' + ${room.MeetingRoom.RoomId.Value}}"
+                       th:id="'No' + ${room.MeetingRoom.RoomId.Value}"
                        th:text="${room.MeetingRoom.RoomName}"></a>
                 </li>
             </ul>

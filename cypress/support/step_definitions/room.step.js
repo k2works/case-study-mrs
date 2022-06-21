@@ -17,10 +17,10 @@ Before(() => {
 Given(`{string} 会議室を選択する`, (room) => {
     switch (room) {
         case '新木場':
-            cy.get(':nth-child(2) > ul > :nth-child(1) > a').click();
+            cy.get('#No1').click();
             break;
         case '有楽町':
-            cy.get(':nth-child(2) > a').click();
+            cy.get('#No7').click();
             break;
         default:
             console.log("該当するページが存在しません");
