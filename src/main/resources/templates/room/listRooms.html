@@ -13,6 +13,10 @@
 <section class="app">
     <div class="app-container w-container">
         <div class="app-decoration">
+            <div th:include="fragment/app-menu"></div>
+        </div>
+
+        <div class="app-decoration">
             <nav th:block th:if="${pageNation.EndPage} > ${pageNation.PageSize}">
                 <ul class="pagination">
                     <li>
