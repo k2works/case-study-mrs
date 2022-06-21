@@ -5,6 +5,7 @@ import mrs.application.scenario.MeetingRoomReservationScenario;
 import mrs.application.service.reservation.room.ReservableRoomService;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
+import mrs.infrastructure.PageNation;
 import mrs.infrastructure.datasource.Message;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -50,7 +51,8 @@ public class ReservableRoomController {
     }
 
     @GetMapping
-    String roomList(Model model) {
+    String roomList(Model model, @RequestParam(value = "page", defaultValue = "1") int... page) {
+        PageNation.startPage(page);
         List<ReservableRoom> reservableRoomList = reservableRoomService.findAllReservableRooms();
         PageInfo<ReservableRoom> pageInfo = new PageInfo<>(reservableRoomList);
         Map<Integer, String> meetingRooms = meetingRoomReservationScenario.createRoomNameMap();

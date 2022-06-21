@@ -1,5 +1,7 @@
 package mrs.infrastructure;
 
+import com.github.pagehelper.PageHelper;
+
 public class PageNation {
     public static final int PAGE_SIZE = 10;
     Integer page;
@@ -12,6 +14,12 @@ public class PageNation {
         this.startPage = startPage;
         this.endPage = endPage;
         this.totalPage = totalPage;
+    }
+
+    public static void startPage(int[] page, int... pageSize) {
+        int startPage = page != null && page.length > 0 ? page[0] : 1;
+        int pageSizeValue = pageSize != null && pageSize.length > 0 ? pageSize[0] : PAGE_SIZE;
+        PageHelper.startPage(startPage, pageSizeValue);
     }
 
     public Integer Page() {

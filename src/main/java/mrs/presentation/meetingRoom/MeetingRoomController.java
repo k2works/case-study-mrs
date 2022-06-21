@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import mrs.application.scenario.MeetingRoomReservationScenario;
 import mrs.application.service.facility.room.MeetingRoomService;
 import mrs.domain.model.facility.room.MeetingRoom;
+import mrs.infrastructure.PageNation;
 import mrs.infrastructure.datasource.Message;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -47,7 +48,8 @@ public class MeetingRoomController {
     }
 
     @GetMapping
-    String roomList(Model model) {
+    String roomList(Model model, @RequestParam(value = "page", defaultValue = "1") int... page) {
+        PageNation.startPage(page);
         List<MeetingRoom> meetingRoomList = meetingRoomService.findAll();
         PageInfo<MeetingRoom> pageInfo = new PageInfo<>(meetingRoomList);
         model.addAttribute("rooms", meetingRoomList);

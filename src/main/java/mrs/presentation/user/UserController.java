@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import mrs.application.service.auth.UserManagementService;
 import mrs.domain.model.auth.user.User;
 import mrs.domain.model.auth.user.UserId;
+import mrs.infrastructure.PageNation;
 import mrs.infrastructure.datasource.Message;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -44,7 +45,8 @@ public class UserController {
     }
 
     @GetMapping
-    String userList(Model model) {
+    String userList(Model model, @RequestParam(value = "page", defaultValue = "1") int... page) {
+        PageNation.startPage(page);
         List<User> users = userManagementService.findAll();
         PageInfo<User> pageInfo = new PageInfo<>(users);
         model.addAttribute("users", users);

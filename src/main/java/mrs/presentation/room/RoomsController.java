@@ -5,6 +5,7 @@ import mrs.application.scenario.MeetingRoomReservationScenario;
 import mrs.domain.model.reservation.reservation.ReservedDate;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomList;
+import mrs.infrastructure.PageNation;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
-import java.util.HashMap;
 
 /**
  * 会議室予約一覧画面
@@ -30,14 +30,16 @@ public class RoomsController {
     }
 
     @GetMapping
-    String listRooms(Model model, @RequestParam HashMap<String, String> params) {
+    String listRooms(Model model, @RequestParam(value = "page", defaultValue = "1") int... page) {
+        PageNation.startPage(page);
         LocalDate today = LocalDate.now();
         setUpModel(model, today);
         return "room/listRooms";
     }
 
     @GetMapping("{date}")
-    String listRooms(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable("date") LocalDate date, Model model, @RequestParam HashMap<String, String> params) {
+    String listRooms(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable("date") LocalDate date, Model model, @RequestParam(value = "page", defaultValue = "1") int... page) {
+        PageNation.startPage(page);
         setUpModel(model, date);
         return "room/listRooms";
     }
