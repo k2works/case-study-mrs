@@ -8,39 +8,38 @@
 <section class="app">
     <div class="app-container w-container">
         <div class="app-decoration">
-            <nav>
+            <nav th:block th:if="${pageNation.EndPage} > ${pageNation.PageSize}">
                 <ul class="pagination">
-                    <li class="page-item " th:if="${pageNation.StartPage} > 1">
-                        <a class="page-link" th:href="@{'/users?page=1'}" 　tabindex="-2">最初</a>
+                    <li>
+                        <a th:href="@{'/users?page=1'}" 　tabindex="-2">最初</a>
                     </li>
-                    <li class="page-item " th:if="${pageNation.Page} > 1">
-                        <a class="page-link" th:href="@{'/users?page=' + ${pageNation.Page-1}}"
+                    <li>
+                        <a th:href="@{'/users?page=' + ${pageNation.Page-1}}"
                            　tabindex="-1">前へ</a>
                     </li>
                     <th:block th:if="${pageNation.EndPage} <= 1">
-                        <li class="page-item " th:classappend="${i == pageNation.Page} ? active"
+                        <li th:classappend="${i == pageNation.Page} ? active"
                             th:each="i : ${pageNation.StartPage}">
-                            <a class="page-link" th:href="@{'/users?page=' + ${i}}" th:text="${i}"></a>
+                            <a th:href="@{'/users?page=' + ${i}}" th:text="${i}"></a>
                         </li>
                     </th:block>
 
                     <th:block th:if="${pageNation.EndPage}>${pageNation.PageSize}">
-                        <li class="page-item " th:classappend="${i == pageNation.Page} ? active"
-                            th:each="i : ${#numbers.sequence(pageNation.Page, pageNation.Page + 5)}">
-                            <a class="page-link" th:href="@{'/users?page=' + ${i}}" th:text="${i}"></a>
+                        <li th:classappend="${i == pageNation.Page} ? active"
+                            th:each="i : ${#numbers.sequence(pageNation.Page, pageNation.Page + 2)}">
+                            <a th:href="@{'/users?page=' + ${i}}" th:text="${i}"></a>
                         </li>
                         <li>...</li>
-                        <li class="page-item " th:classappend="${i == pageNation.Page} ? active"
-                            th:each="i : ${#numbers.sequence(pageNation.EndPage, pageNation.EndPage - 5, -1)}">
-                            <a class="page-link" th:href="@{'/users?page=' + ${i}}" th:text="${i}"></a>
+                        <li th:classappend="${i == pageNation.Page} ? active"
+                            th:each="i : ${#numbers.sequence(pageNation.EndPage - 2, pageNation.EndPage, -1)}">
+                            <a th:href="@{'/users?page=' + ${i}}" th:text="${i}"></a>
                         </li>
                     </th:block>
-                    <li class="page-item " th:if="${pageNation.Page} < ${pageNation.TotalPage}">
-                        <a class="page-link" th:href="@{'/users?page=' + ${pageNation.Page+1}}">次へ</a>
+                    <li>
+                        <a th:href="@{'/users?page=' + ${pageNation.Page+1}}">次へ</a>
                     </li>
-                    <li class="page-item " th:if="${pageNation.EndPage} < ${pageNation.TotalPage}">
-                        <a class="page-link"
-                           th:href="@{'/users?page=' + ${pageNation.TotalPage}}">最後</a>
+                    <li>
+                        <a th:href="@{'/users?page=' + ${pageNation.TotalPage}}">最後</a>
                     </li>
                 </ul>
             </nav>

@@ -554,6 +554,24 @@ button:hover {
     color: #ff0000;
 }
 
+/* ページネーション */
+ul.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
+
+ul.pagination li {
+    margin-top: 10px;
+}
+
+ul.pagination li a {
+    color: #222222;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
 /* アプリケーション */
 .app {
     background-color: #f3f1ed;
@@ -577,11 +595,7 @@ button:hover {
 }
 
 .app-decoration .pagination {
-    font-size: clamp(20px, 2vw, 30px);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+    font-size: clamp(10px, 2vw, 20px);
 }
 
 .app-form {
