@@ -577,6 +577,47 @@ ul.pagination li a {
     background-color: #f3f1ed;
 }
 
+.app-nav {
+    display: flex;
+    width: 1000px;
+}
+
+.app-nav > li {
+    width: 25%;
+}
+
+.app-nav li {
+    list-style: none;
+    position: relative;
+}
+
+.app-nav li a {
+    background: #001b34;
+    border-right: 1px solid #eee;
+    color: #fff;
+    display: block;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+
+.app-nav li li {
+    height: 0;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.app-nav li li a {
+    border-top: 1px solid #eee;
+}
+
+.app-nav li:hover ul > li {
+    height: 2rem;
+    overflow: visible;
+}
+
 .app-container {
     display: grid;
     gap: 27px;

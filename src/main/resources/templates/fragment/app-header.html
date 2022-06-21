@@ -46,7 +46,30 @@
           </li>
       </ul>
     </nav>
+
+      <ul class="app-nav">
+          <li>
+              <a href="">予約</a>
+              <ul>
+                  <li><a href="/rooms">会議室予約一覧</a></li>
+                  <li sec:authorize="${hasRole('管理者')}"><a href="/meetingRooms">会議室一覧</a></li>
+                  <li sec:authorize="${hasRole('管理者')}"><a href="/reservableRooms">予約可能会議室一覧</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="">会員</a>
+              <ul>
+                  <li sec:authorize="${hasRole('管理者')}"><a href="/users">利用者一覧</a></li>
+              </ul>
+          </li>
+          <li>
+              <form method="post" name="logout_form" th:action="@{/logout}">
+                  <a href="#" onclick="document.logout_form.submit();">ログアウト</a>
+              </form>
+          </li>
+      </ul>
   </div>
 </header>
+
 </body>
 </html>
