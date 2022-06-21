@@ -142,16 +142,18 @@ title ビジネスユースケース図 - 会員管理
 left to right direction
 
 actor 会員 as ac_01
-
 agent 窓口 as ag_01
 
 usecase 利用者の管理 as uc_01
 usecase 利用者の認証 as uc_02
+usecase 問い合わせ管理 as uc_03
 
 ac_01 -- (uc_02)
+ac_01 -- (uc_03)
 
 (uc_01) -- ag_01
 (uc_02) -- ag_01
+(uc_03) -- ag_01
 
 @enduml
 ----
@@ -189,6 +191,33 @@ ac_01 -- (uc_02)
 ----
 
 ==== 業務フロー
+
+===== 会員管理
+
+====== 問い合わせ管理
+
+[plantuml]
+----
+@startuml
+
+title 業務フロー図 - 問い合わせ管理:BUC
+
+|会員|
+partition 問い合わせ {
+  :問い合わせをする;
+}
+
+|スタッフ|
+partition 問い合わせ対応 {
+  :問い合わせを確認する;
+  :問い合わせに対応する;
+}
+
+|会員|
+stop
+
+@enduml
+----
 
 ===== 予約管理
 
@@ -417,6 +446,38 @@ UC4 - e01
 @enduml
 ----
 
+====== 問い合わせ管理
+
+[plantuml]
+----
+@startuml
+actor "会員" as user
+actor "スタッフ" as admin
+frame "問い合わせ" as f01
+frame "問い合わせ対応" as f02
+usecase "問い合わせをする" as UC1
+usecase "問い合わせを確認する" as UC2
+usecase "問い合わせに対応する" as UC3
+boundary "問い合わせ画面" as b01
+boundary "問い合わせ一覧画面" as b02
+entity "問い合わせ" as e01
+
+user - f01
+f01 - UC1
+b01 -- UC1
+UC1 - e01
+
+f01 --> f02
+
+admin - f02
+f02 - UC2
+f02 - UC3
+b02 -- UC2
+b02 -- UC3
+UC2 -- e01
+
+----
+
 ===== 予約管理
 
 ====== 会議室の検索
@@ -556,10 +617,13 @@ skinparam componentStyle uml2
 component [AuthContext] <<認証・認可>>
 component [ReservationContext] <<予約>>
 component [FacilityContext] <<施設>>
+component [ContactContext] <<問い合わせ>>
 
 [AuthContext]<-->[ReservationContext] : Shared Kernel
 
 [AuthContext]<-->[FacilityContext] : Shared Kernel
+
+[AuthContext]<-->[ContactContext] : Shared Kernel
 
 [ReservationContext]<-->[FacilityContext] : Shared Kernel
 ----
@@ -637,6 +701,28 @@ admin --> UC4
 [source,yml]
 ----
 include::../cypress/integration/ReservationManagement/RoomRegist.feature[]
+----
+
+===== 問い合わせ
+
+[plantuml]
+----
+@startuml
+left to right direction
+actor "会員" as member
+actor "スタッフ" as admin
+rectangle 問い合わせ {
+  usecase "問い合わせをする" as UC1
+  usecase "問い合わせを確認する" as UC2
+}
+member --> UC1
+admin --> UC2
+@enduml
+----
+
+[source,yml]
+----
+include::../cypress/integration/UserManagement/ContactManagement.feature[]
 ----
 
 === 設計
@@ -742,6 +828,32 @@ package mrs.domain.model.facility.facility {
 		}
 	}
     MeetingRoom *-- RoomId
+}
+----
+
+===== 問い合わせ
+
+[plantuml]
+----
+skinparam componentStyle uml2
+
+package mrs.domain.model.contact.contact {
+	package "'Contact' Aggregate" <<Rectangle>> {
+		class Contact <<(E,DarkSeaGreen) Entity>> {
+		}
+        Interface ContactPerson {
+        }
+		class Member <<(E,DarkSeaGreen) Entity>> {
+		}
+        class ContactId <<(V,DarkSeaGreen) Value Object>> {
+        }
+        class MemberId <<(V,DarkSeaGreen) Value Object>> {
+        }
+	}
+    Contact *- ContactPerson
+    ContactId -* Contact
+    ContactPerson <|.. Member
+    MemberId -* Member
 }
 ----
 
