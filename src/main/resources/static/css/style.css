@@ -598,6 +598,21 @@ ul.pagination li a {
     font-size: clamp(10px, 2vw, 20px);
 }
 
+.app-decoration .message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-decoration .regist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+}
+
 .app-form {
     display: grid;
     grid-template-columns: [labels] auto [items] 1fr;

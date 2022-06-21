@@ -45,13 +45,16 @@
             </nav>
         </div>
 
-        <div class="message">
-            <p class="error" th:if="${error != null}" th:text="${error}"></p>
-            <p class="error" th:if="${errors != null}" th:text="入力内容にエラーがあります"></p>
-            <p class="success" th:if="${success != null}" th:text="${success}"></p>
+        <div class="app-decoration">
+            <div class="message">
+                <p class="error" th:if="${error != null}" th:text="${error}"></p>
+                <p class="error" th:if="${errors != null}" th:text="入力内容にエラーがあります"></p>
+                <p class="success" th:if="${success != null}" th:text="${success}"></p>
+            </div>
         </div>
 
-        <button class="app-btn" id="regist_button" onclick="
+        <div class="app-decoration">
+            <button class="regist app-btn" id="regist_button" onclick="
               let row = this.parentElement.parentElement;
               getElementById('regist_id').value = '';
               getElementById('regist_reservedDate').value = '';
@@ -59,7 +62,8 @@
               dialog.style.left = ((window.innerWidth - 500) / 2) + 'px';
               dialog.style.display = 'block';
               " type="submit">新規
-        </button>
+            </button>
+        </div>
 
         <div class="app-decoration">
             <table class="app-table">
