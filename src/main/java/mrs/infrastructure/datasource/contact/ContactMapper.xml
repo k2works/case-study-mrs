@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mrs.infrastructure.datasource.contact.ContactMapper">
+  <resultMap id="BaseResultMap" type="mrs.domain.model.contact.Contact">
+    <id column="問い合わせ番号" jdbcType="VARCHAR" property="contactId.value"/>
+    <result column="問い合わせ内容" jdbcType="VARCHAR" property="details"/>
+    <result column="利用者番号" jdbcType="VARCHAR" property="member.userId.value"/>
+    <association property="user"
+                 javaType="mrs.domain.model.auth.user.User"
+                 column="利用者番号"
+                 select="mrs.infrastructure.datasource.auth.UserMapper.select"
+    />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    問い合わせ番号
+    , 問い合わせ内容, 利用者番号, 登録日時
+  </sql>
+
+  <insert id="insert" useGeneratedKeys="true">
+    INSERT INTO contact.問い合わせ (問い合わせ番号, 問い合わせ内容, 利用者番号)
+    VALUES (#{contactId.value}, #{details}, #{member.userId.value})
+  </insert>
+
+  <select id="select" resultMap="BaseResultMap">
+    SELECT 問い合わせ番号, 問い合わせ内容, 利用者番号
+    FROM contact.問い合わせ
+    WHERE 問い合わせ番号 = #{value}
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    SELECT 問い合わせ番号, 問い合わせ内容, 利用者番号
+    FROM contact.問い合わせ
+  </select>
+
+  <update id="update" parameterType="mrs.domain.model.facility.room.MeetingRoom">
+    UPDATE contact.問い合わせ
+    SET 問い合わせ内容 = #{details},
+        利用者番号   = #{member.userId.value}
+    WHERE 問い合わせ番号 = #{contactId.value}
+  </update>
+
+  <delete id="delete">
+    DELETE
+    FROM contact.問い合わせ
+    WHERE 問い合わせ番号 = #{value}
+  </delete>
+
+  <delete id="deleteAll">
+    DELETE
+    FROM contact.問い合わせ
+  </delete>
+</mapper>

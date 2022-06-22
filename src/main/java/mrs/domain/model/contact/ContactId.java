@@ -5,6 +5,10 @@ import java.util.Objects;
 public class ContactId {
     String value;
 
+    @Deprecated
+    public ContactId() {
+    }
+
     public ContactId(String value) {
         this.value = value;
     }

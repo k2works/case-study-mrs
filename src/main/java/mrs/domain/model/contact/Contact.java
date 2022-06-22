@@ -1,5 +1,6 @@
 package mrs.domain.model.contact;
 
+import mrs.domain.model.auth.user.User;
 import mrs.domain.model.user.member.Member;
 
 /**
@@ -10,6 +11,8 @@ public class Contact {
     String details;
 
     Member member;
+
+    User user;
 
     @Deprecated
     public Contact() {
@@ -24,6 +27,7 @@ public class Contact {
         this.contactId = new ContactId(contactId.toString());
         this.details = details;
         this.member = member;
+        this.user = member;
     }
 
     public ContactId ContactId() {
@@ -35,6 +39,6 @@ public class Contact {
     }
 
     public Member Member() {
-        return member;
+        return new Member(user);
     }
 }

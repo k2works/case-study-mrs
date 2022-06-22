@@ -52,5 +52,24 @@ public class User {
     public List<Reservation> getReservations() {
         return reservations;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (obj == this) return true;
+        if (!(obj instanceof User)) return false;
+        User other = (User) obj;
+        return this.userId.equals(other.userId);
+    }
+
+    @Override
+    public int hashCode() {
+        return userId.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "User [userId=" + userId + ", password=" + password + ", name=" + name + ", roleName=" + roleName + "]";
+    }
 }
 

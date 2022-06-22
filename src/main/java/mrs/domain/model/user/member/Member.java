@@ -9,7 +9,7 @@ import java.util.List;
  * 会員
  */
 public class Member extends User {
-    private final User user;
+    private User user;
 
     private UserId userId;
 
@@ -22,6 +22,10 @@ public class Member extends User {
     private List<Reservation> reservations;
 
     private MemberId memberId;
+
+    @Deprecated
+    public Member() {
+    }
 
     public Member(User user) {
         this.user = user;
@@ -60,5 +64,31 @@ public class Member extends User {
 
     public MemberId MemberId() {
         return this.memberId;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (obj == this) return true;
+        if (!(obj instanceof Member)) return false;
+        Member other = (Member) obj;
+        return this.userId.equals(other.userId);
+    }
+
+    @Override
+    public int hashCode() {
+        return userId.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "userId=" + userId +
+                ", password=" + password +
+                ", name=" + name +
+                ", roleName=" + roleName +
+                ", reservations=" + reservations +
+                ", memberId=" + memberId +
+                '}';
     }
 }

@@ -39,7 +39,7 @@
                enableCountByExample="false"
                selectByExampleQueryId="true"
                modelType="flat"
-               schema="usr">
+               schema="auth">
         </table>
         <table tableName="%"
                enableInsert="true"
@@ -53,6 +53,32 @@
                selectByExampleQueryId="true"
                modelType="flat"
                schema="reservation">
+        </table>
+        <table tableName="%"
+               enableInsert="true"
+               enableSelectByPrimaryKey="true"
+               enableSelectByExample="false"
+               enableUpdateByPrimaryKey="true"
+               enableUpdateByExample="false"
+               enableDeleteByPrimaryKey="true"
+               enableDeleteByExample="false"
+               enableCountByExample="false"
+               selectByExampleQueryId="true"
+               modelType="flat"
+               schema="facility">
+        </table>
+        <table tableName="%"
+               enableInsert="true"
+               enableSelectByPrimaryKey="true"
+               enableSelectByExample="false"
+               enableUpdateByPrimaryKey="true"
+               enableUpdateByExample="false"
+               enableDeleteByPrimaryKey="true"
+               enableDeleteByExample="false"
+               enableCountByExample="false"
+               selectByExampleQueryId="true"
+               modelType="flat"
+               schema="contact">
         </table>
     </context>
 </generatorConfiguration>

@@ -54,4 +54,30 @@ public class Staff extends User {
     public List<Reservation> getReservations() {
         return this.user.getReservations();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (obj == this) return true;
+        if (!(obj instanceof Staff)) return false;
+        Staff other = (Staff) obj;
+        return this.user.equals(other.user);
+    }
+
+    @Override
+    public int hashCode() {
+        return this.user.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Staff{" +
+                "user=" + user +
+                ", userId=" + userId +
+                ", password=" + password +
+                ", name=" + name +
+                ", roleName=" + roleName +
+                ", reservations=" + reservations +
+                '}';
+    }
 }
