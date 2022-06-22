@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymelef.org">
+<html lang="ja">
+
+<div th:include="fragment/app-header"></div>
+
+<body>
+
+<div class="app">
+    <div class="app-container w-container">
+        <div class="app-decoration">
+            <div th:include="fragment/app-menu"></div>
+        </div>
+
+        <div class="app-decoration">
+            <nav th:block th:if="${pageNation.EndPage} > ${pageNation.PageSize}">
+                <ul class="pagination">
+                    <li>
+                        <a th:href="@{'/listContacts?page=1'}" 　tabindex="-2">最初</a>
+                    </li>
+                    <li th:if="${pageNation.Page} > 1">
+                        <a th:href="@{'/listContacts?page=' + ${pageNation.Page-1}}"
+                           　tabindex="-1">前へ</a>
+                    </li>
+                    <th:block th:if="${pageNation.EndPage} <= 1">
+                        <li th:classappend="${i == pageNation.Page} ? active"
+                            th:each="i : ${pageNation.StartPage}">
+                            <a th:href="@{'/listContacts?page=' + ${i}}" th:text="${i}"></a>
+                        </li>
+                    </th:block>
+
+                    <th:block th:if="${pageNation.EndPage}>${pageNation.PageSize}">
+                        <li th:classappend="${i == pageNation.Page} ? active"
+                            th:each="i : ${#numbers.sequence(pageNation.Page, pageNation.Page + 2)}">
+                            <a th:href="@{'/listContacts?page=' + ${i}}" th:text="${i}"></a>
+                        </li>
+                        <li>...</li>
+                        <li th:classappend="${i == pageNation.Page} ? active"
+                            th:each="i : ${#numbers.sequence(pageNation.EndPage - 2, pageNation.EndPage, 1)}">
+                            <a th:href="@{'/listContacts?page=' + ${i}}" th:text="${i}"></a>
+                        </li>
+                    </th:block>
+                    <li>
+                        <a th:href="@{'/listContacts?page=' + ${pageNation.Page+1}}">次へ</a>
+                    </li>
+                    <li>
+                        <a th:href="@{'/listContacts?page=' + ${pageNation.TotalPage}}">最後</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="app-decoration">
+            <table class="app-table">
+                <tr>
+                    <th>問い合わせ番号</th>
+                    <th>問い合わせ内容</th>
+                </tr>
+                <tr th:each="contact : ${contacts}">
+                    <td>
+                    <span th:text="${contact.ContactId.Value}">
+                    </td>
+                    <td>
+                    <span th:text="${contact.Details}">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

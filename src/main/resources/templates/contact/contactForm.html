@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymelef.org">
+
+<div th:include="fragment/app-header"></div>
+
+<body th:with="user=${#authentication.principal.user}">
+<section class="app">
+    <div class="app-decoration">
+        <div th:include="fragment/app-menu"></div>
+    </div>
+
+    <div class="app-container">
+        <div class="app-decoration">
+            <div class="message">
+                <p class="error" th:if="${error != null}" th:text="${error}"></p>
+                <p class="error" th:if="${errors != null}" th:text="入力内容にエラーがあります"></p>
+                <p class="success" th:if="${success != null}" th:text="${success}"></p>
+            </div>
+        </div>
+
+        <div class="app-decoration">
+            <form class="app-form" method="post" th:action="@{'/contacts'}" th:object="${contactForm}">
+
+                <label>内容:</label>
+                <textarea id="regist_details" name="details" th:field="*{details}" type="text"/>
+                <ul>
+                    <li class="error" th:each="err : ${#fields.errors('details')}" th:text="${err}"/>
+                </ul>
+
+                <button class="app-btn" name="regist" type="submit">送信</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

@@ -13,6 +13,8 @@
             <a href="">会員</a>
             <ul class="sub-menu">
                 <li class="sub-menu-item b" sec:authorize="${hasRole('管理者')}"><a href="/users">利用者一覧</a></li>
+                <li class="sub-menu-item b" sec:authorize="${hasRole('管理者')}"><a href="/contacts">問い合わせ一覧</a></li>
+                <li class="sub-menu-item b" sec:authorize="${hasRole('一般')}"><a href="/contacts/regist">問い合わせ</a></li>
             </ul>
         </li>
     </ul>

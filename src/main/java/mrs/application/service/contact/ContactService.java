@@ -1,0 +1,41 @@
+package mrs.application.service.contact;
+
+import mrs.domain.model.contact.Contact;
+import mrs.domain.model.contact.ContactId;
+import mrs.domain.model.contact.ContactList;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+/**
+ * 問い合わせ管理
+ */
+@Service
+@Transactional
+public class ContactService {
+    final ContactRepository contactRepository;
+
+    public ContactService(ContactRepository contactRepository) {
+        this.contactRepository = contactRepository;
+    }
+
+    /**
+     * 問い合わせをする
+     */
+    public void create(Contact contact) {
+        contactRepository.save(contact);
+    }
+
+    /**
+     * 問い合わせを取得する
+     */
+    public Contact findByContactId(ContactId contactId) {
+        return contactRepository.findByContactId(contactId);
+    }
+
+    /**
+     * 問い合わせ一覧を確認する
+     */
+    public ContactList findAll() {
+        return contactRepository.findAll();
+    }
+}
