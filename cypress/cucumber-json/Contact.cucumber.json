@@ -1,0 +1,63 @@
+[
+  {
+    "description": "  会員として\n  問い合わせをしたい\n  なぜならサービス内容を確認する手段が必要だから",
+    "keyword": "Feature",
+    "name": "会員管理:問い合わせをする",
+    "line": 1,
+    "id": "会員管理:問い合わせをする",
+    "tags": [],
+    "uri": "Contact.feature",
+    "elements": [
+      {
+        "id": "会員管理:問い合わせをする;問い合わせをする",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "問い合わせをする",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "\"会員\" としてログインしている",
+            "result": {
+              "status": "passed",
+              "duration": 1462000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 11,
+            "name": "\"問い合わせ画面\" ページにアクセスする",
+            "result": {
+              "status": "passed",
+              "duration": 53000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "問い合わせ画面で \"問い合わせ内容\" を入力する",
+            "result": {
+              "status": "passed",
+              "duration": 447000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "問い合わせが送信される",
+            "result": {
+              "status": "passed",
+              "duration": 14000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

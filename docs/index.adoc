@@ -722,7 +722,7 @@ admin --> UC2
 
 [source,yml]
 ----
-include::../cypress/integration/UserManagement/Contact.feature[]
+include::../cypress/integration/UserManagement/ContactRegist.feature[]
 
 include::../cypress/integration/UserManagement/ContactManagement.feature[]
 ----

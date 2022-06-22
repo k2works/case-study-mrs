@@ -3,6 +3,8 @@ import {LoginPage} from "../pages/loginPage";
 import {RoomsPage} from "../pages/roomsPage";
 import {UsersPage} from "../pages/usersPage";
 import {MeetingRoomsPage} from "../pages/meetingRoomsPage";
+import {ContactRegistPage} from "../pages/contactRegistPage";
+import {ContactPage} from "../pages/contactPage";
 
 const {
     Before,
@@ -33,6 +35,12 @@ Given(`{string} ページにアクセスする`, (pageName) => {
             break;
         case "予約可能会議室一覧画面":
             page = new ReservableRoomsPage();
+            break;
+        case "問い合わせ画面":
+            page = new ContactRegistPage();
+            break;
+        case "問い合わせ一覧画面":
+            page = new ContactPage();
             break;
         default:
             console.log("該当するページが存在しません");
