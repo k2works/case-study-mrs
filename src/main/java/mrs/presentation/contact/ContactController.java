@@ -50,7 +50,7 @@ public class ContactController {
             return registContact(model);
         }
         try {
-            Contact contact = new Contact(1, form.getDetails(), new Member(userDetails.getUser()));
+            Contact contact = new Contact(form.getDetails(), new Member(userDetails.getUser()));
             contactService.create(contact);
             model.addAttribute("success", message.getMessageByKey("contact_regist"));
         } catch (Exception e) {

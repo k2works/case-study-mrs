@@ -3,6 +3,8 @@ package mrs.domain.model.contact;
 import mrs.domain.model.auth.user.User;
 import mrs.domain.model.user.member.Member;
 
+import java.util.UUID;
+
 /**
  * 問い合わせ
  */
@@ -25,6 +27,13 @@ public class Contact {
 
     public Contact(Integer contactId, String details, Member member) {
         this.contactId = new ContactId(contactId.toString());
+        this.details = details;
+        this.member = member;
+        this.user = member;
+    }
+
+    public Contact(String details, Member member) {
+        this.contactId = new ContactId(UUID.randomUUID().toString());
         this.details = details;
         this.member = member;
         this.user = member;
