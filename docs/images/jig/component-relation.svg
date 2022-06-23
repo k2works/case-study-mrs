@@ -36,7 +36,7 @@
             <title>SPRING_CONTROLLER&#45;&gt;mrs.infrastructure.datasource.Message</title>
             <path fill="none" stroke="black" d="M41.25,-199.11C41.74,-201.15 42.26,-203.26 42.78,-205.38"/>
             <polygon fill="black" stroke="black" points="39.41,-206.35 45.18,-215.24 46.21,-204.69 39.41,-206.35"/>
-            <text text-anchor="middle" x="38.51" y="-206.05" font-family="Times New Roman,serif" font-size="14.00">4
+            <text text-anchor="middle" x="38.51" y="-206.05" font-family="Times New Roman,serif" font-size="14.00">5
             </text>
         </g>
         <!-- SPRING_SERVICE -->
@@ -55,7 +55,7 @@
             <title>SPRING_CONTROLLER&#45;&gt;SPRING_SERVICE</title>
             <path fill="none" stroke="black" d="M73.51,-179.21C89.34,-178.41 107.9,-177.46 124.04,-176.64"/>
             <polygon fill="black" stroke="black" points="124.44,-180.12 134.25,-176.12 124.09,-173.13 124.44,-180.12"/>
-            <text text-anchor="middle" x="95.28" y="-181.73" font-family="Times New Roman,serif" font-size="14.00">8
+            <text text-anchor="middle" x="95.28" y="-181.73" font-family="Times New Roman,serif" font-size="14.00">9
             </text>
         </g>
         <!-- SPRING_SERVICE&#45;&gt;mrs.infrastructure.datasource.Message -->

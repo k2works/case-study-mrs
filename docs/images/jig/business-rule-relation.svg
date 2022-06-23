@@ -19,14 +19,6 @@
                 contact
             </text>
         </g>
-        <g id="clust3" class="cluster">
-            <title>cluster_mrs.domain.model.facility.room</title>
-            <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
-                     points="8,-31 8,-402 144,-402 144,-31 8,-31"/>
-            <text text-anchor="middle" x="76" y="-386.8" font-family="Times New Roman,serif" font-size="14.00">
-                facility.room
-            </text>
-        </g>
         <g id="clust1" class="cluster">
             <title>cluster_mrs.domain.model.auth.user</title>
             <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
@@ -35,12 +27,12 @@
                 auth.user
             </text>
         </g>
-        <g id="clust4" class="cluster">
-            <title>cluster_mrs.domain.model.reservation.reservation</title>
+        <g id="clust5" class="cluster">
+            <title>cluster_mrs.domain.model.reservation.room</title>
             <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
-                     points="348,-103 348,-487 576,-487 576,-103 348,-103"/>
-            <text text-anchor="middle" x="462" y="-471.8" font-family="Times New Roman,serif" font-size="14.00">
-                reservation.reservation
+                     points="152,-177 152,-402 340,-402 340,-177 152,-177"/>
+            <text text-anchor="middle" x="246" y="-386.8" font-family="Times New Roman,serif" font-size="14.00">
+                reservation.room
             </text>
         </g>
         <g id="clust6" class="cluster">
@@ -51,12 +43,20 @@
                 user.member
             </text>
         </g>
-        <g id="clust5" class="cluster">
-            <title>cluster_mrs.domain.model.reservation.room</title>
+        <g id="clust3" class="cluster">
+            <title>cluster_mrs.domain.model.facility.room</title>
             <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
-                     points="152,-177 152,-402 340,-402 340,-177 152,-177"/>
-            <text text-anchor="middle" x="246" y="-386.8" font-family="Times New Roman,serif" font-size="14.00">
-                reservation.room
+                     points="8,-31 8,-402 144,-402 144,-31 8,-31"/>
+            <text text-anchor="middle" x="76" y="-386.8" font-family="Times New Roman,serif" font-size="14.00">
+                facility.room
+            </text>
+        </g>
+        <g id="clust4" class="cluster">
+            <title>cluster_mrs.domain.model.reservation.reservation</title>
+            <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
+                     points="348,-103 348,-487 576,-487 576,-103 348,-103"/>
+            <text text-anchor="middle" x="462" y="-471.8" font-family="Times New Roman,serif" font-size="14.00">
+                reservation.reservation
             </text>
         </g>
         <g id="clust7" class="cluster">
@@ -372,8 +372,8 @@
         <g id="edge19" class="edge">
             <title>mrs.domain.model.facility.room.MeetingRoom&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom
             </title>
-            <path fill="none" stroke="black" d="M129.29,-332.83C149.05,-323.41 172.38,-311.81 191.75,-301.79"/>
-            <polygon fill="black" stroke="black" points="193.38,-304.89 200.63,-297.16 190.14,-298.68 193.38,-304.89"/>
+            <path fill="none" stroke="black" d="M117.38,-332.83C135.54,-323.29 158.99,-311.51 179.89,-301.4"/>
+            <polygon fill="black" stroke="black" points="181.48,-304.52 188.98,-297.04 178.45,-298.21 181.48,-304.52"/>
         </g>
         <!-- mrs.domain.model.facility.room.RoomIdException -->
         <g id="node16" class="node">
@@ -430,8 +430,8 @@
         <!-- mrs.domain.model.reservation.reservation.Reservation&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom -->
         <g id="edge24" class="edge">
             <title>mrs.domain.model.reservation.reservation.Reservation&#45;&gt;mrs.domain.model.reservation.room.ReservableRoom</title>
-            <path fill="none" stroke="black" d="M434.5,-337.2C400.05,-326.66 350.21,-311.94 308.45,-299.94"/>
-            <polygon fill="black" stroke="black" points="309.16,-296.5 298.58,-297.11 307.23,-303.23 309.16,-296.5"/>
+            <path fill="none" stroke="black" d="M434.34,-340.22C396.52,-329.64 340.26,-313.23 296.46,-300.06"/>
+            <polygon fill="black" stroke="black" points="297.33,-296.67 286.75,-297.13 295.31,-303.37 297.33,-296.67"/>
         </g>
         <!-- mrs.domain.model.reservation.room.ReservableRoomId -->
         <g id="node23" class="node">
@@ -481,14 +481,14 @@
         <g id="edge27" class="edge">
             <title>mrs.domain.model.reservation.room.ReservableRoom&#45;&gt;mrs.domain.model.facility.room.MeetingRoom
             </title>
-            <path fill="none" stroke="black" d="M188.98,-297.04C169.18,-306.48 145.74,-318.13 126.3,-328.19"/>
-            <polygon fill="black" stroke="black" points="124.64,-325.11 117.38,-332.83 127.87,-331.31 124.64,-325.11"/>
+            <path fill="none" stroke="black" d="M200.63,-297.16C182.54,-306.67 159.2,-318.4 138.36,-328.48"/>
+            <polygon fill="black" stroke="black" points="136.79,-325.35 129.29,-332.83 139.82,-331.66 136.79,-325.35"/>
         </g>
         <!-- mrs.domain.model.reservation.room.ReservableRoom&#45;&gt;mrs.domain.model.reservation.reservation.Reservation -->
         <g id="edge28" class="edge">
             <title>mrs.domain.model.reservation.room.ReservableRoom&#45;&gt;mrs.domain.model.reservation.reservation.Reservation</title>
-            <path fill="none" stroke="black" d="M286.75,-297.13C328.22,-309.68 384.31,-326.11 424.69,-337.51"/>
-            <polygon fill="black" stroke="black" points="423.76,-340.88 434.34,-340.22 425.66,-334.15 423.76,-340.88"/>
+            <path fill="none" stroke="black" d="M298.58,-297.11C338.38,-308.48 387.89,-323.04 424.52,-334.16"/>
+            <polygon fill="black" stroke="black" points="423.91,-337.64 434.5,-337.2 425.95,-330.94 423.91,-337.64"/>
         </g>
         <!-- mrs.domain.model.reservation.room.ReservableRoom&#45;&gt;mrs.domain.model.reservation.room.ReservableRoomId -->
         <g id="edge29" class="edge">
