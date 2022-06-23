@@ -1018,6 +1018,7 @@ npm install --save-dev babel-loader @babel/preset-react
 npm install --save-dev @testing-library/react @testing-library/jest-dom
 npm install --save-dev sass-loader sass style-loader css-loader
 npm install --save-dev identity-obj-proxy
+npm install react-router-dom
 ----
 
 ===== Cypress
