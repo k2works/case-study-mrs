@@ -2,6 +2,9 @@ package mrs.domain.model.contact;
 
 import java.util.Objects;
 
+/**
+ * 問い合わせ番号
+ */
 public class ContactId {
     String value;
 

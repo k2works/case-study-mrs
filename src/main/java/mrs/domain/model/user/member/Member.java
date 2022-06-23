@@ -1,6 +1,7 @@
 package mrs.domain.model.user.member;
 
 import mrs.domain.model.auth.user.*;
+import mrs.domain.model.contact.ContactPerson;
 import mrs.domain.model.reservation.reservation.Reservation;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 /**
  * 会員
  */
-public class Member extends User {
+public class Member extends User implements ContactPerson {
     private User user;
 
     private UserId userId;

@@ -47,7 +47,7 @@ public class Contact {
         return details;
     }
 
-    public Member Member() {
+    public ContactPerson Member() {
         return new Member(user);
     }
 }
