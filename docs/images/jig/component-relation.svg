@@ -95,6 +95,8 @@
             <title>SPRING_SERVICE&#45;&gt;mrs.application.service.contact.ContactRepository</title>
             <path fill="none" stroke="black" d="M192.93,-174.27C208.47,-174.08 228.15,-173.84 246.76,-173.62"/>
             <polygon fill="black" stroke="black" points="246.99,-177.12 256.95,-173.49 246.91,-170.12 246.99,-177.12"/>
+            <text text-anchor="middle" x="216.34" y="-177.74" font-family="Times New Roman,serif" font-size="14.00">2
+            </text>
         </g>
         <!-- mrs.application.service.facility.room.MeetingRoomRepository -->
         <g id="node6" class="node">
