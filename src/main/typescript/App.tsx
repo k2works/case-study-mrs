@@ -1,13 +1,13 @@
 import * as React from "react";
 import {Route, Routes} from "react-router-dom";
 import "./static/css/style.scss";
-import {MainComponent} from "./components/main-component";
+import {Main} from "./components/MainComponent";
 
 const App: React.FC = () => {
     return (
         <div>
             <Routes>
-                <Route path="/" element={<MainComponent/>}/>
+                <Route path="/" element={<Main/>}/>
             </Routes>
         </div>
     );
