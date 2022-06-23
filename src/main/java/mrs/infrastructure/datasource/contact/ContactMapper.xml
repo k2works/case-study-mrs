@@ -19,7 +19,7 @@
 
   <insert id="insert" useGeneratedKeys="true">
     INSERT INTO contact.問い合わせ (問い合わせ番号, 問い合わせ内容, 利用者番号)
-    VALUES (#{contactId.value}, #{details}, #{member.userId.value})
+    VALUES (#{contactId.value}, #{details}, #{member.memberId.value})
   </insert>
 
   <select id="select" resultMap="BaseResultMap">
@@ -36,7 +36,7 @@
   <update id="update" parameterType="mrs.domain.model.facility.room.MeetingRoom">
     UPDATE contact.問い合わせ
     SET 問い合わせ内容 = #{details},
-        利用者番号   = #{member.userId.value}
+        利用者番号   = #{member.memberId.value}
     WHERE 問い合わせ番号 = #{contactId.value}
   </update>
 

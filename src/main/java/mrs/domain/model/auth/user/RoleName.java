@@ -5,5 +5,6 @@ package mrs.domain.model.auth.user;
  */
 public enum RoleName {
     管理者,
+    ゲスト,
     一般
 }

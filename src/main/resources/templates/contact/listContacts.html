@@ -55,6 +55,7 @@
                 <tr>
                     <th>問い合わせ番号</th>
                     <th>問い合わせ内容</th>
+                    <th>利用者区分</th>
                 </tr>
                 <tr th:each="contact : ${contacts}">
                     <td>
@@ -62,6 +63,9 @@
                     </td>
                     <td>
                     <span th:text="${#strings.abbreviate(contact.Details,20)}">
+                    </td>
+                    <td>
+                    <span th:text="${contact.Member.RoleName}">
                     </td>
                     <td style="display: none">
                     <span th:text="${#strings.trim(contact.ContactId.Value)}">
@@ -72,8 +76,8 @@
                     <td>
                         <button class="app-btn" onclick="
                             let row = this.parentElement.parentElement;
-                            getElementById('update_id').value = row.cells[2].innerText;
-                            getElementById('update_details').value = row.cells[3].innerText;
+                            getElementById('update_id').value = row.cells[3].innerText;
+                            getElementById('update_details').value = row.cells[4].innerText;
                             var dialog = getElementById('updateDialog');
                             dialog.style.left = ((window.innerWidth - 500) / 2) + 'px';
                             dialog.style.display = 'block';

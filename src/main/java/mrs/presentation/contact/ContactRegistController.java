@@ -2,7 +2,9 @@ package mrs.presentation.contact;
 
 import mrs.application.scenario.ContactManagementScenario;
 import mrs.domain.model.auth.user.UserDetailsImpl;
+import mrs.domain.model.auth.user.UserName;
 import mrs.domain.model.contact.Contact;
+import mrs.domain.model.user.gust.Gust;
 import mrs.domain.model.user.member.Member;
 import mrs.infrastructure.datasource.Message;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
@@ -58,5 +60,27 @@ public class ContactRegistController {
             return registContact(model);
         }
         return registContact(model);
+    }
+
+    @GetMapping("gust/regist")
+    String registGustContact(Model model) {
+        return "contact/contactGustForm";
+    }
+
+    @PostMapping(params = "regist", path = "gust")
+    String createGustContact(Model model, @Validated ContactForm form, BindingResult result) {
+        if (result.hasErrors()) {
+            model.addAttribute("errors", result.getAllErrors());
+            return registGustContact(model);
+        }
+        try {
+            Contact contact = new Contact(form.getDetails(), new Gust(new UserName("", "")));
+            contactManagementScenario.create(contact);
+            model.addAttribute("success", message.getMessageByKey("contact_regist"));
+        } catch (Exception e) {
+            model.addAttribute("errors", e.getMessage());
+            return registGustContact(model);
+        }
+        return registGustContact(model);
     }
 }
