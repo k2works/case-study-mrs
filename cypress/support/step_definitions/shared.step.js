@@ -5,6 +5,7 @@ import {UsersPage} from "../pages/usersPage";
 import {MeetingRoomsPage} from "../pages/meetingRoomsPage";
 import {ContactRegistPage} from "../pages/contactRegistPage";
 import {ContactPage} from "../pages/contactPage";
+import {ContactGustRegistPage} from "../pages/contactGustRegistPage";
 
 const {
     Before,
@@ -41,6 +42,9 @@ Given(`{string} ページにアクセスする`, (pageName) => {
             break;
         case "問い合わせ一覧画面":
             page = new ContactPage();
+            break;
+        case "ゲスト問い合わせ画面":
+            page = new ContactGustRegistPage();
             break;
         default:
             console.log("該当するページが存在しません");

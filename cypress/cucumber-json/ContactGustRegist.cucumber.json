@@ -1,17 +1,17 @@
 [
   {
-    "description": "  会員として\n  問い合わせをしたい\n  なぜならサービス内容を確認する手段が必要だから",
+    "description": "  ゲストとして\n  問い合わせをしたい\n  なぜならサービス内容を確認する手段が必要だから",
     "keyword": "Feature",
     "name": "会員管理:問い合わせの実施",
     "line": 1,
     "id": "会員管理:問い合わせの実施",
     "tags": [],
-    "uri": "ContactRegist.feature",
+    "uri": "ContactGustRegist.feature",
     "elements": [
       {
         "id": "会員管理:問い合わせの実施;問い合わせをする",
         "keyword": "Scenario",
-        "line": 10,
+        "line": 7,
         "name": "問い合わせをする",
         "tags": [],
         "type": "scenario",
@@ -20,40 +20,30 @@
             "arguments": [],
             "keyword": "Given ",
             "line": 8,
-            "name": "\"会員\" としてログインしている",
+            "name": "\"ゲスト問い合わせ画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 35703000000
+              "duration": 26980000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 11,
-            "name": "\"問い合わせ画面\" ページにアクセスする",
-            "result": {
-              "status": "passed",
-              "duration": 65000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 12,
+            "line": 9,
             "name": "問い合わせ画面で \"問い合わせ内容\" を入力する",
             "result": {
               "status": "passed",
-              "duration": 452000000
+              "duration": 576000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 13,
+            "line": 10,
             "name": "問い合わせが送信される",
             "result": {
               "status": "passed",
-              "duration": 18000000
+              "duration": 55000000
             }
           }
         ]

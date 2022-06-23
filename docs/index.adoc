@@ -755,6 +755,8 @@ admin --> UC2
 ----
 include::../cypress/integration/UserManagement/ContactRegist.feature[]
 
+include::../cypress/integration/UserManagement/ContactGustRegist.feature[]
+
 include::../cypress/integration/UserManagement/ContactManagement.feature[]
 ----
 
@@ -884,12 +886,15 @@ package mrs.domain.model.contact.contact {
         }
         class MemberId <<(V,DarkSeaGreen) Value Object>> {
         }
+        class ContactList <<(V,DarkSeaGreen) Value Object>> {
+        }
 	}
     Contact *- ContactPerson
     ContactId -* Contact
     ContactPerson <|.. Member
     MemberId -* Member
     ContactPerson <|.. Gust
+    ContactList *-- Contact
 }
 ----
 

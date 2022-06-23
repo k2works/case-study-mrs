@@ -47,7 +47,7 @@ Then(/^利用者登録画面に "([^"]*)" がエラー表示される$/, (value)
 });
 
 Given(/^利用者番号 "([^"]*)" の利用者情報を更新する$/, (value) => {
-    cy.get(':nth-child(6) > :nth-child(5) > button.app-btn').click();
+    cy.get(':nth-child(7) > :nth-child(5) > button.app-btn').click();
     cy.get('#update_firstName').clear().type('更新');
     cy.get('#update_lastName').clear().type('更新');
     cy.get('#update_password').click().type('A234567z');
@@ -56,7 +56,7 @@ Given(/^利用者番号 "([^"]*)" の利用者情報を更新する$/, (value) =
 });
 
 Given(/^利用者番号 "([^"]*)" を削除する$/, (value) => {
-    cy.get(':nth-child(6) > :nth-child(6) > .app-btn').click();
+    cy.get(':nth-child(7) > :nth-child(6) > .app-btn').click();
 });
 
 Given(/^新規登録した利用者番号 "([^"]*)" で認証する$/, (value) => {
