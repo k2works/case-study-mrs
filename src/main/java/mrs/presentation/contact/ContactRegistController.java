@@ -1,10 +1,8 @@
 package mrs.presentation.contact;
 
-import com.github.pagehelper.PageInfo;
 import mrs.application.scenario.ContactManagementScenario;
 import mrs.domain.model.auth.user.UserDetailsImpl;
 import mrs.domain.model.contact.Contact;
-import mrs.domain.model.contact.ContactList;
 import mrs.domain.model.user.member.Member;
 import mrs.infrastructure.datasource.Message;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
@@ -16,13 +14,16 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 問い合わせ画面
+ */
 @Controller
 @RequestMapping("contacts")
-public class ContactController {
+public class ContactRegistController {
     private final ContactManagementScenario contactManagementScenario;
     private final Message message;
 
-    public ContactController(ContactManagementScenario contactManagementScenario, Message message) {
+    public ContactRegistController(ContactManagementScenario contactManagementScenario, Message message) {
         this.contactManagementScenario = contactManagementScenario;
         this.message = message;
     }
@@ -57,14 +58,5 @@ public class ContactController {
             return registContact(model);
         }
         return registContact(model);
-    }
-
-    @GetMapping
-    String listContacts(Model model, @RequestParam(value = "page", defaultValue = "1") int... page) {
-        ContactList contacts = contactManagementScenario.findAll();
-        PageInfo<Contact> pageInfo = new PageInfo<>(contacts.asList());
-        model.addAttribute("contacts", contacts.asList());
-        model.addAttribute("pageInfo", pageInfo);
-        return "contact/listContacts";
     }
 }
