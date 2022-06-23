@@ -4,7 +4,7 @@ import mrs.domain.model.auth.user.*;
 import mrs.domain.model.contact.ContactPerson;
 
 /**
- * ゲストメンバー
+ * ゲスト
  */
 public class Gust extends User implements ContactPerson {
     private User user;

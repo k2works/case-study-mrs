@@ -110,6 +110,7 @@ title ビジネスコンテキスト図
 left to right direction
 
 actor 会員 as ac_01
+actor ゲスト as ac_03
 
 node 施設 {
   rectangle 窓口 {
@@ -122,6 +123,7 @@ node 施設 {
 
 ac_01 -- (uc_01)
 ac_01 -- (uc_02)
+ac_03 -- (uc_02)
 (uc_01) -- (ar_01)
 (uc_01) - ac_02
 (uc_02) - ac_02
@@ -142,6 +144,7 @@ title ビジネスユースケース図 - 会員管理
 left to right direction
 
 actor 会員 as ac_01
+actor ゲスト as ac_02
 agent 窓口 as ag_01
 
 usecase 利用者の管理 as uc_01
@@ -150,6 +153,7 @@ usecase 問い合わせ管理 as uc_03
 
 ac_01 -- (uc_02)
 ac_01 -- (uc_03)
+ac_02 -- (uc_03)
 
 (uc_01) -- ag_01
 (uc_02) -- ag_01
@@ -219,6 +223,28 @@ stop
 @enduml
 ----
 
+[plantuml]
+----
+@startuml
+
+title 業務フロー図 - 問い合わせ管理:BUC
+
+|ゲスト|
+partition 問い合わせの実施 {
+  :問い合わせをする;
+}
+
+|スタッフ|
+partition 問い合わせの対応 {
+  :問い合わせを確認する;
+  :問い合わせに対応する;
+}
+
+|ゲスト|
+stop
+
+@enduml
+----
 ===== 予約管理
 
 ====== 会議室の予約
@@ -383,6 +409,7 @@ usecase 予約可能な会議室を登録する
 
 |管理者
 |一般
+|ゲスト
 
 |===
 
@@ -451,6 +478,7 @@ UC4 - e01
 [plantuml]
 ----
 @startuml
+actor "ゲスト" as gust
 actor "会員" as user
 actor "スタッフ" as admin
 frame "問い合わせの実施" as f01
@@ -462,6 +490,7 @@ boundary "問い合わせ画面" as b01
 boundary "問い合わせ一覧画面" as b02
 entity "問い合わせ" as e01
 
+gust - f01
 user - f01
 f01 - UC1
 b01 -- UC1
@@ -710,11 +739,13 @@ include::../cypress/integration/ReservationManagement/RoomRegist.feature[]
 @startuml
 left to right direction
 actor "会員" as member
+actor "ゲスト" as gust
 actor "スタッフ" as admin
 rectangle 問い合わせ {
   usecase "問い合わせの実施" as UC1
   usecase "問い合わせの対応" as UC2
 }
+gust --> UC1
 member --> UC1
 admin --> UC2
 @enduml
@@ -847,18 +878,18 @@ package mrs.domain.model.contact.contact {
         }
 		class Member <<(E,DarkSeaGreen) Entity>> {
 		}
+		class Gust <<(E,DarkSeaGreen) Entity>> {
+		}
         class ContactId <<(V,DarkSeaGreen) Value Object>> {
         }
         class MemberId <<(V,DarkSeaGreen) Value Object>> {
         }
-        class ContactList <<(V,DarkSeaGreen) Value Object>> {
-        }
 	}
-    ContactList *-- Contact
     Contact *- ContactPerson
     ContactId -* Contact
     ContactPerson <|.. Member
     MemberId -* Member
+    ContactPerson <|.. Gust
 }
 ----
 
