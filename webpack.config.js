@@ -30,6 +30,34 @@ module.exports = {
                 exclude: /node_modules/,
                 options: {presets: ["@babel/env", "@babel/preset-react"]},
             },
+            {
+                test: /\.(scss|css)/,
+                use: [
+                    "style-loader",
+                    {
+                        loader: "css-loader",
+                        options: {
+                            url: true,
+                            sourceMap: isDevelopment,
+
+                            // 0 => no loaders (default);
+                            // 1 => postcss-loader;
+                            // 2 => postcss-loader, sass-loader
+                            importLoaders: 2,
+                        },
+                    },
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            sourceMap: isDevelopment,
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.(gif|png|jpg|svg)$/,
+                type: "asset/inline",
+            },
         ],
     },
 };
