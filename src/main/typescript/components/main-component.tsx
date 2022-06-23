@@ -1,6 +1,6 @@
 import * as React from "react";
-import "../css/style.scss";
-import Image from "../img/thumb.jpg";
+import "../static/css/style.scss";
+import Image from "../static/img/thumb.jpg";
 
 import {SubComponent} from "./sub-component";
 

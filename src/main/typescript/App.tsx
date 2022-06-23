@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Route, Routes} from "react-router-dom";
-import "./css/style.scss";
+import "./static/css/style.scss";
 import {MainComponent} from "./components/main-component";
 
 const App: React.FC = () => {
