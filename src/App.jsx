@@ -13,11 +13,11 @@ class App extends React.Component {
 
                 <img src={Image} alt="image"/>
 
-                <div class="my-grid">
-                    <header class="my-grid-item">ヘッダー</header>
-                    <aside class="my-grid-item">サイドバー</aside>
-                    <main class="my-grid-item">メインコンテンツ</main>
-                    <footer class="my-grid-item">フッター</footer>
+                <div className="my-grid">
+                    <header className="my-grid-item">ヘッダー</header>
+                    <aside className="my-grid-item">サイドバー</aside>
+                    <main className="my-grid-item">メインコンテンツ</main>
+                    <footer className="my-grid-item">フッター</footer>
                 </div>
             </div>
         );
