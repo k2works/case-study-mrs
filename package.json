@@ -23,7 +23,7 @@
     "clean": "rimraf ./public",
     "deploy:local": "vercel dev",
     "deploy:vercel": "vercel",
-    "deploy:heroku": "git push heroku take13:main",
+    "deploy:heroku": "git push heroku take14:main",
     "deploy": "npm-run-all deploy:*",
     "report:cucumber": "npm-run-all report:cucumber:clean test:e2e report:cucumber:generate report:cucumber:report",
     "report:cucumber:generate": "node scripts/cucumber_generate.js",
