@@ -1062,6 +1062,12 @@ app_prd -> db_prd
 @enduml
 ----
 
+[source,bash]
+----
+heroku create ape2022-take14
+git update-index --chmod=+x gradlew
+----
+
 == 参照
 
 - https://qiita.com/ogomr/items/97058a87337eaa2ba21a[PlantUML Example for RDRA 2.0 ハンドブック]
