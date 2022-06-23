@@ -8,7 +8,7 @@ module.exports = {
     mode: env,
     target: ["web", "es5"],
     devtool: isDevelopment ? "source-map" : false,
-    entry: "./src/index.jsx",
+    entry: "./src/index.tsx",
     output: {
         filename: "main.js",
         path: path.resolve(__dirname, "public"),
@@ -20,13 +20,17 @@ module.exports = {
         }),
     ],
     resolve: {
-        extensions: [".js", ".jsx", ".json"],
+        extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
     },
     devServer: {
         historyApiFallback: true,
     },
     module: {
         rules: [
+            {
+                test: /\.(ts|tsx)$/,
+                use: "ts-loader",
+            },
             {
                 test: /\.(js|jsx)$/,
                 loader: "babel-loader",
