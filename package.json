@@ -48,9 +48,13 @@
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.17.12",
     "@babel/register": "^7.12.1",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
     "asciidoctor": "^2.2.6",
     "asciidoctor-kroki": "^0.15.4",
+    "babel-loader": "^8.2.5",
     "cpx": "^1.5.0",
     "cucumber-html-reporter": "^5.5.0",
     "cypress-cucumber-preprocessor": "^4.3.1",
@@ -66,7 +70,9 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
-    "cypress": "^9.4.1"
+    "cypress": "^9.4.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "cypress-cucumber-preprocessor": {
     "step_definitions": "cypress/support/step_definitions/",
@@ -84,6 +90,7 @@
     ],
     "testMatch": [
       "**/**/*.test.js"
-    ]
+    ],
+    "testEnvironment": "jsdom"
   }
 }

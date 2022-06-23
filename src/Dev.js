@@ -2,117 +2,20 @@ import marked from "marked";
 
 const contents = `
 ## 会議室予約システム
+
 ## 仕様
-> 利用者がWebサイト上で会議室の予約をして、一覧で確認できるようにする。
->
-> 登録した利用者だけが利用できるようにする。
->
-> 管理者は利用者の予約を取り消すことができるようにする。
+
 ## TODOリスト
-- ~~利用者を登録する~~
-- ~~利用者を認証をする~~
-- ~~会議室を予約する~~
+
 `;
 
 const usecase = `
-@startuml
-left to right direction
-actor "会員" as user
-actor "管理者" as admin
-rectangle 会議室予約システム {
-  usecase "利用者の認証" as UC1
-  usecase "利用者の登録" as UC2
-  usecase "会議室の検索" as UC3
-  usecase "会議室の予約" as UC4
-}
-user --> UC1
-user --> UC2
-user --> UC3
-user --> UC4
-UC1 <-- admin
-UC3 <-- admin
-UC4 <-- admin
-@enduml
 `;
 
 const uml = `
-@startuml
-class 利用者 {
- パスワード
-}
-enum 利用者区分 {
- USER
- ADMIN
-}
-class 会員 {
-}
-class 氏名 {
- 姓
- 名
-}
-class 予約時間 {
-  開始時間
-  終了時間
-}
-class 会議室 {
-  会議室名
-}
-利用者番号 --* 利用者
-利用者 *- 利用者区分
-利用者 <|-- 会員
-利用者 <|-- 管理者
-氏名 -* 利用者
-会員番号 --* 会員
-管理者 --* 予約
-会員 --* 予約
-予約一覧 -> 予約
-予約 *-- 予約番号
-予約 *-- 予約時間
-予約 <- 予約可能会議室
-
-予約可能会議室 *- 予約可能会議室ID
-予約可能会議室ID *- 会議室番号
-予約可能会議室ID *-- 予約日
-
-会議室番号 -* 会議室
-@enduml
 `;
 
 const erd = `
-' hide the spot
-hide circle
-' avoid problems with angled crows feet
-skinparam linetype ortho
-entity "会議室" as e01 {
-  *会議室番号
-  --
-  会議室名
-}
-entity "予約可能会議室" as e02 {
-  *予約日  
-  --
-  *会議室番号 
-}
-entity "予約" as e03 {
-  *予約番号 
-  --
-  開始時間
-  終了時間
-  予約日 <<FK>>
-  会議室番号 <<FK>>
-  利用者番号 <<FK>>
-}
-entity "利用者" as e04 {
-  *利用者番号
-  --
-  姓
-  名
-  パスワード
-  利用者区分
-}
-e01 ||..o{ e02
-e02 |o..o{ e03
-e04 |o..o{ e03
 `;
 
 export const setUp = () => {
@@ -146,17 +49,14 @@ const init = () => {
               <div class="row p-3">
                 <img id="usecase-im"
                 src=http://www.plantuml.com/plantuml/img/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000>
-                <img src=./docs/images/jig/service-method-call-hierarchy.svg>
               </div>              
               <h2>ドメインモデル</h2>
               <div class="row p-3">
                 <img id="class-im" src=http://www.plantuml.com/plantuml/img/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000>
-                <img src=./docs/images/jig/business-rule-relation.svg>
               </div>
               <h2>データモデル</h2>
               <div class="row p-3">
                 <img id="er-im" src=http://www.plantuml.com/plantuml/img/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000>
-                <img src=./docs/images/erd/jig-erd-detail.svg>
               </div>
             </div> `;
     }
