@@ -8,7 +8,7 @@ module.exports = {
     mode: env,
     target: ["web", "es5"],
     devtool: isDevelopment ? "source-map" : false,
-    entry: "./src/index.tsx",
+    entry: "./src/main/typescript/index.tsx",
     output: {
         filename: "main.js",
         path: path.resolve(__dirname, "public"),
