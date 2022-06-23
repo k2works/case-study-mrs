@@ -1,7 +1,7 @@
 package mrs.application.scenario;
 
 import mrs.application.service.contact.ContactRegistService;
-import mrs.application.service.contact.ContactService;
+import mrs.application.service.contact.ContactResponseService;
 import mrs.domain.model.contact.Contact;
 import mrs.domain.model.contact.ContactList;
 import org.springframework.stereotype.Service;
@@ -12,11 +12,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class ContactManagementScenario {
     private final ContactRegistService contactRegistService;
-    private final ContactService contactService;
+    private final ContactResponseService contactResponseService;
 
-    public ContactManagementScenario(ContactRegistService contactRegistService, ContactService contactService) {
+    public ContactManagementScenario(ContactRegistService contactRegistService, ContactResponseService contactResponseService) {
         this.contactRegistService = contactRegistService;
-        this.contactService = contactService;
+        this.contactResponseService = contactResponseService;
     }
 
     /**
@@ -30,6 +30,6 @@ public class ContactManagementScenario {
      * 問い合わせ一覧を確認する
      */
     public ContactList findAll() {
-        return contactService.findAll();
+        return contactResponseService.findAll();
     }
 }

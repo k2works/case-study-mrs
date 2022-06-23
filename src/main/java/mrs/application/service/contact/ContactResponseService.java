@@ -11,10 +11,10 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-public class ContactService {
+public class ContactResponseService {
     final ContactRepository contactRepository;
 
-    public ContactService(ContactRepository contactRepository) {
+    public ContactResponseService(ContactRepository contactRepository) {
         this.contactRepository = contactRepository;
     }
 
