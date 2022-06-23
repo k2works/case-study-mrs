@@ -1019,6 +1019,10 @@ npm install --save-dev @testing-library/react @testing-library/jest-dom
 npm install --save-dev sass-loader sass style-loader css-loader
 npm install --save-dev identity-obj-proxy
 npm install react-router-dom
+npm install --save-dev typescript ts-loader
+npm install --save @types/react @types/react-dom @types/react-router-dom
+npm install --save-dev @types/jest
+npx tsc --init
 ----
 
 ===== Cypress
