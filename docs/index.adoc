@@ -851,7 +851,10 @@ package mrs.domain.model.contact.contact {
         }
         class MemberId <<(V,DarkSeaGreen) Value Object>> {
         }
+        class ContactList <<(V,DarkSeaGreen) Value Object>> {
+        }
 	}
+    ContactList *-- Contact
     Contact *- ContactPerson
     ContactId -* Contact
     ContactPerson <|.. Member
@@ -872,6 +875,10 @@ image::images/schemaspy/reservation/diagrams/summary/relationships.real.large.pn
 ===== 施設
 
 image::images/schemaspy/facility/diagrams/summary/relationships.real.large.png[]
+
+===== 問い合わせ
+
+image::images/schemaspy/contact/diagrams/summary/relationships.real.large.png[]
 
 == 運用
 
