@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * 問い合わせ管理
+ * 問い合わせの対応
  */
 @Service
 @Transactional
@@ -16,13 +16,6 @@ public class ContactService {
 
     public ContactService(ContactRepository contactRepository) {
         this.contactRepository = contactRepository;
-    }
-
-    /**
-     * 問い合わせをする
-     */
-    public void create(Contact contact) {
-        contactRepository.save(contact);
     }
 
     /**

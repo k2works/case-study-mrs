@@ -20,6 +20,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @IntegrationTest
 @DisplayName("問い合わせサービス")
 public class ContactServiceTest {
+
+    @Autowired
+    ContactRegistService contactRegistService;
     @Autowired
     ContactService contactService;
 
@@ -39,7 +42,7 @@ public class ContactServiceTest {
             User user = testDataFactory.getUserMapper().select(userId);
             Member member = new Member(user);
             Contact contact = new Contact(1, "問い合わせ", member);
-            contactService.create(contact);
+            contactRegistService.create(contact);
             Contact result = contactService.findByContactId(contact.ContactId());
 
             assertEquals(contact.ContactId(), result.ContactId());
@@ -56,7 +59,7 @@ public class ContactServiceTest {
             UserId userId = new UserId("U999999");
             User user = testDataFactory.getUserMapper().select(userId);
             Member member = new Member(user);
-            IntStream.rangeClosed(1, 10).forEach(i -> contactService.create(new Contact(i, "問い合わせ", member)));
+            IntStream.rangeClosed(1, 10).forEach(i -> contactRegistService.create(new Contact(i, "問い合わせ", member)));
 
             ContactList contacts = contactService.findAll();
 

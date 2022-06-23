@@ -1,7 +1,7 @@
 package mrs.presentation.contact;
 
 import com.github.pagehelper.PageInfo;
-import mrs.application.service.contact.ContactService;
+import mrs.application.scenario.ContactManagementScenario;
 import mrs.domain.model.auth.user.UserDetailsImpl;
 import mrs.domain.model.contact.Contact;
 import mrs.domain.model.contact.ContactList;
@@ -19,12 +19,11 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("contacts")
 public class ContactController {
-    private final ContactService contactService;
-
+    private final ContactManagementScenario contactManagementScenario;
     private final Message message;
 
-    public ContactController(ContactService contactService, Message message) {
-        this.contactService = contactService;
+    public ContactController(ContactManagementScenario contactManagementScenario, Message message) {
+        this.contactManagementScenario = contactManagementScenario;
         this.message = message;
     }
 
@@ -51,7 +50,7 @@ public class ContactController {
         }
         try {
             Contact contact = new Contact(form.getDetails(), new Member(userDetails.getUser()));
-            contactService.create(contact);
+            contactManagementScenario.create(contact);
             model.addAttribute("success", message.getMessageByKey("contact_regist"));
         } catch (Exception e) {
             model.addAttribute("errors", e.getMessage());
@@ -62,7 +61,7 @@ public class ContactController {
 
     @GetMapping
     String listContacts(Model model, @RequestParam(value = "page", defaultValue = "1") int... page) {
-        ContactList contacts = contactService.findAll();
+        ContactList contacts = contactManagementScenario.findAll();
         PageInfo<Contact> pageInfo = new PageInfo<>(contacts.asList());
         model.addAttribute("contacts", contacts.asList());
         model.addAttribute("pageInfo", pageInfo);

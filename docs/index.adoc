@@ -203,12 +203,12 @@ ac_01 -- (uc_02)
 title 業務フロー図 - 問い合わせ管理:BUC
 
 |会員|
-partition 問い合わせ {
+partition 問い合わせの実施 {
   :問い合わせをする;
 }
 
 |スタッフ|
-partition 問い合わせ対応 {
+partition 問い合わせの対応 {
   :問い合わせを確認する;
   :問い合わせに対応する;
 }
@@ -453,8 +453,8 @@ UC4 - e01
 @startuml
 actor "会員" as user
 actor "スタッフ" as admin
-frame "問い合わせ" as f01
-frame "問い合わせ対応" as f02
+frame "問い合わせの実施" as f01
+frame "問い合わせの対応" as f02
 usecase "問い合わせをする" as UC1
 usecase "問い合わせを確認する" as UC2
 usecase "問い合わせに対応する" as UC3
@@ -712,8 +712,8 @@ left to right direction
 actor "会員" as member
 actor "スタッフ" as admin
 rectangle 問い合わせ {
-  usecase "問い合わせをする" as UC1
-  usecase "問い合わせを確認する" as UC2
+  usecase "問い合わせの実施" as UC1
+  usecase "問い合わせの対応" as UC2
 }
 member --> UC1
 admin --> UC2
