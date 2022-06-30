@@ -49,6 +49,26 @@ export const Content: React.FC<{}> = () => {
                     </div>
                 </div>
             </article>
+
+            <section className="plans">
+                <div className="w-container">
+                    <h2>
+                        Service Plans
+                        <span>サービスプラス</span>
+                    </h2>
+
+                    <div className="plans-container">
+                        <div className="plan">
+                            <h3>Free</h3>
+                            <p className="desc">
+                                便利なオンラインツールを今すぐご利用いただけるプラスです。
+                            </p>
+                            <p className="price">無料</p>
+                            <a href="#">使ってみる</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 };
