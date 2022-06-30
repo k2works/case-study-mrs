@@ -25,6 +25,20 @@ export const Main: React.FC<{}> = () => {
                         <i className="fas fa-bars"></i>
                         <span className="sr-only">MENU</span>
                     </button>
+
+                    <nav className="nav">
+                        <ul>
+                            <li>
+                                <a href="/">ホーム</a>
+                            </li>
+                            <li>
+                                <a href="/content">サービス案内</a>
+                            </li>
+                            <li>
+                                <a href="#">お問い合わせ</a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </header>
 
