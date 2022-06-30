@@ -2,6 +2,7 @@ import * as React from "react";
 import "../static/css/style.scss";
 import Logo from "../static/img/logo.svg";
 import Tool from "../static/img/tool.jpg";
+import Helpful from "../static/img/helpful.jpg";
 
 export const Main: React.FC<{}> = () => {
     return (
@@ -42,6 +43,21 @@ export const Main: React.FC<{}> = () => {
                     </div>
                     <figure className="img">
                         <img src={Tool} alt="" width={1600} height={1260}/>
+                    </figure>
+                </div>
+            </section>
+
+            <section className="imgtext">
+                <div className="imgtext-container reverse w-container">
+                    <div className="text">
+                        <h2 className="heading-decoration">効率化の手助け</h2>
+                        <p>Helpful</p>
+                        <p>
+                            さまざまな作業を効率よく進めるためには、目的に応じて最適な道具を使うことが大切です。そんな道具たちが揃っています。
+                        </p>
+                    </div>
+                    <figure className="img">
+                        <img src={Helpful} alt="" width={1600} height={1260}/>
                     </figure>
                 </div>
             </section>
