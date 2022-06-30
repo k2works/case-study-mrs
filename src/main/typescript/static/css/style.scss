@@ -308,3 +308,7 @@ img {
   object-fit: cover;
   margin-bottom: calc(var(--v-space) * 2 / 3);
 }
+
+.entry .w-container {
+  max-width: 720px;
+}
