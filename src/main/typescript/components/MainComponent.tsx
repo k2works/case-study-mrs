@@ -27,6 +27,7 @@ export const Main: React.FC<{}> = () => {
 
                     <button className="navbtn" onClick={openMenu}>
                         <i className="fas fa-bars"></i>
+                        <i className="fas fa-times"></i>
                         <span className="sr-only">MENU</span>
                     </button>
 

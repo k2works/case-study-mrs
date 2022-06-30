@@ -68,6 +68,27 @@ img {
   font-size: 30px;
 }
 
+.open .navbtn {
+  z-index: 110;
+  color: #ffffff;
+}
+
+.navbtn .fa-bars {
+  display: revert;
+}
+
+.open .navbtn .fa-bars {
+  display: none;
+}
+
+.navbtn .fa-times {
+  display: none;
+}
+
+.open .navbtn .fa-times {
+  display: revert;
+}
+
 /* ナビゲーションメニュー：モバイル */
 @media (max-width: 767px) {
   .nav {
