@@ -3,6 +3,7 @@ import "../static/css/style.scss";
 import Logo from "../static/img/logo.svg";
 import Tool from "../static/img/tool.jpg";
 import Helpful from "../static/img/helpful.jpg";
+import News01 from "../static/img/news01.jpg";
 
 export const Main: React.FC<{}> = () => {
     return (
@@ -59,6 +60,28 @@ export const Main: React.FC<{}> = () => {
                     <figure className="img">
                         <img src={Helpful} alt="" width={1600} height={1260}/>
                     </figure>
+                </div>
+            </section>
+
+            <section className="posts">
+                <div className="w-container">
+                    <h2>
+                        News Release <span>最新情報</span>
+                    </h2>
+
+                    <div className="posts-container">
+                        <article className="post">
+                            <a href="#">
+                                <figure>
+                                    <img src={News01} alt="" width={1000} height={750}/>
+                                </figure>
+                                <h3>スパンコール</h3>
+                                <p>
+                                    キラキラと光を反射する装飾素材です。いつもの道具にアクセントを付けます。
+                                </p>
+                            </a>
+                        </article>
+                    </div>
                 </div>
             </section>
         </div>
