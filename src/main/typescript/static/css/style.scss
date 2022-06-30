@@ -51,3 +51,18 @@ img {
   background-position: center;
   background-size: cover;
 }
+
+.hero-container {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  height: 100%;
+}
+
+.hero h1 {
+  margin-bottom: 42px;
+}
+
+.hero p {
+  margin-bottom: 72px;
+}
