@@ -11,6 +11,10 @@ import News05 from "../static/img/news05.jpg";
 import News06 from "../static/img/news06.jpg";
 
 export const Main: React.FC<{}> = () => {
+    const openMenu = () => {
+        document.querySelector("html")?.classList.toggle("open");
+    };
+
     return (
         <div>
             <header className="header">
@@ -21,7 +25,7 @@ export const Main: React.FC<{}> = () => {
                         </a>
                     </div>
 
-                    <button className="navbtn">
+                    <button className="navbtn" onClick={openMenu}>
                         <i className="fas fa-bars"></i>
                         <span className="sr-only">MENU</span>
                     </button>

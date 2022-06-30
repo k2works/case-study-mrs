@@ -72,9 +72,18 @@ img {
 @media (max-width: 767px) {
   .nav {
     position: fixed;
-    inset: 0;
+    inset: 0 100% 0 100%;
     z-index: 100;
     background-color: #4e483ae6;
+  }
+
+  .open .nav {
+    transform: translate(-100%, 0);
+  }
+
+  .open body {
+    position: fixed;
+    overflow: hidden;
   }
 
   .nav ul {
