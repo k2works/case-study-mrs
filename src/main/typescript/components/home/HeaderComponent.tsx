@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../static/img/logo.svg";
+import Logo from "../../static/img/logo.svg";
 
 export const Header: React.FC<{}> = () => {
     const openMenu = () => {

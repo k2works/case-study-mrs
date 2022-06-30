@@ -1,0 +1,18 @@
+/* おしらせ */
+.news-list {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 10px 10px;
+}
+
+.news-list-item {
+  display: table-row;
+}
+
+.news-list-head {
+  display: table-cell;
+}
+
+.news-list-body {
+  display: table-cell;
+}
