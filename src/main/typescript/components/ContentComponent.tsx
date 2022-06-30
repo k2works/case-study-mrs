@@ -66,6 +66,24 @@ export const Content: React.FC<{}> = () => {
                             <p className="price">無料</p>
                             <a href="#">使ってみる</a>
                         </div>
+
+                        <div className="plan">
+                            <h3>Standard</h3>
+                            <p className="desc">
+                                厳選した最新ステーショナリーグッズを毎月お届けするスタンダードプランです。
+                            </p>
+                            <p className="price">980円/月</p>
+                            <a href="#">使ってみる</a>
+                        </div>
+
+                        <div className="plan">
+                            <h3>Pro</h3>
+                            <p className="desc">
+                                プロフェッショナルなツールの貸し出し、工房の利用など、さまざまなご要望にお応えするプランです。
+                            </p>
+                            <p className="price">2,800円/月</p>
+                            <a href="#">使ってみる</a>
+                        </div>
                     </div>
                 </div>
             </section>
