@@ -65,7 +65,7 @@ export const Main: React.FC<{}> = () => {
 
             <section className="posts">
                 <div className="w-container">
-                    <h2>
+                    <h2 className="heading">
                         News Release <span>最新情報</span>
                     </h2>
 
