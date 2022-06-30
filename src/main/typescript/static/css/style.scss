@@ -12,7 +12,15 @@ body {
   font-family: sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, p, ul {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -99,9 +107,10 @@ img {
 @media (max-width: 767px) {
   .nav {
     position: fixed;
-    inset: 0 100% 0 100%;
+    inset: 0 -100% 0 100%;
     z-index: 100;
     background-color: #4e483ae6;
+    transition: transform 0.3s;
   }
 
   .open .nav {
@@ -196,7 +205,7 @@ img {
   gap: clamp(45px, 6vw, 80px);
 }
 
-@media(min-width: 768px) {
+@media (min-width: 768px) {
   .imgtext-container {
     flex-direction: row;
     align-items: center;
@@ -211,7 +220,7 @@ img {
     min-width: 17em;
   }
 
-  .imgtext-container img {
+  .imgtext-container > .img {
     flex: 2;
   }
 }
@@ -225,8 +234,8 @@ img {
 
 .heading-decoration::after {
   display: block;
-  content: '';
-  width: 100px;
+  content: "";
+  width: 160px;
   height: 0px;
   border-top: solid 1px #b72661;
   margin-top: 0.6em;
@@ -283,7 +292,7 @@ img {
 
 @supports not (aspect-ratio: 3 / 2) {
   .post img {
-    height: 100%;
+    height: 180px;
   }
 }
 
@@ -317,13 +326,12 @@ img {
   justify-items: center;
 }
 
-@media(min-width: 768px) {
+@media (min-width: 768px) {
   .footer-container {
     grid-template-columns: auto auto;
     grid-template-rows: auto auto auto;
     gap: 20px;
   }
-
   .footer-container > .footer-site {
     margin-bottom: 20px;
   }
@@ -340,7 +348,7 @@ img {
   }
 }
 
-/* フッター：SNSメニュー */
+/* フッター:SNSメニュー */
 .footer-sns {
   display: flex;
   gap: 24px;
@@ -357,13 +365,13 @@ img {
   clip-path: circle(50%);
 }
 
-@supports not ( aspect-ratio: 1 / 1) {
+@supports not (aspect-ratio: 1 / 1) {
   .footer-sns a {
-    height: 32px;
+    height: 36px;
   }
 }
 
-/* フッター：テキストメニュー */
+/* フッター : テキストメニュー */
 .footer-menu {
   display: flex;
   flex-wrap: wrap;
@@ -403,7 +411,7 @@ img {
   list-style: revert;
 }
 
-.entry-container {
+.entry-container p {
   margin: 1.8em 0;
 }
 
@@ -432,7 +440,7 @@ img {
   }
 }
 
-/* プラン：カード */
+/* プライン：カード */
 .plan {
   display: flex;
   flex-direction: column;
