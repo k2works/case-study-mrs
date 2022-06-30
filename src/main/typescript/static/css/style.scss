@@ -68,6 +68,26 @@ img {
   font-size: 30px;
 }
 
+/* ナビゲーションメニュー：モバイル */
+@media (max-width: 767px) {
+  .nav {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background-color: #4e483ae6;
+  }
+
+  .nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 40px;
+    color: #ffffff;
+  }
+}
+
 /* ヒーロー */
 .hero {
   height: 650px;
