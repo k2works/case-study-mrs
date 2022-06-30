@@ -25,9 +25,9 @@ describe("App", function () {
     );
   };
 
-  test("タイトルが表示されているか", () => {
+  test("ヘッダー", () => {
     const {getByText} = render(wrapComponent(Main));
     screen.debug();
-    expect(getByText("Hello React!")).toBeInTheDocument();
+    expect(getByText("MENU")).toBeInTheDocument();
   });
 });
