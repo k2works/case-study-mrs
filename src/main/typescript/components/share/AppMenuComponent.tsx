@@ -21,7 +21,7 @@ export const AppMenu: React.FC<{}> = () => {
                                 <ul className="sub-menu">
 
 
-                                    <li className="sub-menu-item b"><a href="/contacts/regist">問い合わせ</a></li>
+                                    <li className="sub-menu-item b"><a href="/contact_regist">問い合わせ</a></li>
                                 </ul>
                             </li>
                         </ul>

@@ -27,10 +27,10 @@ export const Header: React.FC<{}> = () => {
                             <a href="/">ホーム</a>
                         </li>
                         <li>
-                            <a href="/content">サービス案内</a>
+                            <a href="/contents">サービス案内</a>
                         </li>
                         <li>
-                            <a href="#">お問い合わせ</a>
+                            <a href="/contacts">お問い合わせ</a>
                         </li>
                     </ul>
                 </nav>

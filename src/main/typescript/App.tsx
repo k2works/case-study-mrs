@@ -6,16 +6,20 @@ import {Content} from "./components/home/ContentComponent";
 import {Login} from "./components/home/LoginComponent";
 import {Main as Rooms} from "./components/room/MainComponent";
 import {ReserveForm} from "./components/room/ReserveFormComponent";
+import {Contact} from "./components/home/ContactComponent";
+import {ContactRegist} from "./components/room/ContactComponent";
 
 const App: React.FC = () => {
     return (
         <div>
             <Routes>
                 <Route path="/" element={<Main/>}/>
-                <Route path="/content" element={<Content/>}/>
+                <Route path="/contents" element={<Content/>}/>
+                <Route path="/contacts" element={<Contact/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/rooms" element={<Rooms/>}/>
                 <Route path="/reservations" element={<ReserveForm/>}/>
+                <Route path="/contact_regist" element={<ContactRegist/>}/>
             </Routes>
         </div>
     );
