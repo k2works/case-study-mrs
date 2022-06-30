@@ -1,1 +1,46 @@
 @charset "UTF-8";
+
+/* 基本 */
+:root {
+  --v-space: clamp(90px, 9vw, 120px);
+}
+
+body {
+  margin: 0;
+  background-color: #eeeeee;
+  color: #222222;
+  font-family: sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+p {
+  line-height: 1.8;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  filter: brightness(90%) contrast(120%);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
