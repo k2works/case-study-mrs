@@ -345,3 +345,9 @@ img {
 .entry-container > :last-child {
   margin-bottom: 0;
 }
+
+/* プラン */
+.plans {
+  padding: var(--v-space);
+  background-color: #e9e5e9;
+}
