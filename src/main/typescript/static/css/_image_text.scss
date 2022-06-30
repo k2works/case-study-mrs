@@ -1,0 +1,59 @@
+/* 画像とテキスト */
+.imgtext {
+  padding: var(--v-space) 0;
+  background-color: #ffffff;
+
+  + .imgtext {
+    padding-top: 0;
+  }
+}
+
+.imgtext-container {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(45px, 6vw, 80px);
+}
+
+@media (min-width: 768px) {
+  .imgtext-container {
+    flex-direction: row;
+    align-items: center;
+
+    &.reverse {
+      flex-direction: row-reverse;
+    }
+
+    > .text {
+      flex: 1;
+      min-width: 17em;
+    }
+
+    > .img {
+      flex: 2;
+    }
+  }
+}
+
+/* タイトルとサブタイトル（赤色の短い線で装飾） */
+.heading-decoration {
+  font-size: clamp(30px, 3vw, 40px);
+  min-height: 0vw;
+  font-weight: 400;
+
+  + p {
+    margin-top: 1em;
+    margin-bottom: 2em;
+    color: #707070;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+  }
+
+  &::after {
+    display: block;
+    content: "";
+    width: 160px;
+    height: 0px;
+    border-top: solid 1px #b72661;
+    margin-top: 0.6em;
+  }
+}

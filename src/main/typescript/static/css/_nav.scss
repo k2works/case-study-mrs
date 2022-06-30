@@ -1,0 +1,83 @@
+/* ナビゲーションボタン */
+.navbtn {
+  padding: 0;
+  outline: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #aaaaaa;
+  font-size: 30px;
+
+  .fa-bars {
+    display: revert;
+  }
+
+  .fa-times {
+    display: none;
+  }
+}
+
+.open {
+  .navbtn {
+    z-index: 110;
+    color: #ffffff;
+
+    .fa-bars {
+      display: none;
+    }
+
+    .fa-times {
+      display: revert;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .navbtn {
+    display: none;
+  }
+}
+
+/* ナビゲーションメニュー：モバイル */
+@media (max-width: 767px) {
+  .nav {
+    position: fixed;
+    inset: 0 -100% 0 100%;
+    z-index: 100;
+    background-color: #4e483ae6;
+    transition: transform 0.3s;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      gap: 40px;
+      color: #ffffff;
+    }
+  }
+
+  .open {
+    .nav {
+      transform: translate(-100%, 0);
+    }
+
+    body {
+      position: fixed;
+      overflow: hidden;
+    }
+  }
+}
+
+/* ナビゲーションメニュー：PC */
+@media (min-width: 768px) {
+  .nav {
+    ul {
+      display: flex;
+      gap: 40px;
+      color: #707070;
+    }
+  }
+}
+

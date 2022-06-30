@@ -1,0 +1,47 @@
+/* プラン */
+.plans {
+  padding: var(--v-space) 0;
+  background-color: #e9e5e9;
+}
+
+.plans-container {
+  display: grid;
+  gap: 27px;
+}
+
+@media (min-width: 768px) {
+  .plans-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* プライン：カード */
+.plan {
+  display: flex;
+  flex-direction: column;
+  padding: 60px 27px;
+  border-radius: 20px;
+  background-color: #ffffff;
+
+  h3 {
+    margin-bottom: 38px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 38px;
+    font-weight: 400;
+  }
+
+  .desc {
+    margin-bottom: 38px;
+  }
+
+  .price {
+    margin-top: auto;
+    margin-bottom: 22px;
+    font-size: 26px;
+    font-weight: bold;
+  }
+
+  .btn {
+    width: auto;
+  }
+}

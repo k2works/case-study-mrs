@@ -1,0 +1,46 @@
+/* 記事 */
+.entry {
+  padding-bottom: var(--v-space);
+  background-color: #ffffff;
+
+  .w-container {
+    max-width: 720px;
+  }
+
+  .heading-decoration {
+    font-size: clamp(30px, 6.25vw, 48px);
+  }
+}
+
+.entry-img {
+  img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    margin-bottom: calc(var(--v-space) * 2 / 3);
+  }
+}
+
+.entry-container {
+  font-size: clamp(16px, 2.4vw, 18px);
+
+  &:where(h1, h2, h3, h4, h5, h6, p, figure, ul) {
+    margin-top: revert;
+    margin-bottom: revert;
+    padding: revert;
+    list-style: revert;
+  }
+
+  p {
+    margin: 1.8em 0;
+  }
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
