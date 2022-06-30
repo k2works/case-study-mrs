@@ -5,7 +5,7 @@ import Logo from "../static/img/logo.svg";
 export const Main: React.FC<{}> = () => {
     return (
         <header className="header">
-            <div className="header-container">
+            <div className="header-container w-container">
                 <div className="site">
                     <a href="/">
                         <img src={Logo} alt="" width={135} height={26}/>
