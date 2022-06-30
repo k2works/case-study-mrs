@@ -14,7 +14,7 @@ export const Main: React.FC<{}> = () => {
                 <div className="hero-container w-container">
                     <h1>Meeting Room Reservation System</h1>
                     <p>会議室予約システム</p>
-                    <a className="btn" href="/loginForm">ログイン</a>
+                    <a className="btn" href="/login">ログイン</a>
                 </div>
             </section>
 
