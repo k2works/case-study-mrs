@@ -4,6 +4,10 @@ import Logo from "../static/img/logo.svg";
 import Service from "../static/img/service.jpg";
 
 export const Content: React.FC<{}> = () => {
+    const openMenu = () => {
+        document.querySelector("html")?.classList.toggle("open");
+    };
+
     return (
         <div>
             <header className="header">
@@ -14,10 +18,25 @@ export const Content: React.FC<{}> = () => {
                         </a>
                     </div>
 
-                    <button className="navbtn">
+                    <button className="navbtn" onClick={openMenu}>
                         <i className="fas fa-bars"></i>
+                        <i className="fas fa-times"></i>
                         <span className="sr-only">MENU</span>
                     </button>
+
+                    <nav className="nav">
+                        <ul>
+                            <li>
+                                <a href="/">ホーム</a>
+                            </li>
+                            <li>
+                                <a href="/content">サービス案内</a>
+                            </li>
+                            <li>
+                                <a href="#">お問い合わせ</a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </header>
 
