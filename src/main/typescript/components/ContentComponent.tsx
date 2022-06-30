@@ -64,7 +64,9 @@ export const Content: React.FC<{}> = () => {
                                 便利なオンラインツールを今すぐご利用いただけるプラスです。
                             </p>
                             <p className="price">無料</p>
-                            <a href="#">使ってみる</a>
+                            <a href="#" className="btn">
+                                使ってみる
+                            </a>
                         </div>
 
                         <div className="plan">
@@ -73,7 +75,9 @@ export const Content: React.FC<{}> = () => {
                                 厳選した最新ステーショナリーグッズを毎月お届けするスタンダードプランです。
                             </p>
                             <p className="price">980円/月</p>
-                            <a href="#">使ってみる</a>
+                            <a href="#" className="btn btn-accent">
+                                使ってみる
+                            </a>
                         </div>
 
                         <div className="plan">
@@ -82,7 +86,9 @@ export const Content: React.FC<{}> = () => {
                                 プロフェッショナルなツールの貸し出し、工房の利用など、さまざまなご要望にお応えするプランです。
                             </p>
                             <p className="price">2,800円/月</p>
-                            <a href="#">使ってみる</a>
+                            <a href="#" className="btn btn-accent">
+                                使ってみる
+                            </a>
                         </div>
                     </div>
                 </div>
