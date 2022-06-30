@@ -9,7 +9,7 @@ export const Login: React.FC<{}> = () => {
             <section className="login">
                 <div className="login-container w-container">
                     <div className="login-form">
-                        <form className="login-form" method="POST" action="@{/login}">
+                        <form className="login-form" method="GET" action="/rooms">
                             <label htmlFor="username">利用者番号:</label>
                             <input id="username" name="username" type="text" value="U000001"/>
                             <label htmlFor="password">パスワード:</label>
