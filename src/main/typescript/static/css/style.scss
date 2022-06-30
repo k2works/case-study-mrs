@@ -369,6 +369,8 @@ img {
 
 /* プラン：カード */
 .plan {
+  display: flex;
+  flex-direction: column;
   padding: 60px 27px;
   border-radius: 20px;
   background-color: #ffffff;
@@ -386,6 +388,7 @@ img {
 }
 
 .plan .price {
+  margin-top: auto;
   margin-bottom: 22px;
   font-size: 26px;
   font-weight: bold;
