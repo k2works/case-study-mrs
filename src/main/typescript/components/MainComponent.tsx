@@ -34,7 +34,7 @@ export const Main: React.FC<{}> = () => {
             <section className="imgtext">
                 <div className="imgtext-container w-container">
                     <div className="text">
-                        <h2>日常のツールたち</h2>
+                        <h2 className="heading-decoration">日常のツールたち</h2>
                         <p>Convenient</p>
                         <p>
                             どこにでもある、誰でも使ったことがある、普段は存在を意識しないけどないと困るツールたち。日常をちょっと楽にしてくれます。
