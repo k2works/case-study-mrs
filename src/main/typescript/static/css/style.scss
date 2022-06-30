@@ -327,3 +327,15 @@ img {
   padding: revert;
   list-style: revert;
 }
+
+.entry-container {
+  margin: 1.8em 0;
+}
+
+.entry-container > :first-child {
+  margin-top: 0;
+}
+
+.entry-container > :last-child {
+  margin-bottom: 0;
+}
