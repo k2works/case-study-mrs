@@ -110,6 +110,26 @@ img {
   background-color: #ffffff;
 }
 
+.imgtext-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media(min-width: 768px) {
+  .imgtext-container {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.imgtext-container > .text {
+  flex: 1;
+}
+
+.imgtext-container img {
+  flex: 2;
+}
+
 /* タイトルとサブタイトル（赤色の短い線で装飾） */
 .heading-decoration::after {
   display: block;

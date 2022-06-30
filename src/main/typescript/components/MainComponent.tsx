@@ -39,10 +39,10 @@ export const Main: React.FC<{}> = () => {
                         <p>
                             どこにでもある、誰でも使ったことがある、普段は存在を意識しないけどないと困るツールたち。日常をちょっと楽にしてくれます。
                         </p>
-                        <figure className="img">
-                            <img src={Tool} alt="" width={1600} height={1260}/>
-                        </figure>
                     </div>
+                    <figure className="img">
+                        <img src={Tool} alt="" width={1600} height={1260}/>
+                    </figure>
                 </div>
             </section>
         </div>
