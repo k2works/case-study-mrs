@@ -6,6 +6,10 @@ body {
   background-color: #eeeeee;
 }
 
+img {
+  display: block;
+}
+
 /* 横幅と左右の余白 */
 .w-container {
   width: min(92%, 1166px);
@@ -23,4 +27,15 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 100%;
+}
+
+/* ナビゲーションボタン */
+.navbtn {
+  padding: 0;
+  outline: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #aaaaaa;
+  font-size: 30px;
 }
