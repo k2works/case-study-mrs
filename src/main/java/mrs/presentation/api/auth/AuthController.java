@@ -39,39 +39,52 @@ public class AuthController {
 
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginRequest.getUserId(), loginRequest.getPassword())
-        );
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        String jwt = jwtUtils.generateJwtToken(authentication);
+        try {
+            Optional<User> user = userRepository.findByUserId(new UserId(loginRequest.getUserId()));
+            if (user.isEmpty()) {
+                return ResponseEntity.badRequest().body(new MessageResponse("Error: User is not exist"));
+            }
 
-        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-        List<String> roles = userDetails.getAuthorities().stream()
-                .map(GrantedAuthority::getAuthority).toList();
+            Authentication authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(loginRequest.getUserId(), loginRequest.getPassword())
+            );
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+            String jwt = jwtUtils.generateJwtToken(authentication);
 
-        return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getUsername(), roles));
+            UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+            List<String> roles = userDetails.getAuthorities().stream()
+                    .map(GrantedAuthority::getAuthority).toList();
+
+            return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getUsername(), roles));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(new MessageResponse(e.getMessage()));
+        }
     }
 
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signupRequest) {
-        Optional<User> user = userRepository.findByUserId(new UserId(signupRequest.getUserId()));
-        if (user.isPresent()) {
-            return ResponseEntity.badRequest().body(new MessageResponse("Error: UserId is already taken"));
-        }
+        try {
+            Optional<User> user = userRepository.findByUserId(new UserId(signupRequest.getUserId()));
+            if (user.isPresent()) {
+                return ResponseEntity.badRequest().body(new MessageResponse("Error: UserId is already taken"));
+            }
 
-        UserId userId = new UserId(signupRequest.getUserId());
-        String password = passwordEncoder.encode(signupRequest.getPassword());
-        UserName userName = new UserName(signupRequest.getFirstName(), signupRequest.getLastName());
-        String role = signupRequest.getRole();
-        RoleName roleName;
-        if (role == null) {
-            roleName = RoleName.一般;
-        } else {
-            roleName = RoleName.valueOf(role);
-        }
-        User newUser = new User(userId.Value(), userName.FirstName(), userName.LastName(), password, roleName);
-        userRepository.save(newUser);
+            UserId userId = new UserId(signupRequest.getUserId());
+            String password = passwordEncoder.encode(signupRequest.getPassword());
+            UserName userName = new UserName(signupRequest.getFirstName(), signupRequest.getLastName());
+            String role = signupRequest.getRole();
+            RoleName roleName;
+            if (role == null) {
+                roleName = RoleName.一般;
+            } else {
+                roleName = RoleName.valueOf(role);
+            }
+            User newUser = new User(userId.Value(), userName.FirstName(), userName.LastName(), password, roleName);
+            userRepository.save(newUser);
 
-        return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+            return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(new MessageResponse(e.getMessage()));
+        }
     }
 }
