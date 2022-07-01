@@ -1,8 +1,14 @@
 package mrs.infrastructure.security.jwt.payload.request;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+/**
+ * ユーザー登録リクエスト
+ */
+@Schema(description = "ユーザー登録リクエスト")
 public class SignupRequest {
     String firstName;
     String lastName;

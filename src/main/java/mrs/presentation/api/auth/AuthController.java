@@ -1,5 +1,7 @@
 package mrs.presentation.api.auth;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import mrs.application.service.auth.UserRepository;
 import mrs.domain.model.auth.user.*;
 import mrs.infrastructure.security.jwt.JwtUtils;
@@ -24,6 +26,7 @@ import java.util.Optional;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
+@Tag(name = "JWTAuth", description = "JWT認証テスト")
 public class AuthController {
     @Autowired
     AuthenticationManager authenticationManager;
@@ -37,6 +40,7 @@ public class AuthController {
     @Autowired
     JwtUtils jwtUtils;
 
+    @Operation(summary = "ユーザー認証", description = "データベースに登録されているユーザーを認証する")
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
         try {
@@ -61,6 +65,7 @@ public class AuthController {
         }
     }
 
+    @Operation(summary = "ユーザー登録", description = "ユーザーを新規登録する")
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signupRequest) {
         try {

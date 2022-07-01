@@ -1,7 +1,13 @@
 package mrs.infrastructure.security.jwt.payload.request;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.validation.constraints.NotBlank;
 
+/**
+ * 認証リクエスト
+ */
+@Schema(description = "認証リクエスト")
 public class LoginRequest {
     @NotBlank
     private String userId;

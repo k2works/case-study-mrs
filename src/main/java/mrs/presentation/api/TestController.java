@@ -1,5 +1,7 @@
 package mrs.presentation.api;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,18 +11,22 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/test")
+@Tag(name = "JWTTest", description = "JWT認証テスト")
 public class TestController {
+    @Operation(summary = "JWT認証テスト", description = "全てのユーザーがアクセスできる")
     @GetMapping("/all")
     public String allAccess() {
         return "Public Content";
     }
 
+    @Operation(summary = "JWT認証テスト", description = "一般ユーザーがアクセスできる")
     @GetMapping("/user")
     @PreAuthorize("hasRole('一般') or hasRole('管理者')")
     public String userAccess() {
         return "User Content";
     }
 
+    @Operation(summary = "JWT認証テスト", description = "管理者ユーザーがアクセスできる")
     @GetMapping("/admin")
     @PreAuthorize("hasRole('管理者')")
     public String adminAccess() {
