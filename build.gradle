@@ -40,6 +40,7 @@ dependencies {
     testImplementation 'org.springframework.security:spring-security-test'
     testImplementation 'com.github.irof:jig-erd:latest.release'
 	implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.5.13'
+	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
 }
 
 tasks.named('test') {
