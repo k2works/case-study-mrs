@@ -1,4 +1,4 @@
-import {Main} from "./components/MainComponent";
+import {Main} from "./components/home/MainComponent";
 import "@testing-library/jest-dom";
 import {render, screen} from "@testing-library/react";
 import React, {ComponentType, ReactElement} from "react";
