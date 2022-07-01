@@ -39,6 +39,7 @@ dependencies {
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
     testImplementation 'org.springframework.security:spring-security-test'
     testImplementation 'com.github.irof:jig-erd:latest.release'
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.5.13'
 }
 
 tasks.named('test') {
