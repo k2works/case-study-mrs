@@ -16,16 +16,16 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * API認証
+ * 利用者のAPI認証
  */
 @Service
 @Transactional
-public class ApiAuthService {
+public class UserApiAuthService {
     final AuthenticationManager authenticationManager;
 
     final JwtUtils jwtUtils;
 
-    public ApiAuthService(AuthenticationManager authenticationManager, JwtUtils jwtUtils) {
+    public UserApiAuthService(AuthenticationManager authenticationManager, JwtUtils jwtUtils) {
         this.authenticationManager = authenticationManager;
         this.jwtUtils = jwtUtils;
     }

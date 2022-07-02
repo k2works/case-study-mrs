@@ -2,7 +2,7 @@ package mrs.presentation.api.auth;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import mrs.application.service.auth.ApiAuthService;
+import mrs.application.service.auth.UserApiAuthService;
 import mrs.application.service.auth.UserManagementService;
 import mrs.domain.model.auth.user.*;
 import mrs.infrastructure.security.jwt.payload.request.LoginRequest;
@@ -22,12 +22,12 @@ import javax.validation.Valid;
 @RequestMapping("/api/auth")
 @Tag(name = "JWTAuth", description = "JWT認証")
 public class AuthController {
-    final ApiAuthService apiAuthService;
+    final UserApiAuthService userApiAuthService;
 
     final UserManagementService userManagementService;
 
-    public AuthController(ApiAuthService apiAuthService, UserManagementService userManagementService) {
-        this.apiAuthService = apiAuthService;
+    public AuthController(UserApiAuthService userApiAuthService, UserManagementService userManagementService) {
+        this.userApiAuthService = userApiAuthService;
         this.userManagementService = userManagementService;
     }
 
@@ -40,7 +40,7 @@ public class AuthController {
                 return ResponseEntity.badRequest().body(new MessageResponse("Error: User is not exist"));
             }
 
-            JwtResponse jwtResponse = apiAuthService.authenticateUser(new UserId(loginRequest.getUserId()), new Password(loginRequest.getPassword()));
+            JwtResponse jwtResponse = userApiAuthService.authenticateUser(new UserId(loginRequest.getUserId()), new Password(loginRequest.getPassword()));
             return ResponseEntity.ok(jwtResponse);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(new MessageResponse(e.getMessage()));

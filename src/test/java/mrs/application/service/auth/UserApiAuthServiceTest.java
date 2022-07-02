@@ -18,9 +18,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @IntegrationTest
 @DisplayName("API認証・認可サービス")
-public class ApiAuthServiceTest {
+public class UserApiAuthServiceTest {
     @Autowired
-    ApiAuthService apiAuthService;
+    UserApiAuthService userApiAuthService;
 
     @Autowired
     TestDataFactory testDataFactory;
@@ -28,7 +28,7 @@ public class ApiAuthServiceTest {
     @Nested
     class 利用者の認証 {
         @MockBean
-        ApiAuthService apiAuthServiceMock;
+        UserApiAuthService userApiAuthServiceMock;
 
         @BeforeEach
         void setUp() {
@@ -37,10 +37,10 @@ public class ApiAuthServiceTest {
 
         @Test
         void 利用者を認証する() {
-            Mockito.when(apiAuthServiceMock.authenticateUser(Mockito.any(), Mockito.any()))
+            Mockito.when(userApiAuthServiceMock.authenticateUser(Mockito.any(), Mockito.any()))
                     .thenReturn(new JwtResponse("eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVMDAwMDA3IiwiaWF0IjoxNjU2NzMxODc3LCJleHAiOjE2NTY4MTgyNzd9.2JGYfw4c2P4EzCFFuCN7kf5fMihSXEVfLZSRnC5OOOn4vpPy9QewaVXTheUzsv16X8Lk1bpvcAyQYSUuKj0vJA", "U999999", List.of("一般")));
             User user = testDataFactory.User();
-            JwtResponse result = apiAuthServiceMock.authenticateUser(user.UserId(), user.Password());
+            JwtResponse result = userApiAuthServiceMock.authenticateUser(user.UserId(), user.Password());
 
             assertEquals("eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVMDAwMDA3IiwiaWF0IjoxNjU2NzMxODc3LCJleHAiOjE2NTY4MTgyNzd9.2JGYfw4c2P4EzCFFuCN7kf5fMihSXEVfLZSRnC5OOOn4vpPy9QewaVXTheUzsv16X8Lk1bpvcAyQYSUuKj0vJA", result.getAccessToken());
             assertEquals(user.UserId().Value(), result.getUserId());
