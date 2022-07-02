@@ -2,7 +2,6 @@ package mrs.application.service.auth;
 
 import mrs.IntegrationTest;
 import mrs.TestDataFactory;
-import mrs.domain.model.auth.user.RoleName;
 import mrs.domain.model.auth.user.User;
 import mrs.infrastructure.security.jwt.payload.response.JwtResponse;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,27 +24,6 @@ public class ApiAuthServiceTest {
 
     @Autowired
     TestDataFactory testDataFactory;
-
-    @Nested
-    class 利用者の登録 {
-        @BeforeEach
-        void setUp() {
-            testDataFactory.setUp();
-        }
-
-        private User getUser(String userId) {
-            return new User(userId, "山田", "太郎", "a234567Z", RoleName.一般);
-        }
-
-        @Test
-        void 利用者を登録する() {
-            User user = getUser("U999992");
-            apiAuthService.registerUser(user.UserId(), user.Password(), user.Name(), user.RoleName());
-            User result = apiAuthService.findByUserId(user.UserId());
-
-            assertEquals(user, result);
-        }
-    }
 
     @Nested
     class 利用者の認証 {

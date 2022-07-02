@@ -1,6 +1,8 @@
 package mrs.application.service.auth;
 
-import mrs.domain.model.auth.user.*;
+import mrs.domain.model.auth.user.Password;
+import mrs.domain.model.auth.user.UserDetailsImpl;
+import mrs.domain.model.auth.user.UserId;
 import mrs.infrastructure.security.jwt.JwtUtils;
 import mrs.infrastructure.security.jwt.payload.response.JwtResponse;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,14 +23,11 @@ import java.util.List;
 public class ApiAuthService {
     final AuthenticationManager authenticationManager;
 
-    private final UserManagementService userManagementService;
-
     final JwtUtils jwtUtils;
 
-    public ApiAuthService(AuthenticationManager authenticationManager, JwtUtils jwtUtils, UserManagementService userManagementService) {
+    public ApiAuthService(AuthenticationManager authenticationManager, JwtUtils jwtUtils) {
         this.authenticationManager = authenticationManager;
         this.jwtUtils = jwtUtils;
-        this.userManagementService = userManagementService;
     }
 
     /**
@@ -46,20 +45,5 @@ public class ApiAuthService {
                 .map(GrantedAuthority::getAuthority).toList();
 
         return new JwtResponse(jwt, userDetails.getUsername(), roles);
-    }
-
-    /**
-     * 利用者を登録する
-     */
-    public void registerUser(UserId userId, Password password, UserName userName, RoleName role) {
-        User newUser = new User(userId.Value(), userName.FirstName(), userName.LastName(), password.Value(), role);
-        userManagementService.regist(newUser);
-    }
-
-    /**
-     * 利用者を検索する
-     */
-    public User findByUserId(UserId userId) {
-        return userManagementService.findOne(userId);
     }
 }
