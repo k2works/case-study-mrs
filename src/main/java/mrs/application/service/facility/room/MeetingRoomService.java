@@ -1,6 +1,6 @@
 package mrs.application.service.facility.room;
 
-import mrs.application.service.auth.UserAlreadyRegistException;
+import mrs.application.service.user.UserAlreadyRegistException;
 import mrs.domain.model.facility.room.MeetingRoom;
 import mrs.domain.model.facility.room.RoomId;
 import mrs.infrastructure.datasource.Message;

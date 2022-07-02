@@ -1,5 +1,6 @@
 package mrs.application.service.auth;
 
+import mrs.application.service.user.UserRepository;
 import mrs.domain.model.auth.user.RoleName;
 import mrs.domain.model.auth.user.User;
 import mrs.domain.model.auth.user.UserDetailsImpl;

@@ -1,4 +1,4 @@
-package mrs.application.service.auth;
+package mrs.application.service.user;
 
 import mrs.domain.model.auth.user.PasswordException;
 import mrs.domain.model.auth.user.User;

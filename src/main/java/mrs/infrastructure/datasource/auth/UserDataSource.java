@@ -1,6 +1,6 @@
 package mrs.infrastructure.datasource.auth;
 
-import mrs.application.service.auth.UserRepository;
+import mrs.application.service.user.UserRepository;
 import mrs.domain.model.auth.user.User;
 import mrs.domain.model.auth.user.UserId;
 import org.springframework.stereotype.Repository;

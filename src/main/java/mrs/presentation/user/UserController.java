@@ -1,7 +1,7 @@
 package mrs.presentation.user;
 
 import com.github.pagehelper.PageInfo;
-import mrs.application.service.auth.UserManagementService;
+import mrs.application.service.user.UserManagementService;
 import mrs.domain.model.auth.user.User;
 import mrs.domain.model.auth.user.UserId;
 import mrs.infrastructure.PageNation;

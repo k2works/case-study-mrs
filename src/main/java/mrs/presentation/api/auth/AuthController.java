@@ -3,7 +3,7 @@ package mrs.presentation.api.auth;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import mrs.application.service.auth.UserApiAuthService;
-import mrs.application.service.auth.UserManagementService;
+import mrs.application.service.user.UserManagementService;
 import mrs.domain.model.auth.user.*;
 import mrs.infrastructure.security.jwt.payload.request.LoginRequest;
 import mrs.infrastructure.security.jwt.payload.request.SignupRequest;

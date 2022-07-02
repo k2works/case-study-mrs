@@ -2,8 +2,8 @@ package mrs.application.service.facility.room;
 
 import mrs.IntegrationTest;
 import mrs.TestDataFactory;
-import mrs.application.service.auth.UserAlreadyRegistException;
 import mrs.application.service.reservation.room.ReservableRoomService;
+import mrs.application.service.user.UserAlreadyRegistException;
 import mrs.domain.model.facility.room.MeetingRoom;
 import mrs.domain.model.facility.room.RoomId;
 import org.junit.jupiter.api.BeforeEach;

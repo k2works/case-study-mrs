@@ -2,6 +2,8 @@ package mrs.application.service.auth;
 
 import mrs.IntegrationTest;
 import mrs.TestDataFactory;
+import mrs.application.service.user.UserAlreadyRegistException;
+import mrs.application.service.user.UserManagementService;
 import mrs.domain.model.auth.user.RoleName;
 import mrs.domain.model.auth.user.User;
 import org.junit.jupiter.api.BeforeEach;
