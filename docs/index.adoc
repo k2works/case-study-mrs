@@ -1030,6 +1030,33 @@ npm install --save-dev @babel/core @babel/cli @babel/preset-env @babel/register
 npm install --save-dev npm-run-all watch foreman cpx rimraf marked@1.2.2
 npm install --save-dev webpack webpack-cli html-webpack-plugin webpack-dev-server
 touch Procfile.dev
+----
+
+==== ドキュメント関連
+
+===== Asciidoctor
+
+[source,bash]
+----
+npm install --save-dev asciidoctor asciidoctor-kroki
+----
+
+==== フロントエンド関連
+
+===== Cypress
+
+[source,bash]
+----
+npm install cypress
+npmx cypress open
+npm install --save-dev cypress-cucumber-preprocessor
+npm install --save-dev cucumber-html-reporter
+----
+
+===== React
+
+[source,bash]
+----
 npm install --save-dev jest
 npm install react react-dom
 npm install --save-dev babel-loader @babel/preset-react
@@ -1042,25 +1069,6 @@ npm install --save @types/react @types/react-dom @types/react-router-dom
 npm install --save-dev @types/jest@27.1.4 ts-jest@27.1.4
 npx tsc --init
 npm i -save @reduxjs/toolkit react-redux
-----
-
-===== Cypress
-
-[source,bash]
-----
-npm install cypress
-npmx cypress open
-npm install --save-dev cypress-cucumber-preprocessor
-npm install --save-dev cucumber-html-reporter
-----
-
-==== ドキュメント関連
-
-===== Asciidoctor
-
-[source,bash]
-----
-npm install --save-dev asciidoctor asciidoctor-kroki
 ----
 
 == 配置
