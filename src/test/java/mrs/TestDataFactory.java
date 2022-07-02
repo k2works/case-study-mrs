@@ -1,5 +1,6 @@
 package mrs;
 
+import mrs.domain.model.auth.user.User;
 import mrs.domain.model.reservation.room.ReservableRoomId;
 import mrs.infrastructure.datasource.auth.UserMapper;
 import mrs.infrastructure.datasource.facility.room.RoomMapper;
@@ -19,4 +20,5 @@ public interface TestDataFactory {
 
     ReservableRoomId getReservableRoomId();
 
+    User User();
 }

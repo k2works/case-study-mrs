@@ -10,6 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,6 +19,7 @@ import java.util.Optional;
  * API認証
  */
 @Service
+@Transactional
 public class ApiAuthService {
     final AuthenticationManager authenticationManager;
 
@@ -34,6 +36,9 @@ public class ApiAuthService {
         this.jwtUtils = jwtUtils;
     }
 
+    /**
+     * 利用者を認証する
+     */
     public JwtResponse authenticateUser(UserId userId, Password password) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(userId.Value(), password.Value())
@@ -48,12 +53,19 @@ public class ApiAuthService {
         return new JwtResponse(jwt, userDetails.getUsername(), roles);
     }
 
+    /**
+     * 利用者を登録する
+     */
     public void registerUser(UserId userId, Password password, UserName userName, RoleName role) {
         User newUser = new User(userId.Value(), userName.FirstName(), userName.LastName(), passwordEncoder.encode(password.Value()), role);
         userRepository.save(newUser);
     }
 
     public Optional<User> checkUser(UserId userId) {
+        return userRepository.findByUserId(userId);
+    }
+
+    public Optional<User> findByUserId(UserId userId) {
         return userRepository.findByUserId(userId);
     }
 }

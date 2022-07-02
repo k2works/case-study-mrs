@@ -100,4 +100,8 @@ public class TestDataFactoryImpl implements TestDataFactory {
         reservationMapper.insert(reservation);
     }
 
+    @Override
+    public User User() {
+        return newUser();
+    }
 }
