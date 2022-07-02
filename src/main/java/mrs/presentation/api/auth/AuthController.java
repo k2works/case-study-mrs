@@ -32,7 +32,7 @@ public class AuthController {
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
         try {
-            Optional<User> user = apiAuthService.checkUser(new UserId(loginRequest.getUserId()));
+            Optional<User> user = apiAuthService.findByUserId(new UserId(loginRequest.getUserId()));
             if (user.isEmpty()) {
                 return ResponseEntity.badRequest().body(new MessageResponse("Error: User is not exist"));
             }
@@ -48,7 +48,7 @@ public class AuthController {
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signupRequest) {
         try {
-            Optional<User> user = apiAuthService.checkUser(new UserId(signupRequest.getUserId()));
+            Optional<User> user = apiAuthService.findByUserId(new UserId(signupRequest.getUserId()));
             if (user.isPresent()) {
                 return ResponseEntity.badRequest().body(new MessageResponse("Error: UserId is already taken"));
             }

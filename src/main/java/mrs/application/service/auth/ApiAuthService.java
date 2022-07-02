@@ -61,10 +61,9 @@ public class ApiAuthService {
         userRepository.save(newUser);
     }
 
-    public Optional<User> checkUser(UserId userId) {
-        return userRepository.findByUserId(userId);
-    }
-
+    /**
+     * 利用者を取得する
+     */
     public Optional<User> findByUserId(UserId userId) {
         return userRepository.findByUserId(userId);
     }
