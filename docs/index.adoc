@@ -660,17 +660,19 @@ entity 予約可能会議室
 skinparam componentStyle uml2
 
 component [AuthContext] <<認証・認可>>
+component [UserContext] <<利用者>>
 component [ReservationContext] <<予約>>
 component [FacilityContext] <<施設>>
 component [ContactContext] <<問い合わせ>>
 
-[AuthContext]<-->[ReservationContext] : Shared Kernel
+[AuthContext]<-->[UserContext] : Shared Kernel
 
-[AuthContext]<-->[FacilityContext] : Shared Kernel
+[UserContext]<-->[ReservationContext] : Shared Kernel
 
-[AuthContext]<-->[ContactContext] : Shared Kernel
+[UserContext]<-->[ContactContext] : Shared Kernel
 
 [ReservationContext]<-->[FacilityContext] : Shared Kernel
+
 ----
 
 ==== ユースケース
@@ -687,18 +689,35 @@ actor "会員" as member
 actor "スタッフ" as admin
 rectangle 認証・認可 {
   usecase "利用者の認証" as UC1
-  usecase "利用者の管理" as UC2
 }
 member --> UC1
 admin --> UC1
-admin --> UC2
 @enduml
 ----
 
 [source,yml]
 ----
 include::../cypress/integration/UserManagement/UserAuth.feature[]
+----
 
+===== 利用者
+
+[plantuml]
+----
+@startuml
+left to right direction
+actor "会員" as member
+actor "スタッフ" as admin
+rectangle 利用者 {
+  usecase "利用者の管理" as UC1
+}
+member --> UC1
+admin --> UC1
+@enduml
+----
+
+[source,yml]
+----
 include::../cypress/integration/UserManagement/UserMnagement.feature[]
 ----
 
@@ -788,7 +807,7 @@ image::images/jig/package-relation-depth4.svg[]
 
 image::images/jig/business-rule-relation.svg[]
 
-===== 認証・認可
+===== 利用者
 
 [plantuml]
 ----
@@ -807,6 +826,7 @@ package mrs.domain.model.auth.user {
 		enum RoleName {
 			管理者
 			一般
+            ゲスト
 		}
 		class Staff <<(E,DarkSeaGreen) Entity>> {
 		}
