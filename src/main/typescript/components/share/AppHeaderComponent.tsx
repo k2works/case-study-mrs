@@ -1,8 +1,21 @@
 import React from "react";
 import Logo from "../../static/img/logo.svg";
 import "../../static/css/style.scss";
+import {useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import type {AppDispatch} from '../../app/store';
+import {currentUser, logout} from "../../features/auth/authSlice";
 
 export const AppHeader: React.FC<{}> = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch<AppDispatch>();
+    const user = useSelector(currentUser);
+
+    const handleOnClickLogout = () => {
+        dispatch(logout());
+        navigate("/login");
+    }
+
     return (
         <div>
             <header className="header">
@@ -22,8 +35,8 @@ export const AppHeader: React.FC<{}> = () => {
                     <nav className="nav">
                         <ul>
                             <li>
-                                <form method="get" name="logout_form" action="/">
-                                    <a href="/">ログアウト</a>
+                                <form method="get" name="logout_form">
+                                    <a onClick={handleOnClickLogout}>ログアウト</a>
                                 </form>
                             </li>
                         </ul>

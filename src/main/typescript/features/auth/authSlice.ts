@@ -3,7 +3,7 @@ import {Dispatch} from "react";
 import AuthService from "../../services/authService";
 import authService from "../../services/authService";
 import {setMessage} from '../message/messageSlice';
-import {RootState} from "../../reducers";
+import {RootState} from "../../app/store";
 
 const user = JSON.parse(<string>localStorage.getItem("user"));
 
