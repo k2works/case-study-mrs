@@ -11,15 +11,6 @@
         <polygon fill="white" stroke="transparent" points="-4,4 -4,-430.1 546,-430.1 546,4 -4,4"/>
         <text text-anchor="middle" x="271" y="-7.8" font-family="Times New Roman,serif" font-size="14.00">パッケージ関連図
         </text>
-        <g id="clust2" class="cluster">
-            <title>cluster_mrs.domain.model.user</title>
-            <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
-                     points="266,-305 266,-397 534,-397 534,-305 266,-305"/>
-            <text text-anchor="middle" x="400" y="-381.8" font-family="Times New Roman,serif" font-size="14.00">利用者
-            </text>
-            <text text-anchor="middle" x="400" y="-366.8" font-family="Times New Roman,serif" font-size="14.00">user
-            </text>
-        </g>
         <g id="clust1" class="cluster">
             <title>cluster_mrs.domain.model.reservation</title>
             <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
@@ -38,6 +29,15 @@
             </text>
             <text text-anchor="middle" x="490" y="-166.8" font-family="Times New Roman,serif" font-size="14.00">
                 facility
+            </text>
+        </g>
+        <g id="clust2" class="cluster">
+            <title>cluster_mrs.domain.model.user</title>
+            <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
+                     points="266,-305 266,-397 534,-397 534,-305 266,-305"/>
+            <text text-anchor="middle" x="400" y="-381.8" font-family="Times New Roman,serif" font-size="14.00">利用者
+            </text>
+            <text text-anchor="middle" x="400" y="-366.8" font-family="Times New Roman,serif" font-size="14.00">user
             </text>
         </g>
         <g id="clust4" class="cluster">
