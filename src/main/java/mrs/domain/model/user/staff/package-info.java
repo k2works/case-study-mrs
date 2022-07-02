@@ -1,4 +1,4 @@
 /**
- * 管理者
+ * スタッフ
  */
 package mrs.domain.model.user.staff;

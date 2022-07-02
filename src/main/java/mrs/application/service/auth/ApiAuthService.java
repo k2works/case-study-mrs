@@ -62,7 +62,7 @@ public class ApiAuthService {
     }
 
     /**
-     * 利用者を取得する
+     * 利用者を検索する
      */
     public Optional<User> findByUserId(UserId userId) {
         return userRepository.findByUserId(userId);
