@@ -1,15 +1,15 @@
 import * as React from "react";
 import {Route, Routes} from "react-router-dom";
-import "./static/css/style.scss";
-import {Main} from "./components/home/MainComponent";
-import {Content} from "./components/home/ContentComponent";
-import {Login} from "./components/home/LoginComponent";
-import {Main as Rooms} from "./components/reservation/MainComponent";
-import {ReserveForm} from "./components/reservation/ReserveFormComponent";
-import {Contact} from "./components/home/ContactComponent";
-import {ContactRegist} from "./components/reservation/ContactComponent";
+import "../static/css/style.scss";
+import {Main} from "../components/home/MainComponent";
+import {Content} from "../components/home/ContentComponent";
+import {Login} from "../components/home/LoginComponent";
+import {Main as Rooms} from "../components/reservation/MainComponent";
+import {ReserveForm} from "../components/reservation/ReserveFormComponent";
+import {Contact} from "../components/home/ContactComponent";
+import {ContactRegist} from "../components/reservation/ContactComponent";
 
-const App: React.FC = () => {
+const AppContainer: React.FC = () => {
     return (
         <div>
             <Routes>
@@ -25,4 +25,4 @@ const App: React.FC = () => {
     );
 };
 
-export default App;
+export default AppContainer;

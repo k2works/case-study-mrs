@@ -4,7 +4,7 @@ import {BrowserRouter} from "react-router-dom";
 import {configureStore} from "@reduxjs/toolkit";
 import {Provider} from "react-redux";
 import rootReducer from "./reducers";
-import App from "./App";
+import AppContainer from "./app/AppContainer";
 
 const container = document.getElementById("app");
 if (container) {
@@ -16,7 +16,7 @@ if (container) {
     root.render(
         <Provider store={store}>
             <BrowserRouter>
-                <App/>
+                <AppContainer/>
             </BrowserRouter>
         </Provider>
     );
