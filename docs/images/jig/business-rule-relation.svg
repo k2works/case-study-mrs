@@ -36,20 +36,12 @@
                 facility.room
             </text>
         </g>
-        <g id="clust7" class="cluster">
-            <title>cluster_mrs.domain.model.user.member</title>
+        <g id="clust4" class="cluster">
+            <title>cluster_mrs.domain.model.reservation.reservation</title>
             <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
-                     points="766,-410 766,-572 868,-572 868,-410 766,-410"/>
-            <text text-anchor="middle" x="817" y="-556.8" font-family="Times New Roman,serif" font-size="14.00">
-                user.member
-            </text>
-        </g>
-        <g id="clust6" class="cluster">
-            <title>cluster_mrs.domain.model.user.gust</title>
-            <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
-                     points="1486,-495 1486,-572 1570,-572 1570,-495 1486,-495"/>
-            <text text-anchor="middle" x="1528" y="-556.8" font-family="Times New Roman,serif" font-size="14.00">
-                user.gust
+                     points="348,-103 348,-487 576,-487 576,-103 348,-103"/>
+            <text text-anchor="middle" x="462" y="-471.8" font-family="Times New Roman,serif" font-size="14.00">
+                reservation.reservation
             </text>
         </g>
         <g id="clust8" class="cluster">
@@ -60,12 +52,20 @@
                 user.staff
             </text>
         </g>
-        <g id="clust4" class="cluster">
-            <title>cluster_mrs.domain.model.reservation.reservation</title>
+        <g id="clust6" class="cluster">
+            <title>cluster_mrs.domain.model.user.gust</title>
             <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
-                     points="348,-103 348,-487 576,-487 576,-103 348,-103"/>
-            <text text-anchor="middle" x="462" y="-471.8" font-family="Times New Roman,serif" font-size="14.00">
-                reservation.reservation
+                     points="1486,-495 1486,-572 1570,-572 1570,-495 1486,-495"/>
+            <text text-anchor="middle" x="1528" y="-556.8" font-family="Times New Roman,serif" font-size="14.00">
+                user.gust
+            </text>
+        </g>
+        <g id="clust7" class="cluster">
+            <title>cluster_mrs.domain.model.user.member</title>
+            <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
+                     points="766,-410 766,-572 868,-572 868,-410 766,-410"/>
+            <text text-anchor="middle" x="817" y="-556.8" font-family="Times New Roman,serif" font-size="14.00">
+                user.member
             </text>
         </g>
         <g id="clust5" class="cluster">
