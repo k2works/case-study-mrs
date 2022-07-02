@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -42,9 +41,9 @@ public class ApiAuthServiceTest {
         void 利用者を登録する() {
             User user = getUser("U999992");
             apiAuthService.registerUser(user.UserId(), user.Password(), user.Name(), user.RoleName());
-            Optional<User> result = apiAuthService.findByUserId(user.UserId());
+            User result = apiAuthService.findByUserId(user.UserId());
 
-            assertEquals(user, result.get());
+            assertEquals(user, result);
         }
     }
 

@@ -12,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Optional;
 
 /**
  * 認証API
@@ -32,8 +31,8 @@ public class AuthController {
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
         try {
-            Optional<User> user = apiAuthService.findByUserId(new UserId(loginRequest.getUserId()));
-            if (user.isEmpty()) {
+            User user = apiAuthService.findByUserId(new UserId(loginRequest.getUserId()));
+            if (user == null) {
                 return ResponseEntity.badRequest().body(new MessageResponse("Error: User is not exist"));
             }
 
@@ -48,8 +47,8 @@ public class AuthController {
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signupRequest) {
         try {
-            Optional<User> user = apiAuthService.findByUserId(new UserId(signupRequest.getUserId()));
-            if (user.isPresent()) {
+            User user = apiAuthService.findByUserId(new UserId(signupRequest.getUserId()));
+            if (user != null) {
                 return ResponseEntity.badRequest().body(new MessageResponse("Error: UserId is already taken"));
             }
 

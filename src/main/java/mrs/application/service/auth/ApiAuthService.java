@@ -8,12 +8,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * API認証
@@ -23,17 +21,14 @@ import java.util.Optional;
 public class ApiAuthService {
     final AuthenticationManager authenticationManager;
 
-    final UserRepository userRepository;
-
-    final PasswordEncoder passwordEncoder;
+    private final UserManagementService userManagementService;
 
     final JwtUtils jwtUtils;
 
-    public ApiAuthService(AuthenticationManager authenticationManager, UserRepository userRepository, PasswordEncoder passwordEncoder, JwtUtils jwtUtils) {
+    public ApiAuthService(AuthenticationManager authenticationManager, JwtUtils jwtUtils, UserManagementService userManagementService) {
         this.authenticationManager = authenticationManager;
-        this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
         this.jwtUtils = jwtUtils;
+        this.userManagementService = userManagementService;
     }
 
     /**
@@ -57,14 +52,14 @@ public class ApiAuthService {
      * 利用者を登録する
      */
     public void registerUser(UserId userId, Password password, UserName userName, RoleName role) {
-        User newUser = new User(userId.Value(), userName.FirstName(), userName.LastName(), passwordEncoder.encode(password.Value()), role);
-        userRepository.save(newUser);
+        User newUser = new User(userId.Value(), userName.FirstName(), userName.LastName(), password.Value(), role);
+        userManagementService.regist(newUser);
     }
 
     /**
      * 利用者を検索する
      */
-    public Optional<User> findByUserId(UserId userId) {
-        return userRepository.findByUserId(userId);
+    public User findByUserId(UserId userId) {
+        return userManagementService.findOne(userId);
     }
 }
