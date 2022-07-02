@@ -706,12 +706,10 @@ include::../cypress/integration/UserManagement/UserAuth.feature[]
 ----
 @startuml
 left to right direction
-actor "会員" as member
 actor "スタッフ" as admin
 rectangle 利用者 {
   usecase "利用者の管理" as UC1
 }
-member --> UC1
 admin --> UC1
 @enduml
 ----
