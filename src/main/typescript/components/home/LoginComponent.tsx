@@ -5,6 +5,12 @@ import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 import type {AppDispatch, RootState} from '../../app/store';
 import {authLogin} from "../../features/auth/authSlice";
 import {selectMessage, setMessage} from "../../features/message/messageSlice";
+import {useForm} from "react-hook-form";
+
+type FormData = {
+    userId: String;
+    password: String;
+}
 
 export const Login: React.FC<{}> = () => {
     const navigate = useNavigate();
@@ -13,9 +19,11 @@ export const Login: React.FC<{}> = () => {
     const [password, setPassword] = useState("pAssw0rd");
     const [successful, setSuccessful] = useState(false);
 
+    const {register, handleSubmit, formState: {errors}} = useForm<FormData>();
+
     const dispatch = useDispatch<AppDispatch>();
     const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
-    const {message} = useSelector(selectMessage);
+    const {message} = useAppSelector(selectMessage);
 
     const onChangeUserId = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUserId(e.target.value);
@@ -26,7 +34,6 @@ export const Login: React.FC<{}> = () => {
     }
 
     const handleLogin = async (e: any) => {
-        e.preventDefault();
         setSuccessful(false);
         const resultAction = await dispatch(authLogin({id: userId, password}));
         if (authLogin.fulfilled.match(resultAction)) {
@@ -50,13 +57,16 @@ export const Login: React.FC<{}> = () => {
             <section className="login">
                 <div className="login-container w-container">
                     <div className="login-form">
-                        <form className="login-form" onSubmit={handleLogin}>
+                        <form className="login-form" onSubmit={handleSubmit(handleLogin)}>
+                            {message && <div className="error">{message}</div>}
                             <label htmlFor="username">利用者番号:</label>
-                            <input id="userid" name="userid" type="text" value={userId} onChange={onChangeUserId}/>
+                            <input {...register("userId", {required: true})} value={userId} onChange={onChangeUserId}/>
+                            {errors.userId && <p className="error">利用者番号を入力してください</p>}
                             <label htmlFor="password">パスワード:</label>
-                            <input id="password" name="password" type="password" value={password}
+                            <input {...register("password", {required: true})} type="password" value={password}
                                    onChange={onChangePassword}/>
-                            <button className="btn" type="submit" onClick={handleLogin}>ログイン</button>
+                            {errors.password && <p className="error">パスワードを入力してください</p>}
+                            <button className="btn" type="submit">ログイン</button>
                         </form>
                     </div>
                 </div>
