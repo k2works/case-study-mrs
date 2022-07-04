@@ -1,15 +1,18 @@
 import React from "react";
 import Logo from "../../static/img/logo.svg";
 import "../../static/css/style.scss";
-import {useNavigate} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import {Navigate, useNavigate} from "react-router-dom";
+import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 import type {AppDispatch} from '../../app/store';
+import {RootState} from "../../app/store";
 import {currentUser, logout} from "../../features/auth/authSlice";
 
 export const AppHeader: React.FC<{}> = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
-    const user = useSelector(currentUser);
+    const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+    const user = useAppSelector(currentUser);
+    if (!user) return <Navigate to="/login"/>;
 
     const handleOnClickLogout = () => {
         dispatch(logout());

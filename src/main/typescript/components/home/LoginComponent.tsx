@@ -39,7 +39,7 @@ export const Login: React.FC<{}> = () => {
         if (authLogin.fulfilled.match(resultAction)) {
             dispatch(setMessage(resultAction.payload.message));
             setSuccessful(true);
-            navigate("/reservations");
+            navigate("/rooms");
         } else {
             if (resultAction.payload) {
                 dispatch(setMessage(resultAction.payload.message));
