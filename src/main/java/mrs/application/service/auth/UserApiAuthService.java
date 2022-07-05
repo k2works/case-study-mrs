@@ -44,6 +44,6 @@ public class UserApiAuthService {
         List<String> roles = userDetails.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority).toList();
 
-        return new JwtResponse(jwt, userDetails.getUsername(), roles);
+        return new JwtResponse(jwt, userDetails.getUsername(), roles, userDetails.getUser());
     }
 }

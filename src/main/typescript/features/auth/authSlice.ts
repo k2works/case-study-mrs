@@ -13,6 +13,15 @@ export interface User {
     password: string
     email?: string
     userId?: string
+    userInfo?: {
+        userId: { value: string }
+        password: { value: string }
+        name: {
+            firstName: { value: string }
+            lastName: { value: string }
+        }
+        roleName: string
+    }
 }
 
 interface ValidationErrors {
@@ -113,7 +122,7 @@ export const authSlice = createSlice({
         })
         builder.addCase(authLogin.fulfilled, (state, action) => {
             state.isLoggedIn = true
-            state.user = {id: action.payload.id, password: ''}
+            state.user = action.payload
         })
         builder.addCase(authLogin.rejected, (state, action) => {
             if (action.payload) {

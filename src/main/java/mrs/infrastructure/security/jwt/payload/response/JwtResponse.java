@@ -1,5 +1,7 @@
 package mrs.infrastructure.security.jwt.payload.response;
 
+import mrs.domain.model.auth.user.User;
+
 import java.util.List;
 
 public class JwtResponse {
@@ -8,10 +10,13 @@ public class JwtResponse {
     private String userId;
     private List<String> roles;
 
-    public JwtResponse(String accessToken, String userId, List<String> roles) {
+    private User userInfo;
+
+    public JwtResponse(String accessToken, String userId, List<String> roles, User user) {
         this.token = accessToken;
         this.userId = userId;
         this.roles = roles;
+        this.userInfo = new User(user.UserId(), user.Name(), user.RoleName());
     }
 
     public String getAccessToken() {
@@ -40,5 +45,9 @@ public class JwtResponse {
 
     public List<String> getRoles() {
         return roles;
+    }
+
+    public User getUserInfo() {
+        return userInfo;
     }
 }
