@@ -33,13 +33,13 @@ export const reservationReserve = createAsyncThunk<any,
         start: string,
         end: string,
         roomId: number,
-        username: string
+        userId: string
     },
     {
         rejectValue: ValidationErrors
     }>(
     'reservation/Reserve',
-    async (params: { date: Date, start: string, end: string, roomId: number, username: string }, {rejectWithValue}) => {
+    async (params: { date: Date, start: string, end: string, roomId: number, userId: string }, {rejectWithValue}) => {
         try {
             return await ReservationService.reserve(params)
         } catch (e: any) {

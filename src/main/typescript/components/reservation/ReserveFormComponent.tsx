@@ -1,11 +1,16 @@
 import React, {useEffect, useState} from "react";
 import "../../static/css/style.scss";
 import {AppHeader} from "../share/AppHeaderComponent";
-import {useNavigate} from "react-router-dom";
+import {Navigate, useNavigate} from "react-router-dom";
 import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../app/store";
 import {clearMessage, selectMessage, setMessage} from "../../features/message/messageSlice";
-import {reservationList, reservationState} from "../../features/reservation/reservationSlice";
+import {
+    currentReservedDate,
+    reservationList,
+    reservationReserve,
+    reservationState
+} from "../../features/reservation/reservationSlice";
 import {currentUser} from "../../features/auth/authSlice";
 
 export const ReserveForm: React.FC<{}> = () => {
@@ -13,6 +18,11 @@ export const ReserveForm: React.FC<{}> = () => {
     const dispatch = useDispatch<AppDispatch>();
     const [successful, setSuccessful] = useState(false);
     const state = useSelector(reservationState);
+    const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+    const user = useAppSelector(currentUser);
+    if (!user) return <Navigate to="/login"/>;
+    const {message} = useAppSelector(selectMessage);
+    const reservedDate = useAppSelector(currentReservedDate);
 
     useEffect(() => {
         dispatch(clearMessage());
@@ -34,13 +44,49 @@ export const ReserveForm: React.FC<{}> = () => {
             setSuccessful(false);
         }
     }
-    const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
-    const {message} = useAppSelector(selectMessage);
 
-    const user = useAppSelector(currentUser);
+    const handleRooms = () => {
+        navigate("/rooms");
+    }
+
+    const [startTime, setStartTime] = useState("09:00");
+    const [endTime, setEndTime] = useState("10:00");
+    const handleChangeStartTime = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setStartTime(e.target.value);
+    }
+    const handleChangeEndTime = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setEndTime(e.target.value);
+    }
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        setSuccessful(false);
+
+        const params = {
+            date: new Date(reservedDate),
+            start: startTime,
+            end: endTime,
+            roomId: state.roomId,
+            userId: user.id
+        }
+
+        const resultAction = await dispatch(reservationReserve(params));
+        if (reservationReserve.fulfilled.match(resultAction)) {
+            dispatch(setMessage(resultAction.payload.message));
+            setSuccessful(true);
+            list();
+        } else {
+            if (resultAction.payload) {
+                dispatch(setMessage(resultAction.payload.message));
+            } else {
+                dispatch(setMessage(resultAction.error.message));
+            }
+            setSuccessful(false);
+        }
+    }
+
     const showCancelButton = (userId: string) => {
-        if (user?.userId === userId) return <button onClick={() => {
-        }} type="submit">取消</button>
+        if (user.userId === userId) return <button onClick={() => {
+        }} type="submit" className="app-btn app-btn-accent reserve-form-table-button">取消</button>
     }
 
     return (
@@ -50,22 +96,24 @@ export const ReserveForm: React.FC<{}> = () => {
             <section className="app">
                 <div className="app-container">
                     <div className="message">
-
+                        {!successful && (<p className="error">{message}</p>)}
                     </div>
 
                     <div className="app-decoration">
-                        <form className="app-form" method="post" action="/reservations/2022-06-30/1">
-                            <input type="hidden" name="_csrf" value="cf4c970c-b56c-46cd-872c-9268d01b5085"/>
-                            <a className="app-btn" href="/rooms">戻る</a>
+                        <form className="app-form" onSubmit={e => {
+                            e.preventDefault();
+                            handleSubmit(e).then();
+                        }}>
+                            <a className="app-btn" onClick={handleRooms}>戻る</a>
 
                             <label>会議室:</label>
-                            <span>新木場</span>
+                            <span>{state.roomName}</span>
                             <label> 予約者名:</label>
-                            <span>Aaa Aaa</span>
+                            <span>{user.userId}</span>
                             <label>日付:</label>
-                            <span>2022/6/30</span>
+                            <span>{reservedDate}</span>
                             <label>開始時間:</label>
-                            <select id="startTime" name="startTime">
+                            <select id="startTime" name="startTime" value={startTime} onChange={handleChangeStartTime}>
                                 <option value="00:00">00:00</option>
                                 <option value="00:30">00:30</option>
                                 <option value="01:00">01:00</option>
@@ -84,7 +132,7 @@ export const ReserveForm: React.FC<{}> = () => {
                                 <option value="07:30">07:30</option>
                                 <option value="08:00">08:00</option>
                                 <option value="08:30">08:30</option>
-                                <option value="09:00" selected={true}>09:00</option>
+                                <option value="09:00">09:00</option>
                                 <option value="09:30">09:30</option>
                                 <option value="10:00">10:00</option>
                                 <option value="10:30">10:30</option>
@@ -117,7 +165,7 @@ export const ReserveForm: React.FC<{}> = () => {
                             </select>
 
                             <label>終了時間:</label>
-                            <select id="endTime" name="endTime">
+                            <select id="endTime" name="endTime" value={endTime} onChange={handleChangeEndTime}>
                                 <option value="00:00">00:00</option>
                                 <option value="00:30">00:30</option>
                                 <option value="01:00">01:00</option>
@@ -138,7 +186,7 @@ export const ReserveForm: React.FC<{}> = () => {
                                 <option value="08:30">08:30</option>
                                 <option value="09:00">09:00</option>
                                 <option value="09:30">09:30</option>
-                                <option value="10:00" selected={true}>10:00</option>
+                                <option value="10:00">10:00</option>
                                 <option value="10:30">10:30</option>
                                 <option value="11:00">11:00</option>
                                 <option value="11:30">11:30</option>
@@ -169,7 +217,7 @@ export const ReserveForm: React.FC<{}> = () => {
                             </select>
 
 
-                            <button className="app-btn">予約</button>
+                            <button className="app-btn" type="submit">予約</button>
                         </form>
                     </div>
 
