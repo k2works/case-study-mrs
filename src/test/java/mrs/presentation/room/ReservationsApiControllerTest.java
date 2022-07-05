@@ -17,7 +17,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
-public class ReservationsControllerTest {
+public class ReservationsApiControllerTest {
     MockMvc mockMvc;
 
     @InjectMocks

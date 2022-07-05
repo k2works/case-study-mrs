@@ -26,7 +26,7 @@ public class RoomsApiController {
         this.meetingRoomReservationScenario = meetingRoomReservationScenario;
     }
 
-    @Operation(summary = "会議室一覧の取得", description = "当日tの会議室一覧を取得する")
+    @Operation(summary = "会議室一覧の取得", description = "当日の会議室一覧を取得する")
     @GetMapping
     ReservableRoomList listRooms() {
         return meetingRoomReservationScenario.findReservableRooms(new ReservedDate(LocalDate.now())).orElse(new ReservableRoomList());
