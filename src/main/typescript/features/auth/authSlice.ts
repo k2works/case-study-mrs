@@ -12,7 +12,6 @@ export interface User {
     id: string
     password: string
     email?: string
-    userId?: string
     userInfo?: {
         userId: { value: string }
         password: { value: string }
