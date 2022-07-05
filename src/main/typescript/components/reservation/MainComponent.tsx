@@ -5,7 +5,13 @@ import {AppMenu} from "../share/AppMenuComponent";
 import {useNavigate} from "react-router-dom";
 import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../app/store";
-import {currentReservedDate, decrementReservedDate, roomList, roomState} from "../../features/room/roomSlice";
+import {
+    currentReservedDate,
+    decrementReservedDate,
+    incrementReservedDate,
+    roomList,
+    roomState
+} from "../../features/room/roomSlice";
 import {clearMessage, selectMessage, setMessage} from "../../features/message/messageSlice";
 
 export const Main: React.FC<{}> = () => {
@@ -47,15 +53,16 @@ export const Main: React.FC<{}> = () => {
     }
 
     const handleNextDay = async (e: any) => {
-        dispatch(decrementReservedDate(e.target.value));
+        dispatch(incrementReservedDate(e.target.value));
         const current = new Date(currentDay);
         const nextDay = new Date(current.setDate(current.getDate() + 1));
         await dispatch(roomList(nextDay));
     }
 
     const handleReservableRoom = (e: any) => {
-        const value = e.target.dataset["value"];
-        navigate(`/reservations?page=${value}`);
+        const date = e.target.dataset["date"];
+        const id = e.target.dataset["id"];
+        navigate(`/reservations?date=${date}&id=${id}`);
     }
 
     return (
@@ -78,11 +85,13 @@ export const Main: React.FC<{}> = () => {
                     <div className="app-decoration">
                         <ul>
                             {
-                                room.reservableRooms.value.map(item => (
+                                room.reservableRooms.list.map(item => (
                                     <li>
                                         <a onClick={handleReservableRoom}
-                                           data-value={item.reservableRoomId.reservedDate.value}>
-                                            {item.meetingRoom.roomName.value}
+                                           data-date={item.reservableRoomId.reservedDate.value}
+                                           data-id={item.reservableRoomId.roomId.value}
+                                        >
+                                            {item.meetingRoom.roomName}
                                         </a>
                                     </li>
                                 ))

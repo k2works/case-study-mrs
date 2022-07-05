@@ -44,7 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .authorizeRequests()
                     .antMatchers("/js/**", "/css/**", "/img/**").permitAll()
                     .antMatchers("/", "/content", "/contacts/gust/**").permitAll()
-                    .antMatchers("/api/auth/**").permitAll()
+                    .antMatchers("/api/**").permitAll()
                     .anyRequest().authenticated()
                     .and()
                     // 認証
@@ -88,8 +88,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/js/**", "/css/**", "/img/**").permitAll()
                     .antMatchers("/", "/content", "/contacts/gust/**").permitAll()
                     .antMatchers("/h2-console/**").permitAll()
-                    .antMatchers("/api/auth/**").permitAll()
-                    .antMatchers("/api/test/**").permitAll()
+                    .antMatchers("/api/**").permitAll()
                     .anyRequest().authenticated()
                     .and()
                     // 認証
@@ -148,8 +147,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             http.cors().and().csrf().disable()
                     .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                     .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                    .authorizeRequests().antMatchers("/api/auth/**").permitAll()
-                    .antMatchers("/api/test/**").permitAll()
+                    .authorizeRequests().antMatchers("/api/**").permitAll()
                     .anyRequest().authenticated();
 
             http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);

@@ -27,7 +27,7 @@ export const roomList = createAsyncThunk<any,
 interface ReservableRoom {
     meetingRoom: {
         roomId: { value: number }
-        roomName: { value: string }
+        roomName: string
     }
     reservableRoomId: {
         reservedDate: { value: number }
@@ -36,7 +36,7 @@ interface ReservableRoom {
 }
 
 interface ReservableRooms {
-    value: ReservableRoom[]
+    list: ReservableRoom[]
 }
 
 export type SliceState = {
@@ -55,7 +55,7 @@ const nextDay = (date: Date) => {
 
 const initialState: SliceState = {
     reservedDate: new Date(),
-    reservableRooms: {value: []},
+    reservableRooms: {list: []},
     error: null
 }
 
