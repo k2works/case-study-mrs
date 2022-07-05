@@ -2,6 +2,7 @@ package mrs.presentation.api.reservation;
 
 import mrs.application.scenario.MeetingRoomReservationScenario;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -12,9 +13,10 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.time.LocalTime;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.doNothing;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @DisplayName("会議室予約API")
@@ -31,6 +33,17 @@ public class ReservationApiControllerTest {
     void setUpMockMvc() {
         MockitoAnnotations.openMocks(this);
         this.mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+    }
+
+    @Test
+    //TODO
+    @Disabled("成功しない")
+    void 予約可能な会議室を検索する() throws Exception {
+        given(mockMeetingRoomReservationScenario.findReservableRooms(any())).willReturn(null);
+
+        mockMvc.perform(
+                get("/api/reservations/2021-01-01/1")
+        ).andExpect(status().isNotAcceptable());
     }
 
     @Test

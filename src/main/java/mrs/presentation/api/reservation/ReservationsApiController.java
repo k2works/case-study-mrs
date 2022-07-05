@@ -6,6 +6,7 @@ import mrs.application.scenario.MeetingRoomReservationScenario;
 import mrs.domain.model.auth.user.UserDetailsImpl;
 import mrs.domain.model.reservation.reservation.Reservation;
 import mrs.domain.model.reservation.reservation.ReservationId;
+import mrs.domain.model.reservation.reservation.ReservationList;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -29,6 +30,16 @@ public class ReservationsApiController {
 
     public ReservationsApiController(MeetingRoomReservationScenario meetingRoomReservationScenario) {
         this.meetingRoomReservationScenario = meetingRoomReservationScenario;
+    }
+
+    @Operation(summary = "予約一覧", description = "予約一覧を取得する")
+    @GetMapping
+    ReservationList findReservations(
+            @PathVariable("date")
+            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date, @PathVariable("roomId") Integer roomId
+    ) {
+        ReservableRoomId reservableRoomId = new ReservableRoomId(roomId, date);
+        return meetingRoomReservationScenario.findReservations(reservableRoomId).orElse(new ReservationList());
     }
 
     @Operation(summary = "会議室の予約", description = "選択した会議室を予約する")
