@@ -13,9 +13,21 @@ class ReservationService {
         return axios.get(url, {headers: authHeader()});
     }
 
-    reserve() {
-        return new Promise(() => {
-        })
+    reserve(params: { date: Date, start: string, end: string, roomId: number, username: string }) {
+        const year = params.date.getFullYear()
+        const month = ('0' + (params.date.getMonth() + 1)).slice(-2)
+        const day = ('0' + (params.date.getDate())).slice(-2)
+        const url = `${API_URL}/${year}-${month}-${day}/${params.roomId}?end=${params.end}&start=${params.start}&username=${params.username}`
+
+        console.log(params)
+        return axios
+            .post(url, {headers: authHeader()})
+            .then((response) => {
+                return response.data;
+            })
+            .catch(error => {
+                throw error
+            })
     }
 
     cancel() {

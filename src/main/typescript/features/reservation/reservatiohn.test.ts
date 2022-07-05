@@ -1,6 +1,6 @@
 import apiModule from '../../services/reservationService'
 import {AsyncThunkAction, Dispatch} from "@reduxjs/toolkit";
-import {reservationList} from "./reservationSlice";
+import {reservationList, reservationReserve} from "./reservationSlice";
 
 jest.mock('../../services/reservationService')
 
@@ -136,6 +136,34 @@ describe('reservation reducer', () => {
         test('予約一覧を取得する', async () => {
             const data = await action(dispatch, getState, undefined);
             expect(data.payload).toStrictEqual(result)
+        })
+    })
+
+    describe('reserve', () => {
+        let action: AsyncThunkAction<void, {}, {}>
+
+        let dispatch: Dispatch;
+        let getState: () => unknown;
+
+        let arg: { date: Date, start: string, end: string, roomId: number, username: string };
+        let result: any;
+
+        beforeEach(() => {
+            dispatch = jest.fn();
+            getState = jest.fn();
+
+            api.list.mockClear();
+            api.list.mockResolvedValue(result)
+
+            arg = {date: new Date('2021-04-15'), start: '10:00', end: '11:00', roomId: 1, username: 'aaaa'};
+            result = {}
+
+            action = reservationReserve(arg)
+        })
+
+        test('サービスを呼びだす', async () => {
+            await action(dispatch, getState, undefined);
+            expect(api.reserve).toHaveBeenCalledWith(arg);
         })
     })
 })
