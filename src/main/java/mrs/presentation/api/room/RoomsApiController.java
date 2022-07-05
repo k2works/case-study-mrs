@@ -6,6 +6,7 @@ import mrs.application.scenario.MeetingRoomReservationScenario;
 import mrs.domain.model.reservation.reservation.ReservedDate;
 import mrs.domain.model.reservation.room.ReservableRoomList;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -17,6 +18,7 @@ import java.time.LocalDate;
 @RestController
 @RequestMapping("/api/rooms")
 @Tag(name = "会議室一覧API", description = "会議室一覧API")
+@PreAuthorize("hasRole('一般') or hasRole('管理者')")
 public class RoomsApiController {
     final MeetingRoomReservationScenario meetingRoomReservationScenario;
 
