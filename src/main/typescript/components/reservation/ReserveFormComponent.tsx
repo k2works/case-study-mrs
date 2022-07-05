@@ -1,16 +1,53 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "../../static/css/style.scss";
 import {AppHeader} from "../share/AppHeaderComponent";
-import {AppMenu} from "../share/AppMenuComponent";
+import {useNavigate} from "react-router-dom";
+import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "../../app/store";
+import {clearMessage, selectMessage, setMessage} from "../../features/message/messageSlice";
+import {reservationList, reservationState} from "../../features/reservation/reservationSlice";
+import {currentUser} from "../../features/auth/authSlice";
 
 export const ReserveForm: React.FC<{}> = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch<AppDispatch>();
+    const [successful, setSuccessful] = useState(false);
+    const state = useSelector(reservationState);
+
+    useEffect(() => {
+        dispatch(clearMessage());
+        list();
+    }, []);
+
+    const list = async () => {
+        setSuccessful(false);
+        const resultAction = await dispatch(reservationList({date: state.reservedDate, roomId: state.roomId}))
+        if (reservationList.fulfilled.match(resultAction)) {
+            dispatch(setMessage(resultAction.payload.message));
+            setSuccessful(true);
+        } else {
+            if (resultAction.payload) {
+                dispatch(setMessage(resultAction.payload.message));
+            } else {
+                dispatch(setMessage(resultAction.error.message));
+            }
+            setSuccessful(false);
+        }
+    }
+    const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+    const {message} = useAppSelector(selectMessage);
+
+    const user = useAppSelector(currentUser);
+    const showCancelButton = (userId: string) => {
+        if (user?.userId === userId) return <button onClick={() => {
+        }} type="submit">取消</button>
+    }
+
     return (
         <div>
             <AppHeader/>
 
             <section className="app">
-                <AppMenu/>
-
                 <div className="app-container">
                     <div className="message">
 
@@ -143,24 +180,19 @@ export const ReserveForm: React.FC<{}> = () => {
                                 <th>時間帯</th>
                                 <th>予約者</th>
                             </tr>
-                            <tr>
-                                <td>
-                                    <span>10:00</span></td>
-                                <td>
-                                    <span>Aaa</span></td>
-                                <td>
-                                    <form method="post" action="/reservations/2022-06-30/1">
-                                        <input type="hidden"
-                                               name="_csrf"
-                                               value="cf4c970c-b56c-46cd-872c-9268d01b5085"/>
-                                        <input name="reservationId" value="1" type="hidden"/>
-                                        <button className="app-btn app-btn-accent reserve-form-table-button"
-                                                name="cancel" type="submit">
-                                            取消
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
+                            {
+                                state.reservations.list.map(item => (
+                                    <tr>
+                                        <td>
+                                            <span>{item.reservedTime.startTime}</span></td>
+                                        <td>
+                                            <span>{item.user.name.firstName}</span></td>
+                                        <td>
+                                            {showCancelButton(item.user.userId.value)}
+                                        </td>
+                                    </tr>
+                                ))
+                            }
                             </tbody>
                         </table>
                     </div>

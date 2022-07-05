@@ -13,6 +13,7 @@ import {
     roomState
 } from "../../features/room/roomSlice";
 import {clearMessage, selectMessage, setMessage} from "../../features/message/messageSlice";
+import {setParams} from "../../features/reservation/reservationSlice";
 
 export const Main: React.FC<{}> = () => {
     const navigate = useNavigate();
@@ -62,7 +63,9 @@ export const Main: React.FC<{}> = () => {
     const handleReservableRoom = (e: any) => {
         const date = e.target.dataset["date"];
         const id = e.target.dataset["id"];
-        navigate(`/reservations?date=${date}&id=${id}`);
+        const name = e.target.dataset["name"];
+        dispatch(setParams({reservedDate: date, roomId: id, roomName: name}));
+        navigate(`/reservations?page=${date}-${id}`);
     }
 
     return (
@@ -90,6 +93,7 @@ export const Main: React.FC<{}> = () => {
                                         <a onClick={handleReservableRoom}
                                            data-date={item.reservableRoomId.reservedDate.value}
                                            data-id={item.reservableRoomId.roomId.value}
+                                           data-name={item.meetingRoom.roomName}
                                         >
                                             {item.meetingRoom.roomName}
                                         </a>

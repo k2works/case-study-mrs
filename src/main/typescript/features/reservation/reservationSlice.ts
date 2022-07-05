@@ -41,12 +41,9 @@ interface Reservation {
     reservationId: {
         value: number
     }
-    reservedDateTime: {
-        date: { value: string }
-        time: {
-            start: string
-            end: string
-        }
+    reservedTime: {
+        startTime: string
+        endTime: string
     }
     user: {
         name: {
@@ -62,7 +59,7 @@ interface Reservation {
 }
 
 interface Reservations {
-    value: Reservation[]
+    list: Reservation[]
 }
 
 export type SliceState = {
@@ -77,7 +74,7 @@ const initialState: SliceState = {
     reservedDate: new Date(),
     roomId: 0,
     roomName: '',
-    reservations: {value: []},
+    reservations: {list: []},
     error: null
 }
 

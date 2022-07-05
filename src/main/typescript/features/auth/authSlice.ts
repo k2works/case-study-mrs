@@ -7,10 +7,12 @@ import {RootState} from "../../app/store";
 
 const user = JSON.parse(<string>localStorage.getItem("user"));
 
+//TODO　ユーザー情報を取得する
 export interface User {
     id: string
     password: string
     email?: string
+    userId?: string
 }
 
 interface ValidationErrors {
