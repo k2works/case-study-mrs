@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import mrs.application.scenario.MeetingRoomReservationScenario;
 import mrs.domain.model.auth.user.UserDetailsImpl;
 import mrs.domain.model.reservation.reservation.Reservation;
+import mrs.domain.model.reservation.reservation.ReservationId;
 import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomId;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -42,5 +43,17 @@ public class ReservationsApiController {
         ReservableRoom reservableRoom = new ReservableRoom(new ReservableRoomId(roomId, date));
         Reservation reservation = new Reservation(null, start, end, reservableRoom.ReservableRoomId(), userDetails.getUser());
         meetingRoomReservationScenario.reserve(reservation);
+    }
+
+    @Operation(summary = "会議室の取消", description = "選択した会議室の予約をキャンセルする")
+    @DeleteMapping
+    void cancel(
+            @AuthenticationPrincipal UserDetailsImpl userDetails,
+            @PathVariable("roomId") Integer roomId,
+            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable("date") LocalDate date,
+            @RequestParam(value = "reservationId", required = true) Integer reservationId
+    ) {
+        Reservation reservation = meetingRoomReservationScenario.findOne(new ReservationId(reservationId));
+        meetingRoomReservationScenario.cancel(reservation);
     }
 }

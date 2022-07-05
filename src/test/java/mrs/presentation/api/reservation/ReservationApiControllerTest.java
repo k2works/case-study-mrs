@@ -12,8 +12,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.time.LocalTime;
 
-import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.Mockito.doNothing;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -46,7 +46,12 @@ public class ReservationApiControllerTest {
     }
 
     @Test
-    void 会議室の予約をキャンセルする() {
-        fail();
+    void 会議室の予約をキャンセルする() throws Exception {
+        doNothing().when(mockMeetingRoomReservationScenario).cancel(null);
+
+        mockMvc.perform(
+                delete("/api/reservations/2021-01-01/1")
+                        .param("reservationId", "1")
+        ).andExpect(status().isOk());
     }
 }
