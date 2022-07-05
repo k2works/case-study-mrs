@@ -51,6 +51,29 @@ export const reservationReserve = createAsyncThunk<any,
     }
 )
 
+export const reservationCancel = createAsyncThunk<any,
+    {
+        date: Date,
+        roomId: number,
+        reservationId: number,
+        userId: string
+    },
+    {
+        rejectValue: ValidationErrors
+    }>(
+    'reservation/Reserve',
+    async (params: { date: Date, roomId: number, reservationId: number, userId: string }, {rejectWithValue}) => {
+        try {
+            return await ReservationService.cancel(params)
+        } catch (e: any) {
+            if (!e.response) {
+                throw e
+            }
+            return rejectWithValue(e.response.data)
+        }
+    }
+)
+
 interface Reservation {
     reservableRoom: {
         meetingRoom: {

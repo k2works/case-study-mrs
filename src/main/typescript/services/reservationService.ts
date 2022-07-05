@@ -29,9 +29,21 @@ class ReservationService {
             })
     }
 
-    cancel() {
-        return new Promise(() => {
-        })
+    cancel(params: { date: Date, roomId: number, reservationId: number, userId: string }) {
+        const year = params.date.getFullYear()
+        const month = ('0' + (params.date.getMonth() + 1)).slice(-2)
+        const day = ('0' + (params.date.getDate())).slice(-2)
+        const url = `${API_URL}/${year}-${month}-${day}/${params.roomId}?reservationId=${params.reservationId}&userId=${params.userId}`
+
+        console.log(params)
+        return axios
+            .delete(url, {headers: authHeader()})
+            .then((response) => {
+                return response.data;
+            })
+            .catch(error => {
+                throw error
+            })
     }
 }
 

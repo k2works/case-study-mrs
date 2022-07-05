@@ -1,6 +1,6 @@
 import apiModule from '../../services/reservationService'
 import {AsyncThunkAction, Dispatch} from "@reduxjs/toolkit";
-import {reservationList, reservationReserve} from "./reservationSlice";
+import {reservationCancel, reservationList, reservationReserve} from "./reservationSlice";
 
 jest.mock('../../services/reservationService')
 
@@ -145,7 +145,7 @@ describe('reservation reducer', () => {
         let dispatch: Dispatch;
         let getState: () => unknown;
 
-        let arg: { date: Date, start: string, end: string, roomId: number, username: string };
+        let arg: { date: Date, start: string, end: string, roomId: number, userId: string };
         let result: any;
 
         beforeEach(() => {
@@ -155,7 +155,7 @@ describe('reservation reducer', () => {
             api.list.mockClear();
             api.list.mockResolvedValue(result)
 
-            arg = {date: new Date('2021-04-15'), start: '10:00', end: '11:00', roomId: 1, username: 'aaaa'};
+            arg = {date: new Date('2021-04-15'), start: '10:00', end: '11:00', roomId: 1, userId: 'aaaa'};
             result = {}
 
             action = reservationReserve(arg)
@@ -164,6 +164,35 @@ describe('reservation reducer', () => {
         test('サービスを呼びだす', async () => {
             await action(dispatch, getState, undefined);
             expect(api.reserve).toHaveBeenCalledWith(arg);
+        })
+    })
+
+
+    describe('cancel', () => {
+        let action: AsyncThunkAction<void, {}, {}>
+
+        let dispatch: Dispatch;
+        let getState: () => unknown;
+
+        let arg: { date: Date, roomId: number, reservationId: number, userId: string };
+        let result: any;
+
+        beforeEach(() => {
+            dispatch = jest.fn();
+            getState = jest.fn();
+
+            api.list.mockClear();
+            api.list.mockResolvedValue(result)
+
+            arg = {date: new Date('2021-04-15'), roomId: 1, reservationId: 1, userId: 'aaaa'};
+            result = {}
+
+            action = reservationCancel(arg)
+        })
+
+        test('サービスを呼びだす', async () => {
+            await action(dispatch, getState, undefined);
+            expect(api.cancel).toHaveBeenCalledWith(arg);
         })
     })
 })
