@@ -7,6 +7,7 @@ import {AppDispatch, RootState} from "../../app/store";
 import {clearMessage, selectMessage, setMessage} from "../../features/message/messageSlice";
 import {
     currentReservedDate,
+    reservationCancel,
     reservationList,
     reservationReserve,
     reservationState
@@ -73,7 +74,7 @@ export const ReserveForm: React.FC<{}> = () => {
         if (reservationReserve.fulfilled.match(resultAction)) {
             dispatch(setMessage(resultAction.payload.message));
             setSuccessful(true);
-            list();
+            await list();
         } else {
             if (resultAction.payload) {
                 dispatch(setMessage(resultAction.payload.message));
@@ -84,9 +85,45 @@ export const ReserveForm: React.FC<{}> = () => {
         }
     }
 
-    const showCancelButton = (userId: string) => {
-        if (user.userId === userId) return <button onClick={() => {
-        }} type="submit" className="app-btn app-btn-accent reserve-form-table-button">取消</button>
+    const handleCancel = async (e: any) => {
+        if (!confirm("予約をキャンセルしますか？")) return;
+
+        setSuccessful(false);
+        const reservationId = e.target.dataset["reservationid"];
+        const userId = e.target.dataset["userid"];
+
+        const params = {
+            date: new Date(reservedDate),
+            roomId: state.roomId,
+            reservationId: reservationId,
+            userId: userId
+        };
+        const resultAction = await dispatch(reservationCancel(params));
+        if (reservationCancel.fulfilled.match(resultAction)) {
+            dispatch(setMessage(resultAction.payload.message));
+            setSuccessful(true);
+            await list();
+        } else {
+            if (resultAction.payload) {
+                dispatch(setMessage(resultAction.payload.message));
+            } else {
+                dispatch(setMessage(resultAction.error.message));
+            }
+            setSuccessful(false);
+        }
+    }
+
+    const showCancelButton = (params: { userId: string, reservationId: number }) => {
+        if (user.userId === params.userId)
+            return (
+                <button
+                    onClick={handleCancel}
+                    type="submit"
+                    className="app-btn app-btn-accent reserve-form-table-button"
+                    data-userId={params.userId}
+                    data-reservationid={params.reservationId}
+                >取消</button>
+            )
     }
 
     return (
@@ -236,7 +273,10 @@ export const ReserveForm: React.FC<{}> = () => {
                                         <td>
                                             <span>{item.user.name.firstName}</span></td>
                                         <td>
-                                            {showCancelButton(item.user.userId.value)}
+                                            {showCancelButton({
+                                                userId: item.user.userId.value,
+                                                reservationId: item.reservationId.value
+                                            })}
                                         </td>
                                     </tr>
                                 ))
