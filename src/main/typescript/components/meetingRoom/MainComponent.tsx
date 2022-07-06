@@ -4,7 +4,13 @@ import {AppMenu} from "../share/AppMenuComponent";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "../../app/store";
 import {clearMessage, selectMessage, setMessage} from "../../features/message/messageSlice";
-import {meetingRoomList, meetingRoomState} from "../../features/meetingRoom/meetingRoomSlice";
+import {
+    meetingRoomCreate,
+    meetingRoomDelete,
+    meetingRoomList,
+    meetingRoomState,
+    meetingRoomUpdate
+} from "../../features/meetingRoom/meetingRoomSlice";
 import {useAppSelector} from "../../app/hook";
 
 export const Main: React.FC<{}> = () => {
@@ -38,17 +44,20 @@ export const Main: React.FC<{}> = () => {
         }
     }
 
-    const handleRegistDialog = () => {
+    const handleRegistDialog = (e: any) => {
+        e.preventDefault();
         setRoomId(0);
         setRoomName("");
 
         if (registRef.current) {
             registRef.current.style.left = ((window.innerWidth - 500) / 2) + 'px';
+            registRef.current.style.top = ((window.innerWidth - 500) / 2) + 'px';
             registRef.current.style.display = 'block';
         }
     }
 
     const handleUpdateDialog = (e: any) => {
+        e.preventDefault();
         const id = e.target.dataset["id"];
         const name = e.target.dataset["name"];
         setRoomId(id);
@@ -56,11 +65,13 @@ export const Main: React.FC<{}> = () => {
 
         if (updateRef.current) {
             updateRef.current.style.left = ((window.innerWidth - 500) / 2) + 'px';
+            updateRef.current.style.top = ((window.innerWidth - 500) / 2) + 'px';
             updateRef.current.style.display = 'block';
         }
     }
 
-    const handleClose = () => {
+    const handleClose = (e: any) => {
+        e.preventDefault();
         if (registRef.current) {
             registRef.current.style.display = 'none';
         }
@@ -69,28 +80,89 @@ export const Main: React.FC<{}> = () => {
         }
     }
 
+    const handleRoomId = (e: any) => {
+        setRoomId(e.target.value);
+    }
+
+    const handleRoomName = (e: any) => {
+        setRoomName(e.target.value);
+    }
+
     const formatRoomId = (id: number) => {
         return id.toString().padStart(3, '0');
     }
 
-    function handleRegist() {
+    const handleRegist = async (e: any) => {
+        e.preventDefault();
+        setSuccessful(false);
 
+        const params = {
+            roomId,
+            roomName
+        }
+
+        const resultAction = await dispatch(meetingRoomCreate(params));
+        if (meetingRoomCreate.fulfilled.match(resultAction)) {
+            dispatch(setMessage(resultAction.payload.message));
+            setSuccessful(true);
+            await list();
+        } else {
+            if (resultAction.payload) {
+                dispatch(setMessage(resultAction.payload.message));
+            } else {
+                dispatch(setMessage(resultAction.error.message));
+            }
+            setSuccessful(false);
+        }
     }
 
-    function handleUpdate() {
+    const handleUpdate = async (e: any) => {
+        e.preventDefault();
+        setSuccessful(false);
 
+        const params = {
+            roomId,
+            roomName
+        }
+
+        const resultAction = await dispatch(meetingRoomUpdate(params));
+        if (meetingRoomUpdate.fulfilled.match(resultAction)) {
+            dispatch(setMessage(resultAction.payload.message));
+            setSuccessful(true);
+            await list();
+        } else {
+            if (resultAction.payload) {
+                dispatch(setMessage(resultAction.payload.message));
+            } else {
+                dispatch(setMessage(resultAction.error.message));
+            }
+            setSuccessful(false);
+        }
     }
 
-    function handleDelete() {
+    const handleDelete = async (e: any) => {
+        e.preventDefault();
+        setSuccessful(false);
+        const id = e.target.dataset["id"];
 
-    }
+        const params = {
+            roomId: id,
+            roomName: ""
+        }
 
-    function handleRoomId(e: any) {
-        setRoomId(e.target.value);
-    }
-
-    function handleRoomName(e: any) {
-        setRoomName(e.target.value);
+        const resultAction = await dispatch(meetingRoomDelete(params));
+        if (meetingRoomDelete.fulfilled.match(resultAction)) {
+            dispatch(setMessage(resultAction.payload.message));
+            setSuccessful(true);
+            await list();
+        } else {
+            if (resultAction.payload) {
+                dispatch(setMessage(resultAction.payload.message));
+            } else {
+                dispatch(setMessage(resultAction.error.message));
+            }
+            setSuccessful(false);
+        }
     }
 
     return (
@@ -142,7 +214,11 @@ export const Main: React.FC<{}> = () => {
                                             </button>
                                         </td>
                                         <td>
-                                            <a className="app-btn app-btn-accent" onClick={handleDelete}>削除</a>
+                                            <a className="app-btn app-btn-accent"
+                                               data-id={item.roomId.value}
+                                               onClick={handleDelete}>
+                                                削除
+                                            </a>
                                         </td>
                                     </tr>
                                 ))
@@ -152,7 +228,7 @@ export const Main: React.FC<{}> = () => {
 
                         <div id="registDialog" ref={registRef}>
                             <div>
-                                <form className="app-form" method="post" action="/meetingRooms">
+                                <form className="app-form">
                                     <label>会議室番号</label>
                                     <input id="regist_id" name="roomId" type="text" value={roomId}
                                            onChange={handleRoomId}/>
@@ -165,9 +241,9 @@ export const Main: React.FC<{}> = () => {
                                     <ul>
 
                                     </ul>
-                                    <button className="app-btn" name="regist" type="submit" onClick={handleRegist}>登録
+                                    <button className="app-btn" name="regist" onClick={handleRegist}>登録
                                     </button>
-                                    <button className="app-btn app-btn-accent" type="reset" onClick={handleClose}>キャンセル
+                                    <button className="app-btn app-btn-accent" onClick={handleClose}>キャンセル
                                     </button>
                                 </form>
                             </div>
@@ -175,14 +251,15 @@ export const Main: React.FC<{}> = () => {
 
                         <div id="updateDialog" ref={updateRef}>
                             <div>
-                                <form className="app-form" method="post" action="/meetingRooms">
+                                <form className="app-form">
                                     <label>会議室番号</label>
                                     <input id="update_id" name="roomId" readOnly={true} type="text" value={roomId}/>
                                     <ul>
 
                                     </ul>
                                     <label>会議室名</label>
-                                    <input id="update_roomName" name="roomName" type="text" value={roomName}/>
+                                    <input id="update_roomName" name="roomName" type="text" value={roomName}
+                                           onChange={handleRoomName}/>
                                     <ul>
 
                                     </ul>
