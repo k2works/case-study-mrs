@@ -38,6 +38,60 @@ export const meetingRoomList = createAsyncThunk<any,
     }
 )
 
+export const meetingRoomCreate = createAsyncThunk<any,
+    any,
+    {
+        rejectValue: ValidationErrors
+    }>(
+    'meetingRoom/create',
+    async (params: { roomId: number, roomName: string }, {rejectWithValue}) => {
+        try {
+            return await MeetingRoomService.create(params)
+        } catch (e: any) {
+            if (!e.response) {
+                throw e
+            }
+            return rejectWithValue(e.response.data)
+        }
+    }
+)
+
+export const meetingRoomUpdate = createAsyncThunk<any,
+    any,
+    {
+        rejectValue: ValidationErrors
+    }>(
+    'meetingRoom/update',
+    async (params: { roomId: number, roomName: string }, {rejectWithValue}) => {
+        try {
+            return await MeetingRoomService.update(params)
+        } catch (e: any) {
+            if (!e.response) {
+                throw e
+            }
+            return rejectWithValue(e.response.data)
+        }
+    }
+)
+
+export const meetingRoomDelete = createAsyncThunk<any,
+    any,
+    {
+        rejectValue: ValidationErrors
+    }>(
+    'meetingRoom/delete',
+    async (params: { roomId: number, roomName: string }, {rejectWithValue}) => {
+        try {
+            return await MeetingRoomService.delete(params)
+        } catch (e: any) {
+            if (!e.response) {
+                throw e
+            }
+            return rejectWithValue(e.response.data)
+        }
+    }
+)
+
 const initialState: SliceState = {
     meetingRooms: {list: []},
     error: null

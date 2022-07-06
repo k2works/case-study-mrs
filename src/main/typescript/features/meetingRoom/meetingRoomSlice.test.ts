@@ -1,5 +1,5 @@
 import {AsyncThunkAction, Dispatch} from "@reduxjs/toolkit";
-import {meetingRoomList} from "./meetingRoomSlice";
+import {meetingRoomCreate, meetingRoomDelete, meetingRoomList, meetingRoomUpdate} from "./meetingRoomSlice";
 import apiModule from "../../services/meetingRoomService";
 
 jest.mock('../../services/meetingRoomService');
@@ -285,6 +285,90 @@ describe('meeting room reducer', () => {
         test('会議室一覧を取得する', async () => {
             const data = await action(dispatch, getState, undefined);
             expect(data.payload).toStrictEqual(result)
+        })
+    })
+
+    describe('create', () => {
+        let action: AsyncThunkAction<void, {}, {}>
+
+        let dispatch: Dispatch;
+        let getState: () => unknown;
+
+        let arg: { roomId: number, roomName: string };
+        let result: any;
+
+        beforeEach(() => {
+            dispatch = jest.fn();
+            getState = jest.fn();
+
+            api.list.mockClear();
+            api.list.mockResolvedValue(result)
+
+            arg = {roomId: 1, roomName: '月島'}
+            result = {}
+
+            action = meetingRoomCreate(arg)
+        })
+
+        test('サービスを呼びだす', async () => {
+            await action(dispatch, getState, undefined);
+            expect(api.create).toHaveBeenCalledWith(arg);
+        })
+    })
+
+    describe('update', () => {
+        let action: AsyncThunkAction<void, {}, {}>
+
+        let dispatch: Dispatch;
+        let getState: () => unknown;
+
+        let arg: { roomId: number, roomName: string };
+        let result: any;
+
+        beforeEach(() => {
+            dispatch = jest.fn();
+            getState = jest.fn();
+
+            api.list.mockClear();
+            api.list.mockResolvedValue(result)
+
+            arg = {roomId: 1, roomName: '月島'}
+            result = {}
+
+            action = meetingRoomUpdate(arg)
+        })
+
+        test('サービスを呼びだす', async () => {
+            await action(dispatch, getState, undefined);
+            expect(api.update).toHaveBeenCalledWith(arg);
+        })
+    })
+
+    describe('delete', () => {
+        let action: AsyncThunkAction<void, {}, {}>
+
+        let dispatch: Dispatch;
+        let getState: () => unknown;
+
+        let arg: { roomId: number, roomName: string };
+        let result: any;
+
+        beforeEach(() => {
+            dispatch = jest.fn();
+            getState = jest.fn();
+
+            api.list.mockClear();
+            api.list.mockResolvedValue(result)
+
+            arg = {roomId: 1, roomName: '月島'}
+            result = {}
+
+            action = meetingRoomDelete(arg)
+        })
+
+        test('サービスを呼びだす', async () => {
+            await action(dispatch, getState, undefined);
+            expect(api.delete).toHaveBeenCalledWith(arg);
         })
     })
 })
