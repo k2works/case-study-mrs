@@ -6,6 +6,7 @@ import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 import type {AppDispatch} from '../../app/store';
 import {RootState} from "../../app/store";
 import {currentUser, logout} from "../../features/auth/authSlice";
+import {clearMessage} from "../../features/message/messageSlice";
 
 export const AppHeader: React.FC<{}> = () => {
     const navigate = useNavigate();
@@ -15,6 +16,7 @@ export const AppHeader: React.FC<{}> = () => {
     if (!user) return <Navigate to="/login"/>;
 
     const handleOnClickLogout = () => {
+        dispatch(clearMessage());
         dispatch(logout());
         navigate("/login");
     }

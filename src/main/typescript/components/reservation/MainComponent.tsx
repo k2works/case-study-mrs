@@ -13,7 +13,6 @@ import {
     roomState
 } from "../../features/room/roomSlice";
 import {clearMessage, selectMessage, setMessage} from "../../features/message/messageSlice";
-import {setParams} from "../../features/reservation/reservationSlice";
 
 export const Main: React.FC<{}> = () => {
     const navigate = useNavigate();
@@ -22,7 +21,7 @@ export const Main: React.FC<{}> = () => {
 
     useEffect(() => {
         dispatch(clearMessage());
-        list();
+        list().then(r => (setSuccessful(true)));
     }, []);
 
     const list = async () => {
@@ -64,8 +63,7 @@ export const Main: React.FC<{}> = () => {
         const date = e.target.dataset["date"];
         const id = e.target.dataset["id"];
         const name = e.target.dataset["name"];
-        dispatch(setParams({reservedDate: date, roomId: id, roomName: name}));
-        navigate(`/reservations?page=${date}-${id}`);
+        navigate(`/reservations?page=${date}-${id}`, {state: {date: date, roomId: id, roomName: name}});
     }
 
     return (

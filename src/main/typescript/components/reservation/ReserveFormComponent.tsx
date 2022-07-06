@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import "../../static/css/style.scss";
 import {AppHeader} from "../share/AppHeaderComponent";
-import {Navigate, useNavigate} from "react-router-dom";
+import {Navigate, useLocation, useNavigate} from "react-router-dom";
 import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../app/store";
 import {clearMessage, selectMessage, setMessage} from "../../features/message/messageSlice";
@@ -10,7 +10,8 @@ import {
     reservationCancel,
     reservationList,
     reservationReserve,
-    reservationState
+    reservationState,
+    setParams
 } from "../../features/reservation/reservationSlice";
 import {currentUser} from "../../features/auth/authSlice";
 
@@ -24,15 +25,21 @@ export const ReserveForm: React.FC<{}> = () => {
     if (!user) return <Navigate to="/login"/>;
     const {message} = useAppSelector(selectMessage);
     const reservedDate = useAppSelector(currentReservedDate);
+    const location: any = useLocation();
 
     useEffect(() => {
         dispatch(clearMessage());
-        list();
+        dispatch(setParams({
+            reservedDate: location.state.date,
+            roomId: location.state.roomId,
+            roomName: location.state.roomName
+        }));
+        list().then(r => (setSuccessful(true)));
     }, []);
 
     const list = async () => {
         setSuccessful(false);
-        const resultAction = await dispatch(reservationList({date: state.reservedDate, roomId: state.roomId}))
+        const resultAction = await dispatch(reservationList({date: state.reservedDate, roomId: location.state.roomId}))
         if (reservationList.fulfilled.match(resultAction)) {
             dispatch(setMessage(resultAction.payload.message));
             setSuccessful(true);
