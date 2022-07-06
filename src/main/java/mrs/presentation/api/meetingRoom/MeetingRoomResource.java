@@ -1,18 +1,14 @@
-package mrs.presentation.meetingRoom;
+package mrs.presentation.api.meetingRoom;
 
-import javax.validation.constraints.NotNull;
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.io.Serializable;
 
-/**
- * 会議室API
- */
-public class MeetingRoomForm implements Serializable {
+@Schema(description = "会議室")
+public class MeetingRoomResource implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @NotNull
     private Integer roomId;
-
-    @NotNull
     private String roomName;
 
     public Integer getRoomId() {
