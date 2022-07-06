@@ -8,6 +8,7 @@ import {Main as Rooms} from "../components/reservation/MainComponent";
 import {ReserveForm} from "../components/reservation/ReserveFormComponent";
 import {Contact} from "../components/home/ContactComponent";
 import {ContactRegist} from "../components/reservation/ContactComponent";
+import {Main as MeetingRooms} from "../components/meetingRoom/MainComponent";
 
 const AppContainer: React.FC = () => {
     return (
@@ -20,6 +21,7 @@ const AppContainer: React.FC = () => {
                 <Route path="/rooms" element={<Rooms/>}/>
                 <Route path="/reservations" element={<ReserveForm/>}/>
                 <Route path="/contact_regist" element={<ContactRegist/>}/>
+                <Route path="/meeting_rooms" element={<MeetingRooms/>}/>
             </Routes>
         </div>
     );
