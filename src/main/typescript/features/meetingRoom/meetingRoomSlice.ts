@@ -7,7 +7,7 @@ interface ValidationErrors {
 }
 
 interface MeetingRoom {
-    roomId: number
+    roomId: { value: number }
     roomName: string
 }
 
