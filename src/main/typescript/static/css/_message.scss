@@ -1,0 +1,15 @@
+/* メッセージ */
+
+.message {
+  font-size: clamp(30px, 3vw, 40px);
+}
+
+.message .error {
+  font-weight: bold;
+  color: #ff0000;
+}
+
+.message .success {
+  font-weight: bold;
+  color: #008000;
+}
