@@ -94,6 +94,10 @@ public class UserController {
             if (id.equals(principal.getName()))
                 throw new AccessDeniedException(message.getMessageByKey("user_delete_exception"));
             UserId userId = new UserId(id);
+            User user = this.userManagementService.findOne(userId);
+            if (user.getReservations().size() > 0)
+                throw new AccessDeniedException(message.getMessageByKey("user_reserved_delete_exception"));
+
             this.userManagementService.delete(userId);
             model.addAttribute("success", message.getMessageByKey("user_delete"));
         } catch (Exception e) {

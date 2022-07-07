@@ -8,11 +8,14 @@ import mrs.domain.model.auth.user.RoleName;
 import mrs.domain.model.auth.user.User;
 import mrs.domain.model.auth.user.UserId;
 import mrs.infrastructure.PageNation;
+import mrs.infrastructure.datasource.Message;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.file.AccessDeniedException;
+import java.security.Principal;
 import java.util.List;
 
 /**
@@ -26,8 +29,11 @@ import java.util.List;
 public class UserApiController {
     final UserManagementService userManagementService;
 
-    public UserApiController(UserManagementService userManagementService) {
+    final Message message;
+
+    public UserApiController(UserManagementService userManagementService, Message message) {
         this.userManagementService = userManagementService;
+        this.message = message;
     }
 
     @Operation(summary = "利用者一覧の取得", description = "利用者一覧を取得する")
@@ -56,8 +62,17 @@ public class UserApiController {
 
     @Operation(summary = "利用者の削除", description = "利用者を削除する")
     @DeleteMapping("/{userId}")
-    void delete(@PathVariable("userId") String id) {
+    void delete(
+            Principal principal,
+            @PathVariable("userId") String id
+    ) throws AccessDeniedException {
+        if (id.equals(principal.getName()))
+            throw new AccessDeniedException(message.getMessageByKey("user_delete_exception"));
         UserId userId = new UserId(id);
+        User user = this.userManagementService.findOne(userId);
+        if (user.getReservations().size() > 0)
+            throw new AccessDeniedException(message.getMessageByKey("user_reserved_delete_exception"));
+
         userManagementService.delete(userId);
     }
 
