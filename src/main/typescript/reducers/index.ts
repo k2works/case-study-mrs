@@ -5,6 +5,7 @@ import roomReducer from '../features/room/roomSlice'
 import reservationReducer from '../features/reservation/reservationSlice'
 import meetingRoomReducer from '../features/meetingRoom/meetingRoomSlice'
 import reservableRoomReducer from '../features/reservableRoom/reservableRoomSlice'
+import userReducer from '../features/user/userSlice'
 
 const rootReducer = combineReducers({
     auth: authReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
     room: roomReducer,
     reservation: reservationReducer,
     meetingRoom: meetingRoomReducer,
-    reservableRoom: reservableRoomReducer
+    reservableRoom: reservableRoomReducer,
+    user: userReducer
 });
 
 export default rootReducer;
