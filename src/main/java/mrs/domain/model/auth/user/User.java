@@ -19,8 +19,9 @@ public class User {
     private List<Reservation> reservations;
 
     public User(String userId, String firstName, String lastName, String password, RoleName roleName) {
-        if (userId == null) throw new UserException("利用者番号が未入力です");
-        if (firstName == null || lastName == null) throw new UserException("名前が未入力です");
+        if (userId == null || userId.isEmpty()) throw new UserException("利用者番号が未入力です");
+        if (firstName == null || lastName == null || firstName.isEmpty() || lastName.isEmpty())
+            throw new UserException("名前が未入力です");
         if (roleName == null) throw new UserException("役割が未入力です");
 
         this.userId = new UserId(userId);
