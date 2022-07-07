@@ -11,12 +11,14 @@ import {
     reservableRoomList,
     reservableRoomState
 } from "../../features/reservableRoom/reservableRoomSlice";
+import {meetingRoomListBox, meetingRoomState} from "../../features/meetingRoom/meetingRoomSlice";
 
 export const Main: React.FC<{}> = () => {
     const dispatch = useDispatch<AppDispatch>();
     const [successful, setSuccessful] = useState(false);
     const {message} = useAppSelector(selectMessage);
     const reservableRoom = useAppSelector(reservableRoomState);
+    const meetingRoom = useAppSelector(meetingRoomState);
     const [roomId, setRoomId] = useState(0);
     const [reservedDate, setReservedDate] = useState("");
     const registRef = useRef<HTMLDivElement>(null);
@@ -24,6 +26,7 @@ export const Main: React.FC<{}> = () => {
     useEffect(() => {
         dispatch(clearMessage());
         list().then(r => (setSuccessful(true)));
+        listBox().then(r => (setSuccessful(true)));
     }, []);
 
     const list = async () => {
@@ -122,6 +125,23 @@ export const Main: React.FC<{}> = () => {
             setSuccessful(false);
         }
     }
+
+    const listBox = async () => {
+        setSuccessful(false);
+        const resultAction = await dispatch(meetingRoomListBox(1));
+        if (meetingRoomListBox.fulfilled.match(resultAction)) {
+            dispatch(setMessage(resultAction.payload.message));
+            setSuccessful(true);
+        } else {
+            if (resultAction.payload) {
+                dispatch(setMessage(resultAction.payload.message));
+            } else {
+                dispatch(setMessage(resultAction.error.message));
+            }
+            setSuccessful(false);
+        }
+    }
+
     return (
         <div>
             <AppHeader/>
@@ -190,13 +210,11 @@ export const Main: React.FC<{}> = () => {
                                     <label>会議室</label>
                                     <select id="regist_id" name="roomId" value={roomId} onChange={handleRoomId}>
                                         <option value="">---</option>
-                                        <option value="1">新木場</option>
-                                        <option value="2">辰巳</option>
-                                        <option value="3">豊洲</option>
-                                        <option value="4">月島</option>
-                                        <option value="5">新富町</option>
-                                        <option value="6">銀座一丁目</option>
-                                        <option value="7">有楽町</option>
+                                        {
+                                            Object.entries(meetingRoom.meetingRoomListBox).map(([key, value]: any) => (
+                                                <option value={key}>{value}</option>
+                                            ))
+                                        }
                                     </select>
                                     <ul>
 

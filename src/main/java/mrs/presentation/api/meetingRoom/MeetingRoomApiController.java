@@ -12,6 +12,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -55,5 +56,11 @@ public class MeetingRoomApiController {
     @DeleteMapping("/{roomId}")
     void delete(@PathVariable Integer roomId) {
         meetingRoomService.deleteMeetingRoom(roomId);
+    }
+
+    @Operation(summary = "会議室リストボックス", description = "会議室リストボックスを取得する")
+    @GetMapping("/listbox")
+    Map<Integer, String> listbox() {
+        return meetingRoomService.createRoomNameMap();
     }
 }

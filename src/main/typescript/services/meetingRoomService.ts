@@ -19,6 +19,10 @@ class MeetingRoomService {
     delete(params: { roomId: number; roomName: string }) {
         return axios.delete(API_URL + "/" + params.roomId, {headers: authHeader()});
     }
+
+    listbox() {
+        return axios.get(API_URL + "/listbox", {headers: authHeader()});
+    }
 }
 
 export default new MeetingRoomService();
