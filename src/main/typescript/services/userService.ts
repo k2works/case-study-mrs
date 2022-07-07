@@ -12,6 +12,10 @@ class UserService {
         return axios.post(API_URL, param, {headers: authHeader()});
     }
 
+    update(param: { userId: string; password: string; firstName: string; lastName: string, roleName: string }) {
+        return axios.put(API_URL + "/" + param.userId, param, {headers: authHeader()});
+    }
+
     roleNames() {
         return axios.get(API_URL + "/roleNames", {headers: authHeader()});
     }

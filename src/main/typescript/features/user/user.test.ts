@@ -1,6 +1,6 @@
 import apiModule from "../../services/userService";
 import {AsyncThunkAction, Dispatch} from "@reduxjs/toolkit";
-import {userCreate, userList} from "./userSlice";
+import {userCreate, userList, userUpdate} from "./userSlice";
 
 jest.mock('../../services/userService')
 
@@ -358,4 +358,33 @@ describe('room reducer', () => {
             expect(api.create).toHaveBeenCalledWith(arg);
         })
     })
+
+    describe('update', () => {
+        let action: AsyncThunkAction<void, {}, {}>
+
+        let dispatch: Dispatch;
+        let getState: () => unknown;
+
+        let arg: { userId: string, password: string, firstName: string, lastName: string, roleName: string };
+        let result: any;
+
+        beforeEach(() => {
+            dispatch = jest.fn();
+            getState = jest.fn();
+
+            api.list.mockClear();
+            api.list.mockResolvedValue(result)
+
+            arg = {userId: "U000001", password: "pAssw0rd", firstName: "テスト更新", lastName: "太郎更新", roleName: "管理者"};
+            result = {}
+
+            action = userUpdate(arg)
+        })
+
+        test('サービスを呼びだす', async () => {
+            await action(dispatch, getState, undefined);
+            expect(api.update).toHaveBeenCalledWith(arg);
+        })
+    })
+
 })

@@ -42,6 +42,24 @@ export const userCreate = createAsyncThunk<any,
     }
 )
 
+export const userUpdate = createAsyncThunk<any,
+    any,
+    {
+        rejectValue: ValidationErrors
+    }>(
+    'user/update',
+    async (params: { userId: string; password: string; firstName: string; lastName: string, roleName: string }, {rejectWithValue}) => {
+        try {
+            return await UserService.update(params)
+        } catch (e: any) {
+            if (!e.response) {
+                throw e
+            }
+            return rejectWithValue(e.response.data)
+        }
+    }
+)
+
 export const roleNames = createAsyncThunk<any,
     any,
     {
@@ -82,14 +100,6 @@ export type SliceState = {
     users: users
     roleNames: string[]
     error: string | null | undefined
-}
-
-const preDay = (date: Date) => {
-    return new Date(date.setDate(date.getDate() - 1))
-}
-
-const nextDay = (date: Date) => {
-    return new Date(date.setDate(date.getDate() + 1))
 }
 
 const initialState: SliceState = {
