@@ -254,8 +254,8 @@ export const Main: React.FC<{}> = () => {
                                 user.users.list.map((item: any) => (
                                     <tr>
                                         <td>{item.userId.value}</td>
-                                        <td>{item.name.lastName}</td>
                                         <td>{item.name.firstName}</td>
+                                        <td>{item.name.lastName}</td>
                                         <td>{item.roleName}</td>
                                         <td>
                                             <button
