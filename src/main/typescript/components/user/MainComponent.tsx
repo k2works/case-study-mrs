@@ -5,14 +5,17 @@ import {useDispatch} from "react-redux";
 import {AppDispatch} from "../../app/store";
 import {useAppSelector} from "../../app/hook";
 import {clearMessage, selectMessage, setMessage} from "../../features/message/messageSlice";
-import {roleNames, userCreate, userList, userState} from "../../features/user/userSlice";
+import {roleNames, userCreate, userList, userState, userUpdate} from "../../features/user/userSlice";
 import {useForm} from "react-hook-form";
 
 type FormData = {
-    userId: String;
-    firstName: String;
-    lastName: String;
-    password: String;
+    registUserId: String;
+    registFirstName: String;
+    registLastName: String;
+    registPassword: String;
+    updateFirstName: String;
+    updateLastName: String;
+    updatePassword: String;
 }
 
 export const Main: React.FC<{}> = () => {
@@ -27,7 +30,7 @@ export const Main: React.FC<{}> = () => {
     const [userRoleName, setUserRoleName] = useState('');
     const registRef = useRef<HTMLDivElement>(null);
     const updateRef = useRef<HTMLDivElement>(null);
-    const {register, handleSubmit, formState: {errors}} = useForm<FormData>();
+    const {setValue, register, handleSubmit, formState: {errors}} = useForm<FormData>();
 
     useEffect(() => {
         dispatch(clearMessage());
@@ -71,9 +74,9 @@ export const Main: React.FC<{}> = () => {
         e.preventDefault();
 
         setUserId('');
-        setUserPassword('');
         setUserFirstName('');
         setUserLastName('');
+        setUserPassword('');
         setUserRoleName('一般');
 
         if (registRef.current) {
@@ -85,6 +88,20 @@ export const Main: React.FC<{}> = () => {
 
     const handleUpdateDialog = (e: any) => {
         e.preventDefault();
+
+        const userId = e.target.dataset.userId;
+        const userFirstName = e.target.dataset.userFirstName;
+        const userLastName = e.target.dataset.userLastName;
+        const userRoleName = e.target.dataset.userRoleName;
+
+        setUserId(userId);
+        setUserPassword('');
+        setUserFirstName(userFirstName);
+        setUserLastName(userLastName);
+        setUserRoleName(userRoleName);
+
+        setValue('updateFirstName', userFirstName, {shouldValidate: true})
+        setValue('updateLastName', userLastName, {shouldValidate: true})
 
         if (updateRef.current) {
             updateRef.current.style.left = ((window.innerWidth - 500) / 2) + 'px';
@@ -123,6 +140,7 @@ export const Main: React.FC<{}> = () => {
         setUserRoleName(e.target.value);
     }
 
+    //TODO handleSubmitが機能しない
     const handleRegist = async (e: any) => {
         e.preventDefault();
         setSuccessful(false);
@@ -137,6 +155,33 @@ export const Main: React.FC<{}> = () => {
 
         const resultAction = await dispatch(userCreate(params));
         if (userCreate.fulfilled.match(resultAction)) {
+            dispatch(setMessage(resultAction.payload.message));
+            setSuccessful(true);
+            await list();
+        } else {
+            if (resultAction.payload) {
+                dispatch(setMessage(resultAction.payload.message));
+            } else {
+                dispatch(setMessage(resultAction.error.message));
+            }
+            setSuccessful(false);
+        }
+    }
+
+    const handleUpdate = async (e: any) => {
+        e.preventDefault();
+        setSuccessful(false);
+
+        const params = {
+            userId: userId,
+            password: userPassword,
+            firstName: userFirstName,
+            lastName: userLastName,
+            roleName: userRoleName
+        }
+
+        const resultAction = await dispatch(userUpdate(params));
+        if (userUpdate.fulfilled.match(resultAction)) {
             dispatch(setMessage(resultAction.payload.message));
             setSuccessful(true);
             await list();
@@ -189,7 +234,13 @@ export const Main: React.FC<{}> = () => {
                                         <td>{item.name.firstName}</td>
                                         <td>{item.roleName}</td>
                                         <td>
-                                            <button className="app-btn" onClick={handleUpdateDialog}>
+                                            <button
+                                                className="app-btn"
+                                                data-user-id={item.userId.value}
+                                                data-user-first-name={item.name.firstName}
+                                                data-user-last-name={item.name.lastName}
+                                                data-user-role-name={item.roleName}
+                                                onClick={handleUpdateDialog}>
                                                 編集
                                             </button>
                                         </td>
@@ -204,40 +255,40 @@ export const Main: React.FC<{}> = () => {
 
                         <div id="registDialog" ref={registRef}>
                             <div>
-                                <form className="app-form">
+                                <form className="app-form" onSubmit={handleSubmit(handleRegist)}>
                                     <label>利用者番号</label>
-                                    <input {...register("userId", {required: true})} id="regist_id" name="userId"
-                                           type="text" value={userId} onChange={handleUserId}/>
+                                    <input {...register("registUserId", {required: true})}
+                                           value={userId} onChange={handleUserId}/>
                                     <ul>
-                                        {errors.userId && <li className="error">利用者番号を入力してください</li>}
+                                        {errors.registUserId && <li className="error">利用者番号を入力してください</li>}
                                     </ul>
 
                                     <label>姓</label>
-                                    <input  {...register("firstName", {required: true})} id="regist_firstName"
-                                            name="firstName" type="text" value={userFirstName}
+                                    <input  {...register("registFirstName", {required: true})}
+                                            value={userFirstName}
                                             onChange={handleUserFirstName}/>
                                     <ul>
-                                        {errors.firstName && <li className="error">姓を入力してください</li>}
+                                        {errors.registFirstName && <li className="error">姓を入力してください</li>}
                                     </ul>
 
                                     <label>名</label>
-                                    <input  {...register("lastName", {required: true})} id="regist_lastName"
-                                            name="lastName" type="text" value={userLastName}
+                                    <input  {...register("registLastName", {required: true})}
+                                            value={userLastName}
                                             onChange={handleUserLastName}/>
                                     <ul>
-                                        {errors.lastName && <li className="error">姓を入力してください</li>}
+                                        {errors.registLastName && <li className="error">姓を入力してください</li>}
                                     </ul>
 
                                     <label>パスワード</label>
-                                    <input  {...register("password", {required: true})} id="regist_password"
-                                            name="password" type="password" value={userPassword}
+                                    <input  {...register("registPassword", {required: true})}
+                                            type="password" value={userPassword}
                                             onChange={handleUserPassword}/>
                                     <ul>
-                                        {errors.password && <li className="error">パスワードを入力してください</li>}
+                                        {errors.registPassword && <li className="error">パスワードを入力してください</li>}
                                     </ul>
 
                                     <label>役割</label>
-                                    <select id="regist_role" name="roleName" value={userRoleName}
+                                    <select value={userRoleName}
                                             onChange={handleUserRoleName}>
                                         {
                                             user.roleNames.map((item: any) => (
@@ -248,7 +299,7 @@ export const Main: React.FC<{}> = () => {
                                     <ul>
 
                                     </ul>
-                                    <button className="app-btn" name="regist" onClick={handleSubmit(handleRegist)}>登録
+                                    <button className="app-btn" name="regist" type="submit" onClick={handleRegist}>登録
                                     </button>
                                     <button className="app-btn app-btn-accent" onClick={handleClose}>キャンセル</button>
                                 </form>
@@ -259,32 +310,44 @@ export const Main: React.FC<{}> = () => {
                             <div>
                                 <form className="app-form">
                                     <label>利用者番号</label>
-                                    <input id="update_id" name="userId" readOnly={true} type="text" value=""/>
+                                    <input name="updateUserId" readOnly={true} type="text" value={userId}/>
+
                                     <label>姓</label>
-                                    <input id="update_firstName" name="firstName" type="text" value=""/>
+                                    <input  {...register("updateFirstName", {required: true})}
+                                            value={userFirstName}
+                                            onChange={handleUserFirstName}/>
                                     <ul>
-
+                                        {errors.updateFirstName && <li className="error">姓を入力してください</li>}
                                     </ul>
+
                                     <label>名</label>
-                                    <input id="update_lastName" name="lastName" type="text" value=""/>
+                                    <input  {...register("updateLastName", {required: true})}
+                                            value={userLastName}
+                                            onChange={handleUserLastName}/>
                                     <ul>
-
+                                        {errors.updateLastName && <li className="error">名を入力してください</li>}
                                     </ul>
+
                                     <label>パスワード</label>
-                                    <input id="update_password" name="password" type="password" value=""/>
+                                    <input id="update_password" name="password" type="password" value={userPassword}
+                                           onChange={handleUserPassword}/>
                                     <ul>
                                         <li>未入力の場合はパスワード未更新</li>
-
                                     </ul>
+
                                     <label>役割</label>
-                                    <select id="update_role" name="roleName">
-                                        <option value="一般">一般</option>
-                                        <option value="管理者">管理者</option>
+                                    <select value={userRoleName}
+                                            onChange={handleUserRoleName}>
+                                        {
+                                            user.roleNames.map((item: any) => (
+                                                <option value={item}>{item}</option>
+                                            ))
+                                        }
                                     </select>
                                     <ul>
 
                                     </ul>
-                                    <button className="app-btn" name="update">登録</button>
+                                    <button className="app-btn" name="update" onClick={handleUpdate}>登録</button>
                                     <button className="app-btn app-btn-accent" onClick={handleClose}>キャンセル
                                     </button>
                                 </form>
