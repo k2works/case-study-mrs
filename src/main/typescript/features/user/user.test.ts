@@ -1,6 +1,6 @@
 import apiModule from "../../services/userService";
 import {AsyncThunkAction, Dispatch} from "@reduxjs/toolkit";
-import {userCreate, userList, userUpdate} from "./userSlice";
+import {userCreate, userDelete, userList, userUpdate} from "./userSlice";
 
 jest.mock('../../services/userService')
 
@@ -387,4 +387,31 @@ describe('room reducer', () => {
         })
     })
 
+    describe('delete', () => {
+        let action: AsyncThunkAction<void, {}, {}>
+
+        let dispatch: Dispatch;
+        let getState: () => unknown;
+
+        let arg: { userId: string };
+        let result: any;
+
+        beforeEach(() => {
+            dispatch = jest.fn();
+            getState = jest.fn();
+
+            api.list.mockClear();
+            api.list.mockResolvedValue(result)
+
+            arg = {userId: "U000001"};
+            result = {}
+
+            action = userDelete(arg)
+        })
+
+        test('サービスを呼びだす', async () => {
+            await action(dispatch, getState, undefined);
+            expect(api.delete).toHaveBeenCalledWith(arg);
+        })
+    })
 })

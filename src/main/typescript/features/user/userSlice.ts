@@ -60,6 +60,24 @@ export const userUpdate = createAsyncThunk<any,
     }
 )
 
+export const userDelete = createAsyncThunk<any,
+    any,
+    {
+        rejectValue: ValidationErrors
+    }>(
+    'user/delete',
+    async (params: { userId: string }, {rejectWithValue}) => {
+        try {
+            return await UserService.delete(params)
+        } catch (e: any) {
+            if (!e.response) {
+                throw e
+            }
+            return rejectWithValue(e.response.data)
+        }
+    }
+)
+
 export const roleNames = createAsyncThunk<any,
     any,
     {

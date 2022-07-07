@@ -16,6 +16,10 @@ class UserService {
         return axios.put(API_URL + "/" + param.userId, param, {headers: authHeader()});
     }
 
+    delete(param: { userId: string }) {
+        return axios.delete(API_URL + "/" + param.userId, {headers: authHeader()});
+    }
+
     roleNames() {
         return axios.get(API_URL + "/roleNames", {headers: authHeader()});
     }
