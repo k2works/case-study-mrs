@@ -5,13 +5,18 @@ import {useDispatch} from "react-redux";
 import {AppDispatch} from "../../app/store";
 import {useAppSelector} from "../../app/hook";
 import {clearMessage, selectMessage, setMessage} from "../../features/message/messageSlice";
-import {userList, userState} from "../../features/user/userSlice";
+import {userCreate, userList, userState} from "../../features/user/userSlice";
 
 export const Main: React.FC<{}> = () => {
     const dispatch = useDispatch<AppDispatch>();
     const [successful, setSuccessful] = useState(false);
     const {message} = useAppSelector(selectMessage);
     const user = useAppSelector(userState);
+    const [userId, setUserId] = useState('');
+    const [userPassword, setUserPassword] = useState('');
+    const [userFirstName, setUserFirstName] = useState('');
+    const [userLastName, setUserLastName] = useState('');
+    const [userRoleName, setUserRoleName] = useState('一般');
     const registRef = useRef<HTMLDivElement>(null);
     const updateRef = useRef<HTMLDivElement>(null);
 
@@ -65,6 +70,54 @@ export const Main: React.FC<{}> = () => {
             updateRef.current.style.display = 'none';
         }
     }
+
+    const handleUserId = (e: any) => {
+        setUserId(e.target.value);
+    }
+
+    const handleUserPassword = (e: any) => {
+        setUserPassword(e.target.value);
+    }
+
+    const handleUserFirstName = (e: any) => {
+        setUserFirstName(e.target.value);
+    }
+
+    const handleUserLastName = (e: any) => {
+        setUserLastName(e.target.value);
+    }
+
+    const handleUserRoleName = (e: any) => {
+        setUserRoleName(e.target.value);
+    }
+
+    const handleRegist = async (e: any) => {
+        e.preventDefault();
+        setSuccessful(false);
+
+        const params = {
+            userId: userId,
+            password: userPassword,
+            firstName: userFirstName,
+            lastName: userLastName,
+            roleName: userRoleName
+        }
+
+        const resultAction = await dispatch(userCreate(params));
+        if (userCreate.fulfilled.match(resultAction)) {
+            dispatch(setMessage(resultAction.payload.message));
+            setSuccessful(true);
+            await list();
+        } else {
+            if (resultAction.payload) {
+                dispatch(setMessage(resultAction.payload.message));
+            } else {
+                dispatch(setMessage(resultAction.error.message));
+            }
+            setSuccessful(false);
+        }
+    }
+
 
     return (
         <div>
@@ -121,36 +174,39 @@ export const Main: React.FC<{}> = () => {
                             <div>
                                 <form className="app-form">
                                     <label>利用者番号</label>
-                                    <input id="regist_id" name="userId" type="text" value=""/>
+                                    <input id="regist_id" name="userId" type="text" value={userId}
+                                           onChange={handleUserId}/>
                                     <ul>
 
                                     </ul>
                                     <label>姓</label>
-                                    <input id="regist_firstName" name="firstName" type="text" value=""/>
+                                    <input id="regist_firstName" name="firstName" type="text" value={userFirstName}
+                                           onChange={handleUserFirstName}/>
                                     <ul>
 
                                     </ul>
                                     <label>名</label>
-                                    <input id="regist_lastName" name="lastName" type="text" value=""/>
+                                    <input id="regist_lastName" name="lastName" type="text" value={userLastName}
+                                           onChange={handleUserLastName}/>
                                     <ul>
 
                                     </ul>
                                     <label>パスワード</label>
-                                    <input id="regist_password" name="password" type="password" value=""/>
+                                    <input id="regist_password" name="password" type="password" value={userPassword}
+                                           onChange={handleUserPassword}/>
                                     <ul>
 
                                     </ul>
                                     <label>役割</label>
-                                    <select id="regist_role" name="roleName">
+                                    <select id="regist_role" name="roleName" value={userRoleName}>
                                         <option value="一般">一般</option>
                                         <option value="管理者">管理者</option>
                                     </select>
                                     <ul>
 
                                     </ul>
-                                    <button className="app-btn" name="regist">登録</button>
-                                    <button className="app-btn app-btn-accent" onClick={handleClose}>キャンセル
-                                    </button>
+                                    <button className="app-btn" name="regist" onClick={handleRegist}>登録</button>
+                                    <button className="app-btn app-btn-accent" onClick={handleClose}>キャンセル</button>
                                 </form>
                             </div>
                         </div>

@@ -24,7 +24,25 @@ export const userList = createAsyncThunk<any,
     }
 )
 
-interface Uer {
+export const userCreate = createAsyncThunk<any,
+    any,
+    {
+        rejectValue: ValidationErrors
+    }>(
+    'user/create',
+    async (params: { userId: string; password: string; firstName: string; lastName: string, roleName: string }, {rejectWithValue}) => {
+        try {
+            return await UserService.create(params)
+        } catch (e: any) {
+            if (!e.response) {
+                throw e
+            }
+            return rejectWithValue(e.response.data)
+        }
+    }
+)
+
+interface User {
     userId: {
         value: string
     },
@@ -39,7 +57,7 @@ interface Uer {
 }
 
 interface users {
-    list: Uer[]
+    list: User[]
 }
 
 export type SliceState = {
