@@ -5,7 +5,7 @@ import {useDispatch} from "react-redux";
 import {AppDispatch} from "../../app/store";
 import {useAppSelector} from "../../app/hook";
 import {clearMessage, selectMessage, setMessage} from "../../features/message/messageSlice";
-import {roleNames, userCreate, userList, userState, userUpdate} from "../../features/user/userSlice";
+import {roleNames, userCreate, userDelete, userList, userState, userUpdate} from "../../features/user/userSlice";
 import {useForm} from "react-hook-form";
 
 type FormData = {
@@ -195,6 +195,30 @@ export const Main: React.FC<{}> = () => {
         }
     }
 
+    const handleDelete = async (e: any) => {
+        e.preventDefault();
+        setSuccessful(false);
+
+        const userId = e.target.dataset.userId;
+
+        const params = {
+            userId: userId,
+        }
+
+        const resultAction = await dispatch(userDelete(params));
+        if (userDelete.fulfilled.match(resultAction)) {
+            dispatch(setMessage(resultAction.payload.message));
+            setSuccessful(true);
+            await list();
+        } else {
+            if (resultAction.payload) {
+                dispatch(setMessage(resultAction.payload.message));
+            } else {
+                dispatch(setMessage(resultAction.error.message));
+            }
+            setSuccessful(false);
+        }
+    }
 
     return (
         <div>
@@ -245,7 +269,12 @@ export const Main: React.FC<{}> = () => {
                                             </button>
                                         </td>
                                         <td>
-                                            <a className="app-btn app-btn-accent">削除</a>
+                                            <a
+                                                className="app-btn app-btn-accent"
+                                                data-user-id={item.userId.value}
+                                                onClick={handleDelete}>
+                                                削除
+                                            </a>
                                         </td>
                                     </tr>
                                 ))
