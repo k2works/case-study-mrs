@@ -1,17 +1,47 @@
-import React, {useRef} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {AppHeader} from "../share/AppHeaderComponent";
 import {AppMenu} from "../share/AppMenuComponent";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "../../app/store";
+import {useAppSelector} from "../../app/hook";
+import {clearMessage, selectMessage, setMessage} from "../../features/message/messageSlice";
+import {userList, userState} from "../../features/user/userSlice";
 
 export const Main: React.FC<{}> = () => {
+    const dispatch = useDispatch<AppDispatch>();
+    const [successful, setSuccessful] = useState(false);
+    const {message} = useAppSelector(selectMessage);
+    const user = useAppSelector(userState);
     const registRef = useRef<HTMLDivElement>(null);
     const updateRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        dispatch(clearMessage());
+        list().then(r => (setSuccessful(true)));
+    }, []);
+
+    const list = async () => {
+        setSuccessful(false);
+        const resultAction = await dispatch(userList(1));
+        if (userList.fulfilled.match(resultAction)) {
+            dispatch(setMessage(resultAction.payload.message));
+            setSuccessful(true);
+        } else {
+            if (resultAction.payload) {
+                dispatch(setMessage(resultAction.payload.message));
+            } else {
+                dispatch(setMessage(resultAction.error.message));
+            }
+            setSuccessful(false);
+        }
+    }
 
     const handleRegistDialog = (e: any) => {
         e.preventDefault();
 
         if (registRef.current) {
             registRef.current.style.left = ((window.innerWidth - 500) / 2) + 'px';
-            registRef.current.style.top = ((window.innerWidth - 500) / 2) + 'px';
+            registRef.current.style.top = ((window.innerWidth - 750) / 2) + 'px';
             registRef.current.style.display = 'block';
         }
     }
@@ -21,7 +51,7 @@ export const Main: React.FC<{}> = () => {
 
         if (updateRef.current) {
             updateRef.current.style.left = ((window.innerWidth - 500) / 2) + 'px';
-            updateRef.current.style.top = ((window.innerWidth - 500) / 2) + 'px';
+            updateRef.current.style.top = ((window.innerWidth - 750) / 2) + 'px';
             updateRef.current.style.display = 'block';
         }
     }
@@ -49,7 +79,7 @@ export const Main: React.FC<{}> = () => {
 
                     <div className="app-decoration">
                         <div className="message">
-
+                            {!successful && (<p className="error">{message}</p>)}
                         </div>
                     </div>
 
@@ -66,96 +96,24 @@ export const Main: React.FC<{}> = () => {
                                 <th>名</th>
                                 <th>役割</th>
                             </tr>
-                            <tr>
-                                <td>
-                                    <span>U000001</span></td>
-                                <td>
-                                    <span>Aaa</span></td>
-                                <td>
-                                    <span>Aaa</span></td>
-                                <td>
-                                    <span>一般</span></td>
-                                <td>
-                                    <button className="app-btn" onClick={handleUpdateDialog}>
-                                        編集
-                                    </button>
-                                </td>
-                                <td>
-                                    <a className="app-btn app-btn-accent">削除</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span>U000002</span></td>
-                                <td>
-                                    <span>Bbb</span></td>
-                                <td>
-                                    <span>Bbb</span></td>
-                                <td>
-                                    <span>一般</span></td>
-                                <td>
-                                    <button className="app-btn">
-                                        編集
-                                    </button>
-                                </td>
-                                <td>
-                                    <a className="app-btn app-btn-accent">削除</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span>U000003</span></td>
-                                <td>
-                                    <span>Ccc</span></td>
-                                <td>
-                                    <span>Ccc</span></td>
-                                <td>
-                                    <span>管理者</span></td>
-                                <td>
-                                    <button className="app-btn">
-                                        編集
-                                    </button>
-                                </td>
-                                <td>
-                                    <a className="app-btn app-btn-accent">削除</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span>U000004</span></td>
-                                <td>
-                                    <span>山田</span></td>
-                                <td>
-                                    <span>太郎</span></td>
-                                <td>
-                                    <span>一般</span></td>
-                                <td>
-                                    <button className="app-btn">
-                                        編集
-                                    </button>
-                                </td>
-                                <td>
-                                    <a className="app-btn app-btn-accent">削除</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span>U999999</span></td>
-                                <td>
-                                    <span></span></td>
-                                <td>
-                                    <span></span></td>
-                                <td>
-                                    <span>ゲスト</span></td>
-                                <td>
-                                    <button className="app-btn">
-                                        編集
-                                    </button>
-                                </td>
-                                <td>
-                                    <a className="app-btn app-btn-accent">削除</a>
-                                </td>
-                            </tr>
+                            {
+                                user.users.list.map((item: any) => (
+                                    <tr>
+                                        <td>{item.userId.value}</td>
+                                        <td>{item.name.lastName}</td>
+                                        <td>{item.name.firstName}</td>
+                                        <td>{item.roleName}</td>
+                                        <td>
+                                            <button className="app-btn" onClick={handleUpdateDialog}>
+                                                編集
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <a className="app-btn app-btn-accent">削除</a>
+                                        </td>
+                                    </tr>
+                                ))
+                            }
                             </tbody>
                         </table>
 
