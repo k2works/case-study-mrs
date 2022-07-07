@@ -42,6 +42,24 @@ export const userCreate = createAsyncThunk<any,
     }
 )
 
+export const roleNames = createAsyncThunk<any,
+    any,
+    {
+        rejectValue: ValidationErrors
+    }>(
+    'user/roleNames',
+    async ({rejectWithValue}) => {
+        try {
+            return await UserService.roleNames()
+        } catch (e: any) {
+            if (!e.response) {
+                throw e
+            }
+            return rejectWithValue(e.response.data)
+        }
+    }
+)
+
 interface User {
     userId: {
         value: string
@@ -62,6 +80,7 @@ interface users {
 
 export type SliceState = {
     users: users
+    roleNames: string[]
     error: string | null | undefined
 }
 
@@ -75,6 +94,7 @@ const nextDay = (date: Date) => {
 
 const initialState: SliceState = {
     users: {list: []},
+    roleNames: [],
     error: null
 }
 
@@ -87,6 +107,16 @@ export const userSlice = createSlice({
             state.users = payload.data
         })
         builder.addCase(userList.rejected, (state, action) => {
+            if (action.payload) {
+                state.error = action.payload.message
+            } else {
+                state.error = action.error.message
+            }
+        })
+        builder.addCase(roleNames.fulfilled, (state, {payload}) => {
+            state.roleNames = payload.data
+        })
+        builder.addCase(roleNames.rejected, (state, action) => {
             if (action.payload) {
                 state.error = action.payload.message
             } else {

@@ -11,6 +11,10 @@ class UserService {
     create(param: { userId: string; password: string; firstName: string; lastName: string, roleName: string }) {
         return axios.post(API_URL, param, {headers: authHeader()});
     }
+
+    roleNames() {
+        return axios.get(API_URL + "/roleNames", {headers: authHeader()});
+    }
 }
 
 export default new UserService();

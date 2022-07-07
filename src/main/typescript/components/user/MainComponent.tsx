@@ -5,7 +5,15 @@ import {useDispatch} from "react-redux";
 import {AppDispatch} from "../../app/store";
 import {useAppSelector} from "../../app/hook";
 import {clearMessage, selectMessage, setMessage} from "../../features/message/messageSlice";
-import {userCreate, userList, userState} from "../../features/user/userSlice";
+import {roleNames, userCreate, userList, userState} from "../../features/user/userSlice";
+import {useForm} from "react-hook-form";
+
+type FormData = {
+    userId: String;
+    firstName: String;
+    lastName: String;
+    password: String;
+}
 
 export const Main: React.FC<{}> = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -16,13 +24,15 @@ export const Main: React.FC<{}> = () => {
     const [userPassword, setUserPassword] = useState('');
     const [userFirstName, setUserFirstName] = useState('');
     const [userLastName, setUserLastName] = useState('');
-    const [userRoleName, setUserRoleName] = useState('一般');
+    const [userRoleName, setUserRoleName] = useState('');
     const registRef = useRef<HTMLDivElement>(null);
     const updateRef = useRef<HTMLDivElement>(null);
+    const {register, handleSubmit, formState: {errors}} = useForm<FormData>();
 
     useEffect(() => {
         dispatch(clearMessage());
         list().then(r => (setSuccessful(true)));
+        roleNameList().then(r => (setSuccessful(true)));
     }, []);
 
     const list = async () => {
@@ -41,8 +51,30 @@ export const Main: React.FC<{}> = () => {
         }
     }
 
+    const roleNameList = async () => {
+        setSuccessful(false);
+        const resultAction = await dispatch(roleNames(1));
+        if (roleNames.fulfilled.match(resultAction)) {
+            dispatch(setMessage(resultAction.payload.message));
+            setSuccessful(true);
+        } else {
+            if (resultAction.payload) {
+                dispatch(setMessage(resultAction.payload.message));
+            } else {
+                dispatch(setMessage(resultAction.error.message));
+            }
+            setSuccessful(false);
+        }
+    }
+
     const handleRegistDialog = (e: any) => {
         e.preventDefault();
+
+        setUserId('');
+        setUserPassword('');
+        setUserFirstName('');
+        setUserLastName('');
+        setUserRoleName('一般');
 
         if (registRef.current) {
             registRef.current.style.left = ((window.innerWidth - 500) / 2) + 'px';
@@ -174,38 +206,50 @@ export const Main: React.FC<{}> = () => {
                             <div>
                                 <form className="app-form">
                                     <label>利用者番号</label>
-                                    <input id="regist_id" name="userId" type="text" value={userId}
-                                           onChange={handleUserId}/>
+                                    <input {...register("userId", {required: true})} id="regist_id" name="userId"
+                                           type="text" value={userId} onChange={handleUserId}/>
                                     <ul>
-
+                                        {errors.userId && <li className="error">利用者番号を入力してください</li>}
                                     </ul>
+
                                     <label>姓</label>
-                                    <input id="regist_firstName" name="firstName" type="text" value={userFirstName}
-                                           onChange={handleUserFirstName}/>
+                                    <input  {...register("firstName", {required: true})} id="regist_firstName"
+                                            name="firstName" type="text" value={userFirstName}
+                                            onChange={handleUserFirstName}/>
                                     <ul>
-
+                                        {errors.firstName && <li className="error">姓を入力してください</li>}
                                     </ul>
+
                                     <label>名</label>
-                                    <input id="regist_lastName" name="lastName" type="text" value={userLastName}
-                                           onChange={handleUserLastName}/>
+                                    <input  {...register("lastName", {required: true})} id="regist_lastName"
+                                            name="lastName" type="text" value={userLastName}
+                                            onChange={handleUserLastName}/>
                                     <ul>
-
+                                        {errors.lastName && <li className="error">姓を入力してください</li>}
                                     </ul>
+
                                     <label>パスワード</label>
-                                    <input id="regist_password" name="password" type="password" value={userPassword}
-                                           onChange={handleUserPassword}/>
+                                    <input  {...register("password", {required: true})} id="regist_password"
+                                            name="password" type="password" value={userPassword}
+                                            onChange={handleUserPassword}/>
                                     <ul>
-
+                                        {errors.password && <li className="error">パスワードを入力してください</li>}
                                     </ul>
+
                                     <label>役割</label>
-                                    <select id="regist_role" name="roleName" value={userRoleName}>
-                                        <option value="一般">一般</option>
-                                        <option value="管理者">管理者</option>
+                                    <select id="regist_role" name="roleName" value={userRoleName}
+                                            onChange={handleUserRoleName}>
+                                        {
+                                            user.roleNames.map((item: any) => (
+                                                <option value={item}>{item}</option>
+                                            ))
+                                        }
                                     </select>
                                     <ul>
 
                                     </ul>
-                                    <button className="app-btn" name="regist" onClick={handleRegist}>登録</button>
+                                    <button className="app-btn" name="regist" onClick={handleSubmit(handleRegist)}>登録
+                                    </button>
                                     <button className="app-btn app-btn-accent" onClick={handleClose}>キャンセル</button>
                                 </form>
                             </div>

@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import mrs.application.service.user.UserManagementService;
+import mrs.domain.model.auth.user.RoleName;
 import mrs.domain.model.auth.user.User;
 import mrs.domain.model.auth.user.UserId;
 import mrs.infrastructure.PageNation;
@@ -58,5 +59,11 @@ public class UserApiController {
     void delete(@PathVariable("userId") String id) {
         UserId userId = new UserId(id);
         userManagementService.delete(userId);
+    }
+
+    @Operation(summary = "役割一覧", description = "役割一覧を取得する")
+    @GetMapping("/roleNames")
+    RoleName[] roleNames() {
+        return RoleName.values();
     }
 }
