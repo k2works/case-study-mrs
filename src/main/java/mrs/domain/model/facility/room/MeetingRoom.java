@@ -40,4 +40,26 @@ public class MeetingRoom {
     public String RoomNumber() {
         return roomId.format();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof MeetingRoom that)) return false;
+
+        return roomId.equals(that.roomId);
+    }
+
+    @Override
+    public int hashCode() {
+        return roomId.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "MeetingRoom{" +
+                "roomId=" + roomId +
+                ", roomName='" + roomName + '\'' +
+                '}';
+    }
+
 }
