@@ -19,7 +19,11 @@ export const AppMenu: React.FC<{}> = () => {
                                 <ul className="sub-menu">
                                     <li className="sub-menu-item a"><a href="/rooms">会議室予約一覧</a></li>
                                     {user.userInfo?.roleName === "管理者" && (
-                                        <li className="sub-menu-item a"><a href="/meeting_rooms">会議室一覧</a></li>
+                                        <>
+                                            <li className="sub-menu-item a"><a href="/meeting_rooms">会議室一覧</a></li>
+                                            <li className="sub-menu-item a"><a
+                                                href="/reservable_meeting_rooms">予約可能会議室一覧</a></li>
+                                        </>
                                     )}
                                 </ul>
                             </li>
