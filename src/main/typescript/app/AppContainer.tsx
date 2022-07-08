@@ -3,7 +3,7 @@ import {Route, Routes} from "react-router-dom";
 import "../static/css/style.scss";
 import {Main} from "../components/home/MainComponent";
 import {Content} from "../components/home/ContentComponent";
-import {Login} from "../components/home/LoginComponent";
+import {Login} from "../components/auth/LoginComponent";
 import {Main as Rooms} from "../components/reservation/MainComponent";
 import {ReserveForm} from "../components/reservation/ReserveFormComponent";
 import {Main as MeetingRooms} from "../components/meetingRoom/MainComponent";

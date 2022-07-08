@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Header} from "./HeaderComponent";
+import {Header} from "../home/HeaderComponent";
 import {useNavigate} from "react-router-dom";
 import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 import type {AppDispatch, RootState} from '../../app/store';
@@ -60,10 +60,12 @@ export const Login: React.FC<{}> = () => {
                         <form className="login-form" onSubmit={handleSubmit(handleLogin)}>
                             {message && <div className="error">{message}</div>}
                             <label htmlFor="username">利用者番号:</label>
-                            <input {...register("userId", {required: true})} value={userId} onChange={onChangeUserId}/>
+                            <input {...register("userId", {required: true})} id="userId" value={userId}
+                                   onChange={onChangeUserId}/>
                             {errors.userId && <p className="error">利用者番号を入力してください</p>}
                             <label htmlFor="password">パスワード:</label>
-                            <input {...register("password", {required: true})} type="password" value={password}
+                            <input {...register("password", {required: true})} id="password" type="password"
+                                   value={password}
                                    onChange={onChangePassword}/>
                             {errors.password && <p className="error">パスワードを入力してください</p>}
                             <button className="btn" type="submit">ログイン</button>
