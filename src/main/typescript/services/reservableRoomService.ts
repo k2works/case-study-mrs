@@ -1,7 +1,8 @@
 import axios from "axios";
 import authHeader from "./auth-header";
+import {reservableRoomConst} from "../app/const";
 
-const API_URL = "http://localhost:8080/api/reservableRooms";
+const API_URL = reservableRoomConst.API_URL;
 
 class ReservableRoomService {
     list() {

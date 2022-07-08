@@ -1,7 +1,8 @@
 import axios from "axios";
 import authHeader from "./auth-header";
+import {meetingRoomConst} from "../app/const";
 
-const API_URL = "http://localhost:8080/api/meetingRooms";
+const API_URL = meetingRoomConst.API_URL
 
 class MeetingRoomService {
     list() {

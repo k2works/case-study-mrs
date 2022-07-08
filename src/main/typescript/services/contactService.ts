@@ -1,7 +1,8 @@
 import axios from "axios";
 import authHeader from "./auth-header";
+import {contactConst} from "../app/const";
 
-const API_URL = "http://localhost:8080/api/contacts";
+const API_URL = contactConst.API_URL;
 
 class ContactService {
     list() {
