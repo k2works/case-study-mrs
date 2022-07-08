@@ -1,12 +1,47 @@
-import React, {useRef} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {AppMenu} from "../share/AppMenuComponent";
 import {AppHeader} from "../share/AppHeaderComponent";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "../../app/store";
+import {useAppSelector} from "../../app/hook";
+import {clearMessage, selectMessage, setMessage} from "../../features/message/messageSlice";
+import {contactList, contactState} from "../../features/contact/contactSlice";
 
 export const Main: React.FC<{}> = () => {
+    const dispatch = useDispatch<AppDispatch>();
+    const [successful, setSuccessful] = useState(false);
+    const {message} = useAppSelector(selectMessage);
+    const contact = useAppSelector(contactState);
     const updateRef = useRef<HTMLDivElement>(null);
+    const [contactId, setContactId] = useState<string>("");
+    const [contactDetails, setContactDetails] = useState<string>("");
+
+    useEffect(() => {
+        dispatch(clearMessage());
+        list().then(r => (setSuccessful(true)));
+    }, []);
+
+    const list = async () => {
+        setSuccessful(false);
+        const resultAction = await dispatch(contactList(1));
+        if (contactList.fulfilled.match(resultAction)) {
+            dispatch(setMessage(resultAction.payload.message));
+            setSuccessful(true);
+        } else {
+            if (resultAction.payload) {
+                dispatch(setMessage(resultAction.payload.message));
+            } else {
+                dispatch(setMessage(resultAction.error.message));
+            }
+        }
+    }
 
     const handleUpdateDialog = (e: any) => {
         e.preventDefault();
+        const id = e.target.dataset.contactId;
+        const details = e.target.dataset.contactDetails;
+        setContactId(id);
+        setContactDetails(details);
 
         if (updateRef.current) {
             updateRef.current.style.left = ((window.innerWidth - 500) / 2) + 'px';
@@ -20,6 +55,14 @@ export const Main: React.FC<{}> = () => {
         if (updateRef.current) {
             updateRef.current.style.display = 'none';
         }
+    }
+
+    const formatContactId = (id: string) => {
+        return id.slice(0, 8) + '...';
+    }
+
+    const formatDetails = (details: string) => {
+        return details.slice(0, 20) + '...';
     }
 
     return (
@@ -41,31 +84,30 @@ export const Main: React.FC<{}> = () => {
                                 <th>問い合わせ内容</th>
                                 <th>利用者区分</th>
                             </tr>
-                            <tr>
-                                <td>
-                                    <span>1f0d543...</span>
-                                </td>
-                                <td>
-                                    <span>あああああああああああああああああ...</span>
-                                </td>
-                                <td>
-                                    <span>ゲスト</span>
-                                </td>
-                                <td>
-                                    <button className="app-btn" onClick={handleUpdateDialog}>詳細</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span>80e9bb8...</span></td>
-                                <td>
-                                    <span>string</span></td>
-                                <td>
-                                    <span>ゲスト</span></td>
-                                <td>
-                                    <button className="app-btn" onClick={handleUpdateDialog}>詳細</button>
-                                </td>
-                            </tr>
+                            {
+                                contact.contacts.list.map((item: any) => (
+                                    <tr>
+                                        <td>
+                                            <span>{formatContactId(item.contactId.value)}</span>
+                                        </td>
+                                        <td>
+                                            <span>{formatDetails(item.details)}</span>
+                                        </td>
+                                        <td>
+                                            <span>{item.user.roleName}</span>
+                                        </td>
+                                        <td>
+                                            <button
+                                                className="app-btn"
+                                                data-contact-id={item.contactId.value}
+                                                data-contact-details={item.details}
+                                                onClick={handleUpdateDialog}>
+                                                詳細
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))
+                            }
                             </tbody>
                         </table>
                     </div>
@@ -74,12 +116,13 @@ export const Main: React.FC<{}> = () => {
                         <div>
                             <form className="app-form">
                                 <label>問い合わせ番号</label>
-                                <input id="update_id" name="contactId" readOnly={true} type="text" value=""/>
+                                <input id="update_id" name="contactId" readOnly={true} type="text" value={contactId}/>
                                 <ul>
 
                                 </ul>
                                 <label>問い合わせ内容</label>
-                                <textarea id="update_details" name="details" readOnly={true}></textarea>
+                                <textarea id="update_details" name="details" readOnly={true}
+                                          value={contactDetails}></textarea>
                                 <ul>
 
                                 </ul>

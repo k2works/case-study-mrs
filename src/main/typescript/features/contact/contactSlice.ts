@@ -54,7 +54,7 @@ export const contactSlice = createSlice({
             state.error = null;
         })
         builder.addCase(contactList.fulfilled, (state, action) => {
-            state.contacts = action.payload;
+            state.contacts = action.payload.data;
         })
         builder.addCase(contactList.rejected, (state, action) => {
             if (action.payload) {
