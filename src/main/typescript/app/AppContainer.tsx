@@ -6,11 +6,12 @@ import {Content} from "../components/home/ContentComponent";
 import {Login} from "../components/home/LoginComponent";
 import {Main as Rooms} from "../components/reservation/MainComponent";
 import {ReserveForm} from "../components/reservation/ReserveFormComponent";
-import {Contact} from "../components/home/ContactComponent";
-import {ContactRegist} from "../components/reservation/ContactComponent";
 import {Main as MeetingRooms} from "../components/meetingRoom/MainComponent";
 import {Main as ReservableRooms} from "../components/reservableRoom/MainComponent";
 import {Main as User} from "../components/user/MainComponent";
+import {Main as ContactList} from "../components/contact/MainComponent";
+import {GustContact} from "../components/contact/GusetContactComponent";
+import {MemberContact} from "../components/contact/MemberContactComponent";
 
 const AppContainer: React.FC = () => {
     return (
@@ -18,14 +19,15 @@ const AppContainer: React.FC = () => {
             <Routes>
                 <Route path="/" element={<Main/>}/>
                 <Route path="/contents" element={<Content/>}/>
-                <Route path="/contacts" element={<Contact/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/rooms" element={<Rooms/>}/>
                 <Route path="/reservations" element={<ReserveForm/>}/>
-                <Route path="/contact_regist" element={<ContactRegist/>}/>
                 <Route path="/meeting_rooms" element={<MeetingRooms/>}/>
                 <Route path="/reservable_meeting_rooms" element={<ReservableRooms/>}/>
                 <Route path="/users" element={<User/>}/>
+                <Route path="/contacts" element={<ContactList/>}/>
+                <Route path="/contacts_guest_regist" element={<GustContact/>}/>
+                <Route path="/contact_regist" element={<MemberContact/>}/>
             </Routes>
         </div>
     );

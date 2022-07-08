@@ -3,7 +3,7 @@ import "../../static/css/style.scss";
 import {AppHeader} from "../share/AppHeaderComponent";
 import {AppMenu} from "../share/AppMenuComponent";
 
-export const ContactRegist: React.FC<{}> = () => {
+export const MemberContact: React.FC<{}> = () => {
     return (
         <div>
             <AppHeader/>

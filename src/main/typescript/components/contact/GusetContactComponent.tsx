@@ -1,8 +1,8 @@
 import React from "react";
 import "../../static/css/style.scss";
-import {Header} from "./HeaderComponent";
+import {Header} from "../home/HeaderComponent";
 
-export const Contact: React.FC<{}> = () => {
+export const GustContact: React.FC<{}> = () => {
     return (
         <div>
             <Header/>

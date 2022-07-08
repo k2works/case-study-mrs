@@ -33,9 +33,14 @@ export const AppMenu: React.FC<{}> = () => {
                                     {user.userInfo?.roleName === "管理者" && (
                                         <>
                                             <li className="sub-menu-item b"><a href="/users">利用者一覧</a></li>
+                                            <li className="sub-menu-item b"><a href="/contacts">問い合わせ一覧</a></li>
                                         </>
                                     )}
-                                    <li className="sub-menu-item b"><a href="/contact_regist">問い合わせ</a></li>
+                                    {user.userInfo?.roleName === "一般" && (
+                                        <>
+                                            <li className="sub-menu-item b"><a href="/contact_regist">問い合わせ</a></li>
+                                        </>
+                                    )}
                                 </ul>
                             </li>
                         </ul>
