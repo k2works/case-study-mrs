@@ -1070,7 +1070,8 @@ npm install --save-dev @types/jest@27.1.4 ts-jest@27.1.4
 npx tsc --init
 npm install -save @reduxjs/toolkit react-redux
 npm install -save axios @types/axios
-npm install react-hook-form
+npm install --save-dev react-hook-form
+npm install cross-env
 ----
 
 == 配置
