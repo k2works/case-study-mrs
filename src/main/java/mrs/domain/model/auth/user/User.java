@@ -36,6 +36,11 @@ public class User {
         this.roleName = roleName;
     }
 
+    public User(UserId userId, RoleName roleName) {
+        this.userId = userId;
+        this.roleName = roleName;
+    }
+
     @Deprecated
     public User() {
     }

@@ -2,7 +2,6 @@ package mrs.presentation.contact;
 
 import mrs.application.scenario.ContactManagementScenario;
 import mrs.domain.model.auth.user.UserDetailsImpl;
-import mrs.domain.model.auth.user.UserName;
 import mrs.domain.model.contact.Contact;
 import mrs.domain.model.user.gust.Gust;
 import mrs.domain.model.user.member.Member;
@@ -74,7 +73,7 @@ public class ContactRegistController {
             return registGustContact(model);
         }
         try {
-            Contact contact = new Contact(form.getDetails(), new Gust(new UserName("", "")));
+            Contact contact = new Contact(form.getDetails(), new Gust());
             contactManagementScenario.create(contact);
             model.addAttribute("success", message.getMessageByKey("contact_regist"));
         } catch (Exception e) {

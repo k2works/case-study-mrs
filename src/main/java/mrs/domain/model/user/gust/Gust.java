@@ -17,8 +17,12 @@ public class Gust extends User implements ContactPerson {
 
     private RoleName roleName;
 
-    @Deprecated
     public Gust() {
+        this.user = new User(new UserId("U999999"), RoleName.ゲスト);
+        this.userId = user.UserId();
+        this.password = user.Password();
+        this.name = user.Name();
+        this.roleName = user.RoleName();
     }
 
     public Gust(UserName name) {
