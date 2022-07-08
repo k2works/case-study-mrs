@@ -24,6 +24,28 @@ export const contactList = createAsyncThunk<any,
     }
 )
 
+export const contactCreate = createAsyncThunk<any,
+    any,
+    {
+        rejectValue: ValidationErrors;
+    }>(
+    'contact/create',
+    async (params: { contactId: string; details: string; roleName: string }, {rejectWithValue}) => {
+        try {
+            if (params.roleName === "一般") {
+                return await ContactService.createByMember({contactId: params.contactId, details: params.details});
+            } else {
+                return await ContactService.createByGuest({contactId: params.contactId, details: params.details});
+            }
+        } catch (e: any) {
+            if (!e.response) {
+                throw e;
+            }
+            return rejectWithValue(e.response.data);
+        }
+    }
+)
+
 interface Contact {
     contactId: {
         value: string

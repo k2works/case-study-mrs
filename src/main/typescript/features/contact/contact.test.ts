@@ -1,6 +1,6 @@
 import apiModule from "../../services/contactService";
 import {AsyncThunkAction, Dispatch} from "@reduxjs/toolkit";
-import {contactList} from "./contactSlice";
+import {contactCreate, contactList} from "./contactSlice";
 
 jest.mock('../../services/contactService')
 
@@ -122,6 +122,62 @@ describe('room reducer', () => {
         test('予約一覧を取得する', async () => {
             const data = await action(dispatch, getState, undefined);
             expect(data.payload).toStrictEqual(result)
+        })
+    })
+
+    describe('createByMember', () => {
+        let action: AsyncThunkAction<void, {}, {}>
+
+        let dispatch: Dispatch;
+        let getState: () => unknown;
+
+        let arg: { contactId: string, details: string, roleName: string };
+        let result: any;
+
+        beforeEach(() => {
+            dispatch = jest.fn();
+            getState = jest.fn();
+
+            api.list.mockClear();
+            api.list.mockResolvedValue(result)
+
+            arg = {contactId: "", details: "aaaaaaaaaaaaaaaa", roleName: "一般"};
+            result = {}
+
+            action = contactCreate(arg)
+        })
+
+        test('サービスを呼びだす', async () => {
+            await action(dispatch, getState, undefined);
+            expect(api.createByMember).toHaveBeenCalledWith({contactId: arg.contactId, details: arg.details});
+        })
+    })
+
+    describe('createByGuest', () => {
+        let action: AsyncThunkAction<void, {}, {}>
+
+        let dispatch: Dispatch;
+        let getState: () => unknown;
+
+        let arg: { contactId: string, details: string, roleName: string };
+        let result: any;
+
+        beforeEach(() => {
+            dispatch = jest.fn();
+            getState = jest.fn();
+
+            api.list.mockClear();
+            api.list.mockResolvedValue(result)
+
+            arg = {contactId: "", details: "aaaaaaaaaaaaaaaa", roleName: "ゲスト"};
+            result = {}
+
+            action = contactCreate(arg)
+        })
+
+        test('サービスを呼びだす', async () => {
+            await action(dispatch, getState, undefined);
+            expect(api.createByGuest).toHaveBeenCalledWith({contactId: arg.contactId, details: arg.details});
         })
     })
 })
