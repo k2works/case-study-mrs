@@ -103,9 +103,9 @@ export const Main: React.FC<{}> = () => {
 
         const resultAction = await dispatch(meetingRoomCreate(params));
         if (meetingRoomCreate.fulfilled.match(resultAction)) {
-            dispatch(setMessage(resultAction.payload.message));
             setSuccessful(true);
             await list();
+            dispatch(setMessage(resultAction.payload.data.message));
         } else {
             if (resultAction.payload) {
                 dispatch(setMessage(resultAction.payload.message));
@@ -127,9 +127,9 @@ export const Main: React.FC<{}> = () => {
 
         const resultAction = await dispatch(meetingRoomUpdate(params));
         if (meetingRoomUpdate.fulfilled.match(resultAction)) {
-            dispatch(setMessage(resultAction.payload.message));
             setSuccessful(true);
             await list();
+            dispatch(setMessage(resultAction.payload.data.message));
         } else {
             if (resultAction.payload) {
                 dispatch(setMessage(resultAction.payload.message));
@@ -141,6 +141,7 @@ export const Main: React.FC<{}> = () => {
     }
 
     const handleDelete = async (e: any) => {
+        if (!confirm("削除しますか？")) return;
         e.preventDefault();
         setSuccessful(false);
         const id = e.target.dataset["id"];
@@ -152,9 +153,9 @@ export const Main: React.FC<{}> = () => {
 
         const resultAction = await dispatch(meetingRoomDelete(params));
         if (meetingRoomDelete.fulfilled.match(resultAction)) {
-            dispatch(setMessage(resultAction.payload.message));
             setSuccessful(true);
             await list();
+            dispatch(setMessage(resultAction.payload.data.message));
         } else {
             if (resultAction.payload) {
                 dispatch(setMessage(resultAction.payload.message));
@@ -178,7 +179,7 @@ export const Main: React.FC<{}> = () => {
 
                     <div className="app-decoration">
                         <div className="message">
-                            {!successful && (<p className="error">{message}</p>)}
+                            {successful ? (<p className="success">{message}</p>) : (<p className="error">{message}</p>)}
                         </div>
                     </div>
 

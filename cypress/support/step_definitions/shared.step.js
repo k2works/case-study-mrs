@@ -17,7 +17,7 @@ const {
 // this will get called before each scenario
 let page;
 Before(() => {
-    cy.wait(0);
+    cy.wait(100);
 });
 
 Given(`{string} ページにアクセスする`, (pageName) => {

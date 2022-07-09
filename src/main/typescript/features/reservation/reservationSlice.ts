@@ -61,7 +61,7 @@ export const reservationCancel = createAsyncThunk<any,
     {
         rejectValue: ValidationErrors
     }>(
-    'reservation/Reserve',
+    'reservation/Cancel',
     async (params: { date: Date, roomId: number, reservationId: number, userId: string }, {rejectWithValue}) => {
         try {
             return await ReservationService.cancel(params)

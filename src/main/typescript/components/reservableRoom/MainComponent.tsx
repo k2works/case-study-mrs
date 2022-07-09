@@ -87,9 +87,9 @@ export const Main: React.FC<{}> = () => {
 
         const resultAction = await dispatch(reservableRoomCreate(params));
         if (reservableRoomCreate.fulfilled.match(resultAction)) {
-            dispatch(setMessage(resultAction.payload.message));
             setSuccessful(true);
             await list();
+            dispatch(setMessage(resultAction.payload.data.message));
         } else {
             if (resultAction.payload) {
                 dispatch(setMessage(resultAction.payload.message));
@@ -101,6 +101,7 @@ export const Main: React.FC<{}> = () => {
     }
 
     const handleDelete = async (e: any) => {
+        if (!confirm("削除しますか？")) return;
         e.preventDefault();
         setSuccessful(false);
         const date = e.target.dataset["date"];
@@ -113,9 +114,9 @@ export const Main: React.FC<{}> = () => {
 
         const resultAction = await dispatch(reservableRoomDelete(params));
         if (reservableRoomDelete.fulfilled.match(resultAction)) {
-            dispatch(setMessage(resultAction.payload.message));
             setSuccessful(true);
             await list();
+            dispatch(setMessage(resultAction.payload.data.message));
         } else {
             if (resultAction.payload) {
                 dispatch(setMessage(resultAction.payload.message));
@@ -130,7 +131,7 @@ export const Main: React.FC<{}> = () => {
         setSuccessful(false);
         const resultAction = await dispatch(meetingRoomListBox(1));
         if (meetingRoomListBox.fulfilled.match(resultAction)) {
-            dispatch(setMessage(resultAction.payload.message));
+            dispatch(setMessage(resultAction.payload.data.message));
             setSuccessful(true);
         } else {
             if (resultAction.payload) {
@@ -155,7 +156,7 @@ export const Main: React.FC<{}> = () => {
 
                     <div className="app-decoration">
                         <div className="message">
-                            {!successful && (<p className="error">{message}</p>)}
+                            {successful ? (<p className="success">{message}</p>) : (<p className="error">{message}</p>)}
                         </div>
                     </div>
 

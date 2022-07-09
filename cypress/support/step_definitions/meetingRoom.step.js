@@ -15,6 +15,7 @@ Before(() => {
 });
 
 Given(/^"([^"]*)" を登録する$/, (value) => {
+    cy.wait(100);
     cy.get('#regist_button').click();
     cy.get('#regist_id').click().type(8);
     cy.get('#regist_roomName').clear().type(value);
