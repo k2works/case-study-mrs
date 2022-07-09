@@ -42,7 +42,7 @@ export const Main: React.FC<{}> = () => {
         setSuccessful(false);
         const resultAction = await dispatch(userList(1));
         if (userList.fulfilled.match(resultAction)) {
-            dispatch(setMessage(resultAction.payload.message));
+            dispatch(setMessage(resultAction.payload.data.message));
             setSuccessful(true);
         } else {
             if (resultAction.payload) {
@@ -58,7 +58,7 @@ export const Main: React.FC<{}> = () => {
         setSuccessful(false);
         const resultAction = await dispatch(roleNames(1));
         if (roleNames.fulfilled.match(resultAction)) {
-            dispatch(setMessage(resultAction.payload.message));
+            dispatch(setMessage(resultAction.payload.data.message));
             setSuccessful(true);
         } else {
             if (resultAction.payload) {
@@ -155,9 +155,9 @@ export const Main: React.FC<{}> = () => {
 
         const resultAction = await dispatch(userCreate(params));
         if (userCreate.fulfilled.match(resultAction)) {
-            dispatch(setMessage(resultAction.payload.message));
             setSuccessful(true);
             await list();
+            dispatch(setMessage(resultAction.payload.data.message));
         } else {
             if (resultAction.payload) {
                 dispatch(setMessage(resultAction.payload.message));
@@ -182,9 +182,9 @@ export const Main: React.FC<{}> = () => {
 
         const resultAction = await dispatch(userUpdate(params));
         if (userUpdate.fulfilled.match(resultAction)) {
-            dispatch(setMessage(resultAction.payload.message));
             setSuccessful(true);
             await list();
+            dispatch(setMessage(resultAction.payload.data.message));
         } else {
             if (resultAction.payload) {
                 dispatch(setMessage(resultAction.payload.message));
@@ -207,9 +207,9 @@ export const Main: React.FC<{}> = () => {
 
         const resultAction = await dispatch(userDelete(params));
         if (userDelete.fulfilled.match(resultAction)) {
-            dispatch(setMessage(resultAction.payload.message));
             setSuccessful(true);
             await list();
+            dispatch(setMessage(resultAction.payload.data.message));
         } else {
             if (resultAction.payload) {
                 dispatch(setMessage(resultAction.payload.message));
@@ -233,7 +233,7 @@ export const Main: React.FC<{}> = () => {
 
                     <div className="app-decoration">
                         <div className="message">
-                            {!successful && (<p className="error">{message}</p>)}
+                            {successful ? (<p className="success">{message}</p>) : (<p className="error">{message}</p>)}
                         </div>
                     </div>
 

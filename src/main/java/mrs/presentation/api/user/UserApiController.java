@@ -9,6 +9,8 @@ import mrs.domain.model.auth.user.User;
 import mrs.domain.model.auth.user.UserId;
 import mrs.infrastructure.PageNation;
 import mrs.infrastructure.datasource.Message;
+import mrs.infrastructure.security.jwt.payload.response.MessageResponse;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
@@ -38,31 +40,43 @@ public class UserApiController {
 
     @Operation(summary = "利用者一覧の取得", description = "利用者一覧を取得する")
     @GetMapping
-    PageInfo<User> list(Model model, @RequestParam(value = "page", defaultValue = "1") int... page) {
-        PageNation.startPage(page);
-        List<User> users = userManagementService.findAll();
-        return new PageInfo<>(users);
+    ResponseEntity<?> list(Model model, @RequestParam(value = "page", defaultValue = "1") int... page) {
+        try {
+            PageNation.startPage(page);
+            List<User> users = userManagementService.findAll();
+            return ResponseEntity.ok(new PageInfo<>(users));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(new MessageResponse(e.getMessage()));
+        }
     }
 
     @Operation(summary = "利用者の登録", description = "利用者を登録する")
     @PostMapping
-    User create(@RequestBody @Validated UserResource resource) {
-        User user = new User(resource.getUserId(), resource.getFirstName(), resource.getLastName(), resource.getPassword(), resource.getRoleName());
-        userManagementService.regist(user);
-        return user;
+    ResponseEntity<?> create(@RequestBody @Validated UserResource resource) {
+        try {
+            User user = new User(resource.getUserId(), resource.getFirstName(), resource.getLastName(), resource.getPassword(), resource.getRoleName());
+            userManagementService.regist(user);
+            return ResponseEntity.ok(new MessageResponse(message.getMessageByKey("user_regist")));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(new MessageResponse(e.getMessage()));
+        }
     }
 
     @Operation(summary = "利用者の更新", description = "利用者を更新する")
     @PutMapping("/{userId}")
-    User update(@PathVariable String userId, @RequestBody @Validated UserResource resource) {
-        User user = new User(userId, resource.getFirstName(), resource.getLastName(), resource.getPassword(), resource.getRoleName());
-        userManagementService.update(user);
-        return user;
+    ResponseEntity<?> update(@PathVariable String userId, @RequestBody @Validated UserResource resource) {
+        try {
+            User user = new User(userId, resource.getFirstName(), resource.getLastName(), resource.getPassword(), resource.getRoleName());
+            userManagementService.update(user);
+            return ResponseEntity.ok(new MessageResponse(message.getMessageByKey("user_update")));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(new MessageResponse(e.getMessage()));
+        }
     }
 
     @Operation(summary = "利用者の削除", description = "利用者を削除する")
     @DeleteMapping("/{userId}")
-    void delete(
+    ResponseEntity<?> delete(
             Principal principal,
             @PathVariable("userId") String id
     ) throws AccessDeniedException {
@@ -73,7 +87,12 @@ public class UserApiController {
         if (user.getReservations().size() > 0)
             throw new AccessDeniedException(message.getMessageByKey("user_reserved_delete_exception"));
 
-        userManagementService.delete(userId);
+        try {
+            userManagementService.delete(userId);
+            return ResponseEntity.ok(new MessageResponse(message.getMessageByKey("user_delete")));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(new MessageResponse(e.getMessage()));
+        }
     }
 
     @Operation(summary = "役割一覧", description = "役割一覧を取得する")
