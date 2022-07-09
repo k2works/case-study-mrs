@@ -697,7 +697,7 @@ admin --> UC1
 
 [source,yml]
 ----
-include::../cypress/integration/UserManagement/UserAuth.feature[]
+include::../cypress/integration/UserManagement/UserAuth.Basic.feature[]
 ----
 
 ===== 利用者
@@ -716,7 +716,7 @@ admin --> UC1
 
 [source,yml]
 ----
-include::../cypress/integration/UserManagement/UserMnagement.feature[]
+include::../cypress/integration/UserManagement/UserMnagement.Basic.feature[]
 ----
 
 ===== 予約
@@ -740,9 +740,9 @@ admin --> UC3
 
 [source,yml]
 ----
-include::../cypress/integration/ReservationManagement/RoomSearch.feature[]
+include::../cypress/integration/ReservationManagement/RoomSearch.Basic.feature[]
 
-include::../cypress/integration/ReservationManagement/RoomReserve.feature[]
+include::../cypress/integration/ReservationManagement/RoomReserve.Basic.feature[]
 
 ----
 
@@ -762,7 +762,7 @@ admin --> UC4
 
 [source,yml]
 ----
-include::../cypress/integration/ReservationManagement/RoomRegist.feature[]
+include::../cypress/integration/ReservationManagement/RoomRegist.Basic.feature[]
 ----
 
 ===== 問い合わせ
@@ -786,11 +786,11 @@ admin --> UC2
 
 [source,yml]
 ----
-include::../cypress/integration/UserManagement/ContactMemberRegist.feature[]
+include::../cypress/integration/UserManagement/ContactMemberRegist.Basic.feature[]
 
-include::../cypress/integration/UserManagement/ContactGustRegist.feature[]
+include::../cypress/integration/UserManagement/ContactGustRegist.Basic.feature[]
 
-include::../cypress/integration/UserManagement/ContactManagement.feature[]
+include::../cypress/integration/UserManagement/ContactManagement.Basic.feature[]
 ----
 
 === 設計

@@ -2,14 +2,14 @@
   {
     "description": "  会員として\n  会議室を予約したい\n  なぜなら会議室を利用したいから",
     "keyword": "Feature",
-    "name": "予約管理:会議室の予約",
+    "name": "予約管理:会議室の予約(基本)",
     "line": 1,
-    "id": "予約管理:会議室の予約",
+    "id": "予約管理:会議室の予約(基本)",
     "tags": [],
-    "uri": "RoomReserve.feature",
+    "uri": "RoomReserve.Basic.feature",
     "elements": [
       {
-        "id": "予約管理:会議室の予約;会議室を予約する",
+        "id": "予約管理:会議室の予約(基本);会議室を予約する",
         "keyword": "Scenario",
         "line": 10,
         "name": "会議室を予約する",
@@ -23,7 +23,7 @@
             "name": "\"会員\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 33255000000
+              "duration": 5453000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "\"会議室予約一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 220000000
+              "duration": 355000000
             }
           },
           {
@@ -43,7 +43,7 @@
             "name": "\"新木場\" 会議室を選択する",
             "result": {
               "status": "passed",
-              "duration": 517000000
+              "duration": 284000000
             }
           },
           {
@@ -53,7 +53,7 @@
             "name": "選択した会議室を予約する",
             "result": {
               "status": "passed",
-              "duration": 312000000
+              "duration": 222000000
             }
           },
           {
@@ -63,13 +63,13 @@
             "name": "予約者 \"Aaa\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 140000000
+              "duration": 34000000
             }
           }
         ]
       },
       {
-        "id": "予約管理:会議室の予約;会議室の予約を取り消す",
+        "id": "予約管理:会議室の予約(基本);会議室の予約を取り消す",
         "keyword": "Scenario",
         "line": 16,
         "name": "会議室の予約を取り消す",
@@ -83,7 +83,7 @@
             "name": "\"会員\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 3478000000
+              "duration": 3198000000
             }
           },
           {
@@ -93,7 +93,7 @@
             "name": "\"会議室予約一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 292000000
+              "duration": 256000000
             }
           },
           {
@@ -103,7 +103,7 @@
             "name": "\"有楽町\" 会議室を選択する",
             "result": {
               "status": "passed",
-              "duration": 485000000
+              "duration": 310000000
             }
           },
           {
@@ -113,7 +113,7 @@
             "name": "選択した会議室を予約する",
             "result": {
               "status": "passed",
-              "duration": 394000000
+              "duration": 155000000
             }
           },
           {
@@ -123,7 +123,7 @@
             "name": "\"会議室予約一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 274000000
+              "duration": 420000000
             }
           },
           {
@@ -133,7 +133,7 @@
             "name": "\"有楽町\" 会議室を選択する",
             "result": {
               "status": "passed",
-              "duration": 481000000
+              "duration": 370000000
             }
           },
           {
@@ -143,7 +143,7 @@
             "name": "選択した会議室を予約する",
             "result": {
               "status": "passed",
-              "duration": 348000000
+              "duration": 173000000
             }
           },
           {
@@ -153,7 +153,7 @@
             "name": "会議室予約画面に \"入力の時間帯はすでに予約済です。\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 133000000
+              "duration": 34000000
             }
           }
         ]

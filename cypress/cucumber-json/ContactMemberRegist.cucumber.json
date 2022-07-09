@@ -2,14 +2,14 @@
   {
     "description": "  会員として\n  問い合わせをしたい\n  なぜならサービス内容を確認する手段が必要だから",
     "keyword": "Feature",
-    "name": "会員管理:問い合わせの実施",
+    "name": "会員管理:問い合わせの実施(基本)",
     "line": 1,
-    "id": "会員管理:問い合わせの実施",
+    "id": "会員管理:問い合わせの実施(基本)",
     "tags": [],
-    "uri": "ContactMemberRegist.feature",
+    "uri": "ContactMemberRegist.Basic.feature",
     "elements": [
       {
-        "id": "会員管理:問い合わせの実施;問い合わせをする",
+        "id": "会員管理:問い合わせの実施(基本);問い合わせをする",
         "keyword": "Scenario",
         "line": 10,
         "name": "問い合わせをする",
@@ -23,7 +23,7 @@
             "name": "\"会員\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 67811000000
+              "duration": 5824000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "\"問い合わせ画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 218000000
+              "duration": 418000000
             }
           },
           {
@@ -43,7 +43,7 @@
             "name": "問い合わせ画面で \"問い合わせ内容\" を入力する",
             "result": {
               "status": "passed",
-              "duration": 790000000
+              "duration": 662000000
             }
           },
           {
@@ -53,7 +53,7 @@
             "name": "問い合わせが送信される",
             "result": {
               "status": "passed",
-              "duration": 203000000
+              "duration": 54000000
             }
           }
         ]
