@@ -746,6 +746,7 @@ include::../cypress/integration/ReservationManagement/RoomSearch.Basic.feature[]
 
 include::../cypress/integration/ReservationManagement/RoomReserve.Basic.feature[]
 
+include::../cypress/integration/ReservationManagement/RoomReserve.Extentions.feature[]
 ----
 
 ===== 施設

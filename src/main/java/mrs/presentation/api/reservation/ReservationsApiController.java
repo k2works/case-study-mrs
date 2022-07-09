@@ -67,6 +67,7 @@ public class ReservationsApiController {
         try {
             ReservableRoom reservableRoom = new ReservableRoom(new ReservableRoomId(roomId, date));
             Reservation reservation = new Reservation(null, start, end, reservableRoom.ReservableRoomId(), userDetails.getUser());
+            //TODO: 時間範囲バリデーションのAPI対応
             meetingRoomReservationScenario.reserve(reservation);
             return ResponseEntity.ok(new MessageResponse(message.getMessageByKey("reserve_success")));
         } catch (Exception e) {

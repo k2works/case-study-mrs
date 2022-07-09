@@ -2,16 +2,16 @@
   {
     "description": "  会員として\n  会議室を予約したい\n  なぜなら会議室を利用したいから",
     "keyword": "Feature",
-    "name": "予約管理:会議室の予約(基本)",
+    "name": "予約管理:会議室の予約(選択)",
     "line": 1,
-    "id": "予約管理:会議室の予約(基本)",
+    "id": "予約管理:会議室の予約(選択)",
     "tags": [],
-    "uri": "RoomReserve.Basic.feature",
+    "uri": "RoomReserve.Extentions.feature",
     "elements": [
       {
-        "id": "予約管理:会議室の予約(基本);会議室を予約する",
+        "id": "予約管理:会議室の予約(選択);会議室を予約する",
         "keyword": "Scenario",
-        "line": 10,
+        "line": 19,
         "name": "会議室を予約する",
         "tags": [],
         "type": "scenario",
@@ -23,97 +23,7 @@
             "name": "\"会員\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 5453000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 11,
-            "name": "\"会議室予約一覧画面\" ページにアクセスする",
-            "result": {
-              "status": "passed",
-              "duration": 355000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 12,
-            "name": "\"新木場\" 会議室を選択する",
-            "result": {
-              "status": "passed",
-              "duration": 284000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 13,
-            "name": "選択した会議室を予約する",
-            "result": {
-              "status": "passed",
-              "duration": 222000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 14,
-            "name": "予約者 \"Aaa\" が表示される",
-            "result": {
-              "status": "passed",
-              "duration": 34000000
-            }
-          }
-        ]
-      },
-      {
-        "id": "予約管理:会議室の予約(基本);会議室の予約を取り消す",
-        "keyword": "Scenario",
-        "line": 16,
-        "name": "会議室の予約を取り消す",
-        "tags": [],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 8,
-            "name": "\"会員\" としてログインしている",
-            "result": {
-              "status": "passed",
-              "duration": 3198000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 17,
-            "name": "\"会議室予約一覧画面\" ページにアクセスする",
-            "result": {
-              "status": "passed",
-              "duration": 256000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 18,
-            "name": "\"有楽町\" 会議室を選択する",
-            "result": {
-              "status": "passed",
-              "duration": 310000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 19,
-            "name": "選択した会議室を予約する",
-            "result": {
-              "status": "passed",
-              "duration": 155000000
+              "duration": 4179000000
             }
           },
           {
@@ -123,7 +33,7 @@
             "name": "\"会議室予約一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 420000000
+              "duration": 244000000
             }
           },
           {
@@ -133,27 +43,27 @@
             "name": "\"有楽町\" 会議室を選択する",
             "result": {
               "status": "passed",
-              "duration": 370000000
+              "duration": 604000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 22,
-            "name": "選択した会議室を予約する",
+            "name": "選択した会議室を開始時間: \"09:00\" 終了時間:\"08:30\" で予約する",
             "result": {
               "status": "passed",
-              "duration": 173000000
+              "duration": 634000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
             "line": 23,
-            "name": "会議室予約画面に \"入力の時間帯はすでに予約済です。\" が表示される",
+            "name": "会議室予約画面に \"不正な予約時間帯です\" が表示される",
             "result": {
-              "status": "passed",
-              "duration": 34000000
+              "status": "failed",
+              "error_message": "AssertionError: Timed out retrying after 4000ms: expected '<p.success>' to contain '不正な予約時間帯です'\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomReserve.Extentions.feature:736:15)\n    at Context.resolveAndRunStepDefinition (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomReserve.Extentions.feature:11476:29)\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomReserve.Extentions.feature:10797:35)"
             }
           }
         ]
