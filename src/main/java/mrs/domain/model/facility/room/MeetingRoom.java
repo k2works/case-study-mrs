@@ -21,6 +21,10 @@ public class MeetingRoom {
     }
 
     public MeetingRoom(Integer roomId, String roomName) {
+        if (roomId == null) throw new IllegalArgumentException("会議室番号が未入力です");
+        if (roomName == null || roomName.isEmpty() || roomName.isBlank())
+            throw new IllegalArgumentException("会議室名が未入力です");
+
         this.roomId = new RoomId(roomId);
         this.roomName = roomName;
     }

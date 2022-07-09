@@ -2,16 +2,16 @@
   {
     "description": "  スタッフとして\n  会議室を登録したい\n  なぜなら会議室を利用するために必要だから",
     "keyword": "Feature",
-    "name": "予約管理:会議室の登録(基本)",
+    "name": "予約管理:会議室の登録(選択)",
     "line": 1,
-    "id": "予約管理:会議室の登録(基本)",
+    "id": "予約管理:会議室の登録(選択)",
     "tags": [],
-    "uri": "RoomRegist.Basic.feature",
+    "uri": "RoomRegist.Extentions.feature",
     "elements": [
       {
-        "id": "予約管理:会議室の登録(基本);会議室を登録する",
+        "id": "予約管理:会議室の登録(選択);会議室を登録する",
         "keyword": "Scenario",
-        "line": 10,
+        "line": 20,
         "name": "会議室を登録する",
         "tags": [],
         "type": "scenario",
@@ -23,107 +23,7 @@
             "name": "\"スタッフ\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 6038000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 11,
-            "name": "\"会議室一覧画面\" ページにアクセスする",
-            "result": {
-              "status": "passed",
-              "duration": 315000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 12,
-            "name": "\"新会議室\" を登録する",
-            "result": {
-              "status": "passed",
-              "duration": 1057000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 13,
-            "name": "会議室一覧に \"会議室を登録しました\" が表示される",
-            "result": {
-              "status": "passed",
-              "duration": 70000000
-            }
-          }
-        ]
-      },
-      {
-        "id": "予約管理:会議室の登録(基本);会議室を更新する",
-        "keyword": "Scenario",
-        "line": 15,
-        "name": "会議室を更新する",
-        "tags": [],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 8,
-            "name": "\"スタッフ\" としてログインしている",
-            "result": {
-              "status": "passed",
-              "duration": 3441000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 16,
-            "name": "\"会議室一覧画面\" ページにアクセスする",
-            "result": {
-              "status": "passed",
-              "duration": 265000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 17,
-            "name": "\"新会議室\" を \"更新会議室\" に更新する",
-            "result": {
-              "status": "passed",
-              "duration": 777000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 18,
-            "name": "会議室一覧に \"会議室を更新しました\" が表示される",
-            "result": {
-              "status": "passed",
-              "duration": 92000000
-            }
-          }
-        ]
-      },
-      {
-        "id": "予約管理:会議室の登録(基本);会議室を削除する",
-        "keyword": "Scenario",
-        "line": 20,
-        "name": "会議室を削除する",
-        "tags": [],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 8,
-            "name": "\"スタッフ\" としてログインしている",
-            "result": {
-              "status": "passed",
-              "duration": 9402000000
+              "duration": 4036000000
             }
           },
           {
@@ -133,127 +33,27 @@
             "name": "\"会議室一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 585000000
+              "duration": 255000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 22,
-            "name": "\"新会議室\" を削除する",
+            "name": "会議室番号:\"1234\" 会議室名: \"新会議室\" で登録する",
             "result": {
               "status": "passed",
-              "duration": 236000000
+              "duration": 1559000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
             "line": 23,
-            "name": "会議室一覧に \"会議室を削除しました\" が表示される",
+            "name": "会議室一覧に \"会議室番号は999以下である必要があります\" がエラー表示される",
             "result": {
               "status": "passed",
-              "duration": 62000000
-            }
-          }
-        ]
-      },
-      {
-        "id": "予約管理:会議室の登録(基本);予約可能な会議室を登録する",
-        "keyword": "Scenario",
-        "line": 25,
-        "name": "予約可能な会議室を登録する",
-        "tags": [],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 8,
-            "name": "\"スタッフ\" としてログインしている",
-            "result": {
-              "status": "passed",
-              "duration": 3399000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 26,
-            "name": "\"予約可能会議室一覧画面\" ページにアクセスする",
-            "result": {
-              "status": "passed",
-              "duration": 300000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 27,
-            "name": "\"新木場\" を \"2022-01-01\" 予約可能登録する",
-            "result": {
-              "status": "passed",
-              "duration": 981000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 28,
-            "name": "予約可能会議室一覧に \"予約可能会議室を登録しました\" が表示される",
-            "result": {
-              "status": "passed",
-              "duration": 85000000
-            }
-          }
-        ]
-      },
-      {
-        "id": "予約管理:会議室の登録(基本);予約可能な会議室を削除する",
-        "keyword": "Scenario",
-        "line": 30,
-        "name": "予約可能な会議室を削除する",
-        "tags": [],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 8,
-            "name": "\"スタッフ\" としてログインしている",
-            "result": {
-              "status": "passed",
-              "duration": 3389000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 31,
-            "name": "\"予約可能会議室一覧画面\" ページにアクセスする",
-            "result": {
-              "status": "passed",
-              "duration": 290000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 32,
-            "name": "予約可能会議室を削除する",
-            "result": {
-              "status": "passed",
-              "duration": 343000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 33,
-            "name": "予約可能会議室一覧に \"予約可能会議室を削除しました\" が表示される",
-            "result": {
-              "status": "passed",
-              "duration": 58000000
+              "duration": 142000000
             }
           }
         ]

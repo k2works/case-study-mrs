@@ -18,7 +18,7 @@ export const Main: React.FC<{}> = () => {
     const [successful, setSuccessful] = useState(false);
     const {message} = useAppSelector(selectMessage);
     const room = useAppSelector(meetingRoomState);
-    const [roomId, setRoomId] = useState(1);
+    const [roomId, setRoomId] = useState(undefined);
     const [roomName, setRoomName] = useState("");
     const registRef = useRef<HTMLDivElement>(null);
     const updateRef = useRef<HTMLDivElement>(null);
@@ -46,7 +46,7 @@ export const Main: React.FC<{}> = () => {
 
     const handleRegistDialog = (e: any) => {
         e.preventDefault();
-        setRoomId(0);
+        setRoomId(undefined);
         setRoomName("");
 
         if (registRef.current) {

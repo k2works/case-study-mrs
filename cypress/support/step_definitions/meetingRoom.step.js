@@ -15,7 +15,6 @@ Before(() => {
 });
 
 Given(/^"([^"]*)" を登録する$/, (value) => {
-    cy.wait(100);
     cy.get('#regist_button').click();
     cy.get('#regist_id').click().type(8);
     cy.get('#regist_roomName').clear().type(value);
@@ -36,3 +35,13 @@ Then(/^会議室一覧に "([^"]*)" が表示される$/, (value) => {
     cy.get('.success').should('contain', value);
 });
 
+Given(/^会議室番号:"([^"]*)" 会議室名: "([^"]*)" で登録する$/, (roomId, roomName) => {
+    cy.get('#regist_button').click();
+    cy.get('#regist_id').click().type(roomId);
+    cy.get('#regist_roomName').clear().type(roomName);
+    cy.get('[name="regist"]').click();
+});
+
+Then(/^会議室一覧に "([^"]*)" がエラー表示される$/, (value) => {
+    cy.get('.error').should('contain', value);
+});

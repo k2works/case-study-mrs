@@ -763,6 +763,8 @@ admin --> UC4
 [source,yml]
 ----
 include::../cypress/integration/ReservationManagement/RoomRegist.Basic.feature[]
+
+include::../cypress/integration/ReservationManagement/RoomRegist.Extentions.feature[]
 ----
 
 ===== 問い合わせ
