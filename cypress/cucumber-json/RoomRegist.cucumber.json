@@ -11,7 +11,7 @@
       {
         "id": "予約管理:会議室の登録;会議室を登録する",
         "keyword": "Scenario",
-        "line": 7,
+        "line": 10,
         "name": "会議室を登録する",
         "tags": [],
         "type": "scenario",
@@ -23,37 +23,37 @@
             "name": "\"スタッフ\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 3163000000
+              "duration": 5867000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 9,
+            "line": 11,
             "name": "\"会議室一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 428000000
+              "duration": 389000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 10,
+            "line": 12,
             "name": "\"新会議室\" を登録する",
             "result": {
-              "status": "failed",
-              "duration": 4250000000,
-              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#regist_button`, but never found it.\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:635:6)\n    at Context.resolveAndRunStepDefinition (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:11394:29)\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:10715:35)"
+              "status": "passed",
+              "duration": 1630000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 11,
+            "line": 13,
             "name": "会議室一覧に \"会議室を登録しました\" が表示される",
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 243000000
             }
           }
         ]
@@ -61,7 +61,7 @@
       {
         "id": "予約管理:会議室の登録;会議室を更新する",
         "keyword": "Scenario",
-        "line": 13,
+        "line": 15,
         "name": "会議室を更新する",
         "tags": [],
         "type": "scenario",
@@ -69,41 +69,41 @@
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 14,
+            "line": 8,
             "name": "\"スタッフ\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 3478000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 15,
-            "name": "\"会議室一覧画面\" ページにアクセスする",
-            "result": {
-              "status": "passed",
-              "duration": 461000000
+              "duration": 3938000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 16,
+            "name": "\"会議室一覧画面\" ページにアクセスする",
+            "result": {
+              "status": "passed",
+              "duration": 268000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 17,
             "name": "\"新会議室\" を \"更新会議室\" に更新する",
             "result": {
               "status": "passed",
-              "duration": 1245000000
+              "duration": 1170000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 17,
+            "line": 18,
             "name": "会議室一覧に \"会議室を更新しました\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 260000000
+              "duration": 242000000
             }
           }
         ]
@@ -111,7 +111,7 @@
       {
         "id": "予約管理:会議室の登録;会議室を削除する",
         "keyword": "Scenario",
-        "line": 19,
+        "line": 20,
         "name": "会議室を削除する",
         "tags": [],
         "type": "scenario",
@@ -119,11 +119,11 @@
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 20,
+            "line": 8,
             "name": "\"スタッフ\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 3616000000
+              "duration": 4013000000
             }
           },
           {
@@ -133,7 +133,7 @@
             "name": "\"会議室一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 434000000
+              "duration": 215000000
             }
           },
           {
@@ -142,8 +142,8 @@
             "line": 22,
             "name": "\"新会議室\" を削除する",
             "result": {
-              "status": "failed",
-              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `:nth-child(9) > :nth-child(4) > .app-btn`, but never found it.\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:646:6)\n    at Context.resolveAndRunStepDefinition (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:11394:29)\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:10715:35)"
+              "status": "passed",
+              "duration": 602000000
             }
           },
           {
@@ -152,7 +152,8 @@
             "line": 23,
             "name": "会議室一覧に \"会議室を削除しました\" が表示される",
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 231000000
             }
           }
         ]
@@ -168,40 +169,41 @@
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 26,
+            "line": 8,
             "name": "\"スタッフ\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 3857000000
+              "duration": 3950000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 26,
+            "name": "\"予約可能会議室一覧画面\" ページにアクセスする",
+            "result": {
+              "status": "passed",
+              "duration": 218000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 27,
-            "name": "\"予約可能会議室一覧画面\" ページにアクセスする",
-            "result": {
-              "status": "passed",
-              "duration": 460000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 28,
             "name": "\"新木場\" を \"2022-01-01\" 予約可能登録する",
             "result": {
-              "status": "failed",
-              "error_message": "CypressError: Timed out retrying after 4050ms: `cy.click()` failed because this element is detached from the DOM.\n\n`<button class=\"regist app-btn\" id=\"regist_button\">新規</button>`\n\nCypress requires elements be attached in the DOM to interact with them.\n\nThe previous command that ran was:\n\n  > `cy.get()`\n\nThis DOM element likely became detached somewhere between the previous and current command.\n\nCommon situations why this happens:\n  - Your JS framework re-rendered asynchronously\n  - Your app code reacted to an event firing and removed the element\n\nYou typically need to re-query for the element or add 'guards' which delay Cypress from running new commands.\n    at $Cy.ensureAttached (http://localhost:8081/__cypress/runner/cypress_runner.js:168765:76)\n    at runAllChecks (http://localhost:8081/__cypress/runner/cypress_runner.js:154675:12)\n    at retryActionability (http://localhost:8081/__cypress/runner/cypress_runner.js:154755:16)\nFrom previous event:\n    at whenStable (http://localhost:8081/__cypress/runner/cypress_runner.js:173835:65)\n    at http://localhost:8081/__cypress/runner/cypress_runner.js:173290:14\nFrom Your Spec Code:\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:670:28)\n    at Context.resolveAndRunStepDefinition (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:11394:29)\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:10715:35)"
+              "status": "passed",
+              "duration": 1571000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 29,
+            "line": 28,
             "name": "予約可能会議室一覧に \"予約可能会議室を登録しました\" が表示される",
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 250000000
             }
           }
         ]
@@ -209,7 +211,7 @@
       {
         "id": "予約管理:会議室の登録;予約可能な会議室を削除する",
         "keyword": "Scenario",
-        "line": 31,
+        "line": 30,
         "name": "予約可能な会議室を削除する",
         "tags": [],
         "type": "scenario",
@@ -217,41 +219,41 @@
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 32,
+            "line": 8,
             "name": "\"スタッフ\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 3647000000
+              "duration": 3933000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 33,
+            "line": 31,
             "name": "\"予約可能会議室一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 519000000
+              "duration": 216000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 34,
+            "line": 32,
             "name": "予約可能会議室を削除する",
             "result": {
               "status": "passed",
-              "duration": 704000000
+              "duration": 661000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 35,
+            "line": 33,
             "name": "予約可能会議室一覧に \"予約可能会議室を削除しました\" が表示される",
             "result": {
-              "status": "failed",
-              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.success`, but never found it.\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:676:22)\n    at Context.resolveAndRunStepDefinition (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:11394:29)\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:10715:35)"
+              "status": "passed",
+              "duration": 242000000
             }
           }
         ]

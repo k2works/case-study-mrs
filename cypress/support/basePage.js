@@ -6,12 +6,14 @@ export class BasePage {
     login() {
         cy.visit(this._url);
         cy.get('#login').click()
+        cy.wait(1000)
     }
 
     loginAdmin() {
         cy.visit(this._url);
         cy.get('#userId').clear().type('U000010')
         cy.get('#login').click()
+        cy.wait(1000)
     }
 
     loginBy(id, password) {
