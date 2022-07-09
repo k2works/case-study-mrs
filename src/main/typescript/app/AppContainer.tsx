@@ -26,8 +26,8 @@ const AppContainer: React.FC = () => {
                 <Route path="/reservable_meeting_rooms" element={<ReservableRooms/>}/>
                 <Route path="/users" element={<User/>}/>
                 <Route path="/contacts" element={<ContactList/>}/>
-                <Route path="/contacts_guest_regist" element={<GustContact/>}/>
-                <Route path="/contact_regist" element={<MemberContact/>}/>
+                <Route path="/contacts_gust_regist" element={<GustContact/>}/>
+                <Route path="/contacts_member_regist" element={<MemberContact/>}/>
             </Routes>
         </div>
     );

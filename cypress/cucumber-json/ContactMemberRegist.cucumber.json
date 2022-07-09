@@ -6,7 +6,7 @@
     "line": 1,
     "id": "会員管理:問い合わせの実施",
     "tags": [],
-    "uri": "ContactRegist.feature",
+    "uri": "ContactMemberRegist.feature",
     "elements": [
       {
         "id": "会員管理:問い合わせの実施;問い合わせをする",
@@ -23,7 +23,7 @@
             "name": "\"会員\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 3427000000
+              "duration": 2927000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "\"問い合わせ画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 126000000
+              "duration": 458000000
             }
           },
           {
@@ -42,9 +42,8 @@
             "line": 12,
             "name": "問い合わせ画面で \"問い合わせ内容\" を入力する",
             "result": {
-              "status": "failed",
-              "duration": 4023000000,
-              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#regist_details`, but never found it.\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\UserManagement\\ContactRegist.feature:609:6)\n    at Context.resolveAndRunStepDefinition (http://localhost:8081/__cypress/tests?p=cypress\\integration\\UserManagement\\ContactRegist.feature:11394:29)\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\UserManagement\\ContactRegist.feature:10715:35)"
+              "status": "passed",
+              "duration": 740000000
             }
           },
           {
@@ -53,7 +52,8 @@
             "line": 13,
             "name": "問い合わせが送信される",
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 214000000
             }
           }
         ]
