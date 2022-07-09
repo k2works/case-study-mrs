@@ -698,6 +698,8 @@ admin --> UC1
 [source,yml]
 ----
 include::../cypress/integration/UserManagement/UserAuth.Basic.feature[]
+
+include::../cypress/integration/UserManagement/UserAuth.Extention.feature[]
 ----
 
 ===== 利用者

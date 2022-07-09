@@ -2,16 +2,16 @@
   {
     "description": "  システムとして\n  アプリケーション利用者の認証をしたい\n  なぜなら認証された利用者むけのサービスだから",
     "keyword": "Feature",
-    "name": "会員管理:利用者の認証(基本)",
+    "name": "会員管理:利用者の認証(選択)",
     "line": 1,
-    "id": "会員管理:利用者の認証(基本)",
+    "id": "会員管理:利用者の認証(選択)",
     "tags": [],
-    "uri": "UserAuth.Basic.feature",
+    "uri": "UserAuth.Extention.feature",
     "elements": [
       {
-        "id": "会員管理:利用者の認証(基本);利用者を認証する",
+        "id": "会員管理:利用者の認証(選択);利用者を認証する",
         "keyword": "Scenario",
-        "line": 7,
+        "line": 27,
         "name": "利用者を認証する",
         "tags": [],
         "type": "scenario",
@@ -19,21 +19,31 @@
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 8,
+            "line": 28,
             "name": "\"ログイン\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 3946000000
+              "duration": 2288000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 29,
+            "name": "利用者番号: \"U123456\" パスワード: \"pAssw0rd\" でログインする",
+            "result": {
+              "status": "passed",
+              "duration": 2453000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 9,
-            "name": "\"ログイン\" が表示される",
+            "line": 30,
+            "name": "\"利用者が存在しません\" がログイン画面にエラー表示される",
             "result": {
               "status": "passed",
-              "duration": 50000000
+              "duration": 411000000
             }
           }
         ]

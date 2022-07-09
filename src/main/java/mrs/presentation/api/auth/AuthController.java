@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import mrs.application.service.auth.UserApiAuthService;
 import mrs.application.service.user.UserManagementService;
 import mrs.domain.model.auth.user.*;
+import mrs.infrastructure.datasource.Message;
 import mrs.infrastructure.security.jwt.payload.request.LoginRequest;
 import mrs.infrastructure.security.jwt.payload.request.SignupRequest;
 import mrs.infrastructure.security.jwt.payload.response.JwtResponse;
@@ -26,9 +27,12 @@ public class AuthController {
 
     final UserManagementService userManagementService;
 
-    public AuthController(UserApiAuthService userApiAuthService, UserManagementService userManagementService) {
+    final Message message;
+
+    public AuthController(UserApiAuthService userApiAuthService, UserManagementService userManagementService, Message message) {
         this.userApiAuthService = userApiAuthService;
         this.userManagementService = userManagementService;
+        this.message = message;
     }
 
     @Operation(summary = "ユーザー認証", description = "データベースに登録されているユーザーを認証する")
@@ -37,7 +41,7 @@ public class AuthController {
         try {
             User user = userManagementService.findOne(new UserId(loginRequest.getUserId()));
             if (user == null) {
-                return ResponseEntity.badRequest().body(new MessageResponse("Error: User is not exist"));
+                return ResponseEntity.badRequest().body(new MessageResponse(message.getMessageByKey("user_not_exist")));
             }
 
             JwtResponse jwtResponse = userApiAuthService.authenticateUser(new UserId(loginRequest.getUserId()), new Password(loginRequest.getPassword()));
@@ -53,7 +57,7 @@ public class AuthController {
         try {
             User user = userManagementService.findOne(new UserId(signupRequest.getUserId()));
             if (user != null) {
-                return ResponseEntity.badRequest().body(new MessageResponse("Error: UserId is already taken"));
+                return ResponseEntity.badRequest().body(new MessageResponse(message.getMessageByKey("user_already_taken")));
             }
 
             UserId userId = new UserId(signupRequest.getUserId());
