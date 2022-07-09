@@ -1,23 +1,23 @@
 export class BasePage {
-    constructor(url = "http://localhost:8080") {
+    constructor(url = "http://localhost:8081") {
         this._url = `${url}`;
     }
 
     login() {
         cy.visit(this._url);
-        cy.get('button').click()
+        cy.get('#login').click()
     }
 
     loginAdmin() {
         cy.visit(this._url);
-        cy.get('#username').clear().type('U000003')
-        cy.get('button').click()
+        cy.get('#userId').clear().type('U000010')
+        cy.get('#login').click()
     }
 
     loginBy(id, password) {
         cy.visit(this._url);
-        cy.get('#username').clear().type(id)
+        cy.get('#userId').clear().type(id)
         cy.get('#password').clear().type(password)
-        cy.get('button').click()
+        cy.get('#login').click()
     }
 }

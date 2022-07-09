@@ -252,7 +252,7 @@ export const Main: React.FC<{}> = () => {
                             </tr>
                             {
                                 user.users.list.map((item: any) => (
-                                    <tr>
+                                    <tr id={item.userId.value}>
                                         <td>{item.userId.value}</td>
                                         <td>{item.name.firstName}</td>
                                         <td>{item.name.lastName}</td>
@@ -287,14 +287,14 @@ export const Main: React.FC<{}> = () => {
                                 <form className="app-form" onSubmit={handleSubmit(handleRegist)}>
                                     <label>利用者番号</label>
                                     <input {...register("registUserId", {required: true})}
-                                           value={userId} onChange={handleUserId}/>
+                                           id="regist_id" value={userId} onChange={handleUserId}/>
                                     <ul>
                                         {errors.registUserId && <li className="error">利用者番号を入力してください</li>}
                                     </ul>
 
                                     <label>姓</label>
                                     <input  {...register("registFirstName", {required: true})}
-                                            value={userFirstName}
+                                            id="regist_first_name" value={userFirstName}
                                             onChange={handleUserFirstName}/>
                                     <ul>
                                         {errors.registFirstName && <li className="error">姓を入力してください</li>}
@@ -302,7 +302,7 @@ export const Main: React.FC<{}> = () => {
 
                                     <label>名</label>
                                     <input  {...register("registLastName", {required: true})}
-                                            value={userLastName}
+                                            id="regist_last_name" value={userLastName}
                                             onChange={handleUserLastName}/>
                                     <ul>
                                         {errors.registLastName && <li className="error">姓を入力してください</li>}
@@ -310,14 +310,14 @@ export const Main: React.FC<{}> = () => {
 
                                     <label>パスワード</label>
                                     <input  {...register("registPassword", {required: true})}
-                                            type="password" value={userPassword}
+                                            id="regist_password" type="password" value={userPassword}
                                             onChange={handleUserPassword}/>
                                     <ul>
                                         {errors.registPassword && <li className="error">パスワードを入力してください</li>}
                                     </ul>
 
                                     <label>役割</label>
-                                    <select value={userRoleName}
+                                    <select id="regist_role" value={userRoleName}
                                             onChange={handleUserRoleName}>
                                         {
                                             user.roleNames.map((item: any) => (
@@ -339,10 +339,11 @@ export const Main: React.FC<{}> = () => {
                             <div>
                                 <form className="app-form">
                                     <label>利用者番号</label>
-                                    <input name="updateUserId" readOnly={true} type="text" value={userId}/>
+                                    <input id="update_user_id" readOnly={true} type="text" value={userId}/>
 
                                     <label>姓</label>
                                     <input  {...register("updateFirstName", {required: true})}
+                                            id="update_first_name"
                                             value={userFirstName}
                                             onChange={handleUserFirstName}/>
                                     <ul>
@@ -351,6 +352,7 @@ export const Main: React.FC<{}> = () => {
 
                                     <label>名</label>
                                     <input  {...register("updateLastName", {required: true})}
+                                            id="update_last_name"
                                             value={userLastName}
                                             onChange={handleUserLastName}/>
                                     <ul>
@@ -365,7 +367,7 @@ export const Main: React.FC<{}> = () => {
                                     </ul>
 
                                     <label>役割</label>
-                                    <select value={userRoleName}
+                                    <select id="update_role" value={userRoleName}
                                             onChange={handleUserRoleName}>
                                         {
                                             user.roleNames.map((item: any) => (

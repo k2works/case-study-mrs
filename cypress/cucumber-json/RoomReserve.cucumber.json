@@ -22,8 +22,9 @@
             "line": 8,
             "name": "\"会員\" としてログインしている",
             "result": {
-              "status": "passed",
-              "duration": 18537000000
+              "status": "failed",
+              "duration": 35920000000,
+              "error_message": "CypressError: `cy.click()` can only be called on a single element. Your subject contained 2 elements. Pass `{ multiple: true }` if you want to serially click each element.\n    at mouseAction (http://localhost:8081/__cypress/runner/cypress_runner.js:156686:76)\n    at Context.click (http://localhost:8081/__cypress/runner/cypress_runner.js:156865:14)\n    at Context.<anonymous> (http://localhost:8081/__cypress/runner/cypress_runner.js:178437:19)\nFrom Your Spec Code:\n    at LoginPage.login (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomReserve.feature:67:24)\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomReserve.feature:821:12)\n    at Context.resolveAndRunStepDefinition (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomReserve.feature:11393:29)\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomReserve.feature:10714:35)"
             }
           },
           {
@@ -32,8 +33,7 @@
             "line": 11,
             "name": "\"会議室予約一覧画面\" ページにアクセスする",
             "result": {
-              "status": "passed",
-              "duration": 188000000
+              "status": "skipped"
             }
           },
           {
@@ -42,8 +42,7 @@
             "line": 12,
             "name": "\"新木場\" 会議室を選択する",
             "result": {
-              "status": "passed",
-              "duration": 323000000
+              "status": "skipped"
             }
           },
           {
@@ -52,8 +51,7 @@
             "line": 13,
             "name": "選択した会議室を予約する",
             "result": {
-              "status": "passed",
-              "duration": 395000000
+              "status": "skipped"
             }
           },
           {
@@ -62,8 +60,7 @@
             "line": 14,
             "name": "予約者 \"Aaa\" が表示される",
             "result": {
-              "status": "passed",
-              "duration": 26000000
+              "status": "skipped"
             }
           }
         ]
@@ -82,8 +79,8 @@
             "line": 8,
             "name": "\"会員\" としてログインしている",
             "result": {
-              "status": "passed",
-              "duration": 1922000000
+              "status": "failed",
+              "error_message": "CypressError: `cy.click()` can only be called on a single element. Your subject contained 2 elements. Pass `{ multiple: true }` if you want to serially click each element.\n    at mouseAction (http://localhost:8081/__cypress/runner/cypress_runner.js:156686:76)\n    at Context.click (http://localhost:8081/__cypress/runner/cypress_runner.js:156865:14)\n    at Context.<anonymous> (http://localhost:8081/__cypress/runner/cypress_runner.js:178437:19)\nFrom Your Spec Code:\n    at LoginPage.login (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomReserve.feature:67:24)\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomReserve.feature:821:12)\n    at Context.resolveAndRunStepDefinition (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomReserve.feature:11393:29)\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomReserve.feature:10714:35)"
             }
           },
           {
@@ -92,8 +89,7 @@
             "line": 17,
             "name": "\"会議室予約一覧画面\" ページにアクセスする",
             "result": {
-              "status": "passed",
-              "duration": 202000000
+              "status": "skipped"
             }
           },
           {
@@ -102,8 +98,7 @@
             "line": 18,
             "name": "\"有楽町\" 会議室を選択する",
             "result": {
-              "status": "passed",
-              "duration": 459000000
+              "status": "skipped"
             }
           },
           {
@@ -112,8 +107,7 @@
             "line": 19,
             "name": "選択した会議室を予約する",
             "result": {
-              "status": "passed",
-              "duration": 308000000
+              "status": "skipped"
             }
           },
           {
@@ -122,8 +116,7 @@
             "line": 20,
             "name": "\"会議室予約一覧画面\" ページにアクセスする",
             "result": {
-              "status": "passed",
-              "duration": 269000000
+              "status": "skipped"
             }
           },
           {
@@ -132,8 +125,7 @@
             "line": 21,
             "name": "\"有楽町\" 会議室を選択する",
             "result": {
-              "status": "passed",
-              "duration": 331000000
+              "status": "skipped"
             }
           },
           {
@@ -142,8 +134,7 @@
             "line": 22,
             "name": "選択した会議室を予約する",
             "result": {
-              "status": "passed",
-              "duration": 549000000
+              "status": "skipped"
             }
           },
           {
@@ -152,8 +143,7 @@
             "line": 23,
             "name": "会議室予約画面に \"入力の時間帯はすでに予約済です。\" が表示される",
             "result": {
-              "status": "passed",
-              "duration": 56000000
+              "status": "skipped"
             }
           }
         ]

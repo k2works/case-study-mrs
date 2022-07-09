@@ -68,7 +68,7 @@ export const Login: React.FC<{}> = () => {
                                    value={password}
                                    onChange={onChangePassword}/>
                             {errors.password && <p className="error">パスワードを入力してください</p>}
-                            <button className="btn" type="submit">ログイン</button>
+                            <button id="login" className="btn" type="submit">ログイン</button>
                         </form>
                     </div>
                 </div>

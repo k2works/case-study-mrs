@@ -23,7 +23,7 @@
             "name": "\"スタッフ\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 3129000000
+              "duration": 4020000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "\"会議室一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 153000000
+              "duration": 269000000
             }
           },
           {
@@ -42,8 +42,9 @@
             "line": 12,
             "name": "\"新会議室\" を登録する",
             "result": {
-              "status": "passed",
-              "duration": 959000000
+              "status": "failed",
+              "duration": 4097000000,
+              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#regist_button`, but never found it.\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:634:6)\n    at Context.resolveAndRunStepDefinition (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:11393:29)\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:10714:35)"
             }
           },
           {
@@ -52,8 +53,7 @@
             "line": 13,
             "name": "会議室一覧に \"会議室を登録しました\" が表示される",
             "result": {
-              "status": "passed",
-              "duration": 52000000
+              "status": "skipped"
             }
           }
         ]
@@ -73,7 +73,7 @@
             "name": "\"スタッフ\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 2298000000
+              "duration": 3042000000
             }
           },
           {
@@ -83,7 +83,7 @@
             "name": "\"会議室一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 90000000
+              "duration": 388000000
             }
           },
           {
@@ -92,8 +92,8 @@
             "line": 17,
             "name": "\"新会議室\" を \"更新会議室\" に更新する",
             "result": {
-              "status": "passed",
-              "duration": 676000000
+              "status": "failed",
+              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `:nth-child(9) > :nth-child(3) > button.app-btn`, but never found it.\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:640:6)\n    at Context.resolveAndRunStepDefinition (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:11393:29)\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:10714:35)"
             }
           },
           {
@@ -102,8 +102,7 @@
             "line": 18,
             "name": "会議室一覧に \"会議室を更新しました\" が表示される",
             "result": {
-              "status": "passed",
-              "duration": 27000000
+              "status": "skipped"
             }
           }
         ]
@@ -123,7 +122,7 @@
             "name": "\"スタッフ\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 2294000000
+              "duration": 3051000000
             }
           },
           {
@@ -133,7 +132,7 @@
             "name": "\"会議室一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 131000000
+              "duration": 322000000
             }
           },
           {
@@ -142,8 +141,8 @@
             "line": 22,
             "name": "\"新会議室\" を削除する",
             "result": {
-              "status": "passed",
-              "duration": 200000000
+              "status": "failed",
+              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `:nth-child(9) > :nth-child(4) > .app-btn`, but never found it.\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:645:6)\n    at Context.resolveAndRunStepDefinition (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:11393:29)\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:10714:35)"
             }
           },
           {
@@ -152,8 +151,7 @@
             "line": 23,
             "name": "会議室一覧に \"会議室を削除しました\" が表示される",
             "result": {
-              "status": "passed",
-              "duration": 23000000
+              "status": "skipped"
             }
           }
         ]
@@ -173,7 +171,7 @@
             "name": "\"スタッフ\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 2384000000
+              "duration": 2935000000
             }
           },
           {
@@ -183,7 +181,7 @@
             "name": "\"予約可能会議室一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 160000000
+              "duration": 295000000
             }
           },
           {
@@ -192,8 +190,8 @@
             "line": 27,
             "name": "\"新木場\" を \"2022-01-01\" 予約可能登録する",
             "result": {
-              "status": "passed",
-              "duration": 1160000000
+              "status": "failed",
+              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#regist_button`, but never found it.\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:669:6)\n    at Context.resolveAndRunStepDefinition (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:11393:29)\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:10714:35)"
             }
           },
           {
@@ -202,8 +200,7 @@
             "line": 28,
             "name": "予約可能会議室一覧に \"予約可能会議室を登録しました\" が表示される",
             "result": {
-              "status": "passed",
-              "duration": 33000000
+              "status": "skipped"
             }
           }
         ]
@@ -223,7 +220,7 @@
             "name": "\"スタッフ\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 2235000000
+              "duration": 3088000000
             }
           },
           {
@@ -233,7 +230,7 @@
             "name": "\"予約可能会議室一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 227000000
+              "duration": 308000000
             }
           },
           {
@@ -242,8 +239,8 @@
             "line": 32,
             "name": "予約可能会議室を削除する",
             "result": {
-              "status": "passed",
-              "duration": 241000000
+              "status": "failed",
+              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `:nth-child(2) > :nth-child(4) > .app-btn`, but never found it.\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:678:6)\n    at Context.resolveAndRunStepDefinition (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:11393:29)\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomRegist.feature:10714:35)"
             }
           },
           {
@@ -252,8 +249,7 @@
             "line": 33,
             "name": "予約可能会議室一覧に \"予約可能会議室を削除しました\" が表示される",
             "result": {
-              "status": "passed",
-              "duration": 25000000
+              "status": "skipped"
             }
           }
         ]
