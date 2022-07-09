@@ -5,7 +5,10 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import mrs.application.scenario.MeetingRoomReservationScenario;
 import mrs.domain.model.reservation.reservation.ReservedDate;
 import mrs.domain.model.reservation.room.ReservableRoomList;
+import mrs.infrastructure.PageNation;
+import mrs.infrastructure.security.jwt.payload.response.MessageResponse;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,13 +31,28 @@ public class RoomsApiController {
 
     @Operation(summary = "会議室一覧の取得", description = "当日の会議室一覧を取得する")
     @GetMapping
-    ReservableRoomList listRooms() {
-        return meetingRoomReservationScenario.findReservableRooms(new ReservedDate(LocalDate.now())).orElse(new ReservableRoomList());
+    ResponseEntity<?> listRooms(@RequestParam(value = "page", defaultValue = "1") int... page) {
+        try {
+            PageNation.startPage(page);
+            ReservableRoomList result = meetingRoomReservationScenario.findReservableRooms(new ReservedDate(LocalDate.now())).orElse(new ReservableRoomList());
+            return ResponseEntity.ok(result);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(new MessageResponse(e.getMessage()));
+        }
     }
 
     @Operation(summary = "会議室一覧の取得", description = "指定日の会議室一覧を取得する")
     @GetMapping("{date}")
-    ReservableRoomList listRooms(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable("date") LocalDate date) {
-        return meetingRoomReservationScenario.findReservableRooms(new ReservedDate(date)).orElse(new ReservableRoomList());
+    ResponseEntity<?> listRooms(
+            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable("date") LocalDate date,
+            @RequestParam(value = "page", defaultValue = "1") int... page
+    ) {
+        try {
+            PageNation.startPage(page);
+            ReservableRoomList result = meetingRoomReservationScenario.findReservableRooms(new ReservedDate(date)).orElse(new ReservableRoomList());
+            return ResponseEntity.ok(result);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(new MessageResponse(e.getMessage()));
+        }
     }
 }

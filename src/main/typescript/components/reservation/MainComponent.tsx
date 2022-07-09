@@ -87,7 +87,7 @@ export const Main: React.FC<{}> = () => {
                         <ul>
                             {
                                 room.reservableRooms.list.map(item => (
-                                    <li>
+                                    <li id={`No${item.reservableRoomId.roomId.value}`}>
                                         <a onClick={handleReservableRoom}
                                            data-date={item.reservableRoomId.reservedDate.value}
                                            data-id={item.reservableRoomId.roomId.value}

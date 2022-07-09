@@ -79,9 +79,9 @@ export const ReserveForm: React.FC<{}> = () => {
 
         const resultAction = await dispatch(reservationReserve(params));
         if (reservationReserve.fulfilled.match(resultAction)) {
-            dispatch(setMessage(resultAction.payload.message));
             setSuccessful(true);
             await list();
+            dispatch(setMessage(resultAction.payload.message));
         } else {
             if (resultAction.payload) {
                 dispatch(setMessage(resultAction.payload.message));
@@ -107,9 +107,9 @@ export const ReserveForm: React.FC<{}> = () => {
         };
         const resultAction = await dispatch(reservationCancel(params));
         if (reservationCancel.fulfilled.match(resultAction)) {
-            dispatch(setMessage(resultAction.payload.message));
             setSuccessful(true);
             await list();
+            dispatch(setMessage(resultAction.payload.message));
         } else {
             if (resultAction.payload) {
                 dispatch(setMessage(resultAction.payload.message));
@@ -140,7 +140,7 @@ export const ReserveForm: React.FC<{}> = () => {
             <section className="app">
                 <div className="app-container">
                     <div className="message">
-                        {!successful && (<p className="error">{message}</p>)}
+                        {successful ? (<p className="success">{message}</p>) : (<p className="error">{message}</p>)}
                     </div>
 
                     <div className="app-decoration">

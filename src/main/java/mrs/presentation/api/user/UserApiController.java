@@ -12,7 +12,6 @@ import mrs.infrastructure.datasource.Message;
 import mrs.infrastructure.security.jwt.payload.response.MessageResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,7 +39,7 @@ public class UserApiController {
 
     @Operation(summary = "利用者一覧の取得", description = "利用者一覧を取得する")
     @GetMapping
-    ResponseEntity<?> list(Model model, @RequestParam(value = "page", defaultValue = "1") int... page) {
+    ResponseEntity<?> list(@RequestParam(value = "page", defaultValue = "1") int... page) {
         try {
             PageNation.startPage(page);
             List<User> users = userManagementService.findAll();

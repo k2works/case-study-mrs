@@ -11,7 +11,7 @@
       {
         "id": "予約管理:会議室の予約;会議室を予約する",
         "keyword": "Scenario",
-        "line": 10,
+        "line": 7,
         "name": "会議室を予約する",
         "tags": [],
         "type": "scenario",
@@ -22,45 +22,48 @@
             "line": 8,
             "name": "\"会員\" としてログインしている",
             "result": {
-              "status": "failed",
-              "duration": 35920000000,
-              "error_message": "CypressError: `cy.click()` can only be called on a single element. Your subject contained 2 elements. Pass `{ multiple: true }` if you want to serially click each element.\n    at mouseAction (http://localhost:8081/__cypress/runner/cypress_runner.js:156686:76)\n    at Context.click (http://localhost:8081/__cypress/runner/cypress_runner.js:156865:14)\n    at Context.<anonymous> (http://localhost:8081/__cypress/runner/cypress_runner.js:178437:19)\nFrom Your Spec Code:\n    at LoginPage.login (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomReserve.feature:67:24)\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomReserve.feature:821:12)\n    at Context.resolveAndRunStepDefinition (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomReserve.feature:11393:29)\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomReserve.feature:10714:35)"
+              "status": "passed",
+              "duration": 1867000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "\"会議室予約一覧画面\" ページにアクセスする",
+            "result": {
+              "status": "passed",
+              "duration": 394000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 10,
+            "name": "\"新木場\" 会議室を選択する",
+            "result": {
+              "status": "passed",
+              "duration": 410000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 11,
-            "name": "\"会議室予約一覧画面\" ページにアクセスする",
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 12,
-            "name": "\"新木場\" 会議室を選択する",
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 13,
             "name": "選択した会議室を予約する",
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 336000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 14,
+            "line": 12,
             "name": "予約者 \"Aaa\" が表示される",
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 112000000
             }
           }
         ]
@@ -68,7 +71,7 @@
       {
         "id": "予約管理:会議室の予約;会議室の予約を取り消す",
         "keyword": "Scenario",
-        "line": 16,
+        "line": 14,
         "name": "会議室の予約を取り消す",
         "tags": [],
         "type": "scenario",
@@ -76,74 +79,81 @@
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 8,
+            "line": 15,
             "name": "\"会員\" としてログインしている",
             "result": {
-              "status": "failed",
-              "error_message": "CypressError: `cy.click()` can only be called on a single element. Your subject contained 2 elements. Pass `{ multiple: true }` if you want to serially click each element.\n    at mouseAction (http://localhost:8081/__cypress/runner/cypress_runner.js:156686:76)\n    at Context.click (http://localhost:8081/__cypress/runner/cypress_runner.js:156865:14)\n    at Context.<anonymous> (http://localhost:8081/__cypress/runner/cypress_runner.js:178437:19)\nFrom Your Spec Code:\n    at LoginPage.login (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomReserve.feature:67:24)\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomReserve.feature:821:12)\n    at Context.resolveAndRunStepDefinition (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomReserve.feature:11393:29)\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomReserve.feature:10714:35)"
+              "status": "passed",
+              "duration": 2247000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 16,
+            "name": "\"会議室予約一覧画面\" ページにアクセスする",
+            "result": {
+              "status": "passed",
+              "duration": 382000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 17,
-            "name": "\"会議室予約一覧画面\" ページにアクセスする",
+            "name": "\"有楽町\" 会議室を選択する",
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 433000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 18,
-            "name": "\"有楽町\" 会議室を選択する",
+            "name": "選択した会議室を予約する",
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 345000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 19,
-            "name": "選択した会議室を予約する",
+            "name": "\"会議室予約一覧画面\" ページにアクセスする",
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 341000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 20,
-            "name": "\"会議室予約一覧画面\" ページにアクセスする",
+            "name": "\"有楽町\" 会議室を選択する",
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 493000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 21,
-            "name": "\"有楽町\" 会議室を選択する",
-            "result": {
-              "status": "skipped"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 22,
             "name": "選択した会議室を予約する",
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 316000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 23,
+            "line": 22,
             "name": "会議室予約画面に \"入力の時間帯はすでに予約済です。\" が表示される",
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 123000000
             }
           }
         ]

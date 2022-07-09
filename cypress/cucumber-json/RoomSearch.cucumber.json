@@ -11,7 +11,7 @@
       {
         "id": "予約管理:会議室の検索;予約可能な会議室を検索する",
         "keyword": "Scenario",
-        "line": 10,
+        "line": 7,
         "name": "予約可能な会議室を検索する",
         "tags": [],
         "type": "scenario",
@@ -23,27 +23,27 @@
             "name": "\"会員\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 25365000000
+              "duration": 1960000000
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 11,
+            "line": 9,
             "name": "\"会議室予約一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 77000000
+              "duration": 421000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 12,
+            "line": 10,
             "name": "会議室予約一覧に \"新木場\" が表示される",
             "result": {
               "status": "passed",
-              "duration": 24000000
+              "duration": 202000000
             }
           }
         ]
