@@ -699,7 +699,7 @@ admin --> UC1
 ----
 include::../cypress/integration/UserManagement/UserAuth.Basic.feature[]
 
-include::../cypress/integration/UserManagement/UserAuth.Extention.feature[]
+include::../cypress/integration/UserManagement/UserAuth.Extentions.feature[]
 ----
 
 ===== 利用者

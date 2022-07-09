@@ -238,7 +238,7 @@ export const Main: React.FC<{}> = () => {
                     </div>
 
                     <div className="app-decoration">
-                        <button className="regist app-btn" id="update_button" onClick={handleRegistDialog}>新規</button>
+                        <button className="regist app-btn" id="regist_button" onClick={handleRegistDialog}>新規</button>
                     </div>
 
                     <div className="app-decoration">

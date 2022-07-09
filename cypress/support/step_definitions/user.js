@@ -19,7 +19,7 @@ Then(/^利用者登録画面に利用者番号 "([^"]*)" が表示される$/, (
 });
 
 Given(/^利用者番号 "([^"]*)" を新規登録する$/, (value) => {
-    cy.get('#update_button').click();
+    cy.get('#regist_button').click();
     cy.get('#regist_id').clear().type(value);
     cy.get('#regist_first_name').clear().type('姓');
     cy.get('#regist_last_name').clear().type('名');
@@ -33,7 +33,7 @@ Then(/^利用者登録画面に "([^"]*)" が表示される$/, (value) => {
 });
 
 Given(/^存在する利用者を新規登録する$/, function () {
-    cy.get('#update_button').click();
+    cy.get('#regist_button').click();
     cy.get('#regist_id').clear().type('U000004');
     cy.get('#regist_first_name').clear().type('姓');
     cy.get('#regist_last_name').clear().type('名');
@@ -77,4 +77,54 @@ Given(/^更新した利用者番号 "([^"]*)" で認証する$/, (value) => {
 
 Then(/^更新した利用者で認証される$/, () => {
     cy.get('form > a').should('contain', 'ログアウト')
+});
+
+Given(/^利用者番号を空白で新規登録する$/, () => {
+    cy.get('#regist_button').click();
+    cy.get('#regist_id').clear();
+    cy.get('#regist_first_name').clear().type('姓');
+    cy.get('#regist_last_name').clear().type('名');
+    cy.get('#regist_password').click().type('a234567Z');
+    cy.get('#regist_role').select('一般');
+    cy.get('[name="regist"]').click();
+});
+
+Given(/^名前を空白で新規登録する$/, () => {
+    cy.get('#regist_button').click();
+    cy.get('#regist_id').clear().type('U000001');
+    cy.get('#regist_first_name').clear();
+    cy.get('#regist_last_name').clear();
+    cy.get('#regist_password').click().type('a234567Z');
+    cy.get('#regist_role').select('一般');
+    cy.get('[name="regist"]').click();
+});
+
+Given(/^パスワードを空白で新規登録する$/, () => {
+    cy.get('#regist_button').click();
+    cy.get('#regist_id').clear().type('U000020');
+    cy.get('#regist_first_name').clear().type('姓');
+    cy.get('#regist_last_name').clear().type('名');
+    cy.get('#regist_password').click();
+    cy.get('#regist_role').select('一般');
+    cy.get('[name="regist"]').click();
+});
+
+Given(/^利用者番号を "([^"]*)" で新規登録する$/, (value) => {
+    cy.get('#regist_button').click();
+    cy.get('#regist_id').clear().type(value);
+    cy.get('#regist_first_name').clear().type('姓');
+    cy.get('#regist_last_name').clear().type('名');
+    cy.get('#regist_password').click().type('a234567Z');
+    cy.get('#regist_role').select('一般');
+    cy.get('[name="regist"]').click();
+});
+
+Given(/^パスワードを "([^"]*)" で新規登録する$/, (value) => {
+    cy.get('#regist_button').click();
+    cy.get('#regist_id').clear().type('U000001');
+    cy.get('#regist_first_name').clear().type('姓');
+    cy.get('#regist_last_name').clear().type('名');
+    cy.get('#regist_password').click().type(value);
+    cy.get('#regist_role').select('一般');
+    cy.get('[name="regist"]').click();
 });
