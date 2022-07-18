@@ -17,6 +17,9 @@ public class ReservedTime {
     public ReservedTime(LocalTime startTime, LocalTime endTime) {
         this.startTime = startTime;
         this.endTime = endTime;
+        if (!this.isValidTimeRange()) {
+            throw new ReservedTimeException("不正な予約時間帯です");
+        }
     }
 
     public LocalTime StartTime() {
