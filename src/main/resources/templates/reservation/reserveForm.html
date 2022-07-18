@@ -60,7 +60,7 @@
                     </td>
                     <td>
                         <form method="post"
-                              sec:authorize="${hasRole('ADMIN') or #vars.user.UserId == #vars.reservation.User.UserId}"
+                              sec:authorize="${hasRole('管理者') or #vars.user.UserId == #vars.reservation.User.UserId}"
                               th:action="@{'/reservations/' + ${date} + '/' + ${roomId}}">
                             <input name="reservationId" th:value="${reservation.ReservationId.Value}" type="hidden">
                             <button class="app-btn app-btn-accent reserve-form-table-button" name="cancel"

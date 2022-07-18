@@ -121,7 +121,7 @@ export const ReserveForm: React.FC<{}> = () => {
     }
 
     const showCancelButton = (params: { userId: string, reservationId: number }) => {
-        if (user.userInfo?.userId.value === params.userId)
+        if (user.userInfo?.userId.value === params.userId || user.userInfo?.roleName === '管理者')
             return (
                 <button
                     onClick={handleCancel}
