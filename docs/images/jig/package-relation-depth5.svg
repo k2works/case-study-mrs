@@ -11,14 +11,13 @@
         <polygon fill="white" stroke="transparent" points="-4,4 -4,-430.1 546,-430.1 546,4 -4,4"/>
         <text text-anchor="middle" x="271" y="-7.8" font-family="Times New Roman,serif" font-size="14.00">パッケージ関連図
         </text>
-        <g id="clust1" class="cluster">
-            <title>cluster_mrs.domain.model.reservation</title>
+        <g id="clust2" class="cluster">
+            <title>cluster_mrs.domain.model.user</title>
             <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
-                     points="346,-31 346,-197 440,-197 440,-31 346,-31"/>
-            <text text-anchor="middle" x="393" y="-181.8" font-family="Times New Roman,serif" font-size="14.00">予約
+                     points="266,-305 266,-397 534,-397 534,-305 266,-305"/>
+            <text text-anchor="middle" x="400" y="-381.8" font-family="Times New Roman,serif" font-size="14.00">利用者
             </text>
-            <text text-anchor="middle" x="393" y="-166.8" font-family="Times New Roman,serif" font-size="14.00">
-                reservation
+            <text text-anchor="middle" x="400" y="-366.8" font-family="Times New Roman,serif" font-size="14.00">user
             </text>
         </g>
         <g id="clust3" class="cluster">
@@ -31,13 +30,14 @@
                 facility
             </text>
         </g>
-        <g id="clust2" class="cluster">
-            <title>cluster_mrs.domain.model.user</title>
+        <g id="clust1" class="cluster">
+            <title>cluster_mrs.domain.model.reservation</title>
             <polygon fill="lemonchiffon" stroke="#eedd82" stroke-width="2"
-                     points="266,-305 266,-397 534,-397 534,-305 266,-305"/>
-            <text text-anchor="middle" x="400" y="-381.8" font-family="Times New Roman,serif" font-size="14.00">利用者
+                     points="346,-31 346,-197 440,-197 440,-31 346,-31"/>
+            <text text-anchor="middle" x="393" y="-181.8" font-family="Times New Roman,serif" font-size="14.00">予約
             </text>
-            <text text-anchor="middle" x="400" y="-366.8" font-family="Times New Roman,serif" font-size="14.00">user
+            <text text-anchor="middle" x="393" y="-166.8" font-family="Times New Roman,serif" font-size="14.00">
+                reservation
             </text>
         </g>
         <g id="clust4" class="cluster">
@@ -61,30 +61,35 @@
             <text text-anchor="start" x="8" y="-320.8" font-family="Times New Roman,serif" font-size="14.00">関連数: 16
             </text>
         </g>
-<!-- mrs.domain.model.user.member -->
-<g id="node2" class="node">
-<title>mrs.domain.model.user.member</title>
-<g id="a_node2">
-    <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/user/member"
-       xlink:title="会員\nmember">
-        <polygon fill="#eedd82" stroke="black" points="422,-351 360,-351 360,-313 422,-313 422,-351"/>
-        <text text-anchor="middle" x="391" y="-335.8" font-family="Times New Roman,serif" font-size="14.00">会員</text>
-        <text text-anchor="middle" x="391" y="-320.8" font-family="Times New Roman,serif" font-size="14.00">member
-        </text>
-    </a>
-</g>
-</g>
+        <!-- mrs.domain.model.user.member -->
+        <g id="node2" class="node">
+            <title>mrs.domain.model.user.member</title>
+            <g id="a_node2">
+                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/user/member"
+                   xlink:title="会員\nmember">
+                    <polygon fill="#eedd82" stroke="black" points="422,-351 360,-351 360,-313 422,-313 422,-351"/>
+                    <text text-anchor="middle" x="391" y="-335.8" font-family="Times New Roman,serif" font-size="14.00">
+                        会員
+                    </text>
+                    <text text-anchor="middle" x="391" y="-320.8" font-family="Times New Roman,serif" font-size="14.00">
+                        member
+                    </text>
+                </a>
+            </g>
+        </g>
 <!-- mrs.domain.model.auth.user -->
 <g id="node3" class="node">
 <title>mrs.domain.model.auth.user</title>
-<g id="a_node3">
-    <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/auth/user"
-       xlink:title="利用者\nuser">
-        <polygon fill="#eedd82" stroke="black" points="365,-251 297,-251 297,-213 365,-213 365,-251"/>
-        <text text-anchor="middle" x="331" y="-235.8" font-family="Times New Roman,serif" font-size="14.00">利用者</text>
-        <text text-anchor="middle" x="331" y="-220.8" font-family="Times New Roman,serif" font-size="14.00">user</text>
-    </a>
-</g>
+    <g id="a_node3">
+        <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/auth/user"
+           xlink:title="利用者\nuser">
+            <polygon fill="#eedd82" stroke="black" points="365,-251 297,-251 297,-213 365,-213 365,-251"/>
+            <text text-anchor="middle" x="331" y="-235.8" font-family="Times New Roman,serif" font-size="14.00">利用者
+            </text>
+            <text text-anchor="middle" x="331" y="-220.8" font-family="Times New Roman,serif" font-size="14.00">user
+            </text>
+        </a>
+    </g>
 </g>
 <!-- mrs.domain.model.user.member&#45;&gt;mrs.domain.model.auth.user -->
         <g id="edge1" class="edge">
@@ -95,16 +100,17 @@
 <!-- mrs.domain.model.reservation.reservation -->
 <g id="node4" class="node">
 <title>mrs.domain.model.reservation.reservation</title>
-<g id="a_node4">
-    <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/reservation/reservation"
-       xlink:title="予約\nreservation">
-        <polygon fill="#eedd82" stroke="black" points="431.5,-151 354.5,-151 354.5,-113 431.5,-113 431.5,-151"/>
-        <text text-anchor="middle" x="393" y="-135.8" font-family="Times New Roman,serif" font-size="14.00">予約</text>
-        <text text-anchor="middle" x="393" y="-120.8" font-family="Times New Roman,serif" font-size="14.00">
-            reservation
-        </text>
-    </a>
-</g>
+    <g id="a_node4">
+        <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/reservation/reservation"
+           xlink:title="予約\nreservation">
+            <polygon fill="#eedd82" stroke="black" points="431.5,-151 354.5,-151 354.5,-113 431.5,-113 431.5,-151"/>
+            <text text-anchor="middle" x="393" y="-135.8" font-family="Times New Roman,serif" font-size="14.00">予約
+            </text>
+            <text text-anchor="middle" x="393" y="-120.8" font-family="Times New Roman,serif" font-size="14.00">
+                reservation
+            </text>
+        </a>
+    </g>
 </g>
 <!-- mrs.domain.model.user.member&#45;&gt;mrs.domain.model.reservation.reservation -->
         <g id="edge2" class="edge">
@@ -125,14 +131,16 @@
 <!-- mrs.domain.model.reservation.room -->
 <g id="node9" class="node">
 <title>mrs.domain.model.reservation.room</title>
-<g id="a_node9">
-    <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/reservation/room"
-       xlink:title="会議室\nroom">
-        <polygon fill="#eedd82" stroke="black" points="429,-77 361,-77 361,-39 429,-39 429,-77"/>
-        <text text-anchor="middle" x="395" y="-61.8" font-family="Times New Roman,serif" font-size="14.00">会議室</text>
-        <text text-anchor="middle" x="395" y="-46.8" font-family="Times New Roman,serif" font-size="14.00">room</text>
-    </a>
-</g>
+    <g id="a_node9">
+        <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/reservation/room"
+           xlink:title="会議室\nroom">
+            <polygon fill="#eedd82" stroke="black" points="429,-77 361,-77 361,-39 429,-39 429,-77"/>
+            <text text-anchor="middle" x="395" y="-61.8" font-family="Times New Roman,serif" font-size="14.00">会議室
+            </text>
+            <text text-anchor="middle" x="395" y="-46.8" font-family="Times New Roman,serif" font-size="14.00">room
+            </text>
+        </a>
+    </g>
 </g>
 <!-- mrs.domain.model.reservation.reservation&#45;&gt;mrs.domain.model.reservation.room -->
         <g id="edge9" class="edge">
@@ -147,14 +155,16 @@
 <!-- mrs.domain.model.user.gust -->
 <g id="node5" class="node">
 <title>mrs.domain.model.user.gust</title>
-<g id="a_node5">
-    <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/user/gust"
-       xlink:title="ゲスト\ngust">
-        <polygon fill="#eedd82" stroke="black" points="342,-351 274,-351 274,-313 342,-313 342,-351"/>
-        <text text-anchor="middle" x="308" y="-335.8" font-family="Times New Roman,serif" font-size="14.00">ゲスト</text>
-        <text text-anchor="middle" x="308" y="-320.8" font-family="Times New Roman,serif" font-size="14.00">gust</text>
-    </a>
-</g>
+    <g id="a_node5">
+        <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/user/gust"
+           xlink:title="ゲスト\ngust">
+            <polygon fill="#eedd82" stroke="black" points="342,-351 274,-351 274,-313 342,-313 342,-351"/>
+            <text text-anchor="middle" x="308" y="-335.8" font-family="Times New Roman,serif" font-size="14.00">ゲスト
+            </text>
+            <text text-anchor="middle" x="308" y="-320.8" font-family="Times New Roman,serif" font-size="14.00">gust
+            </text>
+        </a>
+    </g>
 </g>
 <!-- mrs.domain.model.user.gust&#45;&gt;mrs.domain.model.auth.user -->
         <g id="edge3" class="edge">
@@ -165,15 +175,17 @@
 <!-- mrs.domain.model.contact -->
 <g id="node6" class="node">
 <title>mrs.domain.model.contact</title>
-<g id="a_node6">
-    <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/contact"
-       xlink:title="問い合わせ\ncontact">
-        <polygon fill="#eedd82" stroke="black" points="255.5,-351 152.5,-351 152.5,-313 255.5,-313 255.5,-351"/>
-        <text text-anchor="middle" x="204" y="-335.8" font-family="Times New Roman,serif" font-size="14.00">問い合わせ</text>
-        <text text-anchor="middle" x="204" y="-320.8" font-family="Times New Roman,serif" font-size="14.00">contact
-        </text>
-    </a>
-</g>
+    <g id="a_node6">
+        <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/contact"
+           xlink:title="問い合わせ\ncontact">
+            <polygon fill="#eedd82" stroke="black" points="255.5,-351 152.5,-351 152.5,-313 255.5,-313 255.5,-351"/>
+            <text text-anchor="middle" x="204" y="-335.8" font-family="Times New Roman,serif" font-size="14.00">問い合わせ
+            </text>
+            <text text-anchor="middle" x="204" y="-320.8" font-family="Times New Roman,serif" font-size="14.00">
+                contact
+            </text>
+        </a>
+    </g>
 </g>
 <!-- mrs.domain.model.user.gust&#45;&gt;mrs.domain.model.contact -->
         <g id="edge10" class="edge">
@@ -203,14 +215,16 @@
 <!-- mrs.domain.model.user.staff -->
 <g id="node7" class="node">
 <title>mrs.domain.model.user.staff</title>
-<g id="a_node7">
-    <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/user/staff"
-       xlink:title="スタッフ\nstaff">
-        <polygon fill="#eedd82" stroke="black" points="526,-351 440,-351 440,-313 526,-313 526,-351"/>
-        <text text-anchor="middle" x="483" y="-335.8" font-family="Times New Roman,serif" font-size="14.00">スタッフ</text>
-        <text text-anchor="middle" x="483" y="-320.8" font-family="Times New Roman,serif" font-size="14.00">staff</text>
-    </a>
-</g>
+    <g id="a_node7">
+        <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/user/staff"
+           xlink:title="スタッフ\nstaff">
+            <polygon fill="#eedd82" stroke="black" points="526,-351 440,-351 440,-313 526,-313 526,-351"/>
+            <text text-anchor="middle" x="483" y="-335.8" font-family="Times New Roman,serif" font-size="14.00">スタッフ
+            </text>
+            <text text-anchor="middle" x="483" y="-320.8" font-family="Times New Roman,serif" font-size="14.00">staff
+            </text>
+        </a>
+    </g>
 </g>
 <!-- mrs.domain.model.user.staff&#45;&gt;mrs.domain.model.auth.user -->
         <g id="edge5" class="edge">
@@ -227,14 +241,16 @@
 <!-- mrs.domain.model.facility.room -->
 <g id="node8" class="node">
 <title>mrs.domain.model.facility.room</title>
-<g id="a_node8">
-    <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/facility/room"
-       xlink:title="会議室\nroom">
-        <polygon fill="#eedd82" stroke="black" points="524,-151 456,-151 456,-113 524,-113 524,-151"/>
-        <text text-anchor="middle" x="490" y="-135.8" font-family="Times New Roman,serif" font-size="14.00">会議室</text>
-        <text text-anchor="middle" x="490" y="-120.8" font-family="Times New Roman,serif" font-size="14.00">room</text>
-    </a>
-</g>
+    <g id="a_node8">
+        <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/facility/room"
+           xlink:title="会議室\nroom">
+            <polygon fill="#eedd82" stroke="black" points="524,-151 456,-151 456,-113 524,-113 524,-151"/>
+            <text text-anchor="middle" x="490" y="-135.8" font-family="Times New Roman,serif" font-size="14.00">会議室
+            </text>
+            <text text-anchor="middle" x="490" y="-120.8" font-family="Times New Roman,serif" font-size="14.00">room
+            </text>
+        </a>
+    </g>
 </g>
 <!-- mrs.domain.model.facility.room&#45;&gt;mrs.domain.model.reservation.room -->
         <g id="edge7" class="edge">
