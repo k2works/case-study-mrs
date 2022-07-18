@@ -57,4 +57,8 @@ public class ReservedTime {
         }
         return target.endTime.isAfter(startTime) && endTime.isAfter(target.startTime);
     }
+
+    public boolean isValidTimeRange() {
+        return endTime.isAfter(startTime);
+    }
 }

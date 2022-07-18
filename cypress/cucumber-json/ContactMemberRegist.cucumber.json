@@ -23,7 +23,7 @@
             "name": "\"会員\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 142485000000
+              "duration": 126297000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "\"問い合わせ画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 784000000
+              "duration": 322000000
             }
           },
           {
@@ -43,7 +43,7 @@
             "name": "問い合わせ画面で \"問い合わせ内容\" を入力する",
             "result": {
               "status": "passed",
-              "duration": 1555000000
+              "duration": 1009000000
             }
           },
           {
@@ -53,7 +53,7 @@
             "name": "問い合わせが送信される",
             "result": {
               "status": "passed",
-              "duration": 527000000
+              "duration": 373000000
             }
           }
         ]

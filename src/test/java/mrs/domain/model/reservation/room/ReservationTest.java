@@ -3,6 +3,7 @@ package mrs.domain.model.reservation.room;
 import mrs.domain.model.auth.user.RoleName;
 import mrs.domain.model.auth.user.User;
 import mrs.domain.model.reservation.reservation.Reservation;
+import mrs.domain.model.reservation.reservation.ReservedTimeException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,6 +11,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @DisplayName("予約ドメイン")
 public class ReservationTest {
@@ -34,5 +36,18 @@ public class ReservationTest {
         assertEquals(LocalTime.of(10, 0), reservation.ReservedTime().EndTime());
         assertEquals(reservableRoomId, reservation.ReservableRoom().ReservableRoomId());
         assertEquals(user, reservation.User());
+    }
+
+    @Test
+    void 開始終了時間が不正な予約は登録できない() {
+        User user = newUser();
+        ReservableRoomId reservableRoomId = new ReservableRoomId(1, LocalDate.of(2020, 1, 1));
+        assertThrows(ReservedTimeException.class, () -> new Reservation(
+                1,
+                LocalTime.of(10, 0),
+                LocalTime.of(9, 0),
+                reservableRoomId,
+                user
+        ));
     }
 }

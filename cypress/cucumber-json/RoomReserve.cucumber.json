@@ -23,7 +23,7 @@
             "name": "\"会員\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 4058000000
+              "duration": 4484000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "\"会議室予約一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 331000000
+              "duration": 379000000
             }
           },
           {
@@ -43,7 +43,7 @@
             "name": "\"有楽町\" 会議室を選択する",
             "result": {
               "status": "passed",
-              "duration": 758000000
+              "duration": 835000000
             }
           },
           {
@@ -53,7 +53,7 @@
             "name": "選択した会議室を開始時間: \"09:00\" 終了時間:\"08:30\" で予約する",
             "result": {
               "status": "passed",
-              "duration": 810000000
+              "duration": 1366000000
             }
           },
           {
@@ -62,8 +62,8 @@
             "line": 23,
             "name": "会議室予約画面に \"不正な予約時間帯です\" が表示される",
             "result": {
-              "status": "failed",
-              "error_message": "AssertionError: Timed out retrying after 4000ms: expected '<p.success>' to contain '不正な予約時間帯です'\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomReserve.Extentions.feature:736:15)\n    at Context.resolveAndRunStepDefinition (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomReserve.Extentions.feature:11476:29)\n    at Context.eval (http://localhost:8081/__cypress/tests?p=cypress\\integration\\ReservationManagement\\RoomReserve.Extentions.feature:10797:35)"
+              "status": "passed",
+              "duration": 263000000
             }
           }
         ]

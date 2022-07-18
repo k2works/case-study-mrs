@@ -30,6 +30,9 @@ public class Reservation {
         this.reservedTime = new ReservedTime(startTime, endTime);
         this.reservableRoom = new ReservableRoom(reservableRoomId);
         this.user = user;
+        if (!this.reservedTime.isValidTimeRange()) {
+            throw new ReservedTimeException("不正な予約時間帯です");
+        }
     }
 
     public boolean overlap(Reservation target) {

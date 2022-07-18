@@ -33,4 +33,5 @@ Given(/^選択した会議室を予約をキャンセルする$/, () => {
 Given(/^選択した会議室を開始時間: "([^"]*)" 終了時間:"([^"]*)" で予約する$/, (from, to) => {
     cy.get('#startTime').select(from);
     cy.get('#endTime').select(to);
+    cy.get('.app-form > button.app-btn').click();
 });
