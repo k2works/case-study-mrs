@@ -6,7 +6,7 @@
     <result column="姓" jdbcType="VARCHAR" property="name.firstName"/>
     <result column="名" jdbcType="VARCHAR" property="name.lastName"/>
     <result column="パスワード" jdbcType="VARCHAR" property="password.value"/>
-    <result column="役割" jdbcType="VARCHAR" property="roleName"/>
+    <result column="利用者区分" jdbcType="VARCHAR" property="roleName"/>
     <collection property="reservations"
                 javaType="ArrayList"
                 column="利用者番号"
@@ -16,38 +16,38 @@
   </resultMap>
 
   <insert id="insert" useGeneratedKeys="true">
-    INSERT INTO auth.利用者 (利用者番号, 姓, 名, パスワード, 役割)
+    INSERT INTO usr.利用者 (利用者番号, 姓, 名, パスワード, 利用者区分)
     VALUES (#{userId.value}, #{name.firstName}, #{name.lastName}, #{password.value}, #{roleName})
   </insert>
 
   <select id="select" resultMap="BaseResultMap">
-    SELECT 利用者番号, 姓, 名, パスワード, 役割, 登録日時
-    FROM auth.利用者
+    SELECT 利用者番号, 姓, 名, パスワード, 利用者区分, 登録日時
+    FROM usr.利用者
     WHERE 利用者番号 = #{value}
   </select>
 
   <select id="selectAll" resultMap="BaseResultMap">
-    SELECT 利用者番号, 姓, 名, パスワード, 役割, 登録日時
-    FROM auth.利用者
+    SELECT 利用者番号, 姓, 名, パスワード, 利用者区分, 登録日時
+    FROM usr.利用者
   </select>
 
   <update id="update" parameterType="mrs.domain.model.auth.user.User">
-    UPDATE auth.利用者
+    UPDATE usr.利用者
     SET 姓     = #{name.firstName},
         名     = #{name.lastName},
         パスワード = #{password.value},
-        役割    = #{roleName}
+        利用者区分 = #{roleName}
     WHERE 利用者番号 = #{userId.value}
   </update>
 
   <delete id="delete">
     DELETE
-    FROM auth.利用者
+    FROM usr.利用者
     WHERE 利用者番号 = #{value}
   </delete>
 
   <delete id="deleteAll">
     DELETE
-    FROM auth.利用者
+    FROM usr.利用者
   </delete>
 </mapper>

@@ -84,12 +84,12 @@
                r.利用者番号,
                u.姓,
                u.名,
-               u.役割,
+               u.利用者区分,
                rm.会議室名
         FROM reservation.予約 r
                  LEFT OUTER JOIN reservation.予約可能会議室 rr
                                  ON r.予約日 = rr.予約日 AND r.会議室番号 = rr.会議室番号
-                 LEFT OUTER JOIN auth.利用者 u
+                 LEFT OUTER JOIN usr.利用者 u
                                  ON r.利用者番号 = u.利用者番号
                  LEFT OUTER JOIN facility.会議室 rm
                                  ON r.会議室番号 = rm.会議室番号
@@ -140,12 +140,12 @@
                r.利用者番号,
                u.姓,
                u.名,
-               u.役割,
+               u.利用者区分,
                rm.会議室名
         FROM reservation.予約 r
                  LEFT OUTER JOIN reservation.予約可能会議室 rr
                                  ON r.予約日 = rr.予約日 AND r.会議室番号 = rr.会議室番号
-                 LEFT OUTER JOIN auth.利用者 u
+                 LEFT OUTER JOIN usr.利用者 u
                                  ON r.利用者番号 = u.利用者番号
                  LEFT OUTER JOIN facility.会議室 rm
                                  ON r.会議室番号 = rm.会議室番号

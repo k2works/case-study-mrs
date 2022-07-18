@@ -15,7 +15,7 @@ type FormData = {
 export const Login: React.FC<{}> = () => {
     const navigate = useNavigate();
 
-    const [userId, setUserId] = useState("U000009");
+    const [userId, setUserId] = useState("U000001");
     const [password, setPassword] = useState("pAssw0rd");
     const [successful, setSuccessful] = useState(false);
 
