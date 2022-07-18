@@ -951,9 +951,9 @@ package mrs.domain.model.contact.contact {
 
 ==== データモデル
 
-===== 認証・認可
+===== 利用者
 
-image::images/schemaspy/auth/diagrams/summary/relationships.real.large.png[]
+image::images/schemaspy/usr/diagrams/summary/relationships.real.large.png[]
 
 ===== 予約
 
