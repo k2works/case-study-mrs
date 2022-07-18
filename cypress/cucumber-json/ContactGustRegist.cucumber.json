@@ -23,7 +23,7 @@
             "name": "\"ゲスト問い合わせ画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 3865000000
+              "duration": 100639000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "問い合わせ画面で \"問い合わせ内容\" を入力する",
             "result": {
               "status": "passed",
-              "duration": 657000000
+              "duration": 1026000000
             }
           },
           {
@@ -43,7 +43,7 @@
             "name": "問い合わせが送信される",
             "result": {
               "status": "passed",
-              "duration": 84000000
+              "duration": 393000000
             }
           }
         ]

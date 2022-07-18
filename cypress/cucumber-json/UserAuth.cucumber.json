@@ -6,7 +6,7 @@
     "line": 1,
     "id": "会員管理:利用者の認証(選択)",
     "tags": [],
-    "uri": "UserAuth.Extention.feature",
+    "uri": "UserAuth.Extentions.feature",
     "elements": [
       {
         "id": "会員管理:利用者の認証(選択);利用者を認証する",
@@ -23,7 +23,7 @@
             "name": "\"ログイン\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 2288000000
+              "duration": 2254000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "利用者番号: \"U123456\" パスワード: \"pAssw0rd\" でログインする",
             "result": {
               "status": "passed",
-              "duration": 2453000000
+              "duration": 2811000000
             }
           },
           {
@@ -43,7 +43,7 @@
             "name": "\"利用者が存在しません\" がログイン画面にエラー表示される",
             "result": {
               "status": "passed",
-              "duration": 411000000
+              "duration": 345000000
             }
           }
         ]

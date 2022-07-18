@@ -11,7 +11,7 @@ export class BasePage {
 
     loginAdmin() {
         cy.visit(this._url);
-        cy.get('#userId').clear().type('U000010')
+        cy.get('#userId').clear().type('U000003')
         cy.get('#login').click()
         cy.wait(1000)
     }

@@ -34,7 +34,7 @@ Then(/^利用者登録画面に "([^"]*)" が表示される$/, (value) => {
 
 Given(/^存在する利用者を新規登録する$/, function () {
     cy.get('#regist_button').click();
-    cy.get('#regist_id').clear().type('U000004');
+    cy.get('#regist_id').clear().type('U000001');
     cy.get('#regist_first_name').clear().type('姓');
     cy.get('#regist_last_name').clear().type('名');
     cy.get('#regist_password').click().type('a234567Z');
