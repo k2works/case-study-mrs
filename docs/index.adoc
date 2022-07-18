@@ -856,7 +856,7 @@ package mrs.domain.model.auth.user {
         Password --* User
         UserName -* User
         User *- RoleName
-        MemberId -* Member
+        Member *-- MemberId
 	}
 }
 ----
@@ -1016,7 +1016,11 @@ npm run deploy
 
 [plantuml]
 ----
-package "APP" {
+package "UI" {
+  [React]
+}
+
+package "API" {
   [SpringBoot]
 }
 
@@ -1027,11 +1031,14 @@ database "DB" {
 
   frame "PostgreSQL" {
     [mrs_development]
+    [mrs_production]
   }
 }
 
+[React] -> [SpringBoot]
 [SpringBoot] -- [mrs_test]
 [SpringBoot] -- [mrs_development]
+[SpringBoot] -- [mrs_production]
 ----
 
 === コンポーネントセットアップ
@@ -1100,9 +1107,16 @@ npm install cross-env
 @startuml
 actor 開発者
 actor 利用者
-cloud "Heroku" as Heroku {
-    package "Production Environment" as prd {
-      [APP] as app_prd
+
+cloud "Vercel" as vercel {
+    package "Production Environment" as ui_prd_env {
+      [UI] as ui_prd
+    }
+}
+
+cloud "Heroku" as heroku {
+    package "Production Environment" as api_prd_env {
+      [API] as api_prd
       [DB] as db_prd
     }
 }
@@ -1111,11 +1125,12 @@ cloud "GitHub" as github {
   [Git] as repository
 }
 
-開発者 --> app_prd
 開発者 --> repository
-app_prd <-- 利用者
-repository --> prd
-app_prd -> db_prd
+repository --> heroku
+repository --> vercel
+api_prd -> db_prd
+api_prd <-- ui_prd
+ui_prd <-- 利用者
 @enduml
 ----
 
