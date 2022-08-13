@@ -72,6 +72,87 @@ export const Main: React.FC<{}> = () => {
         await dispatch(roomList({reservedDate: current, page: page}));
     }
 
+    const pageNation = () => (
+        <nav>
+            <ul className="pagination">
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={1}
+                    >
+                        最初
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={room.pageInfo.pageNum - 1}
+                    >
+                        前へ
+                    </a>
+                </li>
+
+
+                <li className="active">
+                    <a onClick={handlePageNation}
+                       data-page={room.pageInfo.pageNum}
+                    >
+                        {room.pageInfo.pageNum}
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={room.pageInfo.pageNum + 1}
+                    >
+                        {room.pageInfo.pageNum + 1}
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={room.pageInfo.pageNum + 2}
+                    >
+                        {room.pageInfo.pageNum + 2}
+                    </a>
+                </li>
+                <li>...</li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={room.pageInfo.pages - 2}
+                    >
+                        {room.pageInfo.pages - 2}
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={room.pageInfo.pages - 1}
+                    >
+                        {room.pageInfo.pages - 1}
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={room.pageInfo.pages}
+                    >
+                        {room.pageInfo.pages}
+                    </a>
+                </li>
+
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={room.pageInfo.pageNum + 1}
+                    >
+                        次へ
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={room.pageInfo.pages}
+                    >
+                        最後
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    )
+
     return (
         <div>
             <AppHeader/>
@@ -80,84 +161,7 @@ export const Main: React.FC<{}> = () => {
                     <AppMenu/>
 
                     <div className="app-decoration">
-                        <nav>
-                            <ul className="pagination">
-                                <li>
-                                    <a onClick={handlePageNation}
-                                       data-page={1}
-                                    >
-                                        最初
-                                    </a>
-                                </li>
-                                <li>
-                                    <a onClick={handlePageNation}
-                                       data-page={room.pageInfo.pageNum - 1}
-                                    >
-                                        前へ
-                                    </a>
-                                </li>
-
-
-                                <li className="active">
-                                    <a onClick={handlePageNation}
-                                       data-page={room.pageInfo.pageNum}
-                                    >
-                                        {room.pageInfo.pageNum}
-                                    </a>
-                                </li>
-                                <li>
-                                    <a onClick={handlePageNation}
-                                       data-page={room.pageInfo.pageNum + 1}
-                                    >
-                                        {room.pageInfo.pageNum + 1}
-                                    </a>
-                                </li>
-                                <li>
-                                    <a onClick={handlePageNation}
-                                       data-page={room.pageInfo.pageNum + 2}
-                                    >
-                                        {room.pageInfo.pageNum + 2}
-                                    </a>
-                                </li>
-                                <li>...</li>
-                                <li>
-                                    <a onClick={handlePageNation}
-                                       data-page={room.pageInfo.pages - 2}
-                                    >
-                                        {room.pageInfo.pages - 2}
-                                    </a>
-                                </li>
-                                <li>
-                                    <a onClick={handlePageNation}
-                                       data-page={room.pageInfo.pages - 1}
-                                    >
-                                        {room.pageInfo.pages - 1}
-                                    </a>
-                                </li>
-                                <li>
-                                    <a onClick={handlePageNation}
-                                       data-page={room.pageInfo.pages}
-                                    >
-                                        {room.pageInfo.pages}
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a onClick={handlePageNation}
-                                       data-page={room.pageInfo.pageNum + 1}
-                                    >
-                                        次へ
-                                    </a>
-                                </li>
-                                <li>
-                                    <a onClick={handlePageNation}
-                                       data-page={room.pageInfo.pages}
-                                    >
-                                        最後
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
+                        {room.pageInfo.pages > 10 ? pageNation() : <></>}
                     </div>
 
                     <div className="app-decoration">
