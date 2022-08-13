@@ -21,8 +21,9 @@ describe('room reducer', () => {
         let dispatch: Dispatch;
         let getState: () => unknown;
 
-        let arg: Date;
+        let arg: any;
         let result: any;
+        const date = new Date()
 
         beforeEach(() => {
             dispatch = jest.fn();
@@ -31,7 +32,7 @@ describe('room reducer', () => {
             api.list.mockClear();
             api.list.mockResolvedValue(result)
 
-            arg = new Date();
+            arg = {reservedDate: date, page: 1}
             result = {
                 "value":
                     [{
@@ -76,7 +77,7 @@ describe('room reducer', () => {
 
         test('サービスを呼びだす', async () => {
             await action(dispatch, getState, undefined);
-            expect(api.list).toHaveBeenCalledWith(arg);
+            expect(api.list).toHaveBeenCalledWith(date, 1);
         })
 
         test('予約一覧を取得する', async () => {
