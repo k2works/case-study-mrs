@@ -74,7 +74,44 @@ export const Main: React.FC<{}> = () => {
                     <AppMenu/>
 
                     <div className="app-decoration">
+                        <nav>
+                            <ul className="pagination">
+                                <li>
+                                    <a href="/rooms/2022-08-13?page=1" tabIndex={-2}>最初</a>
+                                </li>
+                                <li>
+                                    <a href="/rooms/2022-08-13?page=0" tabIndex={-1}>前へ</a>
+                                </li>
 
+
+                                <li className="active">
+                                    <a href="/rooms/2022-08-13?page=1">1</a>
+                                </li>
+                                <li>
+                                    <a href="/rooms/2022-08-13?page=2">2</a>
+                                </li>
+                                <li>
+                                    <a href="/rooms/2022-08-13?page=3">3</a>
+                                </li>
+                                <li>...</li>
+                                <li>
+                                    <a href="/rooms/2022-08-13?page=5903">5903</a>
+                                </li>
+                                <li>
+                                    <a href="/rooms/2022-08-13?page=5904">5904</a>
+                                </li>
+                                <li>
+                                    <a href="/rooms/2022-08-13?page=5905">5905</a>
+                                </li>
+
+                                <li>
+                                    <a href="/rooms/2022-08-13?page=2">次へ</a>
+                                </li>
+                                <li>
+                                    <a href="/rooms/2022-08-13?page=59050">最後</a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
 
                     <div className="app-decoration">
