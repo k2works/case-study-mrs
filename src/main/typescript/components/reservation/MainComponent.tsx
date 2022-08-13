@@ -26,7 +26,7 @@ export const Main: React.FC<{}> = () => {
 
     const list = async () => {
         setSuccessful(false);
-        const resultAction = await dispatch(roomList(new Date()));
+        const resultAction = await dispatch(roomList({reservedDate: new Date()}));
         if (roomList.fulfilled.match(resultAction)) {
             dispatch(setMessage(resultAction.payload.message));
             setSuccessful(true);
@@ -66,6 +66,12 @@ export const Main: React.FC<{}> = () => {
         navigate(`/reservations?page=${date}-${id}`, {state: {date: date, roomId: id, roomName: name}});
     }
 
+    const handlePageNation = async (e: any) => {
+        const current = new Date(currentDay);
+        const page = e.target.dataset["page"];
+        await dispatch(roomList({reservedDate: current, page: page}));
+    }
+
     return (
         <div>
             <AppHeader/>
@@ -77,38 +83,78 @@ export const Main: React.FC<{}> = () => {
                         <nav>
                             <ul className="pagination">
                                 <li>
-                                    <a href="/rooms/2022-08-13?page=1" tabIndex={-2}>最初</a>
+                                    <a onClick={handlePageNation}
+                                       data-page={1}
+                                    >
+                                        最初
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="/rooms/2022-08-13?page=0" tabIndex={-1}>前へ</a>
+                                    <a onClick={handlePageNation}
+                                       data-page={room.pageInfo.pageNum - 1}
+                                    >
+                                        前へ
+                                    </a>
                                 </li>
 
 
                                 <li className="active">
-                                    <a href="/rooms/2022-08-13?page=1">1</a>
+                                    <a onClick={handlePageNation}
+                                       data-page={room.pageInfo.pageNum}
+                                    >
+                                        {room.pageInfo.pageNum}
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="/rooms/2022-08-13?page=2">2</a>
+                                    <a onClick={handlePageNation}
+                                       data-page={room.pageInfo.pageNum + 1}
+                                    >
+                                        {room.pageInfo.pageNum + 1}
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="/rooms/2022-08-13?page=3">3</a>
+                                    <a onClick={handlePageNation}
+                                       data-page={room.pageInfo.pageNum + 2}
+                                    >
+                                        {room.pageInfo.pageNum + 2}
+                                    </a>
                                 </li>
                                 <li>...</li>
                                 <li>
-                                    <a href="/rooms/2022-08-13?page=5903">5903</a>
+                                    <a onClick={handlePageNation}
+                                       data-page={room.pageInfo.pages - 2}
+                                    >
+                                        {room.pageInfo.pages - 2}
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="/rooms/2022-08-13?page=5904">5904</a>
+                                    <a onClick={handlePageNation}
+                                       data-page={room.pageInfo.pages - 1}
+                                    >
+                                        {room.pageInfo.pages - 1}
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="/rooms/2022-08-13?page=5905">5905</a>
+                                    <a onClick={handlePageNation}
+                                       data-page={room.pageInfo.pages}
+                                    >
+                                        {room.pageInfo.pages}
+                                    </a>
                                 </li>
 
                                 <li>
-                                    <a href="/rooms/2022-08-13?page=2">次へ</a>
+                                    <a onClick={handlePageNation}
+                                       data-page={room.pageInfo.pageNum + 1}
+                                    >
+                                        次へ
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="/rooms/2022-08-13?page=59050">最後</a>
+                                    <a onClick={handlePageNation}
+                                       data-page={room.pageInfo.pages}
+                                    >
+                                        最後
+                                    </a>
                                 </li>
                             </ul>
                         </nav>

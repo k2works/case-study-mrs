@@ -7,14 +7,14 @@ interface ValidationErrors {
 }
 
 export const roomList = createAsyncThunk<any,
-    Date,
+    any,
     {
         rejectValue: ValidationErrors
     }>(
     'room/list',
-    async (reservedDate: Date, {rejectWithValue}) => {
+    async (params: any, {rejectWithValue}) => {
         try {
-            return await RoomService.list(reservedDate)
+            return await RoomService.list(params.reservedDate, params.page)
         } catch (e: any) {
             if (!e.response) {
                 throw e
@@ -40,6 +40,7 @@ interface ReservableRooms {
 }
 
 export type SliceState = {
+    pageInfo: { total: number, pageNum: number, pageSize: number, pages: number }
     reservedDate: Date
     reservableRooms: ReservableRooms
     error: string | null | undefined
@@ -54,6 +55,7 @@ const nextDay = (date: Date) => {
 }
 
 const initialState: SliceState = {
+    pageInfo: {total: 0, pageNum: 0, pageSize: 0, pages: 0},
     reservedDate: new Date(),
     reservableRooms: {list: []},
     error: null
@@ -72,7 +74,8 @@ export const roomSlice = createSlice({
     },
     extraReducers: builder => {
         builder.addCase(roomList.fulfilled, (state, {payload}) => {
-            state.reservableRooms = payload.data
+            state.pageInfo = payload.data.pageInfo
+            state.reservableRooms = payload.data.rooms
         })
         builder.addCase(roomList.rejected, (state, action) => {
             if (action.payload) {

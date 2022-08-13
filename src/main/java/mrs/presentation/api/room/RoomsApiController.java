@@ -1,9 +1,11 @@
 package mrs.presentation.api.room;
 
+import com.github.pagehelper.PageInfo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import mrs.application.scenario.MeetingRoomReservationScenario;
 import mrs.domain.model.reservation.reservation.ReservedDate;
+import mrs.domain.model.reservation.room.ReservableRoom;
 import mrs.domain.model.reservation.room.ReservableRoomList;
 import mrs.infrastructure.PageNation;
 import mrs.infrastructure.security.jwt.payload.response.MessageResponse;
@@ -34,7 +36,9 @@ public class RoomsApiController {
     ResponseEntity<?> listRooms(@RequestParam(value = "page", defaultValue = "1") int... page) {
         try {
             PageNation.startPage(page);
-            ReservableRoomList result = meetingRoomReservationScenario.findReservableRooms(new ReservedDate(LocalDate.now())).orElse(new ReservableRoomList());
+            ReservableRoomList rooms = meetingRoomReservationScenario.findReservableRooms(new ReservedDate(LocalDate.now())).orElse(new ReservableRoomList());
+            PageInfo<ReservableRoom> pageInfo = new PageInfo<>(rooms.asList());
+            RoomsResource result = new RoomsResource(rooms, pageInfo);
             return ResponseEntity.ok(result);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(new MessageResponse(e.getMessage()));
@@ -49,7 +53,9 @@ public class RoomsApiController {
     ) {
         try {
             PageNation.startPage(page);
-            ReservableRoomList result = meetingRoomReservationScenario.findReservableRooms(new ReservedDate(date)).orElse(new ReservableRoomList());
+            ReservableRoomList rooms = meetingRoomReservationScenario.findReservableRooms(new ReservedDate(date)).orElse(new ReservableRoomList());
+            PageInfo<ReservableRoom> pageInfo = new PageInfo<>(rooms.asList());
+            RoomsResource result = new RoomsResource(rooms, pageInfo);
             return ResponseEntity.ok(result);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(new MessageResponse(e.getMessage()));
