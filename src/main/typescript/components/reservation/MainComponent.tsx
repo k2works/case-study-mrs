@@ -49,14 +49,14 @@ export const Main: React.FC<{}> = () => {
         dispatch(decrementReservedDate(e.target.value));
         const current = new Date(currentDay);
         const preDay = new Date(current.setDate(current.getDate() - 1));
-        await dispatch(roomList(preDay));
+        await dispatch(roomList({reservedDate: preDay}));
     }
 
     const handleNextDay = async (e: any) => {
         dispatch(incrementReservedDate(e.target.value));
         const current = new Date(currentDay);
         const nextDay = new Date(current.setDate(current.getDate() + 1));
-        await dispatch(roomList(nextDay));
+        await dispatch(roomList({reservedDate: nextDay}));
     }
 
     const handleReservableRoom = (e: any) => {
