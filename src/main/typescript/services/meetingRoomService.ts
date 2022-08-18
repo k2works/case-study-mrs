@@ -5,8 +5,8 @@ import {meetingRoomConst} from "../app/const";
 const API_URL = meetingRoomConst.API_URL
 
 class MeetingRoomService {
-    list() {
-        return axios.get(API_URL, {headers: authHeader()});
+    list(page: number = 0) {
+        return axios.get(API_URL + "?page=" + page, {headers: authHeader()});
     }
 
     create(param: { roomId: number; roomName: string }) {

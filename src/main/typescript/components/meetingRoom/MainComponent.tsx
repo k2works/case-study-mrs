@@ -12,6 +12,7 @@ import {
     meetingRoomUpdate
 } from "../../features/meetingRoom/meetingRoomSlice";
 import {useAppSelector} from "../../app/hook";
+import {useInterval} from "../auth/LoginComponent";
 
 export const Main: React.FC<{}> = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -22,18 +23,29 @@ export const Main: React.FC<{}> = () => {
     const [roomName, setRoomName] = useState("");
     const registRef = useRef<HTMLDivElement>(null);
     const updateRef = useRef<HTMLDivElement>(null);
+    const [load, setLoad] = useState(false);
+    const [count, setCount] = useState(".");
 
     useEffect(() => {
         dispatch(clearMessage());
         list().then(r => (setSuccessful(true)));
     }, []);
 
+    useInterval(() => {
+        setCount(count + ".");
+        if (count.length > 10) {
+            setCount(".");
+        }
+    }, 500);
+
     const list = async () => {
         setSuccessful(false);
+        setLoad(true);
         const resultAction = await dispatch(meetingRoomList(1));
         if (meetingRoomList.fulfilled.match(resultAction)) {
             dispatch(setMessage(resultAction.payload.message));
             setSuccessful(true);
+            setLoad(false);
         } else {
             if (resultAction.payload) {
                 dispatch(setMessage(resultAction.payload.message));
@@ -41,6 +53,7 @@ export const Main: React.FC<{}> = () => {
                 dispatch(setMessage(resultAction.error.message));
             }
             setSuccessful(false);
+            setLoad(false);
         }
     }
 
@@ -166,6 +179,93 @@ export const Main: React.FC<{}> = () => {
         }
     }
 
+    const handlePageNation = async (e: any) => {
+        setLoad(true);
+        const page = e.target.dataset["page"];
+        await dispatch(meetingRoomList({page: page}));
+        setLoad(false);
+    }
+
+    const pageNation = () => (
+        <nav>
+            <ul className="pagination">
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={1}
+                    >
+                        最初
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={room.pageInfo.pageNum - 1}
+                    >
+                        前へ
+                    </a>
+                </li>
+
+
+                <li className="active">
+                    <a onClick={handlePageNation}
+                       data-page={room.pageInfo.pageNum}
+                    >
+                        {room.pageInfo.pages <= room.pageInfo.pageNum ? '' : room.pageInfo.pageNum}
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={room.pageInfo.pageNum + 1}
+                    >
+                        {room.pageInfo.pages <= room.pageInfo.pageNum + 1 ? '' : room.pageInfo.pageNum + 1}
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={room.pageInfo.pageNum + 2}
+                    >
+                        {room.pageInfo.pages <= room.pageInfo.pageNum + 2 ? '' : room.pageInfo.pageNum + 2}
+                    </a>
+                </li>
+                <li>...</li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={room.pageInfo.pages - 2}
+                    >
+                        {room.pageInfo.pages - 2}
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={room.pageInfo.pages - 1}
+                    >
+                        {room.pageInfo.pages - 1}
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={room.pageInfo.pages}
+                    >
+                        {room.pageInfo.pages}
+                    </a>
+                </li>
+
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={room.pageInfo.pageNum + 1}
+                    >
+                        次へ
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={room.pageInfo.pages}
+                    >
+                        最後
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    )
     return (
         <div>
             <AppHeader/>
@@ -174,7 +274,8 @@ export const Main: React.FC<{}> = () => {
                     <AppMenu/>
 
                     <div className="app-decoration">
-
+                        {load ? <div className="loading">{count}</div> : null}
+                        {!load && room.pageInfo.pages > 10 ? pageNation() : <></>}
                     </div>
 
                     <div className="app-decoration">

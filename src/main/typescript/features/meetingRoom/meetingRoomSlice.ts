@@ -16,6 +16,7 @@ interface MeetingRooms {
 }
 
 export type SliceState = {
+    pageInfo: { total: number, pageNum: number, pageSize: number, pages: number }
     meetingRooms: MeetingRooms
     meetingRoomListBox: { key: string, value: string }[]
     error: string | null | undefined
@@ -27,9 +28,9 @@ export const meetingRoomList = createAsyncThunk<any,
         rejectValue: ValidationErrors
     }>(
     'meetingRoom/list',
-    async ({rejectWithValue}) => {
+    async (params: any, {rejectWithValue}) => {
         try {
-            return await MeetingRoomService.list()
+            return await MeetingRoomService.list(params.page)
         } catch (e: any) {
             if (!e.response) {
                 throw e
@@ -112,6 +113,7 @@ export const meetingRoomListBox = createAsyncThunk<any,
 )
 
 const initialState: SliceState = {
+    pageInfo: {total: 0, pageNum: 0, pageSize: 0, pages: 0},
     meetingRooms: {list: []},
     meetingRoomListBox: [],
     error: null
@@ -126,6 +128,7 @@ export const meetingRoomSlice = createSlice({
             state.error = null
         })
         builder.addCase(meetingRoomList.fulfilled, (state, action) => {
+            state.pageInfo = action.payload.data
             state.meetingRooms = action.payload.data
         })
         builder.addCase(meetingRoomList.rejected, (state, action) => {
