@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {Header} from "../home/HeaderComponent";
 import {useNavigate} from "react-router-dom";
 import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
@@ -18,6 +18,8 @@ export const Login: React.FC<{}> = () => {
     const [userId, setUserId] = useState("U000001");
     const [password, setPassword] = useState("pAssw0rd");
     const [successful, setSuccessful] = useState(false);
+    const [load, setLoad] = useState(false);
+    const [count, setCount] = useState("...");
 
     const {register, handleSubmit, formState: {errors}} = useForm<FormData>();
 
@@ -33,19 +35,44 @@ export const Login: React.FC<{}> = () => {
         setPassword(e.target.value);
     }
 
+    const useInterval = (callback: Function, delay?: number | null) => {
+        const savedCallback = useRef<Function>(() => {
+        });
+        useEffect(() => {
+            savedCallback.current = callback;
+        }, [callback]);
+        useEffect(() => {
+            if (delay !== null) {
+                const interval = setInterval(() => savedCallback.current(), delay || 0);
+                return () => clearInterval(interval);
+            }
+            return undefined;
+        }, [delay]);
+    };
+
+    useInterval(() => {
+        setCount(count + ".");
+        if (count.length > 10) {
+            setCount(".");
+        }
+    }, 500);
+
     const handleLogin = async (e: any) => {
         setSuccessful(false);
+        setLoad(true);
         const resultAction = await dispatch(authLogin({id: userId, password}));
         if (authLogin.fulfilled.match(resultAction)) {
             dispatch(setMessage(resultAction.payload.message));
             setSuccessful(true);
             navigate("/rooms");
+            setLoad(false);
         } else {
             if (resultAction.payload) {
                 dispatch(setMessage(resultAction.payload.message));
             } else {
                 dispatch(setMessage(resultAction.error.message));
             }
+            setLoad(false);
             setSuccessful(false);
         }
     };
@@ -58,6 +85,7 @@ export const Login: React.FC<{}> = () => {
                 <div className="login-container w-container">
                     <div className="login-form">
                         <form className="login-form" onSubmit={handleSubmit(handleLogin)}>
+                            {load ? <div className="loading">{count}</div> : null}
                             {message && <div className="error">{message}</div>}
                             <label htmlFor="username">利用者番号:</label>
                             <input {...register("userId", {required: true})} id="userId" value={userId}
