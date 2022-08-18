@@ -16,6 +16,7 @@ interface ReservableMeetingRooms {
 }
 
 export type SliceState = {
+    pageInfo: { total: number, pageNum: number, pageSize: number, pages: number }
     reservableRooms: ReservableMeetingRooms
     error: string | null | undefined
 }
@@ -26,9 +27,9 @@ export const reservableRoomList = createAsyncThunk<any,
         rejectValue: ValidationErrors
     }>(
     'reservableRoom/list',
-    async ({rejectWithValue}) => {
+    async (params: any, {rejectWithValue}) => {
         try {
-            return await ReservableRoomService.list()
+            return await ReservableRoomService.list(params.page)
         } catch (e: any) {
             if (!e.response) {
                 throw e
@@ -75,6 +76,7 @@ export const reservableRoomDelete = createAsyncThunk<any,
 )
 
 const initialState: SliceState = {
+    pageInfo: {total: 0, pageNum: 0, pageSize: 0, pages: 0},
     reservableRooms: {list: []},
     error: null
 }
@@ -88,6 +90,7 @@ export const reservableRoomSlice = createSlice({
             state.error = null
         })
         builder.addCase(reservableRoomList.fulfilled, (state, action) => {
+            state.pageInfo = action.payload.data
             state.reservableRooms = action.payload.data
         })
         builder.addCase(reservableRoomList.rejected, (state, action) => {

@@ -5,8 +5,8 @@ import {reservableRoomConst} from "../app/const";
 const API_URL = reservableRoomConst.API_URL;
 
 class ReservableRoomService {
-    list() {
-        return axios.get(API_URL, {headers: authHeader()});
+    list(page: number = 0) {
+        return axios.get(API_URL + '?page=' + page, {headers: authHeader()});
     }
 
     create(param: { roomId: number; reservedDate: Date }) {
