@@ -6,6 +6,7 @@ import {AppDispatch} from "../../app/store";
 import {useAppSelector} from "../../app/hook";
 import {clearMessage, selectMessage, setMessage} from "../../features/message/messageSlice";
 import {contactList, contactState} from "../../features/contact/contactSlice";
+import {useInterval} from "../auth/LoginComponent";
 
 export const Main: React.FC<{}> = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -15,11 +16,20 @@ export const Main: React.FC<{}> = () => {
     const updateRef = useRef<HTMLDivElement>(null);
     const [contactId, setContactId] = useState<string>("");
     const [contactDetails, setContactDetails] = useState<string>("");
+    const [load, setLoad] = useState(false);
+    const [count, setCount] = useState(".");
 
     useEffect(() => {
         dispatch(clearMessage());
         list().then(r => (setSuccessful(true)));
     }, []);
+
+    useInterval(() => {
+        setCount(count + ".");
+        if (count.length > 10) {
+            setCount(".");
+        }
+    }, 500);
 
     const list = async () => {
         setSuccessful(false);
@@ -65,6 +75,93 @@ export const Main: React.FC<{}> = () => {
         return details.slice(0, 20) + '...';
     }
 
+    const handlePageNation = async (e: any) => {
+        setLoad(true);
+        const page = e.target.dataset["page"];
+        await dispatch(contactList({page: page}));
+        setLoad(false);
+    }
+
+    const pageNation = () => (
+        <nav>
+            <ul className="pagination">
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={1}
+                    >
+                        最初
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={contact.pageInfo.pageNum - 1}
+                    >
+                        前へ
+                    </a>
+                </li>
+
+
+                <li className="active">
+                    <a onClick={handlePageNation}
+                       data-page={contact.pageInfo.pageNum}
+                    >
+                        {contact.pageInfo.pages <= contact.pageInfo.pageNum ? '' : contact.pageInfo.pageNum}
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={contact.pageInfo.pageNum + 1}
+                    >
+                        {contact.pageInfo.pages <= contact.pageInfo.pageNum + 1 ? '' : contact.pageInfo.pageNum + 1}
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={contact.pageInfo.pageNum + 2}
+                    >
+                        {contact.pageInfo.pages <= contact.pageInfo.pageNum + 2 ? '' : contact.pageInfo.pageNum + 2}
+                    </a>
+                </li>
+                <li>...</li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={contact.pageInfo.pages - 2}
+                    >
+                        {contact.pageInfo.pages - 2}
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={contact.pageInfo.pages - 1}
+                    >
+                        {contact.pageInfo.pages - 1}
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={contact.pageInfo.pages}
+                    >
+                        {contact.pageInfo.pages}
+                    </a>
+                </li>
+
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={contact.pageInfo.pageNum + 1}
+                    >
+                        次へ
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={contact.pageInfo.pages}
+                    >
+                        最後
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    )
     return (
         <div>
             <AppHeader/>
@@ -73,7 +170,8 @@ export const Main: React.FC<{}> = () => {
                     <AppMenu/>
 
                     <div className="app-decoration">
-
+                        {load ? <div className="loading">{count}</div> : null}
+                        {!load && contact.pageInfo.pages > 10 ? pageNation() : <></>}
                     </div>
 
                     <div className="app-decoration">

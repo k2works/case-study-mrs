@@ -12,9 +12,9 @@ export const contactList = createAsyncThunk<any,
         rejectValue: ValidationErrors;
     }>(
     'contact/list',
-    async ({rejectWithValue}) => {
+    async (params: any, {rejectWithValue}) => {
         try {
-            return await ContactService.list();
+            return await ContactService.list(params.page);
         } catch (e: any) {
             if (!e.response) {
                 throw e;
@@ -58,11 +58,13 @@ interface contacts {
 }
 
 export type SliceState = {
+    pageInfo: { total: number, pageNum: number, pageSize: number, pages: number }
     contacts: contacts
     error: string | null | undefined
 }
 
 const initialState: SliceState = {
+    pageInfo: {total: 0, pageNum: 0, pageSize: 0, pages: 0},
     contacts: {list: []},
     error: null
 }
@@ -76,6 +78,7 @@ export const contactSlice = createSlice({
             state.error = null;
         })
         builder.addCase(contactList.fulfilled, (state, action) => {
+            state.pageInfo = action.payload.data;
             state.contacts = action.payload.data;
         })
         builder.addCase(contactList.rejected, (state, action) => {

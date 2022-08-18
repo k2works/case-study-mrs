@@ -5,8 +5,8 @@ import {contactConst} from "../app/const";
 const API_URL = contactConst.API_URL;
 
 class ContactService {
-    list() {
-        return axios.get(API_URL, {headers: authHeader()});
+    list(page: number = 0) {
+        return axios.get(API_URL + "?page=" + page, {headers: authHeader()});
     }
 
     createByMember(params: { contactId: string, details: string }) {
