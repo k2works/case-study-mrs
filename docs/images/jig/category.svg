@@ -15,11 +15,13 @@
         <title>mrs.domain.model.auth.user.RoleName</title>
         <polygon fill="lemonchiffon" stroke="black"
                  points="106.64,-104.8 -0.36,-104.8 -0.36,0.2 106.64,0.2 106.64,-104.8"/>
-        <text text-anchor="start" x="10.14" y="-87.1" font-family="Times New Roman,serif" font-size="14.00">利用者区分</text>
+        <text text-anchor="start" x="10.14" y="-87.1" font-family="Times New Roman,serif" font-size="14.00">利用者区分
+        </text>
         <text text-anchor="start" x="24.14" y="-72.1" font-family="Times New Roman,serif" font-size="14.00">RoleName
         </text>
         <polygon fill="none" stroke="black" points="8.14,-45.3 8.14,-66.3 99.14,-66.3 99.14,-45.3 8.14,-45.3"/>
-        <text text-anchor="start" x="27.64" y="-52.1" font-family="Times New Roman,serif" font-size="14.00">管理者</text>
+        <text text-anchor="start" x="27.64" y="-52.1" font-family="Times New Roman,serif" font-size="14.00">管理者
+        </text>
         <polygon fill="none" stroke="black" points="8.14,-24.3 8.14,-45.3 99.14,-45.3 99.14,-24.3 8.14,-24.3"/>
         <text text-anchor="start" x="27.64" y="-31.1" font-family="Times New Roman,serif" font-size="14.00">ゲスト</text>
         <polygon fill="none" stroke="black" points="8.14,-3.3 8.14,-24.3 99.14,-24.3 99.14,-3.3 8.14,-3.3"/>

@@ -56,9 +56,11 @@
             <polygon fill="none" stroke="black" points="128,-351 0,-351 0,-313 134,-313 134,-345 128,-351"/>
             <polyline fill="none" stroke="black" points="128,-351 128,-345 "/>
             <polyline fill="none" stroke="black" points="134,-345 128,-345 "/>
-            <text text-anchor="start" x="8" y="-335.8" font-family="Times New Roman,serif" font-size="14.00">パッケージ数: 8
+            <text text-anchor="start" x="8" y="-335.8" font-family="Times New Roman,serif" font-size="14.00">パッケージ数:
+                8
             </text>
-            <text text-anchor="start" x="8" y="-320.8" font-family="Times New Roman,serif" font-size="14.00">関連数: 16
+            <text text-anchor="start" x="8" y="-320.8" font-family="Times New Roman,serif" font-size="14.00">関連数:
+                16
             </text>
         </g>
         <!-- mrs.domain.model.user.member -->
@@ -77,20 +79,22 @@
                 </a>
             </g>
         </g>
-<!-- mrs.domain.model.auth.user -->
-<g id="node3" class="node">
-<title>mrs.domain.model.auth.user</title>
-    <g id="a_node3">
-        <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/auth/user"
-           xlink:title="利用者\nuser">
-            <polygon fill="#eedd82" stroke="black" points="365,-251 297,-251 297,-213 365,-213 365,-251"/>
-            <text text-anchor="middle" x="331" y="-235.8" font-family="Times New Roman,serif" font-size="14.00">利用者
-            </text>
-            <text text-anchor="middle" x="331" y="-220.8" font-family="Times New Roman,serif" font-size="14.00">user
-            </text>
-        </a>
-    </g>
-</g>
+        <!-- mrs.domain.model.auth.user -->
+        <g id="node3" class="node">
+            <title>mrs.domain.model.auth.user</title>
+            <g id="a_node3">
+                <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/auth/user"
+                   xlink:title="利用者\nuser">
+                    <polygon fill="#eedd82" stroke="black" points="365,-251 297,-251 297,-213 365,-213 365,-251"/>
+                    <text text-anchor="middle" x="331" y="-235.8" font-family="Times New Roman,serif" font-size="14.00">
+                        利用者
+                    </text>
+                    <text text-anchor="middle" x="331" y="-220.8" font-family="Times New Roman,serif" font-size="14.00">
+                        user
+                    </text>
+                </a>
+            </g>
+        </g>
 <!-- mrs.domain.model.user.member&#45;&gt;mrs.domain.model.auth.user -->
         <g id="edge1" class="edge">
             <title>mrs.domain.model.user.member&#45;&gt;mrs.domain.model.auth.user</title>
@@ -179,7 +183,8 @@
         <a xlink:href="https://github.com/k2works/application_programing_excercise_2022/tree/take13/src/main/java/mrs/domain/model/contact"
            xlink:title="問い合わせ\ncontact">
             <polygon fill="#eedd82" stroke="black" points="255.5,-351 152.5,-351 152.5,-313 255.5,-313 255.5,-351"/>
-            <text text-anchor="middle" x="204" y="-335.8" font-family="Times New Roman,serif" font-size="14.00">問い合わせ
+            <text text-anchor="middle" x="204" y="-335.8" font-family="Times New Roman,serif" font-size="14.00">
+                問い合わせ
             </text>
             <text text-anchor="middle" x="204" y="-320.8" font-family="Times New Roman,serif" font-size="14.00">
                 contact
