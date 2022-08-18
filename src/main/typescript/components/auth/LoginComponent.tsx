@@ -12,6 +12,21 @@ type FormData = {
     password: String;
 }
 
+export const useInterval = (callback: Function, delay?: number | null) => {
+    const savedCallback = useRef<Function>(() => {
+    });
+    useEffect(() => {
+        savedCallback.current = callback;
+    }, [callback]);
+    useEffect(() => {
+        if (delay !== null) {
+            const interval = setInterval(() => savedCallback.current(), delay || 0);
+            return () => clearInterval(interval);
+        }
+        return undefined;
+    }, [delay]);
+};
+
 export const Login: React.FC<{}> = () => {
     const navigate = useNavigate();
 
@@ -19,7 +34,7 @@ export const Login: React.FC<{}> = () => {
     const [password, setPassword] = useState("pAssw0rd");
     const [successful, setSuccessful] = useState(false);
     const [load, setLoad] = useState(false);
-    const [count, setCount] = useState("...");
+    const [count, setCount] = useState(".");
 
     const {register, handleSubmit, formState: {errors}} = useForm<FormData>();
 
@@ -34,21 +49,6 @@ export const Login: React.FC<{}> = () => {
     const onChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPassword(e.target.value);
     }
-
-    const useInterval = (callback: Function, delay?: number | null) => {
-        const savedCallback = useRef<Function>(() => {
-        });
-        useEffect(() => {
-            savedCallback.current = callback;
-        }, [callback]);
-        useEffect(() => {
-            if (delay !== null) {
-                const interval = setInterval(() => savedCallback.current(), delay || 0);
-                return () => clearInterval(interval);
-            }
-            return undefined;
-        }, [delay]);
-    };
 
     useInterval(() => {
         setCount(count + ".");

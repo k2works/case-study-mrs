@@ -13,23 +13,35 @@ import {
     roomState
 } from "../../features/room/roomSlice";
 import {clearMessage, selectMessage, setMessage} from "../../features/message/messageSlice";
+import {useInterval} from "../auth/LoginComponent";
 
 export const Main: React.FC<{}> = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
     const [successful, setSuccessful] = useState(false);
+    const [load, setLoad] = useState(false);
+    const [count, setCount] = useState("...");
 
     useEffect(() => {
         dispatch(clearMessage());
         list().then(r => (setSuccessful(true)));
     }, []);
 
+    useInterval(() => {
+        setCount(count + ".");
+        if (count.length > 10) {
+            setCount(".");
+        }
+    }, 500);
+
     const list = async () => {
         setSuccessful(false);
+        setLoad(true);
         const resultAction = await dispatch(roomList({reservedDate: new Date()}));
         if (roomList.fulfilled.match(resultAction)) {
             dispatch(setMessage(resultAction.payload.message));
             setSuccessful(true);
+            setLoad(false);
         } else {
             if (resultAction.payload) {
                 dispatch(setMessage(resultAction.payload.message));
@@ -37,6 +49,7 @@ export const Main: React.FC<{}> = () => {
                 dispatch(setMessage(resultAction.error.message));
             }
             setSuccessful(false);
+            setLoad(false);
         }
     }
 
@@ -67,9 +80,11 @@ export const Main: React.FC<{}> = () => {
     }
 
     const handlePageNation = async (e: any) => {
+        setLoad(true);
         const current = new Date(currentDay);
         const page = e.target.dataset["page"];
         await dispatch(roomList({reservedDate: current, page: page}));
+        setLoad(false);
     }
 
     const pageNation = () => (
@@ -95,21 +110,21 @@ export const Main: React.FC<{}> = () => {
                     <a onClick={handlePageNation}
                        data-page={room.pageInfo.pageNum}
                     >
-                        {room.pageInfo.pageNum}
+                        {room.pageInfo.pages <= room.pageInfo.pageNum ? '' : room.pageInfo.pageNum}
                     </a>
                 </li>
                 <li>
                     <a onClick={handlePageNation}
                        data-page={room.pageInfo.pageNum + 1}
                     >
-                        {room.pageInfo.pageNum + 1}
+                        {room.pageInfo.pages <= room.pageInfo.pageNum + 1 ? '' : room.pageInfo.pageNum + 1}
                     </a>
                 </li>
                 <li>
                     <a onClick={handlePageNation}
                        data-page={room.pageInfo.pageNum + 2}
                     >
-                        {room.pageInfo.pageNum + 2}
+                        {room.pageInfo.pages <= room.pageInfo.pageNum + 2 ? '' : room.pageInfo.pageNum + 2}
                     </a>
                 </li>
                 <li>...</li>
@@ -159,9 +174,9 @@ export const Main: React.FC<{}> = () => {
             <section className="app">
                 <div className="app-container w-container">
                     <AppMenu/>
-
                     <div className="app-decoration">
-                        {room.pageInfo.pages > 10 ? pageNation() : <></>}
+                        {load ? <div className="loading">{count}</div> : null}
+                        {!load && room.pageInfo.pages > 10 ? pageNation() : <></>}
                     </div>
 
                     <div className="app-decoration">
