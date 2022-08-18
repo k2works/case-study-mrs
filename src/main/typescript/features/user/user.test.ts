@@ -31,7 +31,7 @@ describe('room reducer', () => {
             api.list.mockClear();
             api.list.mockResolvedValue(result)
 
-            arg = {};
+            arg = {page: 1};
             result =
                 {
                     "total": 7,
@@ -321,7 +321,7 @@ describe('room reducer', () => {
 
         test('サービスを呼びだす', async () => {
             await action(dispatch, getState, undefined);
-            expect(api.list).toHaveBeenCalledWith();
+            expect(api.list).toHaveBeenCalledWith(1);
         })
 
         test('予約一覧を取得する', async () => {

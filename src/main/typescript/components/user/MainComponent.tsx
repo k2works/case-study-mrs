@@ -7,6 +7,7 @@ import {useAppSelector} from "../../app/hook";
 import {clearMessage, selectMessage, setMessage} from "../../features/message/messageSlice";
 import {roleNames, userCreate, userDelete, userList, userState, userUpdate} from "../../features/user/userSlice";
 import {useForm} from "react-hook-form";
+import {useInterval} from "../auth/LoginComponent";
 
 type FormData = {
     registUserId: String;
@@ -31,12 +32,21 @@ export const Main: React.FC<{}> = () => {
     const registRef = useRef<HTMLDivElement>(null);
     const updateRef = useRef<HTMLDivElement>(null);
     const {setValue, register, handleSubmit, formState: {errors}} = useForm<FormData>();
+    const [load, setLoad] = useState(false);
+    const [count, setCount] = useState(".");
 
     useEffect(() => {
         dispatch(clearMessage());
         list().then(r => (setSuccessful(true)));
         roleNameList().then(r => (setSuccessful(true)));
     }, []);
+
+    useInterval(() => {
+        setCount(count + ".");
+        if (count.length > 10) {
+            setCount(".");
+        }
+    }, 500);
 
     const list = async () => {
         setSuccessful(false);
@@ -220,6 +230,94 @@ export const Main: React.FC<{}> = () => {
         }
     }
 
+    const handlePageNation = async (e: any) => {
+        setLoad(true);
+        const page = e.target.dataset["page"];
+        await dispatch(userList({page: page}));
+        setLoad(false);
+    }
+
+    const pageNation = () => (
+        <nav>
+            <ul className="pagination">
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={1}
+                    >
+                        最初
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={user.pageInfo.pageNum - 1}
+                    >
+                        前へ
+                    </a>
+                </li>
+
+
+                <li className="active">
+                    <a onClick={handlePageNation}
+                       data-page={user.pageInfo.pageNum}
+                    >
+                        {user.pageInfo.pages <= user.pageInfo.pageNum ? '' : user.pageInfo.pageNum}
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={user.pageInfo.pageNum + 1}
+                    >
+                        {user.pageInfo.pages <= user.pageInfo.pageNum + 1 ? '' : user.pageInfo.pageNum + 1}
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={user.pageInfo.pageNum + 2}
+                    >
+                        {user.pageInfo.pages <= user.pageInfo.pageNum + 2 ? '' : user.pageInfo.pageNum + 2}
+                    </a>
+                </li>
+                <li>...</li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={user.pageInfo.pages - 2}
+                    >
+                        {user.pageInfo.pages - 2}
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={user.pageInfo.pages - 1}
+                    >
+                        {user.pageInfo.pages - 1}
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={user.pageInfo.pages}
+                    >
+                        {user.pageInfo.pages}
+                    </a>
+                </li>
+
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={user.pageInfo.pageNum + 1}
+                    >
+                        次へ
+                    </a>
+                </li>
+                <li>
+                    <a onClick={handlePageNation}
+                       data-page={user.pageInfo.pages}
+                    >
+                        最後
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    )
+
     return (
         <div>
             <AppHeader/>
@@ -228,7 +326,8 @@ export const Main: React.FC<{}> = () => {
                     <AppMenu/>
 
                     <div className="app-decoration">
-
+                        {load ? <div className="loading">{count}</div> : null}
+                        {!load && user.pageInfo.pages > 10 ? pageNation() : <></>}
                     </div>
 
                     <div className="app-decoration">

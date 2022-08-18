@@ -5,8 +5,8 @@ import {userConst} from "../app/const";
 const API_URL = userConst.API_URL;
 
 class UserService {
-    list() {
-        return axios.get(API_URL, {headers: authHeader()});
+    list(page: number = 0) {
+        return axios.get(API_URL + "?page=" + page, {headers: authHeader()});
     }
 
     create(param: { userId: string; password: string; firstName: string; lastName: string, roleName: string }) {

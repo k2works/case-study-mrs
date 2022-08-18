@@ -12,9 +12,9 @@ export const userList = createAsyncThunk<any,
         rejectValue: ValidationErrors
     }>(
     'user/list',
-    async ({rejectWithValue}) => {
+    async (params: any, {rejectWithValue}) => {
         try {
-            return await UserService.list()
+            return await UserService.list(params.page)
         } catch (e: any) {
             if (!e.response) {
                 throw e
@@ -115,12 +115,14 @@ interface users {
 }
 
 export type SliceState = {
+    pageInfo: { total: number, pageNum: number, pageSize: number, pages: number }
     users: users
     roleNames: string[]
     error: string | null | undefined
 }
 
 const initialState: SliceState = {
+    pageInfo: {total: 0, pageNum: 0, pageSize: 0, pages: 0},
     users: {list: []},
     roleNames: [],
     error: null
@@ -132,6 +134,7 @@ export const userSlice = createSlice({
     reducers: {},
     extraReducers: builder => {
         builder.addCase(userList.fulfilled, (state, {payload}) => {
+            state.pageInfo = payload.data
             state.users = payload.data
         })
         builder.addCase(userList.rejected, (state, action) => {
