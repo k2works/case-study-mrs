@@ -1,4 +1,4 @@
-package mrs.presentation.api.room;
+package mrs.presentation.api.reservation;
 
 import com.github.pagehelper.PageInfo;
 import io.swagger.v3.oas.annotations.Operation;
