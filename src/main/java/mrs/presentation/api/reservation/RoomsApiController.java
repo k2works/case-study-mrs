@@ -38,8 +38,7 @@ public class RoomsApiController {
             PageNation.startPage(page);
             ReservableRoomList rooms = meetingRoomReservationScenario.findReservableRooms(new ReservedDate(LocalDate.now())).orElse(new ReservableRoomList());
             PageInfo<ReservableRoom> pageInfo = new PageInfo<>(rooms.asList());
-            RoomsResource result = new RoomsResource(rooms, pageInfo);
-            return ResponseEntity.ok(result);
+            return ResponseEntity.ok(pageInfo);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(new MessageResponse(e.getMessage()));
         }
@@ -55,8 +54,7 @@ public class RoomsApiController {
             PageNation.startPage(page);
             ReservableRoomList rooms = meetingRoomReservationScenario.findReservableRooms(new ReservedDate(date)).orElse(new ReservableRoomList());
             PageInfo<ReservableRoom> pageInfo = new PageInfo<>(rooms.asList());
-            RoomsResource result = new RoomsResource(rooms, pageInfo);
-            return ResponseEntity.ok(result);
+            return ResponseEntity.ok(pageInfo);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(new MessageResponse(e.getMessage()));
         }

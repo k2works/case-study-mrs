@@ -74,8 +74,8 @@ export const roomSlice = createSlice({
     },
     extraReducers: builder => {
         builder.addCase(roomList.fulfilled, (state, {payload}) => {
-            state.pageInfo = payload.data.pageInfo
-            state.reservableRooms = payload.data.rooms
+            state.pageInfo = payload.data
+            state.reservableRooms = payload.data
         })
         builder.addCase(roomList.rejected, (state, action) => {
             if (action.payload) {
