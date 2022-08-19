@@ -23,7 +23,7 @@
             "name": "\"スタッフ\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 4981000000
+              "duration": 4144000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "\"利用者一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 351000000
+              "duration": 233000000
             }
           },
           {
@@ -43,7 +43,7 @@
             "name": "パスワードを \"password\" で新規登録する",
             "result": {
               "status": "passed",
-              "duration": 4426000000
+              "duration": 3059000000
             }
           },
           {
@@ -53,7 +53,7 @@
             "name": "利用者登録画面に \"パスワードは小文字、大文字、数字を含む必要があります\" がエラー表示される",
             "result": {
               "status": "passed",
-              "duration": 252000000
+              "duration": 128000000
             }
           }
         ]
@@ -73,7 +73,7 @@
             "name": "\"スタッフ\" としてログインしている",
             "result": {
               "status": "passed",
-              "duration": 5405000000
+              "duration": 3965000000
             }
           },
           {
@@ -83,7 +83,7 @@
             "name": "\"利用者一覧画面\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 347000000
+              "duration": 236000000
             }
           },
           {
@@ -93,7 +93,7 @@
             "name": "存在する利用者を新規登録する",
             "result": {
               "status": "passed",
-              "duration": 4149000000
+              "duration": 2961000000
             }
           },
           {
@@ -103,7 +103,7 @@
             "name": "利用者登録画面に \"利用者はすでに登録されています\" がエラー表示される",
             "result": {
               "status": "passed",
-              "duration": 226000000
+              "duration": 142000000
             }
           }
         ]

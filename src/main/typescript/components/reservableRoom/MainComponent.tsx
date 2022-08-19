@@ -13,6 +13,7 @@ import {
 } from "../../features/reservableRoom/reservableRoomSlice";
 import {meetingRoomListBox, meetingRoomState} from "../../features/meetingRoom/meetingRoomSlice";
 import {useInterval} from "../auth/LoginComponent";
+import {PageNation} from "../share/PageNationComponent";
 
 export const Main: React.FC<{}> = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -160,86 +161,6 @@ export const Main: React.FC<{}> = () => {
         setLoad(false);
     }
 
-    const pageNation = () => (
-        <nav>
-            <ul className="pagination">
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={1}
-                    >
-                        最初
-                    </a>
-                </li>
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={reservableRoom.pageInfo.pageNum - 1}
-                    >
-                        前へ
-                    </a>
-                </li>
-
-
-                <li className="active">
-                    <a onClick={handlePageNation}
-                       data-page={reservableRoom.pageInfo.pageNum}
-                    >
-                        {reservableRoom.pageInfo.pages <= reservableRoom.pageInfo.pageNum ? '' : reservableRoom.pageInfo.pageNum}
-                    </a>
-                </li>
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={reservableRoom.pageInfo.pageNum + 1}
-                    >
-                        {reservableRoom.pageInfo.pages <= reservableRoom.pageInfo.pageNum + 1 ? '' : reservableRoom.pageInfo.pageNum + 1}
-                    </a>
-                </li>
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={reservableRoom.pageInfo.pageNum + 2}
-                    >
-                        {reservableRoom.pageInfo.pages <= reservableRoom.pageInfo.pageNum + 2 ? '' : reservableRoom.pageInfo.pageNum + 2}
-                    </a>
-                </li>
-                <li>...</li>
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={reservableRoom.pageInfo.pages - 2}
-                    >
-                        {reservableRoom.pageInfo.pages - 2}
-                    </a>
-                </li>
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={reservableRoom.pageInfo.pages - 1}
-                    >
-                        {reservableRoom.pageInfo.pages - 1}
-                    </a>
-                </li>
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={reservableRoom.pageInfo.pages}
-                    >
-                        {reservableRoom.pageInfo.pages}
-                    </a>
-                </li>
-
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={reservableRoom.pageInfo.pageNum + 1}
-                    >
-                        次へ
-                    </a>
-                </li>
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={reservableRoom.pageInfo.pages}
-                    >
-                        最後
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    )
     return (
         <div>
             <AppHeader/>
@@ -249,7 +170,10 @@ export const Main: React.FC<{}> = () => {
 
                     <div className="app-decoration">
                         {load ? <div className="loading">{count}</div> : null}
-                        {!load && reservableRoom.pageInfo.pages > 10 ? pageNation() : <></>}
+                        {!load && reservableRoom.pageInfo.pages > 10 ? PageNation({
+                            handler: handlePageNation,
+                            pageInfo: reservableRoom.pageInfo
+                        }) : <></>}
                     </div>
 
                     <div className="app-decoration">

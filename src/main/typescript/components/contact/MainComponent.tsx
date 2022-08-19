@@ -7,6 +7,7 @@ import {useAppSelector} from "../../app/hook";
 import {clearMessage, selectMessage, setMessage} from "../../features/message/messageSlice";
 import {contactList, contactState} from "../../features/contact/contactSlice";
 import {useInterval} from "../auth/LoginComponent";
+import {PageNation} from "../share/PageNationComponent";
 
 export const Main: React.FC<{}> = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -82,86 +83,6 @@ export const Main: React.FC<{}> = () => {
         setLoad(false);
     }
 
-    const pageNation = () => (
-        <nav>
-            <ul className="pagination">
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={1}
-                    >
-                        最初
-                    </a>
-                </li>
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={contact.pageInfo.pageNum - 1}
-                    >
-                        前へ
-                    </a>
-                </li>
-
-
-                <li className="active">
-                    <a onClick={handlePageNation}
-                       data-page={contact.pageInfo.pageNum}
-                    >
-                        {contact.pageInfo.pages <= contact.pageInfo.pageNum ? '' : contact.pageInfo.pageNum}
-                    </a>
-                </li>
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={contact.pageInfo.pageNum + 1}
-                    >
-                        {contact.pageInfo.pages <= contact.pageInfo.pageNum + 1 ? '' : contact.pageInfo.pageNum + 1}
-                    </a>
-                </li>
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={contact.pageInfo.pageNum + 2}
-                    >
-                        {contact.pageInfo.pages <= contact.pageInfo.pageNum + 2 ? '' : contact.pageInfo.pageNum + 2}
-                    </a>
-                </li>
-                <li>...</li>
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={contact.pageInfo.pages - 2}
-                    >
-                        {contact.pageInfo.pages - 2}
-                    </a>
-                </li>
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={contact.pageInfo.pages - 1}
-                    >
-                        {contact.pageInfo.pages - 1}
-                    </a>
-                </li>
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={contact.pageInfo.pages}
-                    >
-                        {contact.pageInfo.pages}
-                    </a>
-                </li>
-
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={contact.pageInfo.pageNum + 1}
-                    >
-                        次へ
-                    </a>
-                </li>
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={contact.pageInfo.pages}
-                    >
-                        最後
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    )
     return (
         <div>
             <AppHeader/>
@@ -171,7 +92,10 @@ export const Main: React.FC<{}> = () => {
 
                     <div className="app-decoration">
                         {load ? <div className="loading">{count}</div> : null}
-                        {!load && contact.pageInfo.pages > 10 ? pageNation() : <></>}
+                        {!load && contact.pageInfo.pages > 10 ? PageNation({
+                            handler: handlePageNation,
+                            pageInfo: contact.pageInfo
+                        }) : <></>}
                     </div>
 
                     <div className="app-decoration">

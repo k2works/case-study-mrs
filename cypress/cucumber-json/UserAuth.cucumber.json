@@ -23,7 +23,7 @@
             "name": "\"ログイン\" ページにアクセスする",
             "result": {
               "status": "passed",
-              "duration": 2134000000
+              "duration": 1889000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "利用者番号: \"U123456\" パスワード: \"pAssw0rd\" でログインする",
             "result": {
               "status": "passed",
-              "duration": 2877000000
+              "duration": 2200000000
             }
           },
           {
@@ -43,7 +43,7 @@
             "name": "\"利用者が存在しません\" がログイン画面にエラー表示される",
             "result": {
               "status": "passed",
-              "duration": 495000000
+              "duration": 255000000
             }
           }
         ]

@@ -14,6 +14,7 @@ import {
 } from "../../features/room/roomSlice";
 import {clearMessage, selectMessage, setMessage} from "../../features/message/messageSlice";
 import {useInterval} from "../auth/LoginComponent";
+import {PageNation} from "../share/PageNationComponent";
 
 export const Main: React.FC<{}> = () => {
     const navigate = useNavigate();
@@ -87,87 +88,6 @@ export const Main: React.FC<{}> = () => {
         setLoad(false);
     }
 
-    const pageNation = () => (
-        <nav>
-            <ul className="pagination">
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={1}
-                    >
-                        最初
-                    </a>
-                </li>
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={room.pageInfo.pageNum - 1}
-                    >
-                        前へ
-                    </a>
-                </li>
-
-
-                <li className="active">
-                    <a onClick={handlePageNation}
-                       data-page={room.pageInfo.pageNum}
-                    >
-                        {room.pageInfo.pages <= room.pageInfo.pageNum ? '' : room.pageInfo.pageNum}
-                    </a>
-                </li>
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={room.pageInfo.pageNum + 1}
-                    >
-                        {room.pageInfo.pages <= room.pageInfo.pageNum + 1 ? '' : room.pageInfo.pageNum + 1}
-                    </a>
-                </li>
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={room.pageInfo.pageNum + 2}
-                    >
-                        {room.pageInfo.pages <= room.pageInfo.pageNum + 2 ? '' : room.pageInfo.pageNum + 2}
-                    </a>
-                </li>
-                <li>...</li>
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={room.pageInfo.pages - 2}
-                    >
-                        {room.pageInfo.pages - 2}
-                    </a>
-                </li>
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={room.pageInfo.pages - 1}
-                    >
-                        {room.pageInfo.pages - 1}
-                    </a>
-                </li>
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={room.pageInfo.pages}
-                    >
-                        {room.pageInfo.pages}
-                    </a>
-                </li>
-
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={room.pageInfo.pageNum + 1}
-                    >
-                        次へ
-                    </a>
-                </li>
-                <li>
-                    <a onClick={handlePageNation}
-                       data-page={room.pageInfo.pages}
-                    >
-                        最後
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    )
-
     return (
         <div>
             <AppHeader/>
@@ -176,7 +96,10 @@ export const Main: React.FC<{}> = () => {
                     <AppMenu/>
                     <div className="app-decoration">
                         {load ? <div className="loading">{count}</div> : null}
-                        {!load && room.pageInfo.pages > 10 ? pageNation() : <></>}
+                        {!load && room.pageInfo.pages > 10 ? PageNation({
+                            handler: handlePageNation,
+                            pageInfo: room.pageInfo
+                        }) : <></>}
                     </div>
 
                     <div className="app-decoration">
