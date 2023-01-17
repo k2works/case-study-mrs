@@ -1,0 +1,33 @@
+version: 0.2
+
+env:
+  parameter-store:
+    api_url: "/STAGING/API_URL"
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+  pre_build:
+    commands:
+      - echo Copy Certfile form S3
+      - aws s3 cp s3://healthycompany-hcoss-3g-staging-cert-bucket/HealthyCompanyHCOSS3GStaging.crt ops/ship/codedeploy/nginx/cert.crt
+      - aws s3 cp s3://healthycompany-hcoss-3g-staging-cert-bucket/HealthyCompanyHCOSS3GStaging.key ops/ship/codedeploy/nginx/cert.key
+  build:
+    commands:
+      - echo Build started on `date`
+      - ./gradlew build -x test -Penv=staging -Papi=${api_url}
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - cp build/libs/mrs-0.0.1-SNAPSHOT.jar .
+      - cp ops/ship/codedeploy/appspec.yml .
+      - cp -r ops/ship/codedeploy/nginx .
+      - cp -r ops/ship/codedeploy/scripts .
+      - cp -r ops/ship/codedeploy/service .
+artifacts:
+  files:
+    - mrs-0.0.1-SNAPSHOT.jar
+    - appspec.yml
+    - nginx/**
+    - scripts/**
+    - service/**

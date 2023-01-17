@@ -1,0 +1,23 @@
+[Unit]
+Description=Application Service
+After=syslog.target
+After=network.target
+[Service]
+User=ec2-user
+Type=simple
+
+[Service]
+ExecStart=/usr/bin/java -jar /srv/app/mrs-0.0.1-SNAPSHOT.jar -Xms256m --spring.profiles.active=default --server.port=5000
+ExecStartPost=/bin/sh -c "systemctl show -p MainPID app.service | cut -d= -f2 > /srv/app/pids/app.pid"
+ExecStopPost=/bin/sh -c "rm -f /srv/app/pids/app.pid"
+ExecStopPost=/bin/sh -c ""
+Restart=always
+EnvironmentFile=/srv/app/env
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=app-service
+WorkingDirectory=/srv/app
+
+
+[Install]
+WantedBy=multi-user.target
