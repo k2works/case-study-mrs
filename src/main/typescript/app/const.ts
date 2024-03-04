@@ -1,6 +1,6 @@
 let BASE_API_URL = "http://localhost:8080/api";
 if (process.env.NODE_ENV === 'production') {
-    BASE_API_URL = "https://ape2022-take14.herokuapp.com/api";
+    BASE_API_URL = "https://case-study-mrs-2c6ffae20c7a.herokuapp.com/api";
 }
 
 export namespace authConst {

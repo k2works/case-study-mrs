@@ -159,3 +159,5 @@ schemaspy/output
 
 ops/build/docker/postgres/config/pgadmin
 ops/build/docker/schemaspy/output
+
+.vercel

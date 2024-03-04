@@ -1,10 +1,10 @@
-[![Node.js CI](https://github.com/k2works/application_programing_excercise_2022/actions/workflows/node.js.yml/badge.svg)](https://github.com/k2works/application_programing_excercise_2022/actions/workflows/node.js.yml)
+[![Node.js CI](https://github.com/k2works/case-study-mrs/actions/workflows/node.js.yml/badge.svg)](https://github.com/k2works/case-study-mrs/actions/workflows/node.js.yml)
 
-# アプリケーション開発のための練習プログラミング
+# 会議室予約システムケーススタディ
 
 ## 概要
 
-Spring 徹底入門 Spring Framework による Java アプリケーション開発 チュートリアルの実装例
+[Spring 徹底入門 Spring Framework による Java アプリケーション開発](https://www.amazon.co.jp/Spring%E5%BE%B9%E5%BA%95%E5%85%A5%E9%96%80-Spring-Framework%E3%81%AB%E3%82%88%E3%82%8BJava%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E9%96%8B%E7%99%BA-%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BENTT%E3%83%87%E3%83%BC%E3%82%BF-ebook/dp/B01IEWNLBU/ref=sr_1_1?adgrpid=145403684286&dib=eyJ2IjoiMSJ9.IkhrLXKTyEES5Gqfi-zt3hQHvS8afRI4nY-PF4M-jBO2c-HymP_gW8Mh0WnsygQFzMJCbUdDccTeBbKobtfPrJ7YV8hMqeLDrHYgrdJdbYyMDvqZQ5uxeQ7Nt2L5Vr_T7oAh74K99-HbI_wOKI6607MS_e8Ck2_0FbPYfrxsQ4CSePQzSKAvn3vCMD0Yi0yHkfALKzjtst4jS-SkzNS4k-Z0lQZi4E4TJ8_bGxhRk-U.D9OFE6_jsEmPK1IfzH2-3-wfsF1OMsd6UC3zbTcXWrg&dib_tag=se&hvadid=679093390007&hvdev=c&hvqmt=e&hvtargid=kwd-332386918940&hydadcr=1789_13657226&jp-ad-ap=0&keywords=spring%E5%BE%B9%E5%BA%95%E5%85%A5%E9%96%80&qid=1709521920&s=digital-text&sr=1-1) チュートリアルの実装例
 
 ### 目的
 
@@ -22,15 +22,13 @@ Spring 徹底入門 Spring Framework による Java アプリケーション開�
 
 #### Quick Start
 
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/k2works/case-study-mrs)
+
 ```bash
-docker-compose up -d 
-
-npm install
-
-npm start
+./gradlew bootRun
 ```
 
-### 事例 ドメイン: S社
+### [事例 ドメイン: S社](https://case-study-mrs.vercel.app/docs/index.html)
 
 S社は、地方都市に本社を置くビル管理サービス事業会社である。市内に複数のビルを所有しており、主な事業は不動産賃貸業務及び設備総合管理業務である。
 

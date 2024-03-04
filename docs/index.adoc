@@ -1136,8 +1136,8 @@ ui_prd <-- 利用者
 
 [source,bash]
 ----
-heroku create ape2022-take14
-git update-index --chmod=+x gradlew
+heroku create case-study-mrs
+heroku open
 ----
 
 == 参照
