@@ -1,0 +1,675 @@
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="./assets/style.css" rel="stylesheet">
+    <script src="./assets/marked.min.js"></script>
+    <link rel="icon" href="./assets/favicon.ico">
+    <title>スキーマ概要</title>
+</head>
+<body class="treeMenuAndMain">
+
+<nav class="tree">
+    <div>
+        <a href="./index.html">=> INDEX</a>
+    </div>
+    <details open>
+        <summary class="package">
+            <a href="#mrs.domain.model">ビジネスルールを表現する複合型</a>
+        </summary>
+        <div>
+            <details open>
+        <summary class="package">
+            <a href="#mrs.domain.model.contact">問い合わせ</a>
+        </summary>
+        <div>
+            <a href="#mrs.domain.model.contact.Contact">問い合わせ</a><br><a href="#mrs.domain.model.contact.ContactId">問い合わせ番号</a><br><a href="#mrs.domain.model.contact.ContactList">問い合わせ一覧</a><br><a href="#mrs.domain.model.contact.ContactPerson">問い合わせ人</a><br>
+        </div>
+    </details><details open>
+        <summary class="package">
+            <a href="#mrs.domain.model.reservation">予約</a>
+        </summary>
+        <div>
+            <details open>
+        <summary class="package">
+            <a href="#mrs.domain.model.reservation.reservation">予約</a>
+        </summary>
+        <div>
+            <a href="#mrs.domain.model.reservation.reservation.Reservation">予約</a><br><a href="#mrs.domain.model.reservation.reservation.ReservationId">予約番号</a><br><a href="#mrs.domain.model.reservation.reservation.ReservationList">予約一覧</a><br><a href="#mrs.domain.model.reservation.reservation.ReservedDate">予約日</a><br><a href="#mrs.domain.model.reservation.reservation.ReservedTime">予約時間</a><br><a href="#mrs.domain.model.reservation.reservation.ReservedTimeException">予約時間例外</a><br>
+        </div>
+    </details><details open>
+        <summary class="package">
+            <a href="#mrs.domain.model.reservation.room">会議室</a>
+        </summary>
+        <div>
+            <a href="#mrs.domain.model.reservation.room.ReservableRoom">予約可能会議室</a><br><a href="#mrs.domain.model.reservation.room.ReservableRoomId">予約可能会議室ID</a><br><a href="#mrs.domain.model.reservation.room.ReservableRoomList">予約可能会議室一覧</a><br>
+        </div>
+    </details>
+        </div>
+    </details><details open>
+        <summary class="package">
+            <a href="#mrs.domain.model.user">利用者</a>
+        </summary>
+        <div>
+            <details open>
+        <summary class="package">
+            <a href="#mrs.domain.model.user.member">会員</a>
+        </summary>
+        <div>
+            <a href="#mrs.domain.model.user.member.Member">会員</a><br><a href="#mrs.domain.model.user.member.MemberId">会員番号</a><br>
+        </div>
+    </details><details open>
+        <summary class="package">
+            <a href="#mrs.domain.model.user.staff">スタッフ</a>
+        </summary>
+        <div>
+            <a href="#mrs.domain.model.user.staff.Staff">スタッフ</a><br>
+        </div>
+    </details><details open>
+        <summary class="package">
+            <a href="#mrs.domain.model.user.gust">ゲスト</a>
+        </summary>
+        <div>
+            <a href="#mrs.domain.model.user.gust.Gust">ゲスト</a><br>
+        </div>
+    </details>
+        </div>
+    </details><details open>
+        <summary class="package">
+            <a href="#mrs.domain.model.facility">施設</a>
+        </summary>
+        <div>
+            <a href="#mrs.domain.model.facility.room.MeetingRoom">会議室</a><br><a href="#mrs.domain.model.facility.room.RoomId">会議室番号</a><br><a href="#mrs.domain.model.facility.room.RoomIdException">会議室番号例外</a><br>
+        </div>
+    </details><details open>
+        <summary class="package">
+            <a href="#mrs.domain.model.auth">認証・認可</a>
+        </summary>
+        <div>
+            <a href="#mrs.domain.model.auth.user.Password">パスワード</a><br><a href="#mrs.domain.model.auth.user.PasswordException">パスワード例外</a><br><a href="#mrs.domain.model.auth.user.RoleName">利用者区分</a><br><a href="#mrs.domain.model.auth.user.User">利用者</a><br><a href="#mrs.domain.model.auth.user.UserDetailsImpl">利用者</a><br><a href="#mrs.domain.model.auth.user.UserException">利用者例外</a><br><a href="#mrs.domain.model.auth.user.UserId">利用者番号</a><br><a href="#mrs.domain.model.auth.user.UserIdException">利用者番号例外</a><br><a href="#mrs.domain.model.auth.user.UserName">氏名</a><br>
+        </div>
+    </details>
+        </div>
+    </details>
+</nav>
+
+<main>
+    <h1>スキーマ概要</h1>
+
+    <section class="type schema">
+            <h2><a name="mrs.domain.model.auth.user.Password">パスワード</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.auth.user.Password</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                    <b>value</b>
+                    :
+                    <a href="./domain.html#java.lang.String">String</a>
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.auth.user.PasswordException">パスワード例外</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.auth.user.PasswordException</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.auth.user.RoleName">利用者区分</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.auth.user.RoleName</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.auth.user.User">利用者</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.auth.user.User</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                    <b>userId</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.auth.user.UserId">利用者番号</a>
+                
+                    <b>password</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.auth.user.Password">パスワード</a>
+                
+                    <b>name</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.auth.user.UserName">氏名</a>
+                
+                    <b>roleName</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.auth.user.RoleName">利用者区分</a>
+                
+                    <b>reservations</b>
+                    :
+                    <a href="./domain.html#java.util.List">List</a>
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.auth.user.UserDetailsImpl">利用者</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.auth.user.UserDetailsImpl</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                    <b>user</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.auth.user.User">利用者</a>
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.auth.user.UserException">利用者例外</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.auth.user.UserException</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.auth.user.UserId">利用者番号</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.auth.user.UserId</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                    <b>value</b>
+                    :
+                    <a href="./domain.html#java.lang.String">String</a>
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.auth.user.UserIdException">利用者番号例外</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.auth.user.UserIdException</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.auth.user.UserName">氏名</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.auth.user.UserName</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                    <b>firstName</b>
+                    :
+                    <a href="./domain.html#java.lang.String">String</a>
+                
+                    <b>lastName</b>
+                    :
+                    <a href="./domain.html#java.lang.String">String</a>
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.contact.Contact">問い合わせ</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.contact.Contact</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                    <b>contactId</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.contact.ContactId">問い合わせ番号</a>
+                
+                    <b>details</b>
+                    :
+                    <a href="./domain.html#java.lang.String">String</a>
+                
+                    <b>member</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.user.member.Member">会員</a>
+                
+                    <b>user</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.auth.user.User">利用者</a>
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.contact.ContactId">問い合わせ番号</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.contact.ContactId</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                    <b>value</b>
+                    :
+                    <a href="./domain.html#java.lang.String">String</a>
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.contact.ContactList">問い合わせ一覧</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.contact.ContactList</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                    <b>value</b>
+                    :
+                    <a href="./domain.html#java.util.List">List</a>
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.contact.ContactPerson">問い合わせ人</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.contact.ContactPerson</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.facility.room.MeetingRoom">会議室</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.facility.room.MeetingRoom</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                    <b>roomId</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.facility.room.RoomId">会議室番号</a>
+                
+                    <b>roomName</b>
+                    :
+                    <a href="./domain.html#java.lang.String">String</a>
+                
+                    <b>roomNumber</b>
+                    :
+                    <a href="./domain.html#java.lang.String">String</a>
+                
+                    <b>reservableRooms</b>
+                    :
+                    <a href="./domain.html#java.util.List">List</a>
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.facility.room.RoomId">会議室番号</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.facility.room.RoomId</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                    <b>value</b>
+                    :
+                    <a href="./domain.html#java.lang.Integer">Integer</a>
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.facility.room.RoomIdException">会議室番号例外</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.facility.room.RoomIdException</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.reservation.reservation.Reservation">予約</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.reservation.reservation.Reservation</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                    <b>reservationId</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.reservation.reservation.ReservationId">予約番号</a>
+                
+                    <b>reservedTime</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.reservation.reservation.ReservedTime">予約時間</a>
+                
+                    <b>reservableRoom</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.reservation.room.ReservableRoom">予約可能会議室</a>
+                
+                    <b>user</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.auth.user.User">利用者</a>
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.reservation.reservation.ReservationId">予約番号</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.reservation.reservation.ReservationId</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                    <b>value</b>
+                    :
+                    <a href="./domain.html#java.lang.Integer">Integer</a>
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.reservation.reservation.ReservationList">予約一覧</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.reservation.reservation.ReservationList</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                    <b>list</b>
+                    :
+                    <a href="./domain.html#java.util.List">List</a>
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.reservation.reservation.ReservedDate">予約日</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.reservation.reservation.ReservedDate</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                    <b>value</b>
+                    :
+                    <a href="./domain.html#java.time.LocalDate">LocalDate</a>
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.reservation.reservation.ReservedTime">予約時間</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.reservation.reservation.ReservedTime</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                    <b>startTime</b>
+                    :
+                    <a href="./domain.html#java.time.LocalTime">LocalTime</a>
+                
+                    <b>endTime</b>
+                    :
+                    <a href="./domain.html#java.time.LocalTime">LocalTime</a>
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.reservation.reservation.ReservedTimeException">予約時間例外</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.reservation.reservation.ReservedTimeException</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.reservation.room.ReservableRoom">予約可能会議室</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.reservation.room.ReservableRoom</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                    <b>reservableRoomId</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.reservation.room.ReservableRoomId">予約可能会議室ID</a>
+                
+                    <b>meetingRoom</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.facility.room.MeetingRoom">会議室</a>
+                
+                    <b>reservations</b>
+                    :
+                    <a href="./domain.html#java.util.List">List</a>
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.reservation.room.ReservableRoomId">予約可能会議室ID</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.reservation.room.ReservableRoomId</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                    <b>roomId</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.facility.room.RoomId">会議室番号</a>
+                
+                    <b>reservedDate</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.reservation.reservation.ReservedDate">予約日</a>
+                
+                    <b>roomNumber</b>
+                    :
+                    <a href="./domain.html#java.lang.String">String</a>
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.reservation.room.ReservableRoomList">予約可能会議室一覧</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.reservation.room.ReservableRoomList</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                    <b>list</b>
+                    :
+                    <a href="./domain.html#java.util.List">List</a>
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.user.gust.Gust">ゲスト</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.user.gust.Gust</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                    <b>user</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.auth.user.User">利用者</a>
+                
+                    <b>userId</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.auth.user.UserId">利用者番号</a>
+                
+                    <b>password</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.auth.user.Password">パスワード</a>
+                
+                    <b>name</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.auth.user.UserName">氏名</a>
+                
+                    <b>roleName</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.auth.user.RoleName">利用者区分</a>
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.user.member.Member">会員</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.user.member.Member</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                    <b>user</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.auth.user.User">利用者</a>
+                
+                    <b>userId</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.auth.user.UserId">利用者番号</a>
+                
+                    <b>password</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.auth.user.Password">パスワード</a>
+                
+                    <b>name</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.auth.user.UserName">氏名</a>
+                
+                    <b>roleName</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.auth.user.RoleName">利用者区分</a>
+                
+                    <b>reservations</b>
+                    :
+                    <a href="./domain.html#java.util.List">List</a>
+                
+                    <b>memberId</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.user.member.MemberId">会員番号</a>
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.user.member.MemberId">会員番号</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.user.member.MemberId</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                    <b>value</b>
+                    :
+                    <a href="./domain.html#java.lang.String">String</a>
+                
+                hoge
+            </div>
+        </section><section class="type schema">
+            <h2><a name="mrs.domain.model.user.staff.Staff">スタッフ</a></h2>
+            <div class="fully-qualified-name">mrs.domain.model.user.staff.Staff</div>
+
+            
+                
+            
+
+            <div class="component">
+                
+                    <b>user</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.auth.user.User">利用者</a>
+                
+                    <b>userId</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.auth.user.UserId">利用者番号</a>
+                
+                    <b>password</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.auth.user.Password">パスワード</a>
+                
+                    <b>name</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.auth.user.UserName">氏名</a>
+                
+                    <b>roleName</b>
+                    :
+                    <a href="./domain.html#mrs.domain.model.auth.user.RoleName">利用者区分</a>
+                
+                    <b>reservations</b>
+                    :
+                    <a href="./domain.html#java.util.List">List</a>
+                
+                hoge
+            </div>
+        </section>
+</main>
+
+<script src="./assets/jig.js"></script>
+</body>
+</html>

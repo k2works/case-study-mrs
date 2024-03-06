@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><database name="mrs" schema="reservation" type="PostgreSQL - 10.5 (Debian 10.5-2.pgdg90+1)">
+   <sequences>
+      <sequence increment="1" name="予約_予約番号_seq" startValue="1"/>
+   </sequences>
+   <tables>
+      <table name="予約" numRows="0" remarks="" schema="reservation" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('reservation.&quot;予約_予約番号_seq&quot;'::regclass)" digits="0" id="0" name="予約番号" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="1" name="予約終了時間" nullable="false" remarks="" size="15" type="time" typeCode="92"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="2" name="予約開始時間" nullable="false" remarks="" size="15" type="time" typeCode="92"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="予約日" nullable="false" remarks="" size="13" type="date" typeCode="91">
+            <parent column="予約日" foreignKey="予約_予約日_fkey" implied="false" onDeleteCascade="false" schema="reservation" table="予約可能会議室"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="会議室番号" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="会議室番号" foreignKey="予約_予約日_fkey" implied="false" onDeleteCascade="false" schema="reservation" table="予約可能会議室"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="利用者番号" nullable="false" remarks="" size="255" type="varchar" typeCode="12">
+            <parent column="利用者番号" foreignKey="予約_利用者番号_fkey1" implied="false" onDeleteCascade="false" schema="usr" table="利用者"/>
+         </column>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="6" name="登録日時" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <primaryKey column="予約番号" sequenceNumberInPK="1"/>
+         <index name="予約_pkey" unique="true">
+            <column ascending="true" name="予約番号"/>
+         </index>
+      </table>
+      <table name="予約可能会議室" numRows="0" remarks="" schema="reservation" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="予約日" nullable="false" remarks="" size="13" type="date" typeCode="91">
+            <child column="予約日" foreignKey="予約_予約日_fkey" implied="false" onDeleteCascade="false" schema="reservation" table="予約"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="会議室番号" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="会議室番号" foreignKey="予約_予約日_fkey" implied="false" onDeleteCascade="false" schema="reservation" table="予約"/>
+            <parent column="会議室番号" foreignKey="予約可能会議室_会議室番号_fkey1" implied="false" onDeleteCascade="false" schema="facility" table="会議室"/>
+         </column>
+         <column autoUpdated="false" defaultValue="CURRENT_TIMESTAMP" digits="6" id="2" name="登録日時" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <primaryKey column="予約日" sequenceNumberInPK="1"/>
+         <primaryKey column="会議室番号" sequenceNumberInPK="2"/>
+         <index name="予約可能会議室_pkey" unique="true">
+            <column ascending="true" name="予約日"/>
+            <column ascending="true" name="会議室番号"/>
+         </index>
+      </table>
+   </tables>
+</database>

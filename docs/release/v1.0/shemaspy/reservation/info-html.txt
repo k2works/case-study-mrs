@@ -1,0 +1,5 @@
+date=2024-03-06 02:14:21+0000
+os=Linux 5.10.102.1-microsoft-standard-WSL2
+schemaspy-version=6.2.2
+schemaspy-build=6.2.2.41 2023-03-25 21:30:30
+renderer=Graphviz dot 2.47.1 

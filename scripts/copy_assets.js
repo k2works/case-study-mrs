@@ -67,3 +67,12 @@ if (fs.existsSync("./ops/build/docker/schemaspy/output")) {
     schemaspy("./ops/build/docker/schemaspy", "./docs");
     schemaspyHtml("./ops/build/docker/schemaspy", "./public");
 }
+
+// Copy release
+const Release = (inputRootDir, outputRootDir) => {
+    const inputDir = `${inputRootDir}/release`;
+    const docsOutput = `${outputRootDir}/docs/release`;
+    const source = `${inputDir}/**/*.*`;
+    cpx.copy(source, docsOutput);
+};
+Release("./docs", outputRootDir);
