@@ -48,6 +48,8 @@ S社としては、効率化によるサービス品質向上と会員管理の�
 
 要件・開発に [CCSR手法](https://masuda220.hatenablog.com/entry/2020/05/27/103750) を適用
 
+[Javaで記述したソフトウェア仕様を図形表現で可視化したり一覧表にまとめる](https://case-study-mrs.vercel.app/docs/release/v1.0/jig/)
+
 ![](./docs/images/life_cycle.drawio.svg)
 
 ### [要件](./docs/index.adoc)
