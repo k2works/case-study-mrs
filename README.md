@@ -1,6 +1,6 @@
 [![Node.js CI](https://github.com/k2works/case-study-mrs/actions/workflows/node.js.yml/badge.svg)](https://github.com/k2works/case-study-mrs/actions/workflows/node.js.yml)
 
-# 会議室予約システムケーススタディ
+# 会議室予約システムのケーススタディ
 
 ## 概要
 
