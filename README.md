@@ -1,5 +1,8 @@
 [![Node.js CI](https://github.com/k2works/case-study-mrs/actions/workflows/node.js.yml/badge.svg)](https://github.com/k2works/case-study-mrs/actions/workflows/node.js.yml)
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/6d4a629d473eb13f9e3e/maintainability)](https://codeclimate.com/github/k2works/case-study-mrs/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/6d4a629d473eb13f9e3e/test_coverage)](https://codeclimate.com/github/k2works/case-study-mrs/test_coverage)
+
 # 会議室予約システムのケーススタディ
 
 ## 概要
